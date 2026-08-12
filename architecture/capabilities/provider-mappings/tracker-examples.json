@@ -1,0 +1,91 @@
+{
+  "contract_version": 1,
+  "purpose": "Show how provider-specific tracker operations satisfy the provider-neutral tracker.* capability contract without copying planning logic.",
+  "canonical_truth_rule": "Exactly one project-selected work-tracker or local artifact family owns task status. Provider mappings may change storage and operation shape, never ownership semantics.",
+  "providers": [
+    {
+      "provider": "github",
+      "discovery": "live connector or CLI action discovery",
+      "capabilities": {
+        "tracker.read": "issues, pull requests when explicitly configured as a request surface, comments, labels, relationships",
+        "tracker.query": "search issues with bounded repository and semantic markers",
+        "tracker.create": "create issue",
+        "tracker.update": "edit issue, comment, label, assign, close",
+        "tracker.change_state": "open, reopen, close, or mark duplicate through mapped issue state and reason",
+        "tracker.link_dependencies": "native sub-issue or dependency action when live provider exposes it; otherwise bounded body links"
+      },
+      "provider_extensions": [
+        "external_change_request_surface",
+        "atomic_claim",
+        "native_dependency"
+      ],
+      "limitations": [
+        "A git remote does not prove tracker access or authorization."
+      ]
+    },
+    {
+      "provider": "jira",
+      "discovery": "live connector or MCP action discovery",
+      "capabilities": {
+        "tracker.read": "issues and configured fields",
+        "tracker.query": "bounded issue search using project-approved fields and planning markers",
+        "tracker.create": "create issue in an authorized project",
+        "tracker.update": "transition or patch configured fields",
+        "tracker.change_state": "authorized workflow transition using the project state mapping",
+        "tracker.link_dependencies": "issue-link relationship when exposed"
+      },
+      "provider_extensions": [
+        "workflow_transition",
+        "native_dependency"
+      ],
+      "limitations": [
+        "Status and field names require project mapping; never infer them from generic Jira vocabulary."
+      ]
+    },
+    {
+      "provider": "linear",
+      "discovery": "live connector or MCP action discovery",
+      "capabilities": {
+        "tracker.read": "issues, projects, comments, states, and relationships",
+        "tracker.query": "bounded issue/project search using team-approved planning markers",
+        "tracker.create": "create issue in an authorized team",
+        "tracker.update": "patch state, assignee, labels, or comments",
+        "tracker.change_state": "authorized state transition using the selected team workflow mapping",
+        "tracker.link_dependencies": "blocking or related issue relationship when exposed"
+      },
+      "provider_extensions": [
+        "atomic_claim",
+        "native_dependency"
+      ],
+      "limitations": [
+        "Team and workflow-state mappings belong to the target project profile."
+      ]
+    },
+    {
+      "provider": "local-markdown",
+      "discovery": "project-declared repository convention",
+      "capabilities": {
+        "tracker.read": "read the canonical index and work-item files",
+        "tracker.query": "read the canonical index and match stable planning identities and revisions",
+        "tracker.create": "create one work-item file or append to the canonical project-declared ledger",
+        "tracker.update": "bounded update to the canonical local artifact",
+        "tracker.change_state": "bounded state update in the canonical local artifact with expected-current-state check",
+        "tracker.link_dependencies": "stable artifact identifiers or links recorded in the canonical local artifact"
+      },
+      "provider_extensions": [
+        "repository_provenance"
+      ],
+      "side_effect_override": "LOCAL_WRITE",
+      "limitations": [
+        "No automatic fallback location exists; the Project Capability Profile or project convention must name it.",
+        "Concurrency and atomic claims may be unavailable."
+      ]
+    }
+  ],
+  "forbidden_behaviors": [
+    "Defaulting to a provider because a remote, CLI, connector, or remembered tool name exists.",
+    "Creating a second local ledger when the project already has a canonical tracker.",
+    "Copying Product, BA, planning, triage, or Wayfinder decision logic into a provider adapter.",
+    "Treating configured labels, states, fields, child links, assignments, or dependency links as universally available."
+  ]
+}

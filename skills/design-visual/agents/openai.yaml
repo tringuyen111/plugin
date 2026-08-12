@@ -1,0 +1,5 @@
+interface:
+  display_name: Design Visual
+  short_description: Recommend a visual direction and record accountable-owner approval.
+policy:
+  allow_implicit_invocation: false

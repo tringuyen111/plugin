@@ -1,0 +1,6 @@
+interface:
+  display_name: Verify Visual
+  short_description: Orchestrate fixed-scope Visual QA across required states and
+    viewports and issue an evidence-backed verdict without redesign.
+policy:
+  allow_implicit_invocation: false

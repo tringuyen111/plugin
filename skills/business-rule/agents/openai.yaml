@@ -1,0 +1,6 @@
+interface:
+  display_name: Business Rule
+  short_description: Define authoritative business rules with source, owner, conditions,
+    outcomes, exceptions, and examples.
+policy:
+  allow_implicit_invocation: true

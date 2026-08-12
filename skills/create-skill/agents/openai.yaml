@@ -1,0 +1,6 @@
+interface:
+  display_name: Create Skill
+  short_description: Design or revise one reusable Skill through ownership, portability,
+    approval, drafting, validation, and qualification.
+policy:
+  allow_implicit_invocation: false

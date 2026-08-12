@@ -1,0 +1,251 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/sdlc/capability-resolution.schema.json",
+  "title": "Capability Resolution Record",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "project_id",
+    "profile_revision",
+    "capability",
+    "provider",
+    "provider_source",
+    "availability",
+    "side_effect_class",
+    "requested_side_effect_class",
+    "side_effect_match",
+    "auth_scope_evidence",
+    "fallback_used",
+    "fallback",
+    "fallback_authority",
+    "status",
+    "limitations",
+    "profile_conflict",
+    "resolution_provenance"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 4
+    },
+    "capability": {
+      "type": "string"
+    },
+    "provider": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "provider_version": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "availability": {
+      "enum": [
+        "AVAILABLE",
+        "PARTIAL",
+        "UNAVAILABLE",
+        "DENIED",
+        "UNKNOWN"
+      ]
+    },
+    "side_effect_class": {
+      "enum": [
+        "READ",
+        "LOCAL_WRITE",
+        "EXTERNAL_WRITE",
+        "SOURCE_CONTROL",
+        "DEPLOYMENT",
+        "DESTRUCTIVE",
+        "EXTERNAL_COMMUNICATION"
+      ]
+    },
+    "fallback_used": {
+      "type": "boolean"
+    },
+    "fallback": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "status": {
+      "enum": [
+        "READY",
+        "PARTIAL",
+        "BLOCKED",
+        "FAILED"
+      ]
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "profile_conflict": {
+      "type": "boolean"
+    },
+    "provider_source": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "id",
+            "namespace",
+            "revision",
+            "discovered_actions"
+          ],
+          "properties": {
+            "kind": {
+              "enum": [
+                "mcp",
+                "connector",
+                "native_tool",
+                "api",
+                "cli",
+                "local_adapter"
+              ]
+            },
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "namespace": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "revision": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "discovered_actions": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "uniqueItems": true
+            }
+          }
+        }
+      ]
+    },
+    "project_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "profile_revision": {
+      "type": "string",
+      "minLength": 1
+    },
+    "requested_side_effect_class": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "READ",
+        "LOCAL_WRITE",
+        "EXTERNAL_WRITE",
+        "SOURCE_CONTROL",
+        "DEPLOYMENT",
+        "DESTRUCTIVE",
+        "EXTERNAL_COMMUNICATION",
+        null
+      ]
+    },
+    "side_effect_match": {
+      "type": "boolean"
+    },
+    "auth_scope_evidence": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "fallback_authority": {
+      "enum": [
+        "NOT_APPLICABLE",
+        "PROJECT_PROFILE",
+        "CALLER_DECLARED",
+        "OWNER_APPROVED",
+        "UNRESOLVED"
+      ]
+    },
+    "resolution_provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "resolved_by",
+        "resolved_at",
+        "discovery_evidence",
+        "policy_evidence"
+      ],
+      "properties": {
+        "resolved_by": {
+          "type": "string",
+          "minLength": 1
+        },
+        "resolved_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "discovery_evidence": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "policy_evidence": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        }
+      }
+    }
+  },
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "READY"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "side_effect_match": {
+            "const": true
+          }
+        },
+        "required": [
+          "side_effect_match"
+        ]
+      }
+    }
+  ]
+}

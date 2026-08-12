@@ -1,0 +1,8 @@
+interface:
+  display_name: Brainstorm
+  short_description: Shape a raw idea into one living pre-canonical artifact with
+    flows, rules, decisions, risks, wording, and open questions.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  allow_implicit_invocation: false

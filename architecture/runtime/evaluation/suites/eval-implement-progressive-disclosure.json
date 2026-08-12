@@ -1,0 +1,215 @@
+{
+  "schema_version": 1,
+  "suite_id": "implement-progressive-disclosure-v1",
+  "artifact": {
+    "id": "skills/implement/SKILL.md",
+    "revision": "7d0b782fc52125086d7de50d99d86f2f611dd50934b499dcb36e17d3f2b9374e"
+  },
+  "capability_claim": "Implementation keeps one work-item owner, activates only material specialist/domain depth, preserves truthful fallback/proof boundaries, and uses QA routing metadata instead of durable handoff unless a real continuation boundary requires it.",
+  "assurance_tier": "ELEVATED",
+  "comparison": {
+    "required": true,
+    "baseline_kind": "PREVIOUS_REVISION",
+    "baseline_revision": "4e19d62037e571e9556d40f1592bf8fa258ed9324e15d0a54252b74ffb00f95d"
+  },
+  "cases": [
+    {
+      "case_id": "frontend-only",
+      "case_class": "POSITIVE",
+      "input": {
+        "prompt": "Implement an approved shared frontend component/state change with responsive and accessibility behavior. No backend, API, persistence, security, or CI/CD semantics change."
+      },
+      "invariants": [
+        {
+          "invariant_id": "frontend-only-specialist",
+          "criterion": "Compose frontend-engineering only for the material domain while /implement remains primary owner.",
+          "critical": true,
+          "review_dimension": "OWNERSHIP"
+        },
+        {
+          "invariant_id": "no-unrelated-depth",
+          "criterion": "Do not activate unrelated backend/API/data/security/pipeline depth.",
+          "critical": true,
+          "review_dimension": "DECISION_QUALITY"
+        }
+      ]
+    },
+    {
+      "case_id": "backend-only",
+      "case_class": "POSITIVE",
+      "input": {
+        "prompt": "Implement an approved backend service transaction and concurrency change. Public API contract, persistence schema, security policy, frontend, and CI/CD are unchanged."
+      },
+      "invariants": [
+        {
+          "invariant_id": "backend-only-specialist",
+          "criterion": "Compose backend-engineering only for the material backend unit while /implement remains primary owner.",
+          "critical": true,
+          "review_dimension": "OWNERSHIP"
+        }
+      ]
+    },
+    {
+      "case_id": "api-plus-backend",
+      "case_class": "POSITIVE",
+      "input": {
+        "prompt": "Implement an approved idempotent caller-visible API operation whose request/response semantics and backend use-case transaction both change and are inseparable in this unit."
+      },
+      "invariants": [
+        {
+          "invariant_id": "api-backend-bounded",
+          "criterion": "Compose API and backend specialists only, keep their proof seams distinct, and keep /implement primary.",
+          "critical": true,
+          "review_dimension": "OWNERSHIP"
+        }
+      ]
+    },
+    {
+      "case_id": "data-only",
+      "case_class": "POSITIVE",
+      "input": {
+        "prompt": "Implement an approved schema migration, backfill, and durable data invariant. No API, frontend, security-policy, or pipeline change."
+      },
+      "invariants": [
+        {
+          "invariant_id": "data-only-specialist",
+          "criterion": "Compose data-persistence-engineering only for the material persistence unit.",
+          "critical": true,
+          "review_dimension": "OWNERSHIP"
+        }
+      ]
+    },
+    {
+      "case_id": "security-only",
+      "case_class": "OWNER_BOUNDARY",
+      "input": {
+        "prompt": "Implement approved tenant resource authorization enforcement. Product/security policy is already fixed; no API contract, schema, frontend, or pipeline semantics change."
+      },
+      "invariants": [
+        {
+          "invariant_id": "security-only-specialist",
+          "criterion": "Compose security-engineering for enforcement without inventing or changing security policy.",
+          "critical": true,
+          "review_dimension": "OWNERSHIP"
+        }
+      ]
+    },
+    {
+      "case_id": "pipeline-only",
+      "case_class": "POSITIVE",
+      "input": {
+        "prompt": "Implement an approved CI/CD runner cache and protected-environment gate change. Application frontend/backend/API/data/security semantics are unchanged."
+      },
+      "invariants": [
+        {
+          "invariant_id": "pipeline-local-owner",
+          "criterion": "Keep /implement as owner and load Delivery Pipeline System Design; do not compose unrelated application-domain specialists.",
+          "critical": true,
+          "review_dimension": "DECISION_QUALITY"
+        },
+        {
+          "invariant_id": "provider-proof-boundary",
+          "criterion": "Do not treat local YAML/static validation as provider-side execution or policy proof.",
+          "critical": true,
+          "review_dimension": "EVIDENCE_TRUTH"
+        }
+      ]
+    },
+    {
+      "case_id": "missing-specialist-fallback",
+      "case_class": "MISSING_CONTEXT",
+      "input": {
+        "prompt": "Implement an approved frontend-system change, but the promoted frontend-engineering supporting capability is unavailable in this runtime."
+      },
+      "invariants": [
+        {
+          "invariant_id": "frontend-fallback",
+          "criterion": "Keep /implement owner, load only the matching frontend system-design reference, and state specialist behavioral evidence is unavailable.",
+          "critical": true,
+          "review_dimension": "EVIDENCE_TRUTH"
+        }
+      ]
+    },
+    {
+      "case_id": "multi-domain-split",
+      "case_class": "NEAR_MISS",
+      "input": {
+        "prompt": "One work item contains an independent frontend styling change and an independent persistence index change that do not share a proof boundary."
+      },
+      "invariants": [
+        {
+          "invariant_id": "split-independent-domains",
+          "criterion": "Split independent proof units instead of activating multiple unrelated domain specialists in one ACTIVE unit.",
+          "critical": true,
+          "review_dimension": "DECISION_QUALITY"
+        }
+      ]
+    },
+    {
+      "case_id": "discovery-gap",
+      "case_class": "CONFLICTING_CONTEXT",
+      "input": {
+        "prompt": "During implementation, the approved API behavior conflicts with the canonical persistence invariant and no existing decision resolves the contradiction."
+      },
+      "invariants": [
+        {
+          "invariant_id": "route-gap",
+          "criterion": "Checkpoint/suspend the ACTIVE unit and externalize a DISCOVERY_GAP to the owning decision role; do not invent convenient behavior.",
+          "critical": true,
+          "review_dimension": "COMPLETION_TRUTH"
+        }
+      ]
+    },
+    {
+      "case_id": "qa-route-metadata",
+      "case_class": "COMPLETION",
+      "input": {
+        "prompt": "Implementation is reviewed and complete. QA can read the canonical work item, exact reviewed change surface, test evidence, and known-risk record directly."
+      },
+      "invariants": [
+        {
+          "invariant_id": "no-durable-handoff",
+          "criterion": "Use canonical evidence plus next-owner routing metadata; do not create a dedicated handoff artifact merely because QA is next.",
+          "critical": true,
+          "review_dimension": "DOMAIN_OUTPUT"
+        },
+        {
+          "invariant_id": "no-qa-verdict",
+          "criterion": "Do not pre-populate a QA verdict.",
+          "critical": true,
+          "review_dimension": "OWNERSHIP"
+        }
+      ]
+    },
+    {
+      "case_id": "qa-real-boundary",
+      "case_class": "COMPLETION",
+      "input": {
+        "prompt": "Implementation is reviewed and complete, but the receiving QA runtime cannot access the canonical work store and needs bounded continuation state to proceed safely."
+      },
+      "invariants": [
+        {
+          "invariant_id": "handoff-allowed",
+          "criterion": "A dedicated handoff is allowed because a real runtime/persistence continuation boundary prevents safe reconstruction.",
+          "critical": true,
+          "review_dimension": "DOMAIN_OUTPUT"
+        }
+      ]
+    },
+    {
+      "case_id": "economy-regression",
+      "case_class": "REGRESSION",
+      "input": {
+        "prompt": "Implement an approved formatter change. The repository already has a canonical helper used by sibling callers whose contract fully satisfies the requirement."
+      },
+      "invariants": [
+        {
+          "invariant_id": "reuse-canonical",
+          "criterion": "Reuse the existing canonical helper and keep proportionate proof; progressive disclosure must not weaken Engineering Economy behavior.",
+          "critical": true,
+          "review_dimension": "DECISION_QUALITY"
+        }
+      ]
+    }
+  ]
+}

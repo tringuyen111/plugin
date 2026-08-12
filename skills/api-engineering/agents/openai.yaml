@@ -1,0 +1,6 @@
+interface:
+  display_name: API Engineering
+  short_description: Caller-visible API implementation under /implement with contract,
+    negative, compatibility and real request-response proof.
+policy:
+  allow_implicit_invocation: false

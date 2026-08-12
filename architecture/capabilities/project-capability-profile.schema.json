@@ -1,0 +1,565 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/sdlc/project-capability-profile.schema.json",
+  "title": "Project Capability Profile",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "profile_revision",
+    "project",
+    "truth",
+    "environments",
+    "capabilities",
+    "policy",
+    "retention"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 4
+    },
+    "project": {
+      "type": "object",
+      "required": [
+        "id",
+        "type",
+        "lifecycle_stage"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "type": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "lifecycle_stage": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "truth": {
+      "type": "object",
+      "required": [
+        "source",
+        "requirements",
+        "design",
+        "work_tracker",
+        "decisions",
+        "evidence"
+      ],
+      "additionalProperties": {
+        "$ref": "#/$defs/truth_location"
+      }
+    },
+    "environments": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "availability"
+        ],
+        "properties": {
+          "availability": {
+            "$ref": "#/$defs/availability"
+          },
+          "location": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "notes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "capabilities": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "configured_providers"
+        ],
+        "properties": {
+          "configured_providers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "preferred_provider": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "fallback": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "notes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "fallback_side_effect_class": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "enum": [
+              "READ",
+              "LOCAL_WRITE",
+              "EXTERNAL_WRITE",
+              "SOURCE_CONTROL",
+              "DEPLOYMENT",
+              "DESTRUCTIVE",
+              "EXTERNAL_COMMUNICATION",
+              null
+            ]
+          },
+          "configured_sources": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "provider",
+                "kind",
+                "id"
+              ],
+              "properties": {
+                "provider": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "kind": {
+                  "enum": [
+                    "mcp",
+                    "connector",
+                    "native_tool",
+                    "api",
+                    "cli",
+                    "local_adapter"
+                  ]
+                },
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "namespace": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "revision": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            }
+          },
+          "preferred_source_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "policy": {
+      "type": "object",
+      "required": [
+        "authority",
+        "commit_policy",
+        "deployment_requires_confirmation",
+        "destructive_actions",
+        "capability_execution"
+      ],
+      "properties": {
+        "commit_policy": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "forbidden",
+            "explicit-confirmation",
+            "allowed",
+            null
+          ]
+        },
+        "deployment_requires_confirmation": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "destructive_actions": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "forbidden",
+            "explicit-confirmation",
+            null
+          ]
+        },
+        "capability_execution": {
+          "type": "object",
+          "required": [
+            "auto_apply_reversible",
+            "max_resources_per_operation",
+            "max_resources_per_changeset",
+            "same_project_only",
+            "require_postcondition_verification",
+            "cross_system_requires_approval",
+            "public_visibility_requires_approval",
+            "downstream_invalidation_requires_approval",
+            "ambiguous_identity_requires_approval",
+            "decision_class_registry"
+          ],
+          "properties": {
+            "auto_apply_reversible": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "max_resources_per_operation": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "minimum": 1
+            },
+            "max_resources_per_changeset": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "minimum": 1
+            },
+            "same_project_only": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "require_postcondition_verification": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "cross_system_requires_approval": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "public_visibility_requires_approval": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "downstream_invalidation_requires_approval": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "ambiguous_identity_requires_approval": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "decision_class_registry": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "id",
+                  "protected"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "protected": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "authority": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "owner",
+            "evidence",
+            "unresolved_fields"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "OWNER_APPROVED",
+                "PARTIAL",
+                "UNRESOLVED"
+              ]
+            },
+            "owner": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "evidence": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "uniqueItems": true
+            },
+            "unresolved_fields": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "uniqueItems": true
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "const": "OWNER_APPROVED"
+                  }
+                },
+                "required": [
+                  "status"
+                ]
+              },
+              "then": {
+                "properties": {
+                  "unresolved_fields": {
+                    "maxItems": 0
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "const": "UNRESOLVED"
+                  }
+                },
+                "required": [
+                  "status"
+                ]
+              },
+              "then": {
+                "properties": {
+                  "unresolved_fields": {
+                    "minItems": 1
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "retention": {
+      "type": "object",
+      "required": [
+        "handoff",
+        "evidence"
+      ],
+      "properties": {
+        "handoff": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "extensions": {
+      "type": "object",
+      "description": "Project-owned namespaced extensions preserved across profile reconciliation and migration.",
+      "additionalProperties": true,
+      "properties": {
+        "sdlc": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "instruction_file": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "instruction_pointer": {
+              "enum": [
+                "NOT_REQUIRED",
+                "REQUIRED",
+                "APPLIED",
+                "NOT_RUN"
+              ]
+            },
+            "triage_roles": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "needs-triage",
+                "needs-info",
+                "ready-for-agent",
+                "ready-for-human",
+                "wontfix"
+              ],
+              "properties": {
+                "needs-triage": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "needs-info": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "ready-for-agent": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "ready-for-human": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "wontfix": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            },
+            "domain_context": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "mode",
+                "context_location",
+                "adr_location"
+              ],
+              "properties": {
+                "mode": {
+                  "enum": [
+                    "single_context",
+                    "multi_context"
+                  ]
+                },
+                "context_location": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "adr_location": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "profile_revision": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Stable identity for the exact profile content/revision consumed by downstream capability resolution."
+    }
+  },
+  "$defs": {
+    "availability": {
+      "enum": [
+        "AVAILABLE",
+        "PARTIAL",
+        "UNAVAILABLE",
+        "DENIED",
+        "UNKNOWN"
+      ]
+    },
+    "truth_location": {
+      "type": "object",
+      "required": [
+        "kind",
+        "location"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string",
+          "minLength": 1
+        },
+        "location": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "canonical": {
+          "type": "boolean"
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

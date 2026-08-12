@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Brainstorm</title>
+  <desc id="desc">A luminous neural brain orbiting an electric idea spark.</desc>
+  <defs>
+    <linearGradient id="bg" x1="64" y1="52" x2="448" y2="460" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#07152f"/>
+      <stop offset="0.52" stop-color="#11133d"/>
+      <stop offset="1" stop-color="#26104a"/>
+    </linearGradient>
+    <linearGradient id="brain" x1="128" y1="128" x2="386" y2="390" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#57e4ff"/>
+      <stop offset="0.48" stop-color="#6f8cff"/>
+      <stop offset="1" stop-color="#c869ff"/>
+    </linearGradient>
+    <linearGradient id="bolt" x1="229" y1="165" x2="292" y2="348" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f6ffff"/>
+      <stop offset="0.45" stop-color="#8ff7ff"/>
+      <stop offset="1" stop-color="#8c6cff"/>
+    </linearGradient>
+    <linearGradient id="orbit" x1="75" y1="167" x2="437" y2="346" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#49dfff" stop-opacity="0.12"/>
+      <stop offset="0.25" stop-color="#49dfff" stop-opacity="0.95"/>
+      <stop offset="0.62" stop-color="#8978ff" stop-opacity="0.8"/>
+      <stop offset="1" stop-color="#d563ff" stop-opacity="0.14"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="0" cy="0" r="1" gradientTransform="translate(256 256) rotate(90) scale(180)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4ce7ff" stop-opacity="0.24"/>
+      <stop offset="0.48" stop-color="#796fff" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#8d4cff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow" x="-70%" y="-70%" width="240%" height="240%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect x="18" y="18" width="476" height="476" rx="126" fill="url(#bg)"/>
+  <rect x="25" y="25" width="462" height="462" rx="119" fill="none" stroke="#9feaff" stroke-opacity="0.13" stroke-width="2"/>
+  <circle cx="256" cy="256" r="184" fill="url(#halo)"/>
+
+  <g fill="none" stroke-linecap="round">
+    <ellipse cx="256" cy="256" rx="190" ry="116" transform="rotate(-16 256 256)" stroke="url(#orbit)" stroke-width="5"/>
+    <ellipse cx="256" cy="256" rx="167" ry="91" transform="rotate(23 256 256)" stroke="#7eefff" stroke-opacity="0.15" stroke-width="2"/>
+  </g>
+
+  <g filter="url(#softGlow)">
+    <circle cx="93" cy="196" r="8" fill="#53e7ff"/>
+    <circle cx="420" cy="321" r="7" fill="#c46cff"/>
+    <circle cx="391" cy="150" r="5" fill="#7f99ff"/>
+  </g>
+
+  <g fill="#101941" fill-opacity="0.82" stroke="url(#brain)" stroke-width="10" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M246 151c-19-25-56-31-82-14-19 12-29 34-26 56-23 8-40 29-40 54 0 18 9 35 23 45-7 34 16 66 50 72 8 28 34 48 64 48 5 0 10-1 15-2V151z"/>
+    <path d="M266 151c19-25 56-31 82-14 19 12 29 34 26 56 23 8 40 29 40 54 0 18-9 35-23 45 7 34-16 66-50 72-8 28-34 48-64 48-5 0-10-1-15-2V151z"/>
+  </g>
+
+  <g fill="none" stroke="url(#brain)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" opacity="0.95">
+    <path d="M151 194c24 2 38 16 43 38-23 1-39 15-44 35"/>
+    <path d="M133 293c21-9 42-5 57 11-14 15-19 33-14 51"/>
+    <path d="M190 160c-2 20 7 36 26 46-15 11-21 27-18 47"/>
+    <path d="M181 284c24 0 41 12 49 34-14 13-20 30-18 50"/>
+    <path d="M361 194c-24 2-38 16-43 38 23 1 39 15 44 35"/>
+    <path d="M379 293c-21-9-42-5-57 11 14 15 19 33 14 51"/>
+    <path d="M322 160c2 20-7 36-26 46 15 11 21 27 18 47"/>
+    <path d="M331 284c-24 0-41 12-49 34 14 13 20 30 18 50"/>
+  </g>
+
+  <g fill="#dffcff" filter="url(#softGlow)">
+    <circle cx="151" cy="194" r="6"/>
+    <circle cx="194" cy="232" r="6"/>
+    <circle cx="150" cy="267" r="6"/>
+    <circle cx="190" cy="304" r="6"/>
+    <circle cx="176" cy="355" r="6"/>
+    <circle cx="216" cy="206" r="6"/>
+    <circle cx="212" cy="368" r="6"/>
+    <circle cx="361" cy="194" r="6"/>
+    <circle cx="318" cy="232" r="6"/>
+    <circle cx="362" cy="267" r="6"/>
+    <circle cx="322" cy="304" r="6"/>
+    <circle cx="336" cy="355" r="6"/>
+    <circle cx="296" cy="206" r="6"/>
+    <circle cx="300" cy="368" r="6"/>
+  </g>
+
+  <g filter="url(#glow)">
+    <path d="M279 157 218 268h42l-25 92 67-119h-43z" fill="url(#bolt)" stroke="#efffff" stroke-opacity="0.78" stroke-width="3" stroke-linejoin="round"/>
+  </g>
+
+  <g fill="#f4ffff" opacity="0.9" filter="url(#softGlow)">
+    <path d="M114 121h5v16h-5z" transform="rotate(-35 116.5 129)"/>
+    <path d="M106 127h16v5h-16z" transform="rotate(-35 114 129.5)"/>
+    <path d="M400 383h4v14h-4z" transform="rotate(30 402 390)"/>
+    <path d="M395 388h14v4h-14z" transform="rotate(30 402 390)"/>
+  </g>
+</svg>

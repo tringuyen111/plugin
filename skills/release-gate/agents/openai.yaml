@@ -1,0 +1,6 @@
+interface:
+  display_name: Release Gate
+  short_description: Assess a fixed candidate for release readiness from QA, UAT,
+    deployment-plan, recovery, approval, and known-risk evidence.
+policy:
+  allow_implicit_invocation: false

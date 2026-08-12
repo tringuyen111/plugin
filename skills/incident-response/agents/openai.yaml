@@ -1,0 +1,6 @@
+interface:
+  display_name: Incident Response
+  short_description: Coordinate an active production incident through impact, stabilization,
+    communication, recovery confidence, and handoff.
+policy:
+  allow_implicit_invocation: false

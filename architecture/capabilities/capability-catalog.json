@@ -1,0 +1,244 @@
+{
+  "schema_version": 1,
+  "extension_rule": "Use domain.action names. Add a new name only when input/output or side-effect semantics differ; provider names are forbidden.",
+  "capabilities": [
+    {
+      "name": "tracker.read",
+      "description": "Read canonical work items and status",
+      "side_effect_class": "READ",
+      "input": "query or work-item identity",
+      "output": "work items with canonical identifiers and status"
+    },
+    {
+      "name": "tracker.query",
+      "description": "Query canonical work items by stable planning identity, revision, relationship, or state",
+      "side_effect_class": "READ",
+      "input": "bounded query with project scope and semantic selectors",
+      "output": "candidate work items with canonical identifiers, revisions, relationships, and status"
+    },
+    {
+      "name": "tracker.create",
+      "description": "Create a work item in the canonical tracker",
+      "side_effect_class": "EXTERNAL_WRITE",
+      "input": "validated work-item contract",
+      "output": "created work-item identity and URL"
+    },
+    {
+      "name": "tracker.update",
+      "description": "Update an existing canonical work item",
+      "side_effect_class": "EXTERNAL_WRITE",
+      "input": "work-item identity and bounded patch",
+      "output": "updated identity and changed fields"
+    },
+    {
+      "name": "tracker.change_state",
+      "description": "Apply an authorized canonical work-state transition",
+      "side_effect_class": "EXTERNAL_WRITE",
+      "input": "work-item identity, expected current state, mapped transition, and owner authority",
+      "output": "confirmed canonical state and transition evidence"
+    },
+    {
+      "name": "tracker.link_dependencies",
+      "description": "Create or update dependency relationships",
+      "side_effect_class": "EXTERNAL_WRITE",
+      "input": "work-item identities and relationship",
+      "output": "confirmed dependency links"
+    },
+    {
+      "name": "design.inspect",
+      "description": "Inspect editable design context",
+      "side_effect_class": "READ",
+      "input": "design resource identity and requested scope",
+      "output": "design nodes, variables, components, and provenance"
+    },
+    {
+      "name": "design.create_editable",
+      "description": "Create an editable design artifact",
+      "side_effect_class": "EXTERNAL_WRITE",
+      "input": "approved visual contract and target context",
+      "output": "editable resource identity and node map"
+    },
+    {
+      "name": "design.update",
+      "description": "Update an editable design artifact",
+      "side_effect_class": "EXTERNAL_WRITE",
+      "input": "approved bounded change and resource identity",
+      "output": "updated nodes and change record"
+    },
+    {
+      "name": "design.export",
+      "description": "Export a design artifact",
+      "side_effect_class": "READ",
+      "input": "resource identity and export format",
+      "output": "exported artifact and provenance"
+    },
+    {
+      "name": "diagram.create_editable",
+      "description": "Create an editable diagram",
+      "side_effect_class": "EXTERNAL_WRITE",
+      "input": "diagram semantic contract",
+      "output": "editable diagram resource identity"
+    },
+    {
+      "name": "diagram.open",
+      "description": "Inspect an editable diagram",
+      "side_effect_class": "READ",
+      "input": "diagram resource identity",
+      "output": "node-edge structure and metadata"
+    },
+    {
+      "name": "diagram.update",
+      "description": "Update an editable diagram",
+      "side_effect_class": "EXTERNAL_WRITE",
+      "input": "diagram identity and bounded semantic change",
+      "output": "updated resource and change record"
+    },
+    {
+      "name": "diagram.export_svg",
+      "description": "Export a diagram as SVG",
+      "side_effect_class": "READ",
+      "input": "diagram identity",
+      "output": "SVG artifact and provenance"
+    },
+    {
+      "name": "repo.read",
+      "description": "Read project repository content",
+      "side_effect_class": "READ",
+      "input": "path or query",
+      "output": "source content and revision provenance"
+    },
+    {
+      "name": "repo.write",
+      "description": "Write a bounded project repository change",
+      "side_effect_class": "LOCAL_WRITE",
+      "input": "approved paths and content",
+      "output": "changed paths and diff"
+    },
+    {
+      "name": "source_control.diff",
+      "description": "Inspect source-control changes",
+      "side_effect_class": "READ",
+      "input": "revision or working-tree scope",
+      "output": "diff and status"
+    },
+    {
+      "name": "source_control.commit",
+      "description": "Create a source-control commit",
+      "side_effect_class": "SOURCE_CONTROL",
+      "input": "reviewed staged paths and message",
+      "output": "commit identity"
+    },
+    {
+      "name": "source_control.open_pr",
+      "description": "Open a pull request or equivalent review request",
+      "side_effect_class": "SOURCE_CONTROL",
+      "input": "branch, target, title, and body",
+      "output": "review request identity and URL"
+    },
+    {
+      "name": "pipeline.inspect",
+      "description": "Inspect provider-side pipeline run, job, step, and execution-evidence state without mutating it",
+      "side_effect_class": "READ",
+      "input": "pipeline, run, source/build identity, and requested evidence scope",
+      "output": "observed run/job/step state, attempts, evidence references, and provenance"
+    },
+    {
+      "name": "pipeline.inspect_policy",
+      "description": "Inspect provider-side pipeline and environment execution policy without changing it",
+      "side_effect_class": "READ",
+      "input": "pipeline/environment scope and requested trigger, runner, concurrency, protection, or required-check policy",
+      "output": "observed policy state, environment bindings, concurrency/protection constraints, and provenance"
+    },
+    {
+      "name": "pipeline.execute",
+      "description": "Start or retry a bounded non-deployment pipeline execution whose declared maximum effect is no stronger than EXTERNAL_WRITE; use stronger semantic capabilities for deployment, destructive work, or external communication",
+      "side_effect_class": "EXTERNAL_WRITE",
+      "input": "pipeline identity, fixed source/build inputs, execution intent, declared effect boundary, and authority context",
+      "output": "pipeline run identity, attempt identity, observed execution state, evidence, and provenance"
+    },
+    {
+      "name": "pipeline.update_policy",
+      "description": "Update bounded non-secret provider-side pipeline or environment execution policy without editing repository workflow source or granting release/deployment authority",
+      "side_effect_class": "EXTERNAL_WRITE",
+      "input": "pipeline/environment identity, expected current policy, approved non-secret bounded patch, and authority context",
+      "output": "observed updated policy state, changed fields, and provenance"
+    },
+    {
+      "name": "artifact.inspect",
+      "description": "Inspect an immutable build or delivery artifact in an artifact store or registry",
+      "side_effect_class": "READ",
+      "input": "artifact identity, digest or lineage selector, store/channel scope, and requested provenance",
+      "output": "artifact identity, digest, availability, provenance, publication/promotion lineage, and source relationship"
+    },
+    {
+      "name": "artifact.publish",
+      "description": "Publish or promote an exact immutable artifact within a configured artifact store or registry without deploying runtime state",
+      "side_effect_class": "EXTERNAL_WRITE",
+      "input": "source artifact identity, exact digest and provenance, target store/channel, and bounded publication intent",
+      "output": "published artifact identity, verified digest, provenance, publication/promotion lineage, and observed target state"
+    },
+    {
+      "name": "browser.inspect",
+      "description": "Inspect a rendered or live browser state",
+      "side_effect_class": "READ",
+      "input": "URL or local artifact plus state intent",
+      "output": "observed DOM/render state and provenance"
+    },
+    {
+      "name": "browser.capture",
+      "description": "Capture browser evidence",
+      "side_effect_class": "LOCAL_WRITE",
+      "input": "state, viewport, actions, and redaction policy",
+      "output": "capture artifact and manifest"
+    },
+    {
+      "name": "deploy.plan",
+      "description": "Produce a deployment plan without executing it",
+      "side_effect_class": "READ",
+      "input": "candidate and environment",
+      "output": "plan, checks, rollback, and authority needs"
+    },
+    {
+      "name": "deploy.execute",
+      "description": "Execute an authorized deployment",
+      "side_effect_class": "DEPLOYMENT",
+      "input": "approved candidate, target, and rollout plan",
+      "output": "deployment identity and observed state"
+    },
+    {
+      "name": "deploy.rollback",
+      "description": "Execute an authorized rollback",
+      "side_effect_class": "DEPLOYMENT",
+      "input": "deployment identity and rollback target",
+      "output": "rollback identity and observed state"
+    },
+    {
+      "name": "observability.read_logs",
+      "description": "Read bounded logs",
+      "side_effect_class": "READ",
+      "input": "service, environment, time range, and filters",
+      "output": "log evidence with source provenance"
+    },
+    {
+      "name": "observability.read_metrics",
+      "description": "Read bounded metrics",
+      "side_effect_class": "READ",
+      "input": "metric identity, population, environment, and time range",
+      "output": "metric evidence with definitions and caveats"
+    },
+    {
+      "name": "service.inspect",
+      "description": "Inspect bounded current service/resource control-plane and operation state without mutating runtime state",
+      "side_effect_class": "READ",
+      "input": "service identity, environment, target resource scope, and requested current-state or operation-state evidence",
+      "output": "observed service/resource/control-plane state, operation state when applicable, evidence references, and provenance"
+    },
+    {
+      "name": "service.execute",
+      "description": "Execute a bounded non-deployment, non-destructive normal service control-plane action whose declared maximum effect is no stronger than EXTERNAL_WRITE; security/identity, external communication, deployment, destructive, source-write, or other stronger semantics must use a stronger semantic capability or remain BLOCKED/UNSUPPORTED",
+      "side_effect_class": "EXTERNAL_WRITE",
+      "input": "service identity, environment, exact target resources, current state, bounded operation intent/parameters, authority context, repeat-safety basis, and required postconditions",
+      "output": "operation identity, provider acknowledgement separated from observed result, observed target state, verified postcondition evidence, residual/partial state, and provenance"
+    }
+  ]
+}

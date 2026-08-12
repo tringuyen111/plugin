@@ -1,0 +1,6 @@
+interface:
+  display_name: Service Operations
+  short_description: Operate released services through evidence-grounded health, bounded
+    routine actions, verification, and handoff.
+policy:
+  allow_implicit_invocation: false

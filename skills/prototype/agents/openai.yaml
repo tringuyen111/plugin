@@ -1,0 +1,6 @@
+interface:
+  display_name: Prototype
+  short_description: Build a throwaway runnable artifact to answer one unresolved
+    logic, state, interaction, density, or feasibility question.
+policy:
+  allow_implicit_invocation: true

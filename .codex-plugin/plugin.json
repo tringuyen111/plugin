@@ -1,0 +1,28 @@
+{
+  "name": "sdlc-intelligence",
+  "version": "1.0.0",
+  "description": "Native multi-Skill SDLC intelligence with governed ownership, local design evidence, and creative production.",
+  "author": {
+    "name": "Local developer"
+  },
+  "license": "MIT",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "SDLC Intelligence",
+    "shortDescription": "Native SDLC skills with governed ownership and evidence.",
+    "longDescription": "A native multi-Skill Codex plugin exposing 71 canonical SDLC capabilities directly, with two implicit plane routers, governed Delivery/System ownership, local design intelligence, and creative production.",
+    "developerName": "Local developer",
+    "category": "Productivity",
+    "capabilities": [
+      "Native multi-Skill SDLC workflows",
+      "Delivery and System routing",
+      "Local design evidence",
+      "Creative production"
+    ],
+    "defaultPrompt": [
+      "Route this ambiguous software-delivery request to the right SDLC owner.",
+      "Route this reusable SDLC-system maintenance request to the right System owner.",
+      "Use the most specific installed SDLC Skill for this task."
+    ]
+  }
+}

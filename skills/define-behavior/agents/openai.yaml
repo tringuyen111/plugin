@@ -1,0 +1,6 @@
+interface:
+  display_name: Define Behavior
+  short_description: Turn approved Product intent into a traceable BA behavior package
+    of actors, rules, stories, criteria, and NFRs.
+policy:
+  allow_implicit_invocation: false

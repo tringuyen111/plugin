@@ -1,0 +1,6 @@
+interface:
+  display_name: Use Case
+  short_description: Define a goal-oriented actor-system interaction with preconditions,
+    main, alternate, error flows, and outcomes.
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,220 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "behavioral-eval-suite.schema.json",
+  "title": "SDLC Intelligence Behavioral Evaluation Suite",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "suite_id",
+    "artifact",
+    "capability_claim",
+    "assurance_tier",
+    "comparison",
+    "cases"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "suite_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$"
+    },
+    "artifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "revision"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "revision": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "capability_claim": {
+      "type": "string",
+      "minLength": 1
+    },
+    "assurance_tier": {
+      "enum": [
+        "STANDARD",
+        "ELEVATED",
+        "CRITICAL"
+      ]
+    },
+    "comparison": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "required",
+        "baseline_kind"
+      ],
+      "properties": {
+        "required": {
+          "type": "boolean"
+        },
+        "baseline_kind": {
+          "enum": [
+            "NONE",
+            "WITHOUT_SKILL",
+            "PREVIOUS_REVISION"
+          ]
+        },
+        "baseline_revision": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "baseline_kind": {
+                "const": "PREVIOUS_REVISION"
+              }
+            },
+            "required": [
+              "baseline_kind"
+            ]
+          },
+          "then": {
+            "required": [
+              "baseline_revision"
+            ]
+          },
+          "else": {
+            "not": {
+              "required": [
+                "baseline_revision"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "cases": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "case_id",
+          "case_class",
+          "input",
+          "invariants"
+        ],
+        "properties": {
+          "case_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$"
+          },
+          "case_class": {
+            "enum": [
+              "POSITIVE",
+              "NEAR_MISS",
+              "MISSING_CONTEXT",
+              "CONFLICTING_CONTEXT",
+              "STALE_CONTEXT",
+              "OWNER_BOUNDARY",
+              "PROVIDER_BOUNDARY",
+              "APPROVAL_SIDE_EFFECT",
+              "FAILURE_PATH",
+              "COMPLETION",
+              "REGRESSION",
+              "COMPARISON"
+            ]
+          },
+          "input": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "prompt"
+            ],
+            "properties": {
+              "prompt": {
+                "type": "string",
+                "minLength": 1
+              },
+              "declared_context": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "required_capabilities": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              }
+            }
+          },
+          "invariants": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "invariant_id",
+                "criterion",
+                "critical"
+              ],
+              "properties": {
+                "invariant_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 128,
+                  "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$"
+                },
+                "criterion": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "critical": {
+                  "type": "boolean"
+                },
+                "review_dimension": {
+                  "enum": [
+                    "DECISION_QUALITY",
+                    "OWNERSHIP",
+                    "EVIDENCE_TRUTH",
+                    "COMPLETION_TRUTH",
+                    "SIDE_EFFECT_SAFETY",
+                    "DOMAIN_OUTPUT",
+                    "OTHER"
+                  ]
+                }
+              }
+            }
+          },
+          "forbidden_behaviors": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          }
+        }
+      }
+    }
+  }
+}

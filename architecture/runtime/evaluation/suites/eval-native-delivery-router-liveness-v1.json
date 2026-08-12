@@ -1,0 +1,197 @@
+{
+  "schema_version": 1,
+  "suite_id": "native-delivery-router-liveness-v1",
+  "artifact": {
+    "id": "skills/sdlc/SKILL.md",
+    "revision": "f32e08e048c0567f8c66b6a8ebd68e5c74bf42d0d89995baa1bf81ceb624414d"
+  },
+  "capability_claim": "Broad or cross-owner Delivery requests have one implicit-visible routing entrypoint that selects exactly one canonical Delivery owner without stealing clear specialist work or performing domain work itself.",
+  "assurance_tier": "ELEVATED",
+  "comparison": {
+    "required": true,
+    "baseline_kind": "PREVIOUS_REVISION",
+    "baseline_revision": "802693a190df9a159c4d5f4b67afd6a047c2762e7b1fb89307c7a93d7815b866"
+  },
+  "cases": [
+    {
+      "case_id": "broad-delivery-route",
+      "case_class": "POSITIVE",
+      "input": {
+        "prompt": "Help me take this half-defined feature forward. I have some notes and code, but I do not know whether Product, BA, Design, Engineering, or QA should act next."
+      },
+      "invariants": [
+        {
+          "invariant_id": "broad-delivery-route-invariant",
+          "criterion": "Select the SDLC Delivery router as the broad entrypoint; resolve one canonical Delivery owner only when current evidence supports it, otherwise preserve a truthful PARTIAL/BLOCKED route decision instead of inventing an owner.",
+          "critical": true,
+          "review_dimension": "OWNERSHIP"
+        }
+      ]
+    },
+    {
+      "case_id": "clear-code-review-near-miss",
+      "case_class": "NEAR_MISS",
+      "input": {
+        "prompt": "Review this fixed pull request diff against our coding standards and the approved spec."
+      },
+      "invariants": [
+        {
+          "invariant_id": "clear-code-review-near-miss-invariant",
+          "criterion": "Prefer the specific code-review Skill rather than the broad SDLC router.",
+          "critical": true,
+          "review_dimension": "OWNERSHIP"
+        }
+      ]
+    },
+    {
+      "case_id": "clear-business-rule-near-miss",
+      "case_class": "NEAR_MISS",
+      "input": {
+        "prompt": "Define the eligibility and exception rules for this approved workflow."
+      },
+      "invariants": [
+        {
+          "invariant_id": "clear-business-rule-near-miss-invariant",
+          "criterion": "Prefer the specific business-rule Skill rather than the broad SDLC router.",
+          "critical": true,
+          "review_dimension": "OWNERSHIP"
+        }
+      ]
+    },
+    {
+      "case_id": "visual-review-near-miss",
+      "case_class": "NEAR_MISS",
+      "input": {
+        "prompt": "Review this fixed design mockup for hierarchy, spacing, typography, responsive behavior, and visible accessibility risks."
+      },
+      "invariants": [
+        {
+          "invariant_id": "visual-review-near-miss-invariant",
+          "criterion": "Prefer visual-review for Design judgment; do not select visual-qa or the broad router.",
+          "critical": true,
+          "review_dimension": "OWNERSHIP"
+        }
+      ]
+    },
+    {
+      "case_id": "visual-qa-near-miss",
+      "case_class": "NEAR_MISS",
+      "input": {
+        "prompt": "Classify this fixed screenshot evidence against the approved visual contract for responsive and accessibility mismatches."
+      },
+      "invariants": [
+        {
+          "invariant_id": "visual-qa-near-miss-invariant",
+          "criterion": "Prefer visual-qa for fixed-scope Visual QA judgment; do not select visual-review or the broad router.",
+          "critical": true,
+          "review_dimension": "OWNERSHIP"
+        }
+      ]
+    },
+    {
+      "case_id": "user-story-near-miss",
+      "case_class": "NEAR_MISS",
+      "input": {
+        "prompt": "Write a user story for this approved capability and actor goal without implementation detail."
+      },
+      "invariants": [
+        {
+          "invariant_id": "user-story-near-miss-invariant",
+          "criterion": "Prefer user-story rather than use-case, user-flow, uat-scenario, or the broad router.",
+          "critical": true,
+          "review_dimension": "OWNERSHIP"
+        }
+      ]
+    },
+    {
+      "case_id": "use-case-near-miss",
+      "case_class": "NEAR_MISS",
+      "input": {
+        "prompt": "Define the actor-system interaction with preconditions, main flow, alternate flow, error flow, and outcomes."
+      },
+      "invariants": [
+        {
+          "invariant_id": "use-case-near-miss-invariant",
+          "criterion": "Prefer use-case rather than user-story, user-flow, uat-scenario, or the broad router.",
+          "critical": true,
+          "review_dimension": "OWNERSHIP"
+        }
+      ]
+    },
+    {
+      "case_id": "user-flow-near-miss",
+      "case_class": "NEAR_MISS",
+      "input": {
+        "prompt": "Map the approved use case into screens, decisions, alternate paths, recovery, and state transitions."
+      },
+      "invariants": [
+        {
+          "invariant_id": "user-flow-near-miss-invariant",
+          "criterion": "Prefer user-flow rather than user-story, use-case, uat-scenario, or the broad router.",
+          "critical": true,
+          "review_dimension": "OWNERSHIP"
+        }
+      ]
+    },
+    {
+      "case_id": "uat-scenario-near-miss",
+      "case_class": "NEAR_MISS",
+      "input": {
+        "prompt": "Define a business-facing end-to-end acceptance scenario from approved stories and criteria using representative operational data."
+      },
+      "invariants": [
+        {
+          "invariant_id": "uat-scenario-near-miss-invariant",
+          "criterion": "Prefer uat-scenario rather than user-story, use-case, user-flow, or the broad router.",
+          "critical": true,
+          "review_dimension": "OWNERSHIP"
+        }
+      ]
+    },
+    {
+      "case_id": "test-strategy-near-miss",
+      "case_class": "NEAR_MISS",
+      "input": {
+        "prompt": "Design the risk-based QA coverage plan, verification levels, priorities, environments, and evidence for this fixed scope."
+      },
+      "invariants": [
+        {
+          "invariant_id": "test-strategy-near-miss-invariant",
+          "criterion": "Prefer test-strategy rather than test-condition or the broad router.",
+          "critical": true,
+          "review_dimension": "OWNERSHIP"
+        }
+      ]
+    },
+    {
+      "case_id": "test-condition-near-miss",
+      "case_class": "NEAR_MISS",
+      "input": {
+        "prompt": "Define one traceable QA probe with environment, data, expected behavior, evidence, and cleanup."
+      },
+      "invariants": [
+        {
+          "invariant_id": "test-condition-near-miss-invariant",
+          "criterion": "Prefer test-condition rather than test-strategy or the broad router.",
+          "critical": true,
+          "review_dimension": "OWNERSHIP"
+        }
+      ]
+    },
+    {
+      "case_id": "system-boundary",
+      "case_class": "OWNER_BOUNDARY",
+      "input": {
+        "prompt": "Audit and improve the reusable SDLC skill ecosystem itself."
+      },
+      "invariants": [
+        {
+          "invariant_id": "system-boundary-invariant",
+          "criterion": "Do not use the Delivery router for reusable-system maintenance; select the System routing surface instead.",
+          "critical": true,
+          "review_dimension": "OWNERSHIP"
+        }
+      ]
+    }
+  ]
+}

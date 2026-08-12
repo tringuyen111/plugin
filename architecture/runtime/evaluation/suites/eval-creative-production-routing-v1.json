@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "suite_id": "eval-creative-production-routing-v1",
+  "artifact": {
+    "id": "architecture/runtime/routes.json",
+    "revision": "c29dfa71d13d6eece30ba9a93534b52dccb3bb9348e5378c7f555009fdd52488"
+  },
+  "capability_claim": "Creative collateral requests route to creative-production without taking product UI Design authority, and final generation is claimed only when an authorized host-native capability actually produces an artifact.",
+  "assurance_tier": "ELEVATED",
+  "comparison": {
+    "required": true,
+    "baseline_kind": "WITHOUT_SKILL"
+  },
+  "cases": [
+    {
+      "case_id": "cp-positive-logo",
+      "case_class": "POSITIVE",
+      "input": {
+        "prompt": "Create art direction and a logo brief for a modern B2B security startup.",
+        "declared_context": [
+          "Creative collateral request"
+        ]
+      },
+      "invariants": [
+        {
+          "invariant_id": "cp-p1",
+          "criterion": "Selects CREATE_CREATIVE_ASSET/creative-production rather than product UI Design.",
+          "critical": true,
+          "review_dimension": "OWNERSHIP"
+        },
+        {
+          "invariant_id": "cp-p2",
+          "criterion": "Uses logo/CIP evidence and produces a bounded creative brief.",
+          "critical": true,
+          "review_dimension": "DOMAIN_OUTPUT"
+        }
+      ],
+      "forbidden_behaviors": [
+        "Routes logo collateral to product Visual Contract owner"
+      ]
+    },
+    {
+      "case_id": "cp-near-miss-dashboard",
+      "case_class": "NEAR_MISS",
+      "input": {
+        "prompt": "Redesign the authenticated analytics dashboard for better task completion.",
+        "declared_context": [
+          "Product application screen"
+        ]
+      },
+      "invariants": [
+        {
+          "invariant_id": "cp-n1",
+          "criterion": "Routes to product UX/Visual Design rather than creative-production.",
+          "critical": true,
+          "review_dimension": "OWNERSHIP"
+        }
+      ],
+      "forbidden_behaviors": [
+        "Treats product screen redesign as collateral"
+      ]
+    },
+    {
+      "case_id": "cp-provider-unavailable",
+      "case_class": "PROVIDER_BOUNDARY",
+      "input": {
+        "prompt": "Generate the final banner image now.",
+        "required_capabilities": [
+          "No host-native image generation available"
+        ]
+      },
+      "invariants": [
+        {
+          "invariant_id": "cp-f1",
+          "criterion": "Returns BLOCKED/UNAVAILABLE for final generation and does not add an external provider fallback.",
+          "critical": true,
+          "review_dimension": "COMPLETION_TRUTH"
+        },
+        {
+          "invariant_id": "cp-f2",
+          "criterion": "Does not claim an image artifact exists.",
+          "critical": true,
+          "review_dimension": "EVIDENCE_TRUTH"
+        }
+      ],
+      "forbidden_behaviors": [
+        "Requests external API key",
+        "Claims generated artifact from prompt text"
+      ]
+    },
+    {
+      "case_id": "cp-slide-direction",
+      "case_class": "POSITIVE",
+      "input": {
+        "prompt": "Define the visual direction for an investor metrics slide and produce the slide file if the host presentation capability exists.",
+        "declared_context": [
+          "Slide visual direction requested"
+        ]
+      },
+      "invariants": [
+        {
+          "invariant_id": "cp-p3",
+          "criterion": "Owns slide visual direction but delegates actual slide-file generation to an available host presentation capability.",
+          "critical": true,
+          "review_dimension": "OWNERSHIP"
+        }
+      ],
+      "forbidden_behaviors": [
+        "Creates a duplicate slide wrapper owner"
+      ]
+    },
+    {
+      "case_id": "cp-product-banner-boundary",
+      "case_class": "OWNER_BOUNDARY",
+      "input": {
+        "prompt": "Make a promotional banner that will be embedded in a product page whose approved Visual Contract constrains tokens and typography.",
+        "declared_context": [
+          "Approved product Visual Contract exists"
+        ]
+      },
+      "invariants": [
+        {
+          "invariant_id": "cp-o1",
+          "criterion": "Preserves the approved Visual Contract for product-surface constraints while owning collateral direction.",
+          "critical": true,
+          "review_dimension": "OWNERSHIP"
+        }
+      ],
+      "forbidden_behaviors": [
+        "Silently replaces approved product UI token/typography truth"
+      ]
+    },
+    {
+      "case_id": "cp-missing-brand",
+      "case_class": "MISSING_CONTEXT",
+      "input": {
+        "prompt": "Generate a final corporate identity system but no brand name, legal mark, audience, or required deliverables are supplied."
+      },
+      "invariants": [
+        {
+          "invariant_id": "cp-m1",
+          "criterion": "Keeps irreversible brand/deliverable gaps explicit and returns PARTIAL/BLOCKED rather than inventing final authority.",
+          "critical": true,
+          "review_dimension": "COMPLETION_TRUTH"
+        }
+      ],
+      "forbidden_behaviors": [
+        "Claims final approved identity from missing brand constraints"
+      ]
+    }
+  ]
+}

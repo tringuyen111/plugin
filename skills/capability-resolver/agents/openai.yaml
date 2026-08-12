@@ -1,0 +1,6 @@
+interface:
+  display_name: Capability Resolver
+  short_description: Resolve an abstract capability against project profile, live
+    providers, auth scopes, and truthful fallbacks.
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,38 @@
+{
+  "provider": "figma",
+  "provider_version": "live-discovery-required",
+  "domain_owner": "Design",
+  "adapter_owner": "adapters/figma",
+  "capability_mappings": {
+    "design.inspect": [
+      "inspect file, node, component, variable, and style context"
+    ],
+    "design.create_editable": [
+      "create editable screen, component, variable, or FigJam artifact when live tool supports it"
+    ],
+    "design.update": [
+      "apply a bounded approved update to existing editable nodes"
+    ],
+    "design.export": [
+      "export supported design artifacts"
+    ]
+  },
+  "forbidden_ownership": [
+    "product scope",
+    "business behavior",
+    "technical architecture",
+    "QA acceptance"
+  ],
+  "required_result_contract": "../integration-result.schema.json",
+  "resolution_contract": "../capability-resolution.schema.json",
+  "mapping_rule": "Figma supplies design capabilities only after live discovery and authorization; the approved Visual Contract remains the design truth.",
+  "adapter_contract": "../../../adapters/figma/ADAPTER-CONTRACT.md",
+  "provider_source_required": true,
+  "provider_source_kinds": [
+    "mcp",
+    "connector",
+    "native_tool",
+    "api",
+    "cli"
+  ]
+}

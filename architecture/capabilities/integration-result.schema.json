@@ -1,0 +1,262 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/sdlc/integration-result.schema.json",
+  "title": "Integration Result Manifest",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "operation_id",
+    "requested_by",
+    "canonical_owner",
+    "provider",
+    "provider_version",
+    "capability",
+    "capability_resolution",
+    "operation_envelope",
+    "executor",
+    "operation",
+    "side_effect_class",
+    "approval_status",
+    "policy_verdict",
+    "operation_result",
+    "precondition_status",
+    "postcondition_status",
+    "resources_touched",
+    "compensation_status",
+    "status",
+    "fallback_used",
+    "resource_ids",
+    "source_artifact_ids",
+    "result_artifact_ids",
+    "limitations",
+    "evidence"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 4
+    },
+    "operation_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "requested_by": {
+      "type": "string",
+      "minLength": 1
+    },
+    "canonical_owner": {
+      "type": "string",
+      "minLength": 1
+    },
+    "provider": {
+      "type": "string"
+    },
+    "provider_version": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "capability": {
+      "type": "string"
+    },
+    "operation": {
+      "type": "string"
+    },
+    "side_effect_class": {
+      "enum": [
+        "READ",
+        "LOCAL_WRITE",
+        "EXTERNAL_WRITE",
+        "SOURCE_CONTROL",
+        "DEPLOYMENT",
+        "DESTRUCTIVE",
+        "EXTERNAL_COMMUNICATION"
+      ]
+    },
+    "approval_status": {
+      "enum": [
+        "NOT_REQUIRED",
+        "REQUIRED",
+        "GRANTED",
+        "DENIED",
+        "UNKNOWN"
+      ]
+    },
+    "policy_verdict": {
+      "enum": [
+        "ALLOW",
+        "ALLOW_WITH_LIMITS",
+        "REQUIRE_APPROVAL",
+        "BLOCK",
+        "UNSUPPORTED"
+      ]
+    },
+    "operation_result": {
+      "enum": [
+        "APPLIED",
+        "SKIPPED_ALREADY_CURRENT",
+        "REQUIRES_APPROVAL",
+        "BLOCKED_AUTHORITY",
+        "BLOCKED_PRECONDITION",
+        "UNSUPPORTED_PROVIDER",
+        "FAILED",
+        "COMPENSATED"
+      ]
+    },
+    "precondition_status": {
+      "enum": [
+        "MATCHED",
+        "MISSING",
+        "STALE",
+        "UNKNOWN"
+      ]
+    },
+    "postcondition_status": {
+      "enum": [
+        "VERIFIED",
+        "NOT_VERIFIED",
+        "NOT_APPLICABLE"
+      ]
+    },
+    "resources_touched": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "compensation_status": {
+      "enum": [
+        "NOT_REQUIRED",
+        "AVAILABLE",
+        "APPLIED",
+        "FAILED",
+        "UNAVAILABLE"
+      ]
+    },
+    "status": {
+      "enum": [
+        "READY",
+        "PARTIAL",
+        "BLOCKED",
+        "FAILED"
+      ]
+    },
+    "fallback_used": {
+      "type": "boolean"
+    },
+    "resource_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "source_artifact_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "result_artifact_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "capability_resolution": {
+      "$ref": "#/$defs/capability_resolution"
+    },
+    "executor": {
+      "$ref": "#/$defs/executor"
+    },
+    "operation_envelope": {
+      "$ref": "#/$defs/operation_envelope"
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "capability_resolution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "record_ref",
+        "record_sha256"
+      ],
+      "properties": {
+        "record_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "record_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "executor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_kind",
+        "source_id",
+        "namespace",
+        "revision"
+      ],
+      "properties": {
+        "source_kind": {
+          "enum": [
+            "mcp",
+            "connector",
+            "native_tool",
+            "api",
+            "cli",
+            "local_adapter"
+          ]
+        },
+        "source_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "namespace": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "revision": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "operation_envelope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "record_ref",
+        "record_sha256"
+      ],
+      "properties": {
+        "record_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "record_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    }
+  }
+}

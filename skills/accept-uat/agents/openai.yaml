@@ -1,0 +1,6 @@
+interface:
+  display_name: Accept UAT
+  short_description: Coordinate UAT for a fixed candidate and record the authorized
+    business acceptance decision.
+policy:
+  allow_implicit_invocation: false

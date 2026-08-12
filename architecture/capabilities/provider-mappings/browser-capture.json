@@ -1,0 +1,34 @@
+{
+  "provider": "chromium",
+  "provider_version": "live-discovery-required",
+  "domain_owner": "Visual Evidence",
+  "workflow_owner": "visual-capture",
+  "adapter_owner": "adapters/visual-capture",
+  "capability_mappings": {
+    "browser.capture": [
+      "capture viewport, full-page, element, or explicit clip evidence",
+      "perform bounded pre-capture actions",
+      "apply required PII masks and callouts",
+      "emit source-bound image and manifest evidence"
+    ]
+  },
+  "forbidden_ownership": [
+    "design approval",
+    "QA verdict",
+    "documentation structure",
+    "release approval"
+  ],
+  "job_schema": "../../../adapters/visual-capture/job.schema.json",
+  "manifest_schema": "../../../adapters/visual-capture/manifest.schema.json",
+  "provider_source_required": true,
+  "provider_source_kinds": [
+    "local_adapter",
+    "mcp",
+    "connector",
+    "native_tool",
+    "api"
+  ],
+  "mapping_rule": "The selected browser source performs capture mechanics only. Every execution binds to the exact capability-resolution record/digest and executor source; visual-capture owns the evidence job while downstream domain workflows own interpretation.",
+  "resolution_binding_required": true,
+  "executor_binding_required": true
+}

@@ -1,0 +1,6 @@
+interface:
+  display_name: Deployment Engineering
+  short_description: Prepare deployment plans, then execute, verify, and recover authorized
+    releases with provider-neutral deployment engineering.
+policy:
+  allow_implicit_invocation: false

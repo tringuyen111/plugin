@@ -1,0 +1,6 @@
+interface:
+  display_name: Code Review
+  short_description: Review one fixed change surface against standards and approved
+    spec without claiming QA or release readiness.
+policy:
+  allow_implicit_invocation: true

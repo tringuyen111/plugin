@@ -1,0 +1,2013 @@
+{
+  "policy": {
+    "all_promoted_skills_must_map": true,
+    "max_references_per_skill": 6,
+    "pointers_are_conditional": true,
+    "project_state_forbidden": true
+  },
+  "references": {
+    "artifact-linking": {
+      "maintainer_source": "resources/shared/references/artifact-linking-reference.md",
+      "meaning_owner": "artifact continuity and portable handoff",
+      "path": "resources/shared/references/artifact-linking-reference.md"
+    },
+    "capability-gap-handoff": {
+      "maintainer_source": "resources/shared/references/capability-gap-handoff.md",
+      "meaning_owner": "cross-plane reusable capability-gap handoff",
+      "path": "resources/shared/references/capability-gap-handoff.md"
+    },
+    "claim-challenge": {
+      "maintainer_source": "resources/shared/references/claim-challenge-contract.md",
+      "meaning_owner": "bounded challenge of load-bearing claims and authority/evidence separation",
+      "path": "resources/shared/references/claim-challenge-contract.md"
+    },
+    "engineering-economy": {
+      "maintainer_source": "resources/shared/references/engineering-economy-discipline.md",
+      "meaning_owner": "fit-for-purpose reuse, dependency, simplification, and minimum coherent engineering change discipline",
+      "path": "resources/shared/references/engineering-economy-discipline.md"
+    },
+    "external-side-effect": {
+      "maintainer_source": "resources/shared/references/external-side-effect-policy.md",
+      "meaning_owner": "external mutation authority and truthful action result",
+      "path": "resources/shared/references/external-side-effect-policy.md"
+    },
+    "foundation-aware-delivery": {
+      "maintainer_source": "resources/shared/references/foundation-aware-delivery-discipline.md",
+      "meaning_owner": "source-grounded foundation impact, architecture runway, walking skeleton, and dependent frontier discipline",
+      "path": "resources/shared/references/foundation-aware-delivery-discipline.md"
+    },
+    "project-capability-profile": {
+      "maintainer_source": "resources/shared/references/project-capability-profile-reference.md",
+      "meaning_owner": "project truth and capability resolution",
+      "path": "resources/shared/references/project-capability-profile-reference.md"
+    },
+    "role-boundary": {
+      "maintainer_source": "resources/shared/references/role-boundary-reference.md",
+      "meaning_owner": "decision ownership and role transitions",
+      "path": "resources/shared/references/role-boundary-reference.md"
+    },
+    "semantic-continuity": {
+      "maintainer_source": "resources/shared/references/semantic-continuity-contract.md",
+      "meaning_owner": "material semantic obligation continuity, progressive active-unit execution, and recursive closure",
+      "path": "resources/shared/references/semantic-continuity-contract.md"
+    },
+    "single-active-truth": {
+      "maintainer_source": "resources/shared/references/single-active-truth-contract.md",
+      "meaning_owner": "single active truth, replacement cleanup, version coexistence, and database migration discipline",
+      "path": "resources/shared/references/single-active-truth-contract.md"
+    },
+    "workflow-result": {
+      "maintainer_source": "resources/shared/references/workflow-result-contract.md",
+      "meaning_owner": "truthful workflow completion",
+      "path": "resources/shared/references/workflow-result-contract.md"
+    }
+  },
+  "skills": {
+    "accept-uat": {
+      "path": "skills/accept-uat/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "link source truth, unresolved items, evidence, affected artifacts, and the next owner without creating shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a project artifact"
+        },
+        {
+          "purpose": "check authority and report the exact side effect, fallback, and limitation",
+          "reference": "external-side-effect",
+          "when": "Before any local/external write, source-control action, deployment, destructive operation, or external communication"
+        },
+        {
+          "purpose": "resolve project truth, live capability, policy, and availability instead of assuming a provider",
+          "reference": "project-capability-profile",
+          "when": "Before choosing a tracker, repository action, storage location, browser, connector, provider, or tool fallback"
+        }
+      ]
+    },
+    "acceptance-criteria": {
+      "path": "skills/acceptance-criteria/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "keep source behavior coverage, material decomposition, and unresolved choices explicit across later stages",
+          "reference": "semantic-continuity",
+          "when": "Before defining or reviewing material acceptance conditions that downstream Design/Engineering/QA must preserve"
+        },
+        {
+          "purpose": "link source truth, unresolved items, evidence, affected artifacts, and the next owner without creating shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a project artifact"
+        }
+      ]
+    },
+    "api-engineering": {
+      "path": "skills/api-engineering/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning domain closure to /implement"
+        },
+        {
+          "purpose": "preserve canonical owner and supporting-role boundaries",
+          "reference": "role-boundary",
+          "when": "When approved Product, BA, Design, Architecture, QA, or Operations truth could be changed"
+        },
+        {
+          "purpose": "check authority and exact side-effect scope",
+          "reference": "external-side-effect",
+          "when": "Before any write outside the caller's already-authorized implementation scope"
+        },
+        {
+          "purpose": "remove superseded implementation truth after verified parity",
+          "reference": "single-active-truth",
+          "when": "When replacing or removing an active implementation path"
+        }
+      ]
+    },
+    "audit-sdlc-artifact": {
+      "path": "skills/audit-sdlc-artifact/SKILL.md",
+      "references": [
+        {
+          "purpose": "preserve missing evidence, approval, or execution as truthful completion",
+          "reference": "workflow-result",
+          "when": "Before returning a workflow or lifecycle result"
+        },
+        {
+          "purpose": "keep proposal, evaluation, and promotion decisions distinct",
+          "reference": "role-boundary",
+          "when": "Before changing ownership or an active discovery surface"
+        },
+        {
+          "purpose": "preserve project truth and reusable boundaries",
+          "reference": "capability-gap-handoff",
+          "when": "When the request originated in project delivery"
+        },
+        {
+          "purpose": "verify authority and report exact side effects",
+          "reference": "external-side-effect",
+          "when": "Before repository, provider, publication, or destructive actions"
+        },
+        {
+          "purpose": "separate assertion, evidence, authority, and bounded next action without challenging every low-risk reversible assumption",
+          "reference": "claim-challenge",
+          "when": "When a claim is load-bearing, disputed, contradicted by current evidence, or would authorize a costly or hard-to-reverse next action"
+        },
+        {
+          "purpose": "identify sediment, duplicate active truth, unsupported coexistence, and incomplete removal",
+          "reference": "single-active-truth",
+          "when": "When auditing replacement, deprecation, versioning, migration, or retained legacy surfaces"
+        }
+      ]
+    },
+    "backend-engineering": {
+      "path": "skills/backend-engineering/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning domain closure to /implement"
+        },
+        {
+          "purpose": "preserve canonical owner and supporting-role boundaries",
+          "reference": "role-boundary",
+          "when": "When approved Product, BA, Design, Architecture, QA, or Operations truth could be changed"
+        },
+        {
+          "purpose": "check authority and exact side-effect scope",
+          "reference": "external-side-effect",
+          "when": "Before any write outside the caller's already-authorized implementation scope"
+        },
+        {
+          "purpose": "remove superseded implementation truth after verified parity",
+          "reference": "single-active-truth",
+          "when": "When replacing or removing an active implementation path"
+        }
+      ]
+    },
+    "brainstorm": {
+      "path": "skills/brainstorm/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve pre-canonical Brainstorm ownership and downstream Product/BA/technical boundaries",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or downstream artifact could change the decision"
+        },
+        {
+          "purpose": "link the living brainstorm, unresolved items, evidence status, downstream impacts, and next owner without creating shadow truth",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a brainstorm artifact"
+        },
+        {
+          "purpose": "check authority and preserve truthful write/side-effect boundaries",
+          "reference": "external-side-effect",
+          "when": "Before any project write, source-control action, deployment, destructive operation, or external communication"
+        }
+      ]
+    },
+    "business-rule": {
+      "path": "skills/business-rule/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "link source truth, unresolved items, evidence, affected artifacts, and the next owner without creating shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a project artifact"
+        }
+      ]
+    },
+    "capability-resolver": {
+      "path": "skills/capability-resolver/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "link source truth, unresolved items, evidence, affected artifacts, and the next owner without creating shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a project artifact"
+        },
+        {
+          "purpose": "check authority and report the exact side effect, fallback, and limitation",
+          "reference": "external-side-effect",
+          "when": "Before any local/external write, source-control action, deployment, destructive operation, or external communication"
+        },
+        {
+          "purpose": "resolve project truth, live capability, policy, and availability instead of assuming a provider",
+          "reference": "project-capability-profile",
+          "when": "Before choosing a tracker, repository action, storage location, browser, connector, provider, or tool fallback"
+        }
+      ]
+    },
+    "code-review": {
+      "path": "skills/code-review/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "link source truth, unresolved items, evidence, affected artifacts, and the next owner without creating shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a project artifact"
+        },
+        {
+          "purpose": "resolve project truth, live capability, policy, and availability instead of assuming a provider",
+          "reference": "project-capability-profile",
+          "when": "Before choosing a tracker, repository action, storage location, browser, connector, provider, or tool fallback"
+        }
+      ]
+    },
+    "codebase-design": {
+      "path": "skills/codebase-design/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "link source truth, unresolved items, evidence, affected artifacts, and the next owner without creating shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a project artifact"
+        },
+        {
+          "purpose": "check authority and report the exact side effect, fallback, and limitation",
+          "reference": "external-side-effect",
+          "when": "Before any local/external write, source-control action, deployment, destructive operation, or external communication"
+        },
+        {
+          "purpose": "resolve project truth, live capability, policy, and availability instead of assuming a provider",
+          "reference": "project-capability-profile",
+          "when": "Before choosing a tracker, repository action, storage location, browser, connector, provider, or tool fallback"
+        },
+        {
+          "purpose": "distinguish real compatibility obligations from speculative versioning and define cutover/removal proof",
+          "reference": "single-active-truth",
+          "when": "When a design introduces replacement, coexistence, compatibility, schema migration, or removal decisions"
+        }
+      ]
+    },
+    "create-domain-pack": {
+      "path": "skills/create-domain-pack/SKILL.md",
+      "references": [
+        {
+          "purpose": "preserve missing evidence, approval, or execution as truthful completion",
+          "reference": "workflow-result",
+          "when": "Before returning a workflow or lifecycle result"
+        },
+        {
+          "purpose": "keep proposal, evaluation, and promotion decisions distinct",
+          "reference": "role-boundary",
+          "when": "Before changing ownership or an active discovery surface"
+        },
+        {
+          "purpose": "preserve project truth and reusable boundaries",
+          "reference": "capability-gap-handoff",
+          "when": "When the request originated in project delivery"
+        },
+        {
+          "purpose": "verify authority and report exact side effects",
+          "reference": "external-side-effect",
+          "when": "Before repository, provider, publication, or destructive actions"
+        }
+      ]
+    },
+    "create-integration": {
+      "path": "skills/create-integration/SKILL.md",
+      "references": [
+        {
+          "purpose": "preserve missing evidence, approval, or execution as truthful completion",
+          "reference": "workflow-result",
+          "when": "Before returning a workflow or lifecycle result"
+        },
+        {
+          "purpose": "keep proposal, evaluation, and promotion decisions distinct",
+          "reference": "role-boundary",
+          "when": "Before changing ownership or an active discovery surface"
+        },
+        {
+          "purpose": "preserve project truth and reusable boundaries",
+          "reference": "capability-gap-handoff",
+          "when": "When the request originated in project delivery"
+        },
+        {
+          "purpose": "verify authority and report exact side effects",
+          "reference": "external-side-effect",
+          "when": "Before repository, provider, publication, or destructive actions"
+        }
+      ]
+    },
+    "create-skill": {
+      "path": "skills/create-skill/SKILL.md",
+      "references": [
+        {
+          "purpose": "preserve missing evidence, approval, or execution as truthful completion",
+          "reference": "workflow-result",
+          "when": "Before returning a workflow or lifecycle result"
+        },
+        {
+          "purpose": "keep proposal, evaluation, and promotion decisions distinct",
+          "reference": "role-boundary",
+          "when": "Before changing ownership or an active discovery surface"
+        },
+        {
+          "purpose": "preserve project truth and reusable boundaries",
+          "reference": "capability-gap-handoff",
+          "when": "When the request originated in project delivery"
+        },
+        {
+          "purpose": "verify authority and report exact side effects",
+          "reference": "external-side-effect",
+          "when": "Before repository, provider, publication, or destructive actions"
+        },
+        {
+          "purpose": "separate assertion, evidence, authority, and bounded next action without challenging every low-risk reversible assumption",
+          "reference": "claim-challenge",
+          "when": "When a claim is load-bearing, disputed, contradicted by current evidence, or would authorize a costly or hard-to-reverse next action"
+        },
+        {
+          "purpose": "extend or replace the canonical artifact instead of adding old/new/v2 duplicates without supported consumers",
+          "reference": "single-active-truth",
+          "when": "When a proposal revises or replaces an existing skill-system artifact"
+        }
+      ]
+    },
+    "creative-production": {
+      "path": "skills/creative-production/SKILL.md",
+      "references": [
+        {
+          "purpose": "distinguish produced, partial, blocked, unavailable, and unverified creative outcomes",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or creative handoff"
+        },
+        {
+          "purpose": "preserve Product UI Design, brand, Engineering, and QA authority boundaries",
+          "reference": "role-boundary",
+          "when": "When the request overlaps another canonical owner"
+        },
+        {
+          "purpose": "check authority and exact side-effect scope for local writes or host-native generation",
+          "reference": "external-side-effect",
+          "when": "Before any local/external write or generation side effect"
+        },
+        {
+          "purpose": "resolve real host/project generation capability rather than assume a provider",
+          "reference": "project-capability-profile",
+          "when": "Before selecting a host image or presentation capability"
+        }
+      ]
+    },
+    "data-persistence-engineering": {
+      "path": "skills/data-persistence-engineering/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning domain closure to /implement"
+        },
+        {
+          "purpose": "preserve canonical owner and supporting-role boundaries",
+          "reference": "role-boundary",
+          "when": "When approved Product, BA, Design, Architecture, QA, or Operations truth could be changed"
+        },
+        {
+          "purpose": "check authority and exact side-effect scope",
+          "reference": "external-side-effect",
+          "when": "Before any write outside the caller's already-authorized implementation scope"
+        },
+        {
+          "purpose": "remove superseded implementation truth after verified parity",
+          "reference": "single-active-truth",
+          "when": "When replacing or removing an active implementation path"
+        }
+      ]
+    },
+    "defect-report": {
+      "path": "skills/defect-report/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "link source truth, unresolved items, evidence, affected artifacts, and the next owner without creating shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a project artifact"
+        },
+        {
+          "purpose": "check authority and report the exact side effect, fallback, and limitation",
+          "reference": "external-side-effect",
+          "when": "Before any local/external write, source-control action, deployment, destructive operation, or external communication"
+        },
+        {
+          "purpose": "resolve project truth, live capability, policy, and availability instead of assuming a provider",
+          "reference": "project-capability-profile",
+          "when": "Before choosing a tracker, repository action, storage location, browser, connector, provider, or tool fallback"
+        }
+      ]
+    },
+    "define-behavior": {
+      "path": "skills/define-behavior/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "link source truth, unresolved items, evidence, affected artifacts, and the next owner without creating shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a project artifact"
+        },
+        {
+          "purpose": "check authority and report the exact side effect, fallback, and limitation",
+          "reference": "external-side-effect",
+          "when": "Before any local/external write, source-control action, deployment, destructive operation, or external communication"
+        }
+      ]
+    },
+    "deploy-release": {
+      "path": "skills/deploy-release/SKILL.md",
+      "references": [
+        {
+          "purpose": "map deployment-domain states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final state or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve release, operations, incident, product, and provider decision ownership",
+          "reference": "role-boundary",
+          "when": "When authority, incident command, or another role could change the deployment action"
+        },
+        {
+          "purpose": "link exact candidate/environment/evidence/residual risk and next owner without shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting deployment evidence or handing off residual work"
+        },
+        {
+          "purpose": "check authority and report deployment/rollback/provider side effects truthfully",
+          "reference": "external-side-effect",
+          "when": "Before deployment, rollback, provider mutation, public exposure change, or external communication"
+        },
+        {
+          "purpose": "resolve project truth, live deploy/observability capability, policy, and availability",
+          "reference": "project-capability-profile",
+          "when": "Before selecting a deployment or observability provider or fallback"
+        }
+      ]
+    },
+    "design-experience": {
+      "path": "skills/design-experience/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "link source truth, unresolved items, evidence, affected artifacts, and the next owner without creating shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a project artifact"
+        },
+        {
+          "purpose": "check authority and report the exact side effect, fallback, and limitation",
+          "reference": "external-side-effect",
+          "when": "Before any local/external write, source-control action, deployment, destructive operation, or external communication"
+        }
+      ]
+    },
+    "design-intelligence": {
+      "path": "skills/design-intelligence/SKILL.md",
+      "references": [
+        {
+          "purpose": "map local evidence availability and limitations to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning evidence or a supporting handoff"
+        },
+        {
+          "purpose": "keep corpus recommendations subordinate to canonical Product, Design, Engineering, and QA owners",
+          "reference": "role-boundary",
+          "when": "When a recommendation could be mistaken for an approval or implementation decision"
+        }
+      ]
+    },
+    "design-visual": {
+      "path": "skills/design-visual/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "link source truth, unresolved items, evidence, affected artifacts, and the next owner without creating shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a project artifact"
+        },
+        {
+          "purpose": "check authority and report the exact side effect, fallback, and limitation",
+          "reference": "external-side-effect",
+          "when": "Before any local/external write, source-control action, deployment, destructive operation, or external communication"
+        }
+      ]
+    },
+    "diagnosing-bugs": {
+      "path": "skills/diagnosing-bugs/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "link source truth, unresolved items, evidence, affected artifacts, and the next owner without creating shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a project artifact"
+        },
+        {
+          "purpose": "resolve project truth, live capability, policy, and availability instead of assuming a provider",
+          "reference": "project-capability-profile",
+          "when": "Before choosing a tracker, repository action, storage location, browser, connector, provider, or tool fallback"
+        }
+      ]
+    },
+    "domain-modeling": {
+      "path": "skills/domain-modeling/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "link source truth, unresolved items, evidence, affected artifacts, and the next owner without creating shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a project artifact"
+        },
+        {
+          "purpose": "check authority and report the exact side effect, fallback, and limitation",
+          "reference": "external-side-effect",
+          "when": "Before any local/external write, source-control action, deployment, destructive operation, or external communication"
+        },
+        {
+          "purpose": "resolve project truth, live capability, policy, and availability instead of assuming a provider",
+          "reference": "project-capability-profile",
+          "when": "Before choosing a tracker, repository action, storage location, browser, connector, provider, or tool fallback"
+        }
+      ]
+    },
+    "frontend-engineering": {
+      "path": "skills/frontend-engineering/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning domain closure to /implement"
+        },
+        {
+          "purpose": "preserve canonical owner and supporting-role boundaries",
+          "reference": "role-boundary",
+          "when": "When approved Product, BA, Design, Architecture, QA, or Operations truth could be changed"
+        },
+        {
+          "purpose": "check authority and exact side-effect scope",
+          "reference": "external-side-effect",
+          "when": "Before any write outside the caller's already-authorized implementation scope"
+        },
+        {
+          "purpose": "remove superseded implementation truth after verified parity",
+          "reference": "single-active-truth",
+          "when": "When replacing or removing an active implementation path"
+        }
+      ]
+    },
+    "grill-me": {
+      "path": "skills/grill-me/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "link source truth, unresolved items, evidence, affected artifacts, and the next owner without creating shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a project artifact"
+        }
+      ]
+    },
+    "grill-with-docs": {
+      "path": "skills/grill-with-docs/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "link source truth, unresolved items, evidence, affected artifacts, and the next owner without creating shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a project artifact"
+        }
+      ]
+    },
+    "grilling": {
+      "path": "skills/grilling/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "link source truth, unresolved items, evidence, affected artifacts, and the next owner without creating shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a project artifact"
+        }
+      ]
+    },
+    "handoff": {
+      "path": "skills/handoff/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "link source truth, unresolved items, evidence, affected artifacts, and the next owner without creating shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a project artifact"
+        },
+        {
+          "purpose": "check authority and report the exact side effect, fallback, and limitation",
+          "reference": "external-side-effect",
+          "when": "Before any local/external write, source-control action, deployment, destructive operation, or external communication"
+        },
+        {
+          "purpose": "resolve project truth, live capability, policy, and availability instead of assuming a provider",
+          "reference": "project-capability-profile",
+          "when": "Before choosing a tracker, repository action, storage location, browser, connector, provider, or tool fallback"
+        }
+      ]
+    },
+    "implement": {
+      "path": "skills/implement/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "activate one material semantic unit at a time, reconstruct truth/proof before claim inspection, externalize discoveries immediately, and return a closure-capable exit contract",
+          "reference": "semantic-continuity",
+          "when": "Before deep implementation of the approved frontier item"
+        },
+        {
+          "purpose": "check authority and report the exact side effect, fallback, and limitation",
+          "reference": "external-side-effect",
+          "when": "Before any local/external write, source-control action, deployment, destructive operation, or external communication"
+        },
+        {
+          "purpose": "resolve project truth, live capability, policy, and availability instead of assuming a provider",
+          "reference": "project-capability-profile",
+          "when": "Before choosing a tracker, repository action, storage location, browser, connector, provider, or tool fallback"
+        },
+        {
+          "purpose": "prove parity, migrate callers, and remove the superseded support surface without silent fallback",
+          "reference": "single-active-truth",
+          "when": "When replacing/removing code, tests, docs, configuration, routes, versions, or schema/data history"
+        }
+      ]
+    },
+    "improve-codebase-architecture": {
+      "path": "skills/improve-codebase-architecture/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "link source truth, unresolved items, evidence, affected artifacts, and the next owner without creating shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a project artifact"
+        },
+        {
+          "purpose": "check authority and report the exact side effect, fallback, and limitation",
+          "reference": "external-side-effect",
+          "when": "Before any local/external write, source-control action, deployment, destructive operation, or external communication"
+        },
+        {
+          "purpose": "resolve project truth, live capability, policy, and availability instead of assuming a provider",
+          "reference": "project-capability-profile",
+          "when": "Before choosing a tracker, repository action, storage location, browser, connector, provider, or tool fallback"
+        },
+        {
+          "purpose": "treat cleanup as a source-truth problem and avoid layering another path over the old one",
+          "reference": "single-active-truth",
+          "when": "When architecture friction includes duplicate implementations, legacy paths, stale tests, or version sediment"
+        }
+      ]
+    },
+    "incident-response": {
+      "path": "skills/incident-response/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "link source truth, unresolved items, evidence, affected artifacts, and the next owner without creating shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a project artifact"
+        },
+        {
+          "purpose": "check authority and report the exact side effect, fallback, and limitation",
+          "reference": "external-side-effect",
+          "when": "Before any local/external write, source-control action, deployment, destructive operation, or external communication"
+        },
+        {
+          "purpose": "resolve project truth, live capability, policy, and availability instead of assuming a provider",
+          "reference": "project-capability-profile",
+          "when": "Before choosing a tracker, repository action, storage location, browser, connector, provider, or tool fallback"
+        }
+      ]
+    },
+    "manage-skill-lifecycle": {
+      "path": "skills/manage-skill-lifecycle/SKILL.md",
+      "references": [
+        {
+          "purpose": "preserve missing evidence, approval, or execution as truthful completion",
+          "reference": "workflow-result",
+          "when": "Before returning a workflow or lifecycle result"
+        },
+        {
+          "purpose": "keep proposal, evaluation, and promotion decisions distinct",
+          "reference": "role-boundary",
+          "when": "Before changing ownership or an active discovery surface"
+        },
+        {
+          "purpose": "preserve project truth and reusable boundaries",
+          "reference": "capability-gap-handoff",
+          "when": "When the request originated in project delivery"
+        },
+        {
+          "purpose": "verify authority and report exact side effects",
+          "reference": "external-side-effect",
+          "when": "Before repository, provider, publication, or destructive actions"
+        },
+        {
+          "purpose": "separate assertion, evidence, authority, and bounded next action without challenging every low-risk reversible assumption",
+          "reference": "claim-challenge",
+          "when": "When a claim is load-bearing, disputed, contradicted by current evidence, or would authorize a costly or hard-to-reverse next action"
+        },
+        {
+          "purpose": "cut over atomically and remove superseded manifest, route, context, eval, docs, and package surfaces",
+          "reference": "single-active-truth",
+          "when": "When promoting, revising, deprecating, or removing an active skill-system artifact"
+        }
+      ]
+    },
+    "manual-review": {
+      "path": "skills/manual-review/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "link source truth, unresolved items, evidence, affected artifacts, and the next owner without creating shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a project artifact"
+        },
+        {
+          "purpose": "check authority and report the exact side effect, fallback, and limitation",
+          "reference": "external-side-effect",
+          "when": "Before any local/external write, source-control action, deployment, destructive operation, or external communication"
+        },
+        {
+          "purpose": "resolve project truth, live capability, policy, and availability instead of assuming a provider",
+          "reference": "project-capability-profile",
+          "when": "Before choosing a tracker, repository action, storage location, browser, connector, provider, or tool fallback"
+        }
+      ]
+    },
+    "metrics-review": {
+      "path": "skills/metrics-review/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "link source truth, unresolved items, evidence, affected artifacts, and the next owner without creating shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a project artifact"
+        },
+        {
+          "purpose": "check authority and report the exact side effect, fallback, and limitation",
+          "reference": "external-side-effect",
+          "when": "Before any local/external write, source-control action, deployment, destructive operation, or external communication"
+        }
+      ]
+    },
+    "non-functional-requirement": {
+      "path": "skills/non-functional-requirement/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "link source truth, unresolved items, evidence, affected artifacts, and the next owner without creating shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a project artifact"
+        }
+      ]
+    },
+    "postmortem": {
+      "path": "skills/postmortem/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "link source truth, unresolved items, evidence, affected artifacts, and the next owner without creating shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a project artifact"
+        },
+        {
+          "purpose": "check authority and report the exact side effect, fallback, and limitation",
+          "reference": "external-side-effect",
+          "when": "Before any local/external write, source-control action, deployment, destructive operation, or external communication"
+        },
+        {
+          "purpose": "resolve project truth, live capability, policy, and availability instead of assuming a provider",
+          "reference": "project-capability-profile",
+          "when": "Before choosing a tracker, repository action, storage location, browser, connector, provider, or tool fallback"
+        }
+      ]
+    },
+    "product-definition": {
+      "path": "skills/product-definition/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "link source truth, unresolved items, evidence, affected artifacts, and the next owner without creating shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a project artifact"
+        },
+        {
+          "purpose": "check authority and report the exact side effect, fallback, and limitation",
+          "reference": "external-side-effect",
+          "when": "Before any local/external write, source-control action, deployment, destructive operation, or external communication"
+        }
+      ]
+    },
+    "product-discovery": {
+      "path": "skills/product-discovery/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "link source truth, unresolved items, evidence, affected artifacts, and the next owner without creating shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a project artifact"
+        },
+        {
+          "purpose": "check authority and report the exact side effect, fallback, and limitation",
+          "reference": "external-side-effect",
+          "when": "Before any local/external write, source-control action, deployment, destructive operation, or external communication"
+        }
+      ]
+    },
+    "project-bootstrap": {
+      "path": "skills/project-bootstrap/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "link source truth, unresolved items, evidence, affected artifacts, and the next owner without creating shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a project artifact"
+        },
+        {
+          "purpose": "check authority and report the exact side effect, fallback, and limitation",
+          "reference": "external-side-effect",
+          "when": "Before any local/external write, source-control action, deployment, destructive operation, or external communication"
+        },
+        {
+          "purpose": "resolve project truth, live capability, policy, and availability instead of assuming a provider",
+          "reference": "project-capability-profile",
+          "when": "Before choosing a tracker, repository action, storage location, browser, connector, provider, or tool fallback"
+        }
+      ]
+    },
+    "prototype": {
+      "path": "skills/prototype/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "link source truth, unresolved items, evidence, affected artifacts, and the next owner without creating shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a project artifact"
+        },
+        {
+          "purpose": "check authority and report the exact side effect, fallback, and limitation",
+          "reference": "external-side-effect",
+          "when": "Before any local/external write, source-control action, deployment, destructive operation, or external communication"
+        },
+        {
+          "purpose": "resolve project truth, live capability, policy, and availability instead of assuming a provider",
+          "reference": "project-capability-profile",
+          "when": "Before choosing a tracker, repository action, storage location, browser, connector, provider, or tool fallback"
+        }
+      ]
+    },
+    "qualify-sdlc-capability": {
+      "path": "skills/qualify-sdlc-capability/SKILL.md",
+      "references": [
+        {
+          "purpose": "preserve missing evidence, approval, or execution as truthful completion",
+          "reference": "workflow-result",
+          "when": "Before returning a workflow or lifecycle result"
+        },
+        {
+          "purpose": "keep proposal, evaluation, and promotion decisions distinct",
+          "reference": "role-boundary",
+          "when": "Before changing ownership or an active discovery surface"
+        },
+        {
+          "purpose": "preserve project truth and reusable boundaries",
+          "reference": "capability-gap-handoff",
+          "when": "When the request originated in project delivery"
+        },
+        {
+          "purpose": "verify authority and report exact side effects",
+          "reference": "external-side-effect",
+          "when": "Before repository, provider, publication, or destructive actions"
+        },
+        {
+          "purpose": "separate assertion, evidence, authority, and bounded next action without challenging every low-risk reversible assumption",
+          "reference": "claim-challenge",
+          "when": "When a claim is load-bearing, disputed, contradicted by current evidence, or would authorize a costly or hard-to-reverse next action"
+        }
+      ]
+    },
+    "release-gate": {
+      "path": "skills/release-gate/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "link source truth, unresolved items, evidence, affected artifacts, and the next owner without creating shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a project artifact"
+        },
+        {
+          "purpose": "check authority and report the exact side effect, fallback, and limitation",
+          "reference": "external-side-effect",
+          "when": "Before any local/external write, source-control action, deployment, destructive operation, or external communication"
+        },
+        {
+          "purpose": "resolve project truth, live capability, policy, and availability instead of assuming a provider",
+          "reference": "project-capability-profile",
+          "when": "Before choosing a tracker, repository action, storage location, browser, connector, provider, or tool fallback"
+        },
+        {
+          "purpose": "block release on unresolved duplicate truth, silent fallback, stale support surfaces, or missing upgrade evidence",
+          "reference": "single-active-truth",
+          "when": "When the candidate replaces, versions, migrates, or retires an active implementation or schema"
+        }
+      ]
+    },
+    "research": {
+      "path": "skills/research/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "link source truth, unresolved items, evidence, affected artifacts, and the next owner without creating shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a project artifact"
+        },
+        {
+          "purpose": "check authority and report the exact side effect, fallback, and limitation",
+          "reference": "external-side-effect",
+          "when": "Before any local/external write, source-control action, deployment, destructive operation, or external communication"
+        },
+        {
+          "purpose": "resolve project truth, live capability, policy, and availability instead of assuming a provider",
+          "reference": "project-capability-profile",
+          "when": "Before choosing a tracker, repository action, storage location, browser, connector, provider, or tool fallback"
+        }
+      ]
+    },
+    "research-synthesis": {
+      "path": "skills/research-synthesis/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "link source truth, unresolved items, evidence, affected artifacts, and the next owner without creating shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a project artifact"
+        },
+        {
+          "purpose": "check authority and report the exact side effect, fallback, and limitation",
+          "reference": "external-side-effect",
+          "when": "Before any local/external write, source-control action, deployment, destructive operation, or external communication"
+        }
+      ]
+    },
+    "resolving-merge-conflicts": {
+      "path": "skills/resolving-merge-conflicts/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "link source truth, unresolved items, evidence, affected artifacts, and the next owner without creating shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a project artifact"
+        },
+        {
+          "purpose": "check authority and report the exact side effect, fallback, and limitation",
+          "reference": "external-side-effect",
+          "when": "Before any local/external write, source-control action, deployment, destructive operation, or external communication"
+        },
+        {
+          "purpose": "resolve project truth, live capability, policy, and availability instead of assuming a provider",
+          "reference": "project-capability-profile",
+          "when": "Before choosing a tracker, repository action, storage location, browser, connector, provider, or tool fallback"
+        }
+      ]
+    },
+    "review-visual": {
+      "path": "skills/review-visual/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "link source truth, unresolved items, evidence, affected artifacts, and the next owner without creating shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a project artifact"
+        },
+        {
+          "purpose": "check authority and report the exact side effect, fallback, and limitation",
+          "reference": "external-side-effect",
+          "when": "Before any local/external write, source-control action, deployment, destructive operation, or external communication"
+        },
+        {
+          "purpose": "resolve project truth, live capability, policy, and availability instead of assuming a provider",
+          "reference": "project-capability-profile",
+          "when": "Before choosing a tracker, repository action, storage location, browser, connector, provider, or tool fallback"
+        }
+      ]
+    },
+    "runbook": {
+      "path": "skills/runbook/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "link source truth, unresolved items, evidence, affected artifacts, and the next owner without creating shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a project artifact"
+        },
+        {
+          "purpose": "check authority and report the exact side effect, fallback, and limitation",
+          "reference": "external-side-effect",
+          "when": "Before any local/external write, source-control action, deployment, destructive operation, or external communication"
+        },
+        {
+          "purpose": "resolve project truth, live capability, policy, and availability instead of assuming a provider",
+          "reference": "project-capability-profile",
+          "when": "Before choosing a tracker, repository action, storage location, browser, connector, provider, or tool fallback"
+        }
+      ]
+    },
+    "sdlc": {
+      "path": "skills/sdlc/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "link source truth, unresolved items, evidence, affected artifacts, and the next owner without creating shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a project artifact"
+        },
+        {
+          "purpose": "separate assertion, evidence, authority, and bounded next action without challenging every low-risk reversible assumption",
+          "reference": "claim-challenge",
+          "when": "When a claim is load-bearing, disputed, contradicted by current evidence, or would authorize a costly or hard-to-reverse next action"
+        },
+        {
+          "purpose": "keep one active truth and require parity, consumer, migration, and removal evidence",
+          "reference": "single-active-truth",
+          "when": "When routing replacement, removal, version coexistence, schema history, or cleanup work"
+        }
+      ]
+    },
+    "security-engineering": {
+      "path": "skills/security-engineering/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning domain closure to /implement"
+        },
+        {
+          "purpose": "preserve canonical owner and supporting-role boundaries",
+          "reference": "role-boundary",
+          "when": "When approved Product, BA, Design, Architecture, QA, or Operations truth could be changed"
+        },
+        {
+          "purpose": "check authority and exact side-effect scope",
+          "reference": "external-side-effect",
+          "when": "Before any write outside the caller's already-authorized implementation scope"
+        },
+        {
+          "purpose": "remove superseded implementation truth after verified parity",
+          "reference": "single-active-truth",
+          "when": "When replacing or removing an active implementation path"
+        }
+      ]
+    },
+    "service-operations": {
+      "path": "skills/service-operations/SKILL.md",
+      "references": [
+        {
+          "purpose": "keep operational health/action state and missing evidence separate from workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve runbook, deployment, incident, diagnosis and Product decision ownership",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "link exact operational fixed point, evidence, invalidation, residual risk and next owner without shadow truth",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off an operational record"
+        },
+        {
+          "purpose": "preserve real side-effect class, authority, partial state, postconditions and compensation truth",
+          "reference": "external-side-effect",
+          "when": "Before any local/external write, deployment/destructive action, or external communication"
+        },
+        {
+          "purpose": "resolve live project observability/action capability, provider, policy and availability instead of assuming them",
+          "reference": "project-capability-profile",
+          "when": "Before choosing an observability source, provider, runbook execution tool, tracker, or action capability"
+        }
+      ]
+    },
+    "tdd": {
+      "path": "skills/tdd/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "consume the current expected truth/proof boundary without inventing upstream behavior or claiming parent closure",
+          "reference": "semantic-continuity",
+          "when": "Before defining the next red/green slice for a material ACTIVE unit"
+        },
+        {
+          "purpose": "link source truth, unresolved items, evidence, affected artifacts, and the next owner without creating shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a project artifact"
+        },
+        {
+          "purpose": "check authority and report the exact side effect, fallback, and limitation",
+          "reference": "external-side-effect",
+          "when": "Before any local/external write, source-control action, deployment, destructive operation, or external communication"
+        },
+        {
+          "purpose": "resolve project truth, live capability, policy, and availability instead of assuming a provider",
+          "reference": "project-capability-profile",
+          "when": "Before choosing a tracker, repository action, storage location, browser, connector, provider, or tool fallback"
+        }
+      ]
+    },
+    "test-condition": {
+      "path": "skills/test-condition/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "link source truth, unresolved items, evidence, affected artifacts, and the next owner without creating shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a project artifact"
+        },
+        {
+          "purpose": "resolve project truth, live capability, policy, and availability instead of assuming a provider",
+          "reference": "project-capability-profile",
+          "when": "Before choosing a tracker, repository action, storage location, browser, connector, provider, or tool fallback"
+        }
+      ]
+    },
+    "test-strategy": {
+      "path": "skills/test-strategy/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "link source truth, unresolved items, evidence, affected artifacts, and the next owner without creating shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a project artifact"
+        },
+        {
+          "purpose": "check authority and report the exact side effect, fallback, and limitation",
+          "reference": "external-side-effect",
+          "when": "Before any local/external write, source-control action, deployment, destructive operation, or external communication"
+        },
+        {
+          "purpose": "resolve project truth, live capability, policy, and availability instead of assuming a provider",
+          "reference": "project-capability-profile",
+          "when": "Before choosing a tracker, repository action, storage location, browser, connector, provider, or tool fallback"
+        }
+      ]
+    },
+    "to-spec": {
+      "path": "skills/to-spec/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "link source truth, unresolved items, evidence, affected artifacts, and the next owner without creating shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a project artifact"
+        },
+        {
+          "purpose": "check authority and report the exact side effect, fallback, and limitation",
+          "reference": "external-side-effect",
+          "when": "Before any local/external write, source-control action, deployment, destructive operation, or external communication"
+        },
+        {
+          "purpose": "resolve project truth, live capability, policy, and availability instead of assuming a provider",
+          "reference": "project-capability-profile",
+          "when": "Before choosing a tracker, repository action, storage location, browser, connector, provider, or tool fallback"
+        }
+      ]
+    },
+    "to-tickets": {
+      "path": "skills/to-tickets/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "preserve material obligations, use one deep-ACTIVE planning unit at a time, and reject silent coverage loss",
+          "reference": "semantic-continuity",
+          "when": "Before decomposing approved truth into executable slices or reconciling the implementation frontier"
+        },
+        {
+          "purpose": "link source truth, unresolved items, evidence, affected artifacts, and the next owner without creating shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a project artifact"
+        },
+        {
+          "purpose": "check authority and report the exact side effect, fallback, and limitation",
+          "reference": "external-side-effect",
+          "when": "Before any local/external write, source-control action, deployment, destructive operation, or external communication"
+        },
+        {
+          "purpose": "resolve project truth, live capability, policy, and availability instead of assuming a provider",
+          "reference": "project-capability-profile",
+          "when": "Before choosing a tracker, repository action, storage location, browser, connector, provider, or tool fallback"
+        }
+      ]
+    },
+    "traceability": {
+      "path": "skills/traceability/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "link source truth, unresolved items, evidence, affected artifacts, and the next owner without creating shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a project artifact"
+        },
+        {
+          "purpose": "verify authority and preserve denied or unavailable writes without creating shadow status",
+          "reference": "external-side-effect",
+          "when": "Before writing stale/review state into a canonical repository or tracker"
+        }
+      ]
+    },
+    "triage": {
+      "path": "skills/triage/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "link source truth, unresolved items, evidence, affected artifacts, and the next owner without creating shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a project artifact"
+        },
+        {
+          "purpose": "check authority and report the exact side effect, fallback, and limitation",
+          "reference": "external-side-effect",
+          "when": "Before any local/external write, source-control action, deployment, destructive operation, or external communication"
+        },
+        {
+          "purpose": "resolve project truth, live capability, policy, and availability instead of assuming a provider",
+          "reference": "project-capability-profile",
+          "when": "Before choosing a tracker, repository action, storage location, browser, connector, provider, or tool fallback"
+        }
+      ]
+    },
+    "uat-scenario": {
+      "path": "skills/uat-scenario/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "link source truth, unresolved items, evidence, affected artifacts, and the next owner without creating shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a project artifact"
+        }
+      ]
+    },
+    "upgrade-sdlc-intelligence": {
+      "path": "skills/upgrade-sdlc-intelligence/SKILL.md",
+      "references": [
+        {
+          "purpose": "preserve missing evidence, approval, or execution as truthful completion",
+          "reference": "workflow-result",
+          "when": "Before returning a workflow or lifecycle result"
+        },
+        {
+          "purpose": "keep proposal, evaluation, and promotion decisions distinct",
+          "reference": "role-boundary",
+          "when": "Before changing ownership or an active discovery surface"
+        },
+        {
+          "purpose": "preserve project truth and reusable boundaries",
+          "reference": "capability-gap-handoff",
+          "when": "When the request originated in project delivery"
+        },
+        {
+          "purpose": "verify authority and report exact side effects",
+          "reference": "external-side-effect",
+          "when": "Before repository, provider, publication, or destructive actions"
+        },
+        {
+          "purpose": "separate assertion, evidence, authority, and bounded next action without challenging every low-risk reversible assumption",
+          "reference": "claim-challenge",
+          "when": "When a claim is load-bearing, disputed, contradicted by current evidence, or would authorize a costly or hard-to-reverse next action"
+        },
+        {
+          "purpose": "remove superseded discovery/runtime/eval surfaces and keep history outside active truth",
+          "reference": "single-active-truth",
+          "when": "When revising, replacing, deprecating, or removing an active ecosystem surface"
+        }
+      ]
+    },
+    "use-case": {
+      "path": "skills/use-case/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "link source truth, unresolved items, evidence, affected artifacts, and the next owner without creating shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a project artifact"
+        }
+      ]
+    },
+    "user-flow": {
+      "path": "skills/user-flow/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "link source truth, unresolved items, evidence, affected artifacts, and the next owner without creating shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a project artifact"
+        }
+      ]
+    },
+    "user-guide": {
+      "path": "skills/user-guide/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "link source truth, unresolved items, evidence, affected artifacts, and the next owner without creating shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a project artifact"
+        },
+        {
+          "purpose": "check authority and report the exact side effect, fallback, and limitation",
+          "reference": "external-side-effect",
+          "when": "Before any local/external write, source-control action, deployment, destructive operation, or external communication"
+        },
+        {
+          "purpose": "resolve project truth, live capability, policy, and availability instead of assuming a provider",
+          "reference": "project-capability-profile",
+          "when": "Before choosing a tracker, repository action, storage location, browser, connector, provider, or tool fallback"
+        }
+      ]
+    },
+    "user-story": {
+      "path": "skills/user-story/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "link source truth, unresolved items, evidence, affected artifacts, and the next owner without creating shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a project artifact"
+        }
+      ]
+    },
+    "verify-quality": {
+      "path": "skills/verify-quality/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "reconstruct expected truth before developer claims, verify incoming obligation coverage, and prevent green tests from closing omitted semantic proof",
+          "reference": "semantic-continuity",
+          "when": "Before fixing QA semantic scope or deriving material test conditions"
+        },
+        {
+          "purpose": "link source truth, unresolved items, evidence, affected artifacts, and the next owner without creating shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a project artifact"
+        },
+        {
+          "purpose": "check authority and report the exact side effect, fallback, and limitation",
+          "reference": "external-side-effect",
+          "when": "Before any local/external write, source-control action, deployment, destructive operation, or external communication"
+        },
+        {
+          "purpose": "resolve project truth, live capability, policy, and availability instead of assuming a provider",
+          "reference": "project-capability-profile",
+          "when": "Before choosing a tracker, repository action, storage location, browser, connector, provider, or tool fallback"
+        }
+      ]
+    },
+    "verify-visual": {
+      "path": "skills/verify-visual/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "link source truth, unresolved items, evidence, affected artifacts, and the next owner without creating shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a project artifact"
+        },
+        {
+          "purpose": "check authority and report the exact side effect, fallback, and limitation",
+          "reference": "external-side-effect",
+          "when": "Before any local/external write, source-control action, deployment, destructive operation, or external communication"
+        },
+        {
+          "purpose": "resolve project truth, live capability, policy, and availability instead of assuming a provider",
+          "reference": "project-capability-profile",
+          "when": "Before choosing a tracker, repository action, storage location, browser, connector, provider, or tool fallback"
+        }
+      ]
+    },
+    "visual-capture": {
+      "path": "skills/visual-capture/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "link source truth, unresolved items, evidence, affected artifacts, and the next owner without creating shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a project artifact"
+        },
+        {
+          "purpose": "check authority and report the exact side effect, fallback, and limitation",
+          "reference": "external-side-effect",
+          "when": "Before any local/external write, source-control action, deployment, destructive operation, or external communication"
+        },
+        {
+          "purpose": "resolve project truth, live capability, policy, and availability instead of assuming a provider",
+          "reference": "project-capability-profile",
+          "when": "Before choosing a tracker, repository action, storage location, browser, connector, provider, or tool fallback"
+        }
+      ]
+    },
+    "visual-contract": {
+      "path": "skills/visual-contract/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "keep incoming behavior covered and prevent visual refinement from silently narrowing upstream truth",
+          "reference": "semantic-continuity",
+          "when": "Before translating approved behavior/wireframes into material visual states or UI-system obligations"
+        },
+        {
+          "purpose": "link source truth, unresolved items, evidence, affected artifacts, and the next owner without creating shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a project artifact"
+        }
+      ]
+    },
+    "visual-qa": {
+      "path": "skills/visual-qa/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "link source truth, unresolved items, evidence, affected artifacts, and the next owner without creating shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a project artifact"
+        }
+      ]
+    },
+    "visual-review": {
+      "path": "skills/visual-review/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "link source truth, unresolved items, evidence, affected artifacts, and the next owner without creating shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a project artifact"
+        }
+      ]
+    },
+    "wayfinder": {
+      "path": "skills/wayfinder/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "link source truth, unresolved items, evidence, affected artifacts, and the next owner without creating shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a project artifact"
+        },
+        {
+          "purpose": "check authority and report the exact side effect, fallback, and limitation",
+          "reference": "external-side-effect",
+          "when": "Before any local/external write, source-control action, deployment, destructive operation, or external communication"
+        },
+        {
+          "purpose": "resolve project truth, live capability, policy, and availability instead of assuming a provider",
+          "reference": "project-capability-profile",
+          "when": "Before choosing a tracker, repository action, storage location, browser, connector, provider, or tool fallback"
+        }
+      ]
+    },
+    "wireframe": {
+      "path": "skills/wireframe/SKILL.md",
+      "references": [
+        {
+          "purpose": "map specialized states and unverified checks to truthful workflow completion",
+          "reference": "workflow-result",
+          "when": "Before returning a final result or cross-owner handoff"
+        },
+        {
+          "purpose": "preserve the canonical owner and announce role transitions",
+          "reference": "role-boundary",
+          "when": "When another role, approval authority, or conflicting artifact could change the decision"
+        },
+        {
+          "purpose": "keep material obligations, discoveries, and proof-relevant behavior from disappearing during Design refinement",
+          "reference": "semantic-continuity",
+          "when": "Before inventorying/refining material behavior that downstream work must preserve"
+        },
+        {
+          "purpose": "link source truth, unresolved items, evidence, affected artifacts, and the next owner without creating shadow status",
+          "reference": "artifact-linking",
+          "when": "Before persisting, superseding, or handing off a project artifact"
+        }
+      ]
+    }
+  },
+  "version": 1
+}

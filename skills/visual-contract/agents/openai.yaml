@@ -1,0 +1,6 @@
+interface:
+  display_name: Visual Contract
+  short_description: Define an implementation-neutral visual and UI contract for hierarchy,
+    tokens, components, responsive modes, and QA acceptance.
+policy:
+  allow_implicit_invocation: true

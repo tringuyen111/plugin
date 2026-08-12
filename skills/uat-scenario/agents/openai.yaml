@@ -1,0 +1,6 @@
+interface:
+  display_name: UAT Scenario
+  short_description: Define a business-facing end-to-end UAT scenario from approved
+    behavior and representative operational data.
+policy:
+  allow_implicit_invocation: true

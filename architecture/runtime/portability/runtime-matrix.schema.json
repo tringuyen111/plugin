@@ -1,0 +1,169 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/sdlc/runtime-matrix.schema.json",
+  "title": "SDLC Runtime Portability Matrix",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "profiles",
+    "workflows",
+    "scenarios"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "profiles": {
+      "type": "array",
+      "minItems": 4,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "capabilities"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "capabilities": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "workflows": {
+      "type": "array",
+      "minItems": 5,
+      "items": {
+        "type": "object",
+        "required": [
+          "skill",
+          "skill_path",
+          "semantic_contract"
+        ],
+        "properties": {
+          "skill": {
+            "type": "string"
+          },
+          "skill_path": {
+            "type": "string"
+          },
+          "semantic_contract": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "scenarios": {
+      "type": "array",
+      "minItems": 20,
+      "items": {
+        "type": "object",
+        "required": [
+          "scenario_id",
+          "profile",
+          "skill",
+          "declared_scope",
+          "required_capabilities",
+          "available_capabilities",
+          "missing_required_capabilities",
+          "fallback_mode",
+          "expected_state",
+          "actions_claimed",
+          "actions_not_run",
+          "forbidden_claims"
+        ],
+        "properties": {
+          "scenario_id": {
+            "type": "string"
+          },
+          "profile": {
+            "type": "string"
+          },
+          "skill": {
+            "type": "string"
+          },
+          "declared_scope": {
+            "type": "string"
+          },
+          "required_capabilities": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "available_capabilities": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "missing_required_capabilities": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "fallback_mode": {
+            "enum": [
+              "NONE",
+              "INLINE",
+              "LOCAL_ONLY",
+              "NARROW_SCOPE",
+              "SAFE_RECOVERY"
+            ]
+          },
+          "expected_state": {
+            "enum": [
+              "READY",
+              "PARTIAL",
+              "BLOCKED",
+              "FAILED"
+            ]
+          },
+          "actions_claimed": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "actions_not_run": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "forbidden_claims": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "notes": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

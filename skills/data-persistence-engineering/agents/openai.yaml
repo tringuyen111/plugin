@@ -1,0 +1,6 @@
+interface:
+  display_name: Data Persistence Engineering
+  short_description: Durable data, migration, backfill and invariant execution under
+    /implement with failure and recovery proof.
+policy:
+  allow_implicit_invocation: false

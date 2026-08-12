@@ -1,0 +1,6 @@
+interface:
+  display_name: Verify Quality
+  short_description: Verify a fixed implementation against approved acceptance, NFRs,
+    risks, design, data, and regression evidence.
+policy:
+  allow_implicit_invocation: false

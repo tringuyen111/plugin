@@ -1,0 +1,6 @@
+interface:
+  display_name: User Flow
+  short_description: Define an end-to-end user flow with steps, decisions, alternate
+    paths, recovery, and state transitions.
+policy:
+  allow_implicit_invocation: true

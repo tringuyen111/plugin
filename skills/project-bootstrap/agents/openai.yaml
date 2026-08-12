@@ -1,0 +1,6 @@
+interface:
+  display_name: Project Bootstrap
+  short_description: Establish project truth locations, live capabilities, environments,
+    side-effect policy, and retention profile.
+policy:
+  allow_implicit_invocation: false

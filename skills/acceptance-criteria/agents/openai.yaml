@@ -1,0 +1,6 @@
+interface:
+  display_name: Acceptance Criteria
+  short_description: Define observable acceptance criteria for approved behavior,
+    including alternate, error, edge, and permission cases.
+policy:
+  allow_implicit_invocation: true

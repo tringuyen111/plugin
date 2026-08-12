@@ -1,0 +1,6 @@
+interface:
+  display_name: Grilling
+  short_description: Run a reusable one-question-at-a-time decision interview inside
+    an owning workflow without enacting the plan.
+policy:
+  allow_implicit_invocation: false
