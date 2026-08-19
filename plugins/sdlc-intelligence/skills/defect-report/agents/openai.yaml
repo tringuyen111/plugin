@@ -1,6 +1,0 @@
-interface:
-  display_name: Defect Report
-  short_description: Record a QA deviation with expected and actual behavior, reproduction
-    context, evidence, and impact.
-policy:
-  allow_implicit_invocation: true

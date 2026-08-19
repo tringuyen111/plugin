@@ -1,6 +1,0 @@
-interface:
-  display_name: Codebase Design
-  short_description: Design one approved module or interface boundary with ownership,
-    alternatives, compatibility, migration, and proof.
-policy:
-  allow_implicit_invocation: true

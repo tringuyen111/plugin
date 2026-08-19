@@ -1,6 +1,0 @@
-interface:
-  display_name: SDLC
-  short_description: Route ambiguous or cross-owner software delivery to exactly one
-    Product, BA, Design, Engineering, QA, Docs, or Ops owner.
-policy:
-  allow_implicit_invocation: true

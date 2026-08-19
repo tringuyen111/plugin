@@ -1,6 +1,0 @@
-interface:
-  display_name: TDD
-  short_description: Apply a bounded red-green-refactor loop to one approved behavior
-    and public seam inside implementation or bug fixing.
-policy:
-  allow_implicit_invocation: true

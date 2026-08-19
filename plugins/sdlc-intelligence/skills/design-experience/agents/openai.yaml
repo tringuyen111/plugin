@@ -1,6 +1,0 @@
-interface:
-  display_name: Design Experience
-  short_description: Turn an approved behavior package into user journeys, state-aware
-    flows, and low-fidelity wireframes before visual design or implementation.
-policy:
-  allow_implicit_invocation: false

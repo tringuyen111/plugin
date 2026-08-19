@@ -1,6 +1,0 @@
-interface:
-  display_name: User Story
-  short_description: Write or refine user stories that trace approved scope and actor
-    goals to user value without implementation detail.
-policy:
-  allow_implicit_invocation: true

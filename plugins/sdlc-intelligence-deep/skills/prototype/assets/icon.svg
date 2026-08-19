@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Prototype</title>
+  <desc id="desc">Build a throwaway runnable artifact to answer one unresolved logic, state, interaction, density, or feasibility question.</desc>
+  <rect width="256" height="256" rx="42" fill="#F6F4EF"/>
+  <rect x="18" y="18" width="220" height="220" rx="30" fill="none" stroke="#D9D2C7" stroke-width="4"/>
+  <rect x="46" y="72" width="132" height="98" rx="18" fill="none" stroke="#0E0E0E" stroke-width="8"/><line x1="46" y1="98" x2="178" y2="98" stroke="#0E0E0E" stroke-width="8" stroke-linecap="round"/><circle cx="66" cy="85" r="4" fill="#E64F2E" stroke="none" stroke-width="0"/><circle cx="82" cy="85" r="4" fill="#C7BEB1" stroke="none" stroke-width="0"/><circle cx="98" cy="85" r="4" fill="#C7BEB1" stroke="none" stroke-width="0"/><rect x="64" y="106" width="44" height="40" rx="8" fill="none" stroke="#0E0E0E" stroke-width="8"/><rect x="116" y="106" width="44" height="16" rx="8" fill="#F4C4B4" stroke="#0E0E0E" stroke-width="8"/><rect x="116" y="130" width="44" height="16" rx="8" fill="none" stroke="#0E0E0E" stroke-width="8"/><circle cx="188" cy="130" r="28" fill="none" stroke="#0E0E0E" stroke-width="8"/><polyline points="178,116 204,130 178,144" stroke="#E64F2E" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>

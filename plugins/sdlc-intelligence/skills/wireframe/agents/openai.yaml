@@ -1,6 +1,0 @@
-interface:
-  display_name: Wireframe
-  short_description: Create or review low-fidelity screen structure from an approved
-    user flow before polished visual design.
-policy:
-  allow_implicit_invocation: true

@@ -1,0 +1,7 @@
+interface:
+  display_name: Creative Production
+  short_description: Creative collateral direction and host-native asset generation.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  allow_implicit_invocation: true

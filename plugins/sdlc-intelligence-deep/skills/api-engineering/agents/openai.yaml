@@ -1,0 +1,8 @@
+interface:
+  display_name: API Engineering
+  short_description: Caller-visible API engineering with contract, compatibility,
+    retry/idempotency, negative cases, and real request-response proof.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  allow_implicit_invocation: true

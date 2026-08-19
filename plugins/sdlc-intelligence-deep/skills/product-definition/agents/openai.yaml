@@ -1,0 +1,8 @@
+interface:
+  display_name: Product Definition
+  short_description: Define evidence-grounded Product value, capability scope, metrics,
+    priority, and decision from a mature opportunity.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  allow_implicit_invocation: true

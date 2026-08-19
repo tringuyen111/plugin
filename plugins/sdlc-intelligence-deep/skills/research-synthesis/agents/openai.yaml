@@ -1,0 +1,8 @@
+interface:
+  display_name: Research Synthesis
+  short_description: Synthesize verified research into decision-ready findings, themes,
+    tensions, implications, and evidence gaps.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  allow_implicit_invocation: true

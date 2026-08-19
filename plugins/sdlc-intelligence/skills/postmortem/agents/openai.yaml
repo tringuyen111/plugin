@@ -1,6 +1,0 @@
-interface:
-  display_name: Postmortem
-  short_description: Create a blameless evidence-grounded postmortem after stabilization,
-    preserving timeline, causes, lessons, and owned actions.
-policy:
-  allow_implicit_invocation: true

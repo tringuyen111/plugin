@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Security Engineering</title>
+  <desc id="desc">Security engineering with trust-boundary reasoning, bypass coverage, lifecycle/replay handling, and real-mechanism negative proof.</desc>
+  <rect width="256" height="256" rx="42" fill="#F6F4EF"/>
+  <rect x="18" y="18" width="220" height="220" rx="30" fill="none" stroke="#D9D2C7" stroke-width="4"/>
+  <line x1="52" y1="128" x2="204" y2="128" stroke="#0E0E0E" stroke-width="8" stroke-linecap="round"/><path d="M128 76 l42 20 v30 c0 28 -18 48 -42 60 -24 -12 -42 -32 -42 -60 v-30 z" fill="none" stroke="#E64F2E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><rect x="116" y="120" width="24" height="24" rx="6" fill="#F4C4B4" stroke="#0E0E0E" stroke-width="8"/><path d="M120 120 v-10 a8 8 0 0 1 16 0 v10" fill="none" stroke="#0E0E0E" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

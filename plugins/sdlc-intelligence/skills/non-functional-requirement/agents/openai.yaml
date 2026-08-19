@@ -1,6 +1,0 @@
-interface:
-  display_name: Non Functional Requirement
-  short_description: Define measurable NFRs and verification intent for performance,
-    security, accessibility, reliability, and recovery.
-policy:
-  allow_implicit_invocation: true

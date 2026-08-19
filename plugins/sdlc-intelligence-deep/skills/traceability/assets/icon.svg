@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Traceability</title>
+  <desc id="desc">Build revision-bound cross-lifecycle lineage and change-impact truth across intent, delivery, evidence, release, and documentation.</desc>
+  <rect width="256" height="256" rx="42" fill="#F6F4EF"/>
+  <rect x="18" y="18" width="220" height="220" rx="30" fill="none" stroke="#D9D2C7" stroke-width="4"/>
+  <rect x="54" y="88" width="28" height="22" rx="8" fill="#F4C4B4" stroke="#0E0E0E" stroke-width="8"/><rect x="54" y="150" width="28" height="22" rx="8" fill="#D9D2C7" stroke="#0E0E0E" stroke-width="8"/><rect x="176" y="88" width="28" height="22" rx="8" fill="#D9D2C7" stroke="#0E0E0E" stroke-width="8"/><rect x="176" y="150" width="28" height="22" rx="8" fill="#F4C4B4" stroke="#0E0E0E" stroke-width="8"/><line x1="82" y1="99" x2="176" y2="99" stroke="#0E0E0E" stroke-width="8" stroke-linecap="round"/><line x1="68" y1="110" x2="68" y2="150" stroke="#0E0E0E" stroke-width="8" stroke-linecap="round"/><line x1="190" y1="110" x2="190" y2="150" stroke="#0E0E0E" stroke-width="8" stroke-linecap="round"/><line x1="82" y1="161" x2="176" y2="161" stroke="#0E0E0E" stroke-width="8" stroke-linecap="round"/><circle cx="128" cy="99" r="6" fill="#E64F2E" stroke="none" stroke-width="0"/><circle cx="128" cy="161" r="6" fill="#0E0E0E" stroke="none" stroke-width="0"/>
+</svg>

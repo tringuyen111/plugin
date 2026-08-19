@@ -1,0 +1,8 @@
+interface:
+  display_name: TDD
+  short_description: Drive a bounded behavior through standalone or composed red-green-refactor
+    TDD.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  allow_implicit_invocation: true

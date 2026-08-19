@@ -1,0 +1,8 @@
+interface:
+  display_name: Decision Interview
+  short_description: Improve a concrete decision one high-leverage human question
+    at a time.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  allow_implicit_invocation: false

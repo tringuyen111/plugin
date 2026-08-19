@@ -1,0 +1,8 @@
+interface:
+  display_name: Backend Engineering
+  short_description: Backend engineering with transaction, failure, concurrency, background/runtime
+    depth, and representative integration proof.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  allow_implicit_invocation: true

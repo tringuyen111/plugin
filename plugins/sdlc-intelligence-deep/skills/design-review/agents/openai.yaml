@@ -1,0 +1,8 @@
+interface:
+  display_name: Design Review
+  short_description: Independently challenge Product/UI Design claims, reasoning,
+    realization, and outcomes with evidence-grounded findings and re-review targets.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">DevOps Engineering</title>
+  <desc id="desc">Engineer CI/CD, IaC, release, deployment, recovery, and normal service operations end to end.</desc>
+  <rect width="256" height="256" rx="42" fill="#F6F4EF"/>
+  <rect x="18" y="18" width="220" height="220" rx="30" fill="none" stroke="#D9D2C7" stroke-width="4"/>
+  <rect x="86" y="88" width="84" height="52" rx="16" fill="none" stroke="#0E0E0E" stroke-width="8"/><polyline points="104,102 88,118 104,134" stroke="#E64F2E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><polyline points="152,102 168,118 152,134" stroke="#E64F2E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M82 174 C112 204 144 204 174 174" fill="none" stroke="#0E0E0E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><path d="M174 174 l-12 -2 6 11" fill="none" stroke="#0E0E0E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><path d="M174 174 C144 144 112 144 82 174" fill="none" stroke="#E64F2E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><path d="M82 174 l12 2 -6 -11" fill="none" stroke="#E64F2E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

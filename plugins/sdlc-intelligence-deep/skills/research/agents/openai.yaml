@@ -1,0 +1,8 @@
+interface:
+  display_name: Research
+  short_description: Collect and verify decision-relevant evidence, separating fact,
+    inference, assumptions, contradictions, and provenance.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  allow_implicit_invocation: true

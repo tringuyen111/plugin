@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">TDD</title>
+  <desc id="desc">Drive a bounded behavior through standalone or composed red-green-refactor TDD.</desc>
+  <rect width="256" height="256" rx="42" fill="#F6F4EF"/>
+  <rect x="18" y="18" width="220" height="220" rx="30" fill="none" stroke="#D9D2C7" stroke-width="4"/>
+  <circle cx="96" cy="128" r="28" fill="none" stroke="#0E0E0E" stroke-width="8"/><circle cx="160" cy="128" r="28" fill="none" stroke="#0E0E0E" stroke-width="8"/><line x1="124" y1="128" x2="132" y2="128" stroke="#0E0E0E" stroke-width="8" stroke-linecap="round"/><line x1="88" y1="120" x2="104" y2="136" stroke="#E64F2E" stroke-width="8" stroke-linecap="round"/><line x1="104" y1="120" x2="88" y2="136" stroke="#E64F2E" stroke-width="8" stroke-linecap="round"/><polyline points="148,128 158,138 176,118" stroke="#E64F2E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M82 176 C108 196 148 196 174 176" fill="none" stroke="#0E0E0E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><path d="M174 176 l-12 -2 6 10" fill="none" stroke="#0E0E0E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

@@ -1,0 +1,8 @@
+interface:
+  display_name: Handoff
+  short_description: Create a compact continuation artifact only when another owner,
+    session, agent, or runtime needs durable transfer.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  allow_implicit_invocation: false

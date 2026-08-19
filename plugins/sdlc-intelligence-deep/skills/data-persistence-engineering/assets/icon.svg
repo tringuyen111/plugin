@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Data Persistence Engineering</title>
+  <desc id="desc">Durable data, query, migration, concurrency, recovery, and invariant engineering with representative database/runtime proof.</desc>
+  <rect width="256" height="256" rx="42" fill="#F6F4EF"/>
+  <rect x="18" y="18" width="220" height="220" rx="30" fill="none" stroke="#D9D2C7" stroke-width="4"/>
+  <path d="M78 92 C78 82 178 82 178 92 C178 102 78 102 78 92 Z" fill="#F4C4B4" stroke="#0E0E0E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><path d="M78 118 C78 108 178 108 178 118 C178 128 78 128 78 118 Z" fill="none" stroke="#0E0E0E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><path d="M78 144 C78 134 178 134 178 144 C178 154 78 154 78 144 Z" fill="none" stroke="#0E0E0E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><line x1="78" y1="92" x2="78" y2="144" stroke="#0E0E0E" stroke-width="8" stroke-linecap="round"/><line x1="178" y1="92" x2="178" y2="144" stroke="#0E0E0E" stroke-width="8" stroke-linecap="round"/><path d="M190 102 L208 120 L190 138" fill="none" stroke="#E64F2E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><line x1="208" y1="120" x2="188" y2="120" stroke="#E64F2E" stroke-width="8" stroke-linecap="round"/>
+</svg>

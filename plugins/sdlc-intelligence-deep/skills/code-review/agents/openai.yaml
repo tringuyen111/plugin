@@ -1,0 +1,8 @@
+interface:
+  display_name: Code Review
+  short_description: Review one fixed change through Code correctness/standards and
+    approved Spec without claiming QA or release readiness.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  allow_implicit_invocation: true

@@ -1,6 +1,0 @@
-interface:
-  display_name: Review Visual
-  short_description: Orchestrate a Design-owned review of fixed visual evidence and
-    correction loops without issuing QA acceptance.
-policy:
-  allow_implicit_invocation: false

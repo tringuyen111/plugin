@@ -1,6 +1,0 @@
-interface:
-  display_name: To Tickets
-  short_description: Create and reconcile an executable work graph from approved planning
-    truth with policy-authorized tracker mutations.
-policy:
-  allow_implicit_invocation: false

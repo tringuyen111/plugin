@@ -1,6 +1,0 @@
-interface:
-  display_name: To Spec
-  short_description: Synthesize approved Product, BA, Design, Architecture, and current
-    source into an implementation-ready technical specification.
-policy:
-  allow_implicit_invocation: false

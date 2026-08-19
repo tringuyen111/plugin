@@ -1,6 +1,0 @@
-interface:
-  display_name: Grill Me
-  short_description: Challenge a concrete plan one question at a time and return an
-    in-conversation decision register without project writes.
-policy:
-  allow_implicit_invocation: false

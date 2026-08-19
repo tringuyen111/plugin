@@ -1,6 +1,0 @@
-interface:
-  display_name: Visual Review
-  short_description: Judge fixed visual artifacts for hierarchy, composition, spacing,
-    typography, components, responsiveness, and visible risks.
-policy:
-  allow_implicit_invocation: true

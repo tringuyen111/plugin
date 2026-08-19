@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Product Design</title>
+  <desc id="desc">Integrated product UI/UX authoring across flow, space, visual craft, states, responsive behavior, and design-system coherence.</desc>
+  <rect width="256" height="256" rx="42" fill="#F6F4EF"/>
+  <rect x="18" y="18" width="220" height="220" rx="30" fill="none" stroke="#D9D2C7" stroke-width="4"/>
+  <rect x="48" y="68" width="132" height="98" rx="18" fill="none" stroke="#0E0E0E" stroke-width="8"/><line x1="48" y1="94" x2="180" y2="94" stroke="#0E0E0E" stroke-width="8" stroke-linecap="round"/><circle cx="68" cy="81" r="4" fill="#E64F2E" stroke="none" stroke-width="0"/><circle cx="84" cy="81" r="4" fill="#C7BEB1" stroke="none" stroke-width="0"/><circle cx="100" cy="81" r="4" fill="#C7BEB1" stroke="none" stroke-width="0"/><rect x="64" y="102" width="44" height="48" rx="8" fill="#D9D2C7" stroke="#0E0E0E" stroke-width="8"/><rect x="116" y="102" width="48" height="20" rx="8" fill="none" stroke="#0E0E0E" stroke-width="8"/><rect x="116" y="130" width="48" height="20" rx="8" fill="#F4C4B4" stroke="#0E0E0E" stroke-width="8"/><path d="M186 94 l18 -18 14 14 -18 18 z" fill="#E64F2E" stroke="#0E0E0E" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><line x1="184" y1="96" x2="172" y2="160" stroke="#0E0E0E" stroke-width="8" stroke-linecap="round"/>
+</svg>

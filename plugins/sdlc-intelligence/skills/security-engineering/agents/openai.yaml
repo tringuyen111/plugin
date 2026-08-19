@@ -1,6 +1,0 @@
-interface:
-  display_name: Security Engineering
-  short_description: Approved security enforcement execution under /implement with
-    trust-boundary, bypass and negative proof.
-policy:
-  allow_implicit_invocation: false

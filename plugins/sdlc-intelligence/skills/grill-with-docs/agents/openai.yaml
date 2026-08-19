@@ -1,6 +1,0 @@
-interface:
-  display_name: Grill With Docs
-  short_description: Challenge a concrete plan one question at a time while preserving
-    approved domain and architecture decisions in docs.
-policy:
-  allow_implicit_invocation: false

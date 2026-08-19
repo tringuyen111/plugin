@@ -1,6 +1,0 @@
-interface:
-  display_name: Research
-  short_description: Collect and verify decision-relevant evidence, separating fact,
-    inference, assumptions, contradictions, and provenance.
-policy:
-  allow_implicit_invocation: true

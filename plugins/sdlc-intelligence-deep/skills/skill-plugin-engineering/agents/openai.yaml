@@ -1,0 +1,8 @@
+interface:
+  display_name: Skill & Plugin Engineering
+  short_description: Engineer, audit, upgrade, package, and migrate reusable Skills
+    or Plugins from exact artifact truth.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  allow_implicit_invocation: true

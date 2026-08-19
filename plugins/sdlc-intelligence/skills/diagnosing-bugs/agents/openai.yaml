@@ -1,6 +1,0 @@
-interface:
-  display_name: Diagnosing Bugs
-  short_description: Diagnose hard bugs and performance regressions with a source-grounded
-    reproduce-isolate-prove loop.
-policy:
-  allow_implicit_invocation: true

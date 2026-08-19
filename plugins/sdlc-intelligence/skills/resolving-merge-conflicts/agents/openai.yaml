@@ -1,6 +1,0 @@
-interface:
-  display_name: Resolving Merge Conflicts
-  short_description: Resolve merge conflicts while preserving intended behavior from
-    both sides and verifying the integrated result.
-policy:
-  allow_implicit_invocation: true

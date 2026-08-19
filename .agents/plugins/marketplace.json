@@ -1,14 +1,14 @@
 {
-  "name": "personal",
+  "name": "tringuyen111-sdlc",
   "interface": {
-    "displayName": "Personal"
+    "displayName": "SDLC Intelligence Marketplace"
   },
   "plugins": [
     {
-      "name": "sdlc-intelligence",
+      "name": "sdlc-intelligence-deep",
       "source": {
         "source": "local",
-        "path": "./plugins/sdlc-intelligence"
+        "path": "./plugins/sdlc-intelligence-deep"
       },
       "policy": {
         "installation": "AVAILABLE",

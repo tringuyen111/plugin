@@ -1,0 +1,681 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sdlc-intelligence.local/schemas/visual-capture-job-v4.json",
+  "title": "SDLC Visual Capture Job",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "executor",
+    "intent",
+    "environment",
+    "shots"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 4
+    },
+    "intent": {
+      "enum": [
+        "documentation",
+        "visual-conformance",
+        "design-parity",
+        "evidence"
+      ]
+    },
+    "environment": {
+      "type": "string",
+      "minLength": 1
+    },
+    "application_commit": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "outDir": {
+      "type": "string",
+      "minLength": 1
+    },
+    "device": {
+      "$ref": "#/$defs/device"
+    },
+    "login": {
+      "$ref": "#/$defs/login"
+    },
+    "shots": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/shot"
+      }
+    },
+    "capability_resolution": {
+      "$ref": "#/$defs/capability_resolution"
+    },
+    "executor": {
+      "$ref": "#/$defs/executor"
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "device": {
+      "oneOf": [
+        {
+          "enum": [
+            "mobile",
+            "tablet",
+            "desktop"
+          ]
+        },
+        {
+          "type": "object",
+          "required": [
+            "width",
+            "height"
+          ],
+          "properties": {
+            "width": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "height": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "step": {
+      "type": "object",
+      "properties": {
+        "fill": {
+          "type": "string",
+          "minLength": 1
+        },
+        "value": {
+          "type": "string"
+        },
+        "valueFromEnv": {
+          "type": "string",
+          "pattern": "^[A-Z_][A-Z0-9_]*$"
+        },
+        "click": {
+          "type": "string",
+          "minLength": 1
+        },
+        "waitUrl": {
+          "type": "string",
+          "minLength": 1
+        },
+        "waitFor": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scrollTo": {
+          "type": "integer"
+        },
+        "waitMs": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "thenWaitMs": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "oneOf": [
+            {
+              "required": [
+                "fill"
+              ]
+            },
+            {
+              "required": [
+                "click"
+              ]
+            },
+            {
+              "required": [
+                "waitUrl"
+              ]
+            },
+            {
+              "required": [
+                "waitFor"
+              ]
+            },
+            {
+              "required": [
+                "scrollTo"
+              ]
+            },
+            {
+              "required": [
+                "waitMs"
+              ]
+            }
+          ]
+        },
+        {
+          "if": {
+            "required": [
+              "fill"
+            ]
+          },
+          "then": {
+            "oneOf": [
+              {
+                "required": [
+                  "value"
+                ],
+                "not": {
+                  "required": [
+                    "valueFromEnv"
+                  ]
+                }
+              },
+              {
+                "required": [
+                  "valueFromEnv"
+                ],
+                "not": {
+                  "required": [
+                    "value"
+                  ]
+                }
+              }
+            ]
+          },
+          "else": {
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "value"
+                  ]
+                },
+                {
+                  "required": [
+                    "valueFromEnv"
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "login": {
+      "type": "object",
+      "properties": {
+        "storageStatePathFromEnv": {
+          "type": "string",
+          "pattern": "^[A-Z_][A-Z0-9_]*$"
+        },
+        "url": {
+          "type": "string",
+          "minLength": 1
+        },
+        "steps": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/step"
+          }
+        },
+        "html": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false,
+      "oneOf": [
+        {
+          "required": [
+            "storageStatePathFromEnv"
+          ],
+          "not": {
+            "anyOf": [
+              {
+                "required": [
+                  "url"
+                ]
+              },
+              {
+                "required": [
+                  "html"
+                ]
+              },
+              {
+                "required": [
+                  "steps"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "required": [
+            "url",
+            "steps"
+          ],
+          "not": {
+            "anyOf": [
+              {
+                "required": [
+                  "storageStatePathFromEnv"
+                ]
+              },
+              {
+                "required": [
+                  "html"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "required": [
+            "html",
+            "steps"
+          ],
+          "not": {
+            "anyOf": [
+              {
+                "required": [
+                  "storageStatePathFromEnv"
+                ]
+              },
+              {
+                "required": [
+                  "url"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "selectorExpectation": {
+      "type": "object",
+      "required": [
+        "selector"
+      ],
+      "properties": {
+        "selector": {
+          "type": "string",
+          "minLength": 1
+        },
+        "required": {
+          "type": "boolean",
+          "default": true
+        },
+        "expected_matches": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 1
+        },
+        "color": {
+          "type": "string",
+          "pattern": "^#[0-9a-fA-F]{6}$"
+        }
+      }
+    },
+    "mask": {
+      "type": "object",
+      "required": [
+        "selector"
+      ],
+      "properties": {
+        "selector": {
+          "type": "string",
+          "minLength": 1
+        },
+        "required": {
+          "type": "boolean",
+          "default": true
+        },
+        "expected_matches": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 1
+        },
+        "color": {
+          "type": "string",
+          "pattern": "^#[0-9a-fA-F]{6}$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "callout": {
+      "type": "object",
+      "required": [
+        "selector",
+        "type"
+      ],
+      "properties": {
+        "selector": {
+          "type": "string",
+          "minLength": 1
+        },
+        "required": {
+          "type": "boolean",
+          "default": true
+        },
+        "expected_matches": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 1
+        },
+        "color": {
+          "type": "string",
+          "pattern": "^#[0-9a-fA-F]{6}$"
+        },
+        "type": {
+          "enum": [
+            "box",
+            "number",
+            "label"
+          ]
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "n": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "dir": {
+          "enum": [
+            "left",
+            "right",
+            "top",
+            "bottom"
+          ],
+          "default": "left"
+        },
+        "leader_line": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "label"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "required": [
+              "text"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "number"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "required": [
+              "n"
+            ]
+          }
+        }
+      ]
+    },
+    "capture": {
+      "type": "object",
+      "required": [
+        "mode"
+      ],
+      "properties": {
+        "mode": {
+          "enum": [
+            "viewport",
+            "full-page",
+            "element",
+            "clip"
+          ]
+        },
+        "selector": {
+          "type": "string",
+          "minLength": 1
+        },
+        "padding": {
+          "type": "number",
+          "minimum": 0,
+          "default": 16
+        },
+        "rect": {
+          "type": "object",
+          "required": [
+            "x",
+            "y",
+            "width",
+            "height"
+          ],
+          "properties": {
+            "x": {
+              "type": "number",
+              "minimum": 0
+            },
+            "y": {
+              "type": "number",
+              "minimum": 0
+            },
+            "width": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "height": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "mode": {
+                "const": "element"
+              }
+            },
+            "required": [
+              "mode"
+            ]
+          },
+          "then": {
+            "required": [
+              "selector"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "mode": {
+                "const": "clip"
+              }
+            },
+            "required": [
+              "mode"
+            ]
+          },
+          "then": {
+            "required": [
+              "rect"
+            ]
+          }
+        }
+      ]
+    },
+    "shot": {
+      "type": "object",
+      "required": [
+        "slug",
+        "state"
+      ],
+      "properties": {
+        "slug": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "state": {
+          "type": "string",
+          "minLength": 1
+        },
+        "html": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string",
+          "minLength": 1
+        },
+        "device": {
+          "$ref": "#/$defs/device"
+        },
+        "frame": {
+          "type": "string",
+          "minLength": 1
+        },
+        "waitMs": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "waitFor": {
+          "type": "string",
+          "minLength": 1
+        },
+        "steps": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/step"
+          }
+        },
+        "masks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/mask"
+          }
+        },
+        "callouts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/callout"
+          }
+        },
+        "capture": {
+          "$ref": "#/$defs/capture"
+        }
+      },
+      "additionalProperties": false,
+      "oneOf": [
+        {
+          "required": [
+            "html"
+          ],
+          "not": {
+            "required": [
+              "url"
+            ]
+          }
+        },
+        {
+          "required": [
+            "url"
+          ],
+          "not": {
+            "required": [
+              "html"
+            ]
+          }
+        }
+      ]
+    },
+    "capability_resolution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "record_ref",
+        "record_sha256"
+      ],
+      "properties": {
+        "record_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "record_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "executor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "provider",
+        "source_kind",
+        "source_id",
+        "namespace",
+        "revision"
+      ],
+      "properties": {
+        "provider": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_kind": {
+          "enum": [
+            "mcp",
+            "connector",
+            "native_tool",
+            "api",
+            "cli",
+            "local_adapter"
+          ]
+        },
+        "source_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "namespace": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "revision": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    }
+  }
+}

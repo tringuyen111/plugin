@@ -1,0 +1,119 @@
+# Skill runtime discovery state.
+# core: implicit invocation is always enabled; no per-Skill `implicit` override.
+# conditional: `implicit` is maintained explicitly for that Skill.
+# Update this file, then run: python scripts/skill-state.py apply
+version: 1
+skills:
+  api-engineering:
+    tier: core
+  backend-engineering:
+    tier: core
+  brainstorm:
+    tier: core
+  capability-resolver:
+    tier: conditional
+    implicit: true
+  code-review:
+    tier: core
+  codebase-design:
+    tier: core
+  creative-production:
+    tier: conditional
+    implicit: true
+  data-persistence-engineering:
+    tier: core
+  decision-interview:
+    tier: conditional
+    implicit: false
+  design-intelligence:
+    tier: conditional
+    implicit: false
+  design-review:
+    tier: conditional
+    implicit: true
+  devops-engineering:
+    tier: core
+  diagnosing-bugs:
+    tier: core
+  domain-modeling:
+    tier: conditional
+    implicit: true
+  frontend-engineering:
+    tier: core
+  engineering-planning:
+    tier: core
+  handoff:
+    tier: conditional
+    implicit: false
+  implement:
+    tier: core
+  improve-codebase-architecture:
+    tier: conditional
+    implicit: false
+  incident-learning:
+    tier: conditional
+    implicit: true
+  incident-response:
+    tier: conditional
+    implicit: true
+  manual-review:
+    tier: conditional
+    implicit: true
+  metrics-review:
+    tier: conditional
+    implicit: true
+  product-definition:
+    tier: core
+  product-design:
+    tier: core
+  product-discovery:
+    tier: core
+  process-diagram:
+    tier: conditional
+    implicit: true
+  project-bootstrap:
+    tier: conditional
+    implicit: false
+  prototype:
+    tier: conditional
+    implicit: true
+  qualify-sdlc-capability:
+    tier: conditional
+    implicit: false
+  requirements-engineering:
+    tier: core
+  research:
+    tier: conditional
+    implicit: true
+  research-synthesis:
+    tier: conditional
+    implicit: true
+  resolving-merge-conflicts:
+    tier: conditional
+    implicit: true
+  sdlc:
+    tier: core
+  security-engineering:
+    tier: core
+  skill-plugin-engineering:
+    tier: core
+  tdd:
+    tier: core
+  traceability:
+    tier: conditional
+    implicit: true
+  issue-triage:
+    tier: conditional
+    implicit: false
+  user-acceptance:
+    tier: conditional
+    implicit: true
+  user-guide:
+    tier: conditional
+    implicit: true
+  verify-quality:
+    tier: conditional
+    implicit: true
+  visual-capture:
+    tier: conditional
+    implicit: true
