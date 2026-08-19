@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Qualify SDLC Capability</title>
+  <desc id="desc">Evaluate a fixed reusable SDLC artifact with frozen cases, exact revision binding, comparison evidence, and truthful verdict.</desc>
+  <rect width="256" height="256" rx="42" fill="#F6F4EF"/>
+  <rect x="18" y="18" width="220" height="220" rx="30" fill="none" stroke="#D9D2C7" stroke-width="4"/>
+  <path d="M128 70 l48 22 v34 c0 30 -18 50 -48 64 -30 -14 -48 -34 -48 -64 v-34 z" fill="#F4C4B4" stroke="#0E0E0E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><polyline points="108,128 122,142 148,114" stroke="#E64F2E" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none"/><rect x="98" y="170" width="60" height="18" rx="9" fill="#D9D2C7" stroke="#0E0E0E" stroke-width="0"/>
+</svg>

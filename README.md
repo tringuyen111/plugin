@@ -6,7 +6,7 @@ Repository này cung cấp marketplace local cho Codex và workspace plugin cho 
 
 - Technical ID: `sdlc-intelligence-deep`
 - Display name: `SDLC Intelligence`
-- Version: `1.0.32`
+- Version: `1.0.36`
 - Marketplace name: `tringuyen111-sdlc`
 - Marketplace manifest: `.agents/plugins/marketplace.json`
 - Plugin package: `plugins/sdlc-intelligence-deep/`

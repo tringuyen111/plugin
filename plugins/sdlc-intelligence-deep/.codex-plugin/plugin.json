@@ -1,6 +1,6 @@
 {
   "name": "sdlc-intelligence-deep",
-  "version": "1.0.32",
+  "version": "1.0.36",
   "description": "SDLC judgment, expert engineering knowledge, and deterministic helpers for native coding agents without a central Delivery router.",
   "author": {
     "name": "Trí Nguyễn"

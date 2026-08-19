@@ -1,5 +1,8 @@
 interface:
   display_name: Frontend Engineering
-  short_description: Frontend engineering with codebase reconstruction, browser/runtime proof, responsive/accessibility depth, and economical UI composition.
+  short_description: Frontend engineering with codebase reconstruction, browser/runtime
+    proof, responsive/accessibility depth, and economical UI composition.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
 policy:
   allow_implicit_invocation: true

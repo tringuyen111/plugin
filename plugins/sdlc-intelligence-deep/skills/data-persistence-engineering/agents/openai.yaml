@@ -1,5 +1,8 @@
 interface:
   display_name: Data Persistence Engineering
-  short_description: Durable data, query, migration, concurrency, recovery, and invariant engineering with representative database/runtime proof.
+  short_description: Durable data, query, migration, concurrency, recovery, and invariant
+    engineering with representative database/runtime proof.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
 policy:
   allow_implicit_invocation: true

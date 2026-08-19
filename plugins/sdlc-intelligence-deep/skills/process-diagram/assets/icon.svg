@@ -1,5 +1,8 @@
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M3 13.5C3 12.1193 4.11929 11 5.5 11H9V21H5.5C4.11929 21 3 19.8807 3 18.5V13.5Z" fill="#FFD400"/>
-<path d="M15 7H18.5C19.8807 7 21 8.11929 21 9.5V18.5C21 19.8807 19.8807 21 18.5 21H15V7Z" fill="#F75858"/>
-<path d="M9 5.5C9 4.11929 10.1193 3 11.5 3H12.5C13.8807 3 15 4.11929 15 5.5V21H9V5.5Z" fill="#FFA43D"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Process Diagram</title>
+  <desc id="desc">Design BPMN and Flowchart diagrams with a compact Draw.io workflow</desc>
+  <rect width="256" height="256" rx="42" fill="#F6F4EF"/>
+  <rect x="18" y="18" width="220" height="220" rx="30" fill="none" stroke="#D9D2C7" stroke-width="4"/>
+  <rect x="58" y="88" width="60" height="34" rx="12" fill="#F4C4B4" stroke="#0E0E0E" stroke-width="8"/><rect x="136" y="88" width="60" height="34" rx="12" fill="none" stroke="#0E0E0E" stroke-width="8"/><rect x="96" y="156" width="60" height="34" rx="12" fill="#D9D2C7" stroke="#0E0E0E" stroke-width="8"/><line x1="118" y1="105" x2="136" y2="105" stroke="#0E0E0E" stroke-width="8" stroke-linecap="round"/><line x1="88" y1="122" x2="88" y2="156" stroke="#0E0E0E" stroke-width="8" stroke-linecap="round"/><line x1="166" y1="122" x2="126" y2="156" stroke="#0E0E0E" stroke-width="8" stroke-linecap="round"/><polyline points="126,148 136,156 126,164" stroke="#E64F2E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
 </svg>

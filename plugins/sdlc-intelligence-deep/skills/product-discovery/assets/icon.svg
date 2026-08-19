@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Product Discovery</title>
+  <desc id="desc">Frame evidence-grounded customer opportunities from noisy product signals</desc>
+  <rect width="256" height="256" rx="42" fill="#F6F4EF"/>
+  <rect x="18" y="18" width="220" height="220" rx="30" fill="none" stroke="#D9D2C7" stroke-width="4"/>
+  <circle cx="128" cy="128" r="58" fill="none" stroke="#0E0E0E" stroke-width="8"/><circle cx="128" cy="128" r="34" fill="none" stroke="#C7BEB1" stroke-width="6"/><line x1="128" y1="70" x2="128" y2="186" stroke="#C7BEB1" stroke-width="6" stroke-linecap="round"/><line x1="70" y1="128" x2="186" y2="128" stroke="#C7BEB1" stroke-width="6" stroke-linecap="round"/><circle cx="164" cy="98" r="10" fill="#E64F2E" stroke="#0E0E0E" stroke-width="6"/><path d="M164 98 l30 -24" fill="none" stroke="#E64F2E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

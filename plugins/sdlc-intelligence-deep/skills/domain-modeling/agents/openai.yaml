@@ -1,5 +1,8 @@
 interface:
   display_name: Domain Modeling
-  short_description: Model domain semantics and durable decision rationale without taking architecture authority.
+  short_description: Model domain semantics and durable decision rationale without
+    taking architecture authority.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
 policy:
   allow_implicit_invocation: true

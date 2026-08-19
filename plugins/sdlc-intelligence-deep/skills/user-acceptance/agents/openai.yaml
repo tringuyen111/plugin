@@ -1,5 +1,7 @@
 interface:
-  display_name: "User Acceptance"
-  short_description: "Design, witness, evaluate, or record business acceptance"
+  display_name: User Acceptance
+  short_description: Design, witness, evaluate, or record business acceptance
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
 policy:
   allow_implicit_invocation: true

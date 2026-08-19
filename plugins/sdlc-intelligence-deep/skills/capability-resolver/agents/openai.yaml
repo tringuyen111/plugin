@@ -1,5 +1,8 @@
 interface:
   display_name: Capability Resolver
-  short_description: Resolve materially ambiguous provider/source choices from live evidence and explicit constraints.
+  short_description: Resolve materially ambiguous provider/source choices from live
+    evidence and explicit constraints.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
 policy:
   allow_implicit_invocation: true

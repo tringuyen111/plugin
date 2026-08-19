@@ -2,5 +2,7 @@ interface:
   display_name: Prototype
   short_description: Build a throwaway runnable artifact to answer one unresolved
     logic, state, interaction, density, or feasibility question.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
 policy:
   allow_implicit_invocation: true

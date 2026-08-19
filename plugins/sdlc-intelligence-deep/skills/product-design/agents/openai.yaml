@@ -1,5 +1,8 @@
 interface:
   display_name: Product Design
-  short_description: Integrated product UI/UX authoring across flow, space, visual craft, states, responsive behavior, and design-system coherence.
+  short_description: Integrated product UI/UX authoring across flow, space, visual
+    craft, states, responsive behavior, and design-system coherence.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
 policy:
   allow_implicit_invocation: true

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Code Review</title>
+  <desc id="desc">Review one fixed change through Code correctness/standards and approved Spec without claiming QA or release readiness.</desc>
+  <rect width="256" height="256" rx="42" fill="#F6F4EF"/>
+  <rect x="18" y="18" width="220" height="220" rx="30" fill="none" stroke="#D9D2C7" stroke-width="4"/>
+  <rect x="64" y="62" width="98" height="126" rx="18" fill="none" stroke="#0E0E0E" stroke-width="8"/><line x1="88" y1="98" x2="138" y2="98" stroke="#0E0E0E" stroke-width="7" stroke-linecap="round"/><line x1="88" y1="128" x2="126" y2="128" stroke="#0E0E0E" stroke-width="7" stroke-linecap="round"/><line x1="88" y1="158" x2="116" y2="158" stroke="#0E0E0E" stroke-width="7" stroke-linecap="round"/><polyline points="172,150 184,162 208,138" stroke="#E64F2E" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="190" cy="150" r="26" fill="none" stroke="#0E0E0E" stroke-width="8"/><polyline points="84,102 94,110 84,118" stroke="#E64F2E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><polyline points="142,102 132,110 142,118" stroke="#E64F2E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>

@@ -1,5 +1,8 @@
 interface:
   display_name: Implement
-  short_description: Implement real codebase changes with local pattern assimilation, economical mechanisms, tight feedback loops, and representative proof.
+  short_description: Implement real codebase changes with local pattern assimilation,
+    economical mechanisms, tight feedback loops, and representative proof.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
 policy:
   allow_implicit_invocation: true

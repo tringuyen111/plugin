@@ -1,5 +1,8 @@
 interface:
   display_name: Verify Quality
-  short_description: Plan and verify QA with source-bound strategies, conditions, evidence, defects, and one verdict.
+  short_description: Plan and verify QA with source-bound strategies, conditions,
+    evidence, defects, and one verdict.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
 policy:
   allow_implicit_invocation: true

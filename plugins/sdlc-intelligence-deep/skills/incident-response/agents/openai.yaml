@@ -1,5 +1,8 @@
 interface:
-  display_name: "Incident Response"
-  short_description: "Coordinate active incidents through stabilization and evidence-backed recovery."
+  display_name: Incident Response
+  short_description: Coordinate active incidents through stabilization and evidence-backed
+    recovery.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
 policy:
   allow_implicit_invocation: true

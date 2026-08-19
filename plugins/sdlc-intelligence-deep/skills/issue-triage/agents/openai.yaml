@@ -1,5 +1,8 @@
 interface:
   display_name: Issue Triage
-  short_description: Ground incoming issues and PRs into disposition and next accountable continuation.
+  short_description: Ground incoming issues and PRs into disposition and next accountable
+    continuation.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
 policy:
   allow_implicit_invocation: false

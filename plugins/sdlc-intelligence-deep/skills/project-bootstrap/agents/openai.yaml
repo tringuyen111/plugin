@@ -1,5 +1,8 @@
 interface:
   display_name: Project Bootstrap
-  short_description: Reconcile project context and durable configuration without duplicating native project truth.
+  short_description: Reconcile project context and durable configuration without duplicating
+    native project truth.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
 policy:
   allow_implicit_invocation: false

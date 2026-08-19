@@ -1,6 +1,8 @@
 interface:
   display_name: Diagnosing Bugs
-  short_description: Diagnose unknown-cause bugs and performance regressions with discriminating
-    evidence, hypothesis probes, and causal proof.
+  short_description: Diagnose unknown-cause bugs and performance regressions with
+    discriminating evidence, hypothesis probes, and causal proof.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
 policy:
   allow_implicit_invocation: true

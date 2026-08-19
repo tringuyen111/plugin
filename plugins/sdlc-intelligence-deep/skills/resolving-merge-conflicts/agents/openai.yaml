@@ -2,5 +2,7 @@ interface:
   display_name: Resolving Merge Conflicts
   short_description: Resolve merge conflicts while preserving intended behavior from
     both sides and verifying the integrated result.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
 policy:
   allow_implicit_invocation: true

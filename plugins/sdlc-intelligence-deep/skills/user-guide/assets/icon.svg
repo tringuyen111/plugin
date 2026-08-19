@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">User Guide</title>
+  <desc id="desc">Turn verified product truth into reader-centered task, reference, troubleshooting, and onboarding guidance in the actual documentation target.</desc>
+  <rect width="256" height="256" rx="42" fill="#F6F4EF"/>
+  <rect x="18" y="18" width="220" height="220" rx="30" fill="none" stroke="#D9D2C7" stroke-width="4"/>
+  <path d="M62 86 q28 -12 56 0 v96 q-28 -12 -56 0 z" fill="none" stroke="#0E0E0E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><path d="M194 86 q-28 -12 -56 0 v96 q28 -12 56 0 z" fill="none" stroke="#0E0E0E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><path d="M102 140 l14 14 32 -32" fill="none" stroke="#E64F2E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><line x1="128" y1="86" x2="128" y2="182" stroke="#C7BEB1" stroke-width="5" stroke-linecap="round"/>
+</svg>
