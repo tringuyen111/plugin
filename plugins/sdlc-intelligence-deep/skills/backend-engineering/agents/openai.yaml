@@ -1,0 +1,5 @@
+interface:
+  display_name: Backend Engineering
+  short_description: Backend engineering with transaction, failure, concurrency, background/runtime depth, and representative integration proof.
+policy:
+  allow_implicit_invocation: true

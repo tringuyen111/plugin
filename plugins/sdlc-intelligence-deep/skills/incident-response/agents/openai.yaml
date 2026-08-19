@@ -1,0 +1,5 @@
+interface:
+  display_name: "Incident Response"
+  short_description: "Coordinate active incidents through stabilization and evidence-backed recovery."
+policy:
+  allow_implicit_invocation: true

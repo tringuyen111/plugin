@@ -1,0 +1,386 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sdlc-intelligence.local/schemas/visual-capture-manifest-v4.json",
+  "title": "SDLC Visual Capture Manifest",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "capability",
+    "executor",
+    "intent",
+    "environment",
+    "captured_at",
+    "job",
+    "shots",
+    "errors"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 4
+    },
+    "intent": {
+      "enum": [
+        "documentation",
+        "visual-conformance",
+        "design-parity",
+        "evidence"
+      ]
+    },
+    "environment": {
+      "type": "string",
+      "minLength": 1
+    },
+    "application_commit": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "captured_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "job": {
+      "type": "string",
+      "minLength": 1
+    },
+    "shots": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/shot"
+      }
+    },
+    "errors": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/error"
+      }
+    },
+    "capability": {
+      "const": "browser.capture"
+    },
+    "capability_resolution": {
+      "$ref": "#/$defs/capability_resolution"
+    },
+    "executor": {
+      "$ref": "#/$defs/executor"
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "box": {
+      "type": "object",
+      "required": [
+        "x",
+        "y",
+        "width",
+        "height"
+      ],
+      "properties": {
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        },
+        "width": {
+          "type": "number",
+          "minimum": 0
+        },
+        "height": {
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    },
+    "resolution": {
+      "type": "object",
+      "required": [
+        "index",
+        "selector",
+        "required",
+        "expected_matches",
+        "matched_count",
+        "status",
+        "boxes"
+      ],
+      "properties": {
+        "index": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "selector": {
+          "type": "string",
+          "minLength": 1
+        },
+        "required": {
+          "type": "boolean"
+        },
+        "expected_matches": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "matched_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "status": {
+          "enum": [
+            "RESOLVED",
+            "MISMATCH"
+          ]
+        },
+        "boxes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/box"
+          }
+        },
+        "type": {
+          "enum": [
+            "box",
+            "number",
+            "label"
+          ]
+        },
+        "text": {
+          "type": "string"
+        },
+        "n": {
+          "type": "integer"
+        },
+        "dir": {
+          "enum": [
+            "left",
+            "right",
+            "top",
+            "bottom"
+          ]
+        },
+        "color": {
+          "type": "string"
+        },
+        "leader_line": {
+          "type": "boolean"
+        },
+        "placements": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "capture": {
+      "type": "object",
+      "required": [
+        "mode"
+      ],
+      "properties": {
+        "mode": {
+          "enum": [
+            "viewport",
+            "full-page",
+            "element",
+            "clip"
+          ]
+        },
+        "selector": {
+          "type": "string"
+        },
+        "padding": {
+          "type": "number"
+        },
+        "rect": {
+          "$ref": "#/$defs/box"
+        }
+      },
+      "additionalProperties": false
+    },
+    "shot": {
+      "type": "object",
+      "required": [
+        "slug",
+        "state",
+        "viewport",
+        "source",
+        "input_digest",
+        "status"
+      ],
+      "properties": {
+        "slug": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "viewport": {
+          "type": "object",
+          "required": [
+            "width",
+            "height"
+          ]
+        },
+        "source": {
+          "type": "string"
+        },
+        "source_sha256": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "actions": {
+          "type": "array"
+        },
+        "input_digest": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "status": {
+          "enum": [
+            "CAPTURED",
+            "SKIPPED",
+            "FAILED"
+          ]
+        },
+        "reason": {
+          "type": "string"
+        },
+        "error": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "image_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "capture": {
+          "$ref": "#/$defs/capture"
+        },
+        "masks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/resolution"
+          }
+        },
+        "callouts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/resolution"
+          }
+        },
+        "document": {
+          "type": "object"
+        },
+        "warnings": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "error": {
+      "type": "object",
+      "required": [
+        "slug",
+        "error"
+      ],
+      "properties": {
+        "slug": {
+          "type": "string"
+        },
+        "error": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "capability_resolution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "record_ref",
+        "record_sha256"
+      ],
+      "properties": {
+        "record_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "record_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "executor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "provider",
+        "provider_version",
+        "source_kind",
+        "source_id",
+        "namespace",
+        "revision",
+        "adapter_sha256"
+      ],
+      "properties": {
+        "provider": {
+          "type": "string",
+          "minLength": 1
+        },
+        "provider_version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source_kind": {
+          "enum": [
+            "mcp",
+            "connector",
+            "native_tool",
+            "api",
+            "cli",
+            "local_adapter"
+          ]
+        },
+        "source_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "namespace": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "revision": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "adapter_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    }
+  }
+}

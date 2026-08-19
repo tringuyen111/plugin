@@ -1,6 +1,0 @@
-interface:
-  display_name: User Guide
-  short_description: Create or update a source-grounded task guide for admins, support,
-    operators, or end users with current screenshots.
-policy:
-  allow_implicit_invocation: false

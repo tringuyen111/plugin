@@ -1,0 +1,5 @@
+interface:
+  display_name: Frontend Engineering
+  short_description: Frontend engineering with codebase reconstruction, browser/runtime proof, responsive/accessibility depth, and economical UI composition.
+policy:
+  allow_implicit_invocation: true

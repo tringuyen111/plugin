@@ -1,6 +1,0 @@
-interface:
-  display_name: Create Domain Pack
-  short_description: Design a reusable domain pack that composes skills and contracts
-    without creating a competing SDLC router.
-policy:
-  allow_implicit_invocation: false

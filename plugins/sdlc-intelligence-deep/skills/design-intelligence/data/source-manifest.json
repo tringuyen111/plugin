@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "artifact": "design-intelligence",
+  "authority": {
+    "class": "ADVISORY_LOCAL_CORPUS",
+    "canonical": false,
+    "caller_retains_decision_authority": true,
+    "visual_contract_precedence": true,
+    "technical_implementation_owner": "frontend-engineering"
+  },
+  "source_snapshot": {
+    "archive": "ui-ux-pro-max-codex-native-v1(1).zip",
+    "sha256": "abc04a9dc62b73fc3ce9388157dd9982e3669de51bb52584497fa475e23850d0",
+    "git_provenance": "UNAVAILABLE",
+    "adaptation": "Selective SDLC Intelligence import; local UI/UX evidence/search retained while autonomous design-system ownership and MASTER persistence were excluded.",
+    "provenance_reference": "UPSTREAM.md"
+  },
+  "freshness": {
+    "mode": "BUNDLED_SNAPSHOT",
+    "live_current_claim": false,
+    "technical_guidance_status": "REQUIRES_CURRENT_VERIFICATION",
+    "technical_verification_sources": [
+      "current project source and approved technical decisions",
+      "installed dependency/version and runtime configuration",
+      "current authoritative platform/vendor documentation when material"
+    ]
+  }
+}

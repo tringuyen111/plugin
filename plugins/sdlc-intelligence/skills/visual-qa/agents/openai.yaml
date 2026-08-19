@@ -1,6 +1,0 @@
-interface:
-  display_name: Visual QA
-  short_description: Judge fixed screenshots for contract mismatches, responsive,
-    content, accessibility risks, and accepted differences.
-policy:
-  allow_implicit_invocation: true

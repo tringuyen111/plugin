@@ -1,6 +1,0 @@
-interface:
-  display_name: Audit SDLC Artifact
-  short_description: Audit one reusable SDLC artifact for ownership, invocation, depth,
-    portability, safety, evidence, and lifecycle fitness.
-policy:
-  allow_implicit_invocation: false

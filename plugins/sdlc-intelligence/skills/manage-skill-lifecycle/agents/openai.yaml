@@ -1,6 +1,0 @@
-interface:
-  display_name: Manage Skill Lifecycle
-  short_description: Govern promotion, monitoring, revision, deprecation, migration,
-    and removal of reusable SDLC system artifacts.
-policy:
-  allow_implicit_invocation: false

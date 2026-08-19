@@ -1,0 +1,7 @@
+interface:
+  display_name: Process Diagram
+  short_description: Design BPMN and Flowchart diagrams with a compact Draw.io workflow
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  allow_implicit_invocation: true

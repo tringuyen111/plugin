@@ -1,0 +1,5 @@
+interface:
+  display_name: Engineering Planning
+  short_description: Plan source-grounded engineering work into the smallest executable and evaluable frontier without artifact ceremony.
+policy:
+  allow_implicit_invocation: true

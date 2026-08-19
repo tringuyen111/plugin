@@ -1,0 +1,5 @@
+interface:
+  display_name: Requirements Engineering
+  short_description: Elicit, model, reconcile, and project authoritative requirement meaning with conditional depth for stories, use cases, acceptance criteria, business rules, and quality requirements.
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,5 @@
+interface:
+  display_name: Design Intelligence
+  short_description: Local source-backed UI/UX evidence for Design and Frontend owners.
+policy:
+  allow_implicit_invocation: false

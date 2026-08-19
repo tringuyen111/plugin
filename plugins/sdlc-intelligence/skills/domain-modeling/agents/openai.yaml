@@ -1,6 +1,0 @@
-interface:
-  display_name: Domain Modeling
-  short_description: Clarify domain terms, entities, relationships, invariants, and
-    durable glossary or ADR updates without choosing architecture.
-policy:
-  allow_implicit_invocation: true

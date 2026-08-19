@@ -1,0 +1,5 @@
+interface:
+  display_name: "User Acceptance"
+  short_description: "Design, witness, evaluate, or record business acceptance"
+policy:
+  allow_implicit_invocation: true

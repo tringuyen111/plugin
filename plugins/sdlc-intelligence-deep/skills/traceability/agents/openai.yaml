@@ -1,0 +1,5 @@
+interface:
+  display_name: Traceability
+  short_description: Build revision-bound cross-lifecycle lineage and change-impact truth across intent, delivery, evidence, release, and documentation.
+policy:
+  allow_implicit_invocation: true

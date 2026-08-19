@@ -1,0 +1,5 @@
+interface:
+  display_name: "Incident Learning"
+  short_description: "Turn stabilized incidents into evidence-grounded causal and corrective learning."
+policy:
+  allow_implicit_invocation: true

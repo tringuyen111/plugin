@@ -1,0 +1,5 @@
+interface:
+  display_name: Improve Codebase Architecture
+  short_description: Discover and explore source-grounded architecture improvements without implementing or prematurely designing them.
+policy:
+  allow_implicit_invocation: false

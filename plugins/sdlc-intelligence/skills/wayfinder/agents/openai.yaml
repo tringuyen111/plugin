@@ -1,6 +1,0 @@
-interface:
-  display_name: Wayfinder
-  short_description: Plan multi-session work as a canonical decision-ticket map using
-    the project-selected tracker capability and fallbacks.
-policy:
-  allow_implicit_invocation: false

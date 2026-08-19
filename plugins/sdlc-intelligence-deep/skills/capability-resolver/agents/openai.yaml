@@ -1,0 +1,5 @@
+interface:
+  display_name: Capability Resolver
+  short_description: Resolve materially ambiguous provider/source choices from live evidence and explicit constraints.
+policy:
+  allow_implicit_invocation: true

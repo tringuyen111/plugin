@@ -1,0 +1,5 @@
+interface:
+  display_name: Issue Triage
+  short_description: Ground incoming issues and PRs into disposition and next accountable continuation.
+policy:
+  allow_implicit_invocation: false

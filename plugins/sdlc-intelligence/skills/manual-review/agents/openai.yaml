@@ -1,6 +1,0 @@
-interface:
-  display_name: Manual Review
-  short_description: Review a User Guide for source coverage, task structure, audience
-    fit, current screenshots, and unsupported claims.
-policy:
-  allow_implicit_invocation: true

@@ -1,0 +1,5 @@
+interface:
+  display_name: Security Engineering
+  short_description: Security engineering with trust-boundary reasoning, bypass coverage, lifecycle/replay handling, and real-mechanism negative proof.
+policy:
+  allow_implicit_invocation: true

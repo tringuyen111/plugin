@@ -1,0 +1,5 @@
+interface:
+  display_name: Product Design
+  short_description: Integrated product UI/UX authoring across flow, space, visual craft, states, responsive behavior, and design-system coherence.
+policy:
+  allow_implicit_invocation: true

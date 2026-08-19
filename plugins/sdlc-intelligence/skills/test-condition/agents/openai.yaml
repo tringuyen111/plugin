@@ -1,6 +1,0 @@
-interface:
-  display_name: Test Condition
-  short_description: Define one traceable QA condition with probe, environment, data,
-    expected behavior, evidence, and cleanup.
-policy:
-  allow_implicit_invocation: true

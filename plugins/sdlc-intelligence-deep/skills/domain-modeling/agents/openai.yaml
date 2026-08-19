@@ -1,0 +1,5 @@
+interface:
+  display_name: Domain Modeling
+  short_description: Model domain semantics and durable decision rationale without taking architecture authority.
+policy:
+  allow_implicit_invocation: true

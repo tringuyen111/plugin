@@ -1,0 +1,5 @@
+interface:
+  display_name: User Guide
+  short_description: Turn verified product truth into reader-centered task, reference, troubleshooting, and onboarding guidance in the actual documentation target.
+policy:
+  allow_implicit_invocation: true

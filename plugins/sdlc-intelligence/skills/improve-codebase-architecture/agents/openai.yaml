@@ -1,6 +1,0 @@
-interface:
-  display_name: Improve Codebase Architecture
-  short_description: Discover and prioritize architecture-improvement candidates from
-    observed codebase friction without implementing them.
-policy:
-  allow_implicit_invocation: false

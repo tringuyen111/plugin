@@ -1,0 +1,5 @@
+interface:
+  display_name: "DevOps Engineering"
+  short_description: "Engineer CI/CD, IaC, release, deployment, recovery, and normal service operations end to end."
+policy:
+  allow_implicit_invocation: true

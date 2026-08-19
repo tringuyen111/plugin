@@ -1,0 +1,5 @@
+interface:
+  display_name: Verify Quality
+  short_description: Plan and verify QA with source-bound strategies, conditions, evidence, defects, and one verdict.
+policy:
+  allow_implicit_invocation: true

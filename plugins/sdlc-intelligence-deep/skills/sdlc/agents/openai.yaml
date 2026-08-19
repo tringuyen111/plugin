@@ -1,0 +1,5 @@
+interface:
+  display_name: SDLC
+  short_description: Apply proportional SDLC judgment to broad or strict/full delivery work without forcing every phase or a central route registry.
+policy:
+  allow_implicit_invocation: true

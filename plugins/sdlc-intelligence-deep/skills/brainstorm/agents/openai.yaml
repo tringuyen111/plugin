@@ -1,0 +1,7 @@
+interface:
+  display_name: Brainstorm
+  short_description: Explore raw ideas deeply, resist fixation, and converge into coherent pre-canonical truth.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  allow_implicit_invocation: true

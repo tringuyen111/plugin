@@ -1,6 +1,0 @@
-interface:
-  display_name: Triage
-  short_description: Move canonical work items through a provider-neutral triage state
-    machine and write durable evidence-backed briefs.
-policy:
-  allow_implicit_invocation: false

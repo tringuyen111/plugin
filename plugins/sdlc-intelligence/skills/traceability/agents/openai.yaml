@@ -1,6 +1,0 @@
-interface:
-  display_name: Traceability
-  short_description: Build or audit links from outcomes and scope through behavior,
-    tasks, tests, evidence, release, and documentation.
-policy:
-  allow_implicit_invocation: true

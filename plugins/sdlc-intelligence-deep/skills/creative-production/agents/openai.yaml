@@ -1,0 +1,5 @@
+interface:
+  display_name: Creative Production
+  short_description: Creative collateral direction and host-native asset generation.
+policy:
+  allow_implicit_invocation: true

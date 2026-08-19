@@ -1,0 +1,5 @@
+interface:
+  display_name: Decision Interview
+  short_description: Improve a concrete decision one high-leverage human question at a time.
+policy:
+  allow_implicit_invocation: false

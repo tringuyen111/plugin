@@ -1,0 +1,36 @@
+{
+  "name": "sdlc-intelligence-deep",
+  "version": "1.0.32",
+  "description": "SDLC judgment, expert engineering knowledge, and deterministic helpers for native coding agents without a central Delivery router.",
+  "author": {
+    "name": "Trí Nguyễn"
+  },
+  "license": "LicenseRef-SDLC-Intelligence-Personal-Use-1.0",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "SDLC Intelligence",
+    "shortDescription": "SDLC judgment and on-demand engineering depth for native coding agents.",
+    "longDescription": "A native multi-Skill Codex plugin that adds proportional SDLC judgment, Tech Lead-style engineering planning, decision-quality human interviews, user/business acceptance, focused domain expertise, codebase-aware implementation methods, and evidence discipline. Native Skill discovery selects capabilities; the plugin does not reproduce a central Delivery router or host agent runtime.",
+    "developerName": "Trí Nguyễn",
+    "category": "Productivity",
+    "capabilities": [
+      "Proportional SDLC judgment",
+      "Tech Lead engineering planning",
+      "Decision-quality interviews",
+      "User/business acceptance",
+      "Codebase-aware implementation",
+      "On-demand engineering expertise",
+      "End-to-end DevOps engineering",
+      "Direct Skill and Plugin engineering",
+      "Capability qualification evidence",
+      "Editable BPMN and Flowchart process diagrams",
+      "Deterministic Skill helpers"
+    ],
+    "defaultPrompt": [
+      "Use the installed Skill or Skills whose decision mechanisms materially improve the current job; when multiple Skills are relevant, keep one coherent accountable outcome and use additional Skills as bounded supporting depth rather than competing owners; do not invent a supervisory router or handoff.",
+      "For coding, learn the real codebase and nearby representative patterns before introducing a new mechanism, then iterate against real execution feedback.",
+      "Apply SDLC controls proportionally to decision-changing risk and evidence; preserve missing or unexecuted proof truthfully."
+    ],
+    "composerIcon": "./assets/icon.svg"
+  }
+}
