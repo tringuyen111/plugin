@@ -1,151 +1,105 @@
 ---
 name: handoff
-description: Compact verified project and conversation state into a continuation artifact when another owner, agent, session, or runtime needs durable/inline transfer that ordinary bounded results and canonical references cannot provide. Do not use for in-process supporting-Skill returns or a mere next-step/owner note that needs no transferred state.
+description: Compact verified project and conversation state into a continuation artifact when another owner, agent, session, or runtime needs durable/inline transfer that ordinary bounded results and canonical references cannot provide. Do not use for in-process supporting-Skill returns, same-session capability transitions, or a mere next-step/owner note that needs no transferred state.
 ---
-
-
 
 # Handoff
 
-Create a compact continuation artifact so a different owner, agent, session, or runtime can resume without rediscovering project truth. A handoff is an index and state transfer, not a replacement for specifications, plans, ADRs, issues, source, commits, diffs, or evidence.
+Transfer only the state a different owner, agent, session, or runtime cannot safely recover from canonical sources. A handoff is a compact delta + index, not a project summary and not a replacement for specs, plans, issues, source, commits, diffs, or evidence.
 
-If arguments are provided, treat them as the intended focus of the receiving context and prioritize only the state needed for that continuation.
+If arguments are provided, treat them as the receiving context's goal and include only what can change that continuation.
 
-## Handoff necessity gate
+## Necessity gate
 
-Use this Skill only when a continuation boundary is real: the user explicitly requests a handoff, the primary owner/authority changes and the receiver needs transferred state, a new session/agent/runtime cannot safely recover current execution state from canonical sources, or project policy requires a persisted checkpoint.
+Use this Skill only when at least one boundary is real:
 
-If a supporting Skill is returning to the still-active primary owner, return its bounded result/evidence to the caller instead. If the current work only needs to name the likely next owner or next action and canonical sources already carry the needed state, return that bounded continuation note instead. Neither case warrants a handoff artifact by itself.
+- the user explicitly asks for a handoff/checkpoint;
+- a different owner/authority must continue and needs transferred execution state;
+- a new session/agent/runtime cannot safely recover current state from canonical sources;
+- project policy requires a persisted continuation artifact.
 
-## Establish the handoff boundary
+Do **not** create a handoff because another Skill becomes useful. A supporting Skill returns bounded evidence/decision to the active job, and a same-session capability transition continues without a handoff artifact. A next-action or likely-owner note is also not a handoff when canonical sources already carry the state.
 
-Before writing:
+## Bind the transfer boundary
 
-1. identify the receiving role, agent, or next session goal;
-2. identify the canonical project truth locations and current work item;
-3. inspect the strongest available state evidence, including source/runtime/tests/artifacts before summaries;
-4. find contradictions between ledgers, claims, and observed evidence;
-5. determine what the next agent must know now versus what it can retrieve from a referenced artifact;
-6. classify sensitive content and read applicable privacy, redaction, and retention policy;
-7. resolve the destination and write capability before claiming a file will be created.
+Before writing, establish only what is material:
 
-Do not silently repair conflicting project state inside the handoff. Surface the contradiction, cite both sources, and name the owner who must reconcile canonical truth.
+1. receiving goal and real continuation boundary;
+2. canonical work item/source/artifact references;
+3. changes since the last recoverable point;
+4. proof already executed and its limits;
+5. open blockers, contradictions, risks, or authority gaps;
+6. exact next executable action and required input/capability;
+7. sensitive-data constraints and delivery destination when persistence is required.
 
-## Destination resolution
+Do not repair conflicting project truth inside the handoff. Name the contradiction and point to the competing canonical sources.
 
-Choose the destination in this order:
+## Deliver safely
 
-1. explicit user instruction that complies with project policy;
-2. established canonical project convention confirmed from current artifacts;
-3. runtime-provided approved artifact storage whose access and retention are known;
-4. inline delivery when no approved persistence capability exists;
-5. operating-system temporary storage only as an explicit, policy-approved fallback with its retention and discoverability limitations stated.
+Choose delivery in this order when persistence matters: explicit compliant user destination -> verified project convention -> approved runtime artifact storage -> inline transfer -> explicitly approved temporary fallback.
 
-Never assume the operating-system temporary directory is safe, durable, private, or accessible to the next agent. Never claim persistence until the artifact can be reopened or otherwise verified.
+Never assume temporary storage is durable, private, or visible to the receiver. Never claim persistence until the artifact can be reopened or otherwise verified.
 
-When no file can be created, provide the full handoff inline and return `PARTIAL` if persistence was part of the requested scope. Return `BLOCKED` only when the receiving workflow requires a persistent artifact and no safe destination or inline transfer is acceptable.
+Exclude credentials, tokens, private keys, session secrets, and raw authentication material. Minimize personal, customer, production, and confidential data. Prefer identifiers or access-controlled references over copied content. Do not weaken retention, residency, audience, or access policy for convenience.
 
-## Privacy, redaction, and retention
+If persistence was required but no safe writable destination exists, deliver inline only when that still satisfies the receiver; otherwise return `BLOCKED`. Do not invent a file write.
 
-- Exclude credentials, tokens, passwords, private keys, session secrets, and raw sensitive authentication material.
-- Minimize personal, customer, production, or confidential data. Prefer approved identifiers or links to access-controlled sources over copied content.
-- Record that redaction occurred without reproducing the sensitive value.
-- Do not weaken project retention, residency, audience, or access policy for convenience.
-- If a required detail cannot be transferred safely, state the limitation and point to the approved owner or secret/resource reference.
-- Avoid copying large source artifacts into a less protected handoff merely to make it “self-contained.”
+## Build a delta handoff
 
-## Build the handoff
-
-Use this minimum envelope. Include a transferred-source-result section only when a material upstream result/status actually exists in a canonical source and can be referenced; otherwise omit it rather than manufacturing a status from project summaries.
+Default to this shape and omit empty/non-material sections:
 
 ```markdown
 # Handoff
 
-## Goal of the next session
+## Goal
+<what the receiver must continue or decide>
 
-## Transferred source result (optional)
-- Owner / producing capability:
-- Source status/state, only if that source defines one:
-- Subject / revision:
-- Evidence / blockers:
-- Canonical source/result reference:
+## Changed
+<only execution-relevant deltas since the recoverable baseline>
 
-## Handoff delivery
-- Delivery workflow state: READY | PARTIAL | BLOCKED | FAILED
-- Delivery mode: persisted | inline
-- Persistence result:
-- Access / retention limitations:
+## Proved
+<tests/runtime/inspection actually executed + limits>
 
-## Current project state
-## Canonical work item and truth locations
-## Decisions already made
-## Artifacts and evidence to inspect
-## Changes already made
-## Verification and observed results
-## Unresolved contradictions, blockers, and risks
-## Protected state and actions not authorized
-## Exact next loop
-## Next owner / capability / action
-## Suggested available skills and required capabilities
-## Persistence, privacy, and retention result
+## Open
+<blockers, contradictions, risks, unknowns, unauthorized actions>
+
+## Next
+<one exact executable next loop, required inputs/authority, stop condition>
+
+## Refs
+<canonical paths/IDs/commits/artifacts to open and why>
 ```
 
-Do not infer a source state from project/task/artifact maturity or summary prose. A transferred source result remains referenced upstream evidence owned by its producing source; Handoff owns only the accuracy and delivery of the continuation artifact.
+Add only when material:
 
-The handoff must distinguish:
+- **Authority** — the real human/project/policy decision or permission boundary;
+- **Delivery** — persisted/inline mode, verified path/resource, access/retention limitation;
+- **Upstream result** — a status/result only when a canonical producing source actually defines it.
 
-- completed and verified work;
-- completed but unverified work;
-- attempted and failed work;
-- work not attempted;
-- decisions owned elsewhere;
-- side effects that were not authorized;
-- runtime capabilities required for the next loop.
+Do not add a capability inventory, suggested-Skill catalogue, lifecycle recap, or duplicated source text merely to look complete. Mention a Skill/capability only when the receiver needs it to execute the next loop or when its absence is the blocker.
 
 ## Reference instead of duplicate
 
-For existing specs, plans, ADRs, issues, diagrams, commits, diffs, test reports, logs, and generated artifacts:
+For specs, plans, ADRs, issues, diagrams, commits, diffs, test reports, logs, and generated artifacts:
 
-- reference the canonical path, resource ID, commit, or URL;
-- state why the next agent should open it;
-- include only the minimum excerpt needed to explain relevance or contradiction;
-- do not create a shadow copy of status or acceptance truth.
+- reference the canonical path/resource/commit/URL;
+- state why it matters to the next loop;
+- quote only the minimum needed to expose a contradiction or decision;
+- state when the next runtime may lack access rather than copying restricted content as a workaround.
 
-When a referenced artifact may not be accessible in the next runtime, say so and identify the capability or permission required. Do not copy restricted content as a workaround.
-
-## Suggested skills and capabilities
-
-Suggest only skills confirmed available in the current installed manifest or runtime discovery. If a useful skill is not confirmed available, list it as a **requirement**, not as an instruction to invoke it.
-
-For every suggestion, state:
-
-```yaml
-skill_or_capability:
-availability: AVAILABLE | UNAVAILABLE | UNKNOWN
-why_needed:
-input_to_provide:
-expected_output:
-fallback_if_unavailable:
-```
-
-Do not recommend a skill merely because its name sounds relevant. Preserve decision ownership; a supporting skill must not be presented as the owner of a decision it does not own.
-
-## Verify and deliver
+## Verify and close
 
 Before completion:
 
-1. reopen or inspect the persisted artifact when one was written;
-2. confirm canonical references resolve as far as the current runtime permits;
-3. confirm sensitive values are absent;
-4. confirm the Handoff delivery state matches this execution's evidence, and confirm any transferred source result matches its cited upstream source rather than summary wording;
-5. confirm the next action is executable and names its owner, required input, and capability;
-6. report the exact persistence result, path/resource, retention assumption, and access limitation.
+1. reopen a persisted artifact when one was written;
+2. check canonical references as far as the runtime permits;
+3. check that sensitive values are absent;
+4. verify every claim against source evidence rather than summary wording;
+5. verify that `Next` is executable and names any real authority/capability requirement.
 
-## Completion truth
+Completion states describe transfer quality only. Keep them internal unless the label itself helps the receiver or the user asks for it:
 
-These states describe **Handoff delivery**, not project/task/artifact maturity and not any upstream capability's status. Preserve an upstream status separately only when its canonical source actually defines it.
-
-- `READY` — the continuation state is complete for the declared next session, canonical references and evidence are truthful, privacy rules are satisfied, and the delivery method is verified.
-- `PARTIAL` — useful handoff content is delivered, but persistence, reference access, verification, or part of the next-session context remains unresolved.
-- `BLOCKED` — safe transfer cannot occur because of privacy/retention policy, missing required destination, missing owner decision, or inaccessible canonical evidence.
-- `FAILED` — the handoff artifact or write cannot be trusted, includes prohibited content, contradicts inspected evidence without disclosure, or reports persistence that did not occur.
+- `READY` — the declared continuation state is sufficient, truthful, safe, and delivery is verified when persistence was required.
+- `PARTIAL` — useful transfer exists but a material reference, access, persistence, or continuation fact remains unresolved.
+- `BLOCKED` — safe or sufficient transfer cannot occur because required evidence, authority, or destination is unavailable.
+- `FAILED` — an attempted transfer/write is untrusted, contradictory, unsafe, or falsely reported.

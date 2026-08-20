@@ -1,7 +1,7 @@
 {
   "name": "sdlc-intelligence-deep",
-  "version": "1.0.36",
-  "description": "SDLC judgment, expert engineering knowledge, and deterministic helpers for native coding agents without a central Delivery router.",
+  "version": "1.0.39",
+  "description": "SDLC judgment, independent engineering Skills, and a thin outcome-oriented Codex session kernel without a central Delivery router.",
   "author": {
     "name": "Trí Nguyễn"
   },
@@ -9,8 +9,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "SDLC Intelligence",
-    "shortDescription": "SDLC judgment and on-demand engineering depth for native coding agents.",
-    "longDescription": "A native multi-Skill Codex plugin that adds proportional SDLC judgment, Tech Lead-style engineering planning, decision-quality human interviews, user/business acceptance, focused domain expertise, codebase-aware implementation methods, and evidence discipline. Native Skill discovery selects capabilities; the plugin does not reproduce a central Delivery router or host agent runtime.",
+    "shortDescription": "Proportional SDLC judgment",
+    "longDescription": "Independent SDLC, product, design, engineering, QA, operations, documentation, and delivery Skills plus a thin Codex-native session kernel for source-first work, progressive context use, same-session capability composition, decision-dense communication, and proportional proof. Native Skill discovery selects capabilities; Skill activation is not a handoff, and the plugin does not reproduce a central Delivery router or host agent runtime.",
     "developerName": "Trí Nguyễn",
     "category": "Productivity",
     "capabilities": [
@@ -27,10 +27,11 @@
       "Deterministic Skill helpers"
     ],
     "defaultPrompt": [
-      "Use the installed Skill or Skills whose decision mechanisms materially improve the current job; when multiple Skills are relevant, keep one coherent accountable outcome and use additional Skills as bounded supporting depth rather than competing owners; do not invent a supervisory router or handoff.",
-      "For coding, learn the real codebase and nearby representative patterns before introducing a new mechanism, then iterate against real execution feedback.",
-      "Apply SDLC controls proportionally to decision-changing risk and evidence; preserve missing or unexecuted proof truthfully."
+      "Audit this repository from verified source before proposing changes.",
+      "Plan the smallest executable engineering frontier for this change.",
+      "Diagnose this failure from runtime evidence before implementing a fix."
     ],
-    "composerIcon": "./assets/icon.svg"
+    "composerIcon": "./assets/icon.svg",
+    "logo": "./assets/icon.svg"
   }
 }

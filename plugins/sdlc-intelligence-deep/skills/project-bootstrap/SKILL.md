@@ -1,6 +1,6 @@
 ---
 name: project-bootstrap
-description: Establish or repair a target project's working context and durable configuration when the project is new, inherited, moved, or internally inconsistent. Inspect existing project/host instruction and configuration surfaces, classify facts by authority/scope/volatility/consumer/canonicality, reconcile conflicts, and materialize only the smallest durable configuration actually needed. Use Project Capability Profile v4 only as an optional compatibility artifact when the project explicitly needs durable cross-system normalization; do not use Bootstrap as a universal lifecycle gate or permission engine.
+description: Establish or repair a project's working context and durable configuration when it is new, inherited, moved, or internally inconsistent. Reconcile existing instruction/configuration surfaces and materialize only the smallest durable configuration needed. Do not turn bootstrap into a universal lifecycle gate or permission engine.
 ---
 
 # Project Bootstrap

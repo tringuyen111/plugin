@@ -1,6 +1,6 @@
 ---
 name: codebase-design
-description: Design one approved architecture-significant technical decision or module/interface boundary with source-grounded ownership, alternatives, compatibility, migration, rollback, and proof. Use when the fixed decision materially concerns durable ownership, interfaces, trust/provenance, lifecycle, cross-system constraints, or architecture trade-offs; do not use as the primary owner for routine/local CI/CD, IaC, promotion, or delivery-mechanics design merely because the request is design-only. Use as supporting architecture depth when another workflow owns candidate discovery, local delivery-system design, or implementation.
+description: Design one approved architecture-significant technical decision or module/interface boundary with source-grounded ownership, alternatives, compatibility, migration, rollback, and proof. Use when durable ownership, interfaces, lifecycle, trust, or cross-system trade-offs are the main design problem; use only as supporting depth when another workflow owns the broader outcome.
 ---
 
 # Codebase Design

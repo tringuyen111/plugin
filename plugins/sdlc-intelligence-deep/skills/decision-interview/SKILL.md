@@ -1,6 +1,6 @@
 ---
 name: decision-interview
-description: "Improve the quality of a concrete human-owned decision surface through an evidence-grounded, one-question-at-a-time interview. Use when the user says grill me, challenge this plan/design/decision, or an owning workflow has a material unresolved human choice. Bind source truth, select the highest-leverage material frontier, diagnose that frontier's weak decision-quality link, choose the right probe, challenge load-bearing assumptions proportionally, reopen only invalidated decisions, and stop when the caller has decision-sufficient truth. Do not use for raw-idea brainstorming, generic questionnaires, project-wide writing, agent execution, or protected approval authority."
+description: Improve a concrete human-owned decision through an evidence-grounded, one-question-at-a-time interview. Use when the user asks to be challenged or an owning workflow has a material unresolved human choice. Do not use for raw brainstorming, generic questionnaires, project-wide writing, agent execution, or protected approval authority.
 ---
 
 # Decision Interview

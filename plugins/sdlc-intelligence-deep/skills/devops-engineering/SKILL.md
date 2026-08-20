@@ -1,6 +1,6 @@
 ---
 name: devops-engineering
-description: "Engineer the software-to-production system and normal non-incident service operations end to end. Use when the goal materially involves CI/CD or build/promotion automation, infrastructure as code, environment/configuration or observability-as-code, release readiness, deployment/exposure, progressive delivery, rollback/recovery, production health, bounded routine operations, or authoring/revalidating an operational runbook. May edit repository automation/config/IaC when that is part of the DevOps outcome. Do not use as the primary owner for ordinary application-only coding, Product/QA/UAT decisions, security/data policy invention, internal-platform product design, or active incident command."
+description: Engineer CI/CD, build and promotion automation, IaC, environment/configuration, observability-as-code, deployment, progressive delivery, rollback/recovery, release readiness, and normal service operations. Use when software-to-production mechanics are the primary outcome; not for ordinary application-only coding, Product/QA/UAT decisions, policy invention, or active incident command.
 ---
 
 # DevOps Engineering

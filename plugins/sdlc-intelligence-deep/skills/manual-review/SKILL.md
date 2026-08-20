@@ -1,11 +1,11 @@
 ---
 name: manual-review
-description: Review a fixed User Guide outline, page, or documentation bundle by simulating reader jobs, checking claim support and visual currency, diagnosing the first material reader failure and its causal scope, and returning a bounded Documentation review verdict. Use for direct User Guide/manual/help-doc review or as a supporting review from `user-guide`. Do not review code diffs, visual design quality, QA/UAT results, edit the target while reviewing, or claim independent/attested evidence without a real independence boundary.
+description: Review a fixed User Guide, help page, outline, or documentation bundle by simulating reader jobs, checking claim support and visual currency, diagnosing material reader failures, and returning a bounded Documentation verdict. Do not review code diffs, own Design or QA/UAT acceptance, edit the target while reviewing, or invent independence.
 ---
 
 # Manual Review
 
-Review one fixed documentation target and return reader-centered findings plus a Documentation review verdict. The reviewer diagnoses; the User Guide/documentation owner applies corrections. Read [Review Format](REVIEW-FORMAT.md) for the output contract.
+Review one fixed documentation target and return reader-centered findings plus a Documentation review verdict. Review does not silently edit the frozen target, but if corrections are also authorized the same session may continue through the User Guide/documentation capability after freezing the review result; no handoff artifact is required. Read [Review Format](REVIEW-FORMAT.md) for the output contract.
 
 A direct review can complete from the supplied target and the evidence actually needed to evaluate its claims. Do not require a Project Capability Profile, publication destination, QA report, or provider-selection ceremony merely because those artifacts/capabilities exist.
 

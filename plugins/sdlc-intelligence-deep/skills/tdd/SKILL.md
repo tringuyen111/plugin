@@ -1,6 +1,6 @@
 ---
 name: tdd
-description: "Apply test-driven development directly or as an optional implementation method for one bounded behavior: choose a stable observable seam, drive informative red-green-refactor cycles, and bind each green result to the mechanism it actually proves. Use when the user or project explicitly selects TDD, test-first, red-green-refactor, or an equivalent bounded test-first coding job. Do not auto-own ordinary implementation merely because tests can be written, and do not own independent QA, immutable review, acceptance, release, or whole-feature proof."
+description: Apply test-driven development to one bounded behavior using a stable observable seam and informative red-green-refactor cycles. Use when the user or project explicitly selects TDD, test-first, or equivalent test-first coding. Do not auto-own ordinary implementation merely because tests are possible, and do not own independent QA, review, acceptance, release, or whole-feature proof.
 ---
 
 # Test-Driven Development

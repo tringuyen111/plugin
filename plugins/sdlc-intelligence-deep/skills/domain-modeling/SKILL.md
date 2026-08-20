@@ -119,7 +119,7 @@ Re-enter where the model first became invalid:
 - ambiguous/overloaded label -> re-test concept identity;
 - counterexample breaks membership -> narrow/split/merge the concept;
 - relationship role is wrong -> revise the relationship before derived invariants;
-- invariant lacks authority -> return to the rule/domain owner;
+- invariant lacks authority -> preserve the authority gap; if the same session can obtain the rule/domain decision, consume it and re-enter here without a handoff artifact;
 - lifecycle example breaks identity -> revisit state-versus-new-concept choice;
 - code differs from accepted model -> determine whether code is stale or the accepted semantic truth must be reopened.
 
@@ -161,7 +161,7 @@ Use this branch only after the semantic claim itself is resolved:
 | resolved meaning/relationship with no consequential rationale to preserve | update the authorized glossary/context model only when persistence is requested | do not create a decision record for routine cleanup |
 | accepted semantic/context trade-off that is hard to reverse, surprising without context, and selected from material alternatives | capture a semantic/context decision record when the project has an authorized decision-record convention for this kind of decision | preserve domain authority, rationale, alternatives, affected semantic scope, and source truth |
 | semantic proposal or authority remains unresolved | return the proposal inline as `PARTIAL`; no accepted durable decision record | do not make persistence imply acceptance |
-| architecture/technology/integration/construction choice is the decision | hand the exact semantic constraints/context to the Architecture owner | do not author or approve the architectural ADR inside Domain Modeling |
+| architecture/technology/integration/construction choice is the decision | return the exact semantic constraints/context to the active job; keep the decision with Architecture authority and continue there in-session when available | do not author or approve the architectural ADR inside Domain Modeling |
 
 Read the [semantic/context decision-record projection](ADR-FORMAT.md) only for the second row. An ADR-named project store is compatible only when current project convention explicitly permits domain semantic/context decisions there.
 

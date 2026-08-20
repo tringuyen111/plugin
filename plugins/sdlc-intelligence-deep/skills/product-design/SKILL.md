@@ -1,6 +1,6 @@
 ---
 name: product-design
-description: Design or revise product/application experiences and interfaces from approved Product/behavior truth, real content, and current product/design-system evidence. Use for product UI/UX authoring, direct user-flow or wireframe requests, screen/page redesign, responsive/state design, information architecture, visual composition, or design-system composition when one coherent Design owner must reason across interaction, structure/layout, components, typography, color, material/planes, and whole-page craft. Select the minimum faithful representation and render/inspect/recompose when visible quality is material. Do not use for critique-only review of a fixed artifact, formal QA visual-conformance acceptance, runtime prototype experiments, logo/marketing collateral, or production frontend implementation.
+description: Design or revise product/application experiences from approved Product/behavior truth, real content, and current product/design-system evidence. Use for product UI/UX authoring, flows, wireframes, screen redesign, responsive/state design, information architecture, visual composition, or design-system composition. Do not use for critique-only review, QA acceptance, prototype experiments, marketing collateral, or production frontend implementation.
 ---
 
 # Product Design

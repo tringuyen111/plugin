@@ -1,6 +1,6 @@
 ---
 name: capability-resolver
-description: Resolve a materially ambiguous provider/source choice for a declared capability. Use when several live sources can plausibly satisfy the task, when source identity/fidelity/data boundary/cost/latency can materially change the outcome, or when a preferred source becomes unavailable and substitution semantics must be decided. Normalize live sources, separate hard constraints from soft preferences, prove equivalence before defaulting, and return bounded selection truth. Do not use for an obvious single-source tool call or to authorize an operation.
+description: Resolve a materially ambiguous provider or source choice for a declared capability when multiple live options, fidelity, data boundary, cost, latency, or fallback semantics can change the outcome. Do not use for an obvious single-source call or to authorize an operation.
 ---
 
 # Capability Resolver

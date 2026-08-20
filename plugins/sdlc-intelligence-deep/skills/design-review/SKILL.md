@@ -1,6 +1,6 @@
 ---
 name: design-review
-description: Independently review an existing Product/UI Design proposition and its realization by reconstructing material claims from Product/behavior truth through Design premises, decisions and models to artifacts, implementation, and experienced outcome; challenge evidence, completeness, coherence, inference, trade-offs, projection fidelity, and user consequence; then return evidence-grounded findings, correction intent, ownership, and re-review falsifiers. Use for critique/review of screens, flows, wireframes, prototypes, Design specs, component/system decisions, or implemented experiences. Do not author replacement designs, silently rewrite approved Product/Design truth, issue QA/UAT/release PASS, or take ownership of upstream Product resolution.
+description: Independently review an existing Product/UI Design proposition or implementation for evidence, coherence, fidelity, trade-offs, and user consequence. Use for critique of screens, flows, wireframes, prototypes, Design specs, system decisions, or implemented experiences. Do not author the replacement design or issue QA/UAT/release approval.
 ---
 
 # Design Review
@@ -136,15 +136,15 @@ When the issue has a realization/system component, classify scope as:
 
 Distinguish visible evidence from causal evidence. A screenshot may prove that hierarchy fails; it rarely proves by itself that a shared component/token is the causal owner. Test the strongest plausible local-versus-shared explanation before widening scope.
 
-## Authority and handoff
+## Authority and continuation
 
 Apply these boundaries strictly:
 
 - **Challenge does not grant ownership.** You may mark approved Design truth as needing reconsideration, but it remains approved until its accountable owner supersedes it.
-- **Unsupported upstream is not disproven upstream.** State the dependency and missing/contradictory evidence; return resolution to the Product/research/requirements owner.
+- **Unsupported upstream is not disproven upstream.** State the dependency and missing/contradictory evidence; keep the decision with the real Product/research/requirements authority. If the same session can gather the missing evidence or obtain the decision, continue there and feed the bounded result back into this review without a handoff artifact.
 - **Review is not redesign.** State the failed relation, trade-off, correction intent, constraints, and falsifier; author a replacement only after the terminal job explicitly moves to `product-design`.
-- **Review is not conformance acceptance.** If the user only asks whether an exact implementation conforms to an approved Design and wants PASS/FAIL, hand that terminal verdict to `verify-quality` with a bounded visual-conformance scope. A Design Review finding may be context but is never inherited acceptance.
-- **Review is not source repair.** When supported Design truth is correct and implementation diverges, hand the exact relation/evidence to Engineering; do not invent source-level causes without source evidence.
+- **Review is not conformance acceptance.** If the terminal job is exact implementation PASS/FAIL against approved Design, use `verify-quality` with bounded visual-conformance scope. In one capable session this is a capability transition, not a handoff; a Design Review finding may be context but is never inherited acceptance.
+- **Review is not source repair.** When supported Design truth is correct and implementation diverges, return the exact relation/evidence to the active job. If the user also requested repair and the same session has the needed engineering capability/authority, continue there without a handoff artifact; do not invent source-level causes without source evidence.
 - **Review is not release/UAT authority.** `BLOCKING` means blocking the declared Design expectation or task relation, not release approval.
 
 ## Evidence discipline

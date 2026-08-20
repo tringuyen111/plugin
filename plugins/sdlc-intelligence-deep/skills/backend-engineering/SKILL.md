@@ -1,6 +1,6 @@
 ---
 name: backend-engineering
-description: Implement and prove a material backend application/service change by binding responsibility across layers, tracing the real data/state/effect path, preserving canonical service ownership, handling transaction/failure/concurrency/background/runtime mechanics, and proving the affected runtime path. Use directly when the backend runtime is the dominant implementation boundary or as on-demand specialist depth in broader implementation. Do not use as the primary owner for an immutable branch/PR/diff review; do not invent caller-visible API, canonical data/security policy, Product, Operations, QA, or release truth.
+description: Implement backend application or service changes when backend runtime behavior is the dominant boundary, including transactions, failure, concurrency, background work, and representative runtime proof. Use as bounded backend depth in broader implementation; not as code-review or owner of API, Product, data/security policy, QA, or release truth.
 ---
 
 # Backend Engineering
@@ -30,7 +30,7 @@ If a missing design, caller-visible contract, data meaning, security policy, ope
 
 ## Hard boundaries
 
-- Preserve the approved caller-visible API contract; return a material contract change to its owner.
+- Preserve the approved caller-visible API contract. A material contract change remains an explicit authority gap until approved; if the same session can obtain/consume that decision, continue there without a handoff artifact.
 - Consume canonical data semantics and security policy from their owners; unresolved truth remains an explicit gap.
 - Inspect existing database constraints/state, runtime delivery semantics and provider facts before adding a parallel application-level tracker or enforcer.
 - Bind retry/transaction/concurrency proof to the real mechanism; a bypassing test narrows the claim.

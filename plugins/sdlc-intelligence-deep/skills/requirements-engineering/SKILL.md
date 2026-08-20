@@ -1,6 +1,6 @@
 ---
 name: requirements-engineering
-description: Engineer authoritative requirement meaning from the strongest applicable sources and authority. Use for Business Analysis, requirement elicitation/clarification, requirement conflicts or shared-understanding gaps, and direct work on user stories, use cases/scenarios, acceptance criteria, business rules/decision tables, quality requirements/NFRs, transition needs, or requirements document projections. Select only the semantic representations that change the decision. Do not invent Product scope/priority, domain meaning, Design, Architecture, implementation, QA/UAT evidence, release decisions, or risk acceptance.
+description: Engineer authoritative requirement meaning from the strongest applicable sources. Use for BA, requirement elicitation/clarification, conflicts, user stories, use cases/scenarios, acceptance criteria, business rules/decision tables, NFRs, transition needs, or requirements projections. Do not invent Product scope/priority, domain meaning, Design, Architecture, implementation, QA/UAT evidence, release decisions, or risk acceptance.
 ---
 
 # Requirements Engineering

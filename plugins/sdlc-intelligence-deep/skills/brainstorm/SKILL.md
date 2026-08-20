@@ -1,7 +1,6 @@
 ---
 name: brainstorm
-description: >-
-  Shape a raw or still-fluid product/feature idea into coherent pre-canonical idea truth by framing the real question, deliberately exploring materially different possibilities when the space is open, deepening the behaviors and uncertainties that matter, discriminating options with evidence/constraints/judgment, and converging without fabricating precision or downstream authority. Use when the user explicitly asks to brainstorm, think through, explore, or pressure-test an early idea, or when an ordinary request is itself a raw/fuzzy idea that clearly needs ideation before canonical Product/BA/technical work. Do not use as a mandatory pre-step for fixed implementation, review, requirements, design, QA, release, or other downstream work whose decision surface is already sufficiently defined. Brainstorm works standalone; conversation is a valid working surface, and Markdown/files are optional persistence representations selected only when requested or project-native.
+description: Explore and shape raw or still-fluid product or feature ideas into coherent pre-canonical truth. Use when the user asks to brainstorm, explore, or pressure-test an early idea, or when the request is genuinely fuzzy before canonical Product, BA, or technical work. Do not force brainstorming onto already-fixed implementation, review, requirements, design, QA, or release work.
 ---
 
 # Brainstorm
@@ -169,9 +168,9 @@ Do not create a Markdown intermediate merely because Brainstorm bundles Markdown
 
 Read `references/keyword-detection.md` only when source-role, language, complexity, decision, or OQ inference is materially ambiguous.
 
-## Boundary handoff without dependency
+## Boundary continuation without dependency
 
-When Brainstorm reaches a question outside its authority, return the unresolved truth in a form the next owner can consume. Name the **kind of ownership/evidence needed**; naming an installed sibling capability is optional convenience, never required execution machinery.
+When Brainstorm reaches a question outside its authority, return the unresolved truth in a form the active job can consume. Name the **kind of authority/evidence needed**; if the same session can resolve it, the caller may continue through another capability and feed the bounded result back. Naming an installed sibling capability is optional convenience, never required execution machinery or a handoff by itself.
 
 Examples:
 

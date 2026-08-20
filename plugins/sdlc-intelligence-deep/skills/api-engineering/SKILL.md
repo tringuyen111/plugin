@@ -1,6 +1,6 @@
 ---
 name: api-engineering
-description: Implement and prove a material caller-visible API change by preserving fixed operation semantics, validation, errors, authorization surface, idempotency/retry, continuation, compatibility, and real request-response proof. Use directly when the caller-visible API/transport contract is the dominant implementation boundary or as on-demand specialist depth in broader implementation. Do not use as the primary owner for an immutable branch/PR/diff review; do not invent Product behavior, security policy, backend internals, canonical data semantics, QA, or release truth.
+description: Implement caller-visible API or transport changes when the API contract is the dominant boundary, including compatibility, validation, retry/idempotency, errors, and real request-response proof. Use as bounded API depth in broader implementation; not as code-review, Product, security, data, QA, or release owner.
 ---
 
 # API Engineering

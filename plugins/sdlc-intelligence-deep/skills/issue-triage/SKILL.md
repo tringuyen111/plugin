@@ -1,6 +1,6 @@
 ---
 name: issue-triage
-description: "Assess an existing incoming tracker issue, PR, or change request whose claim, disposition, or actionability is uncertain. Bind the canonical item and current source/runtime/tracker evidence, verify or bound the claim, separate external-fact gaps from owner/requirements/planning gaps, determine disposition and the next accountable continuation, and apply only authorized tracker mutations. Use for incoming or otherwise unnormalized issue/PR intake, including external reports/PRs, or explicit re-triage of an existing canonical item. Do not use as a mandatory stage for current Engineering Planning work, direct requirements/planning/implementation requests, or to invent missing Product, Requirements, Design, Architecture, Engineering, QA, or release truth."
+description: 'Assess an existing incoming issue, PR, or change request whose claim, disposition, or actionability is uncertain. Use for unnormalized intake or explicit re-triage: bind the canonical item and current evidence, verify or bound the claim, determine disposition, and identify the next accountable continuation. Do not make triage a mandatory stage for direct planning, requirements, or implementation work.'
 ---
 
 # Issue Triage

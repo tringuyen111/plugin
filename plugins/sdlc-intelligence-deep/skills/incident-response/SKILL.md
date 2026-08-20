@@ -1,6 +1,6 @@
 ---
 name: incident-response
-description: "Coordinate an active or explicitly declared production incident from current impact through stabilization, factual communication, recovery confidence, and command transition. Use when user/critical-operation impact is active and coordinated incident command is required, including uncertain-cause outages, mitigation/containment, rollback or failover under incident conditions, ambiguous operation outcomes, command handoff, or recovery assessment. Do not use for ordinary degraded-but-nonincident operations, historical postmortem/causal-learning work, generic debugging without incident command, or as automatic authority for production writes, security/data forensics, legal decisions, or external communications."
+description: Coordinate an active or explicitly declared production incident through stabilization, factual communication, recovery confidence, and command transition. Use when current user or critical-operation impact requires coordinated incident command. Do not use for ordinary nonincident degradation, historical learning, generic debugging, or automatic authority for production writes, forensics, legal decisions, or external communications.
 ---
 
 # Incident Response

@@ -1,6 +1,6 @@
 ---
 name: implement
-description: Implement a clear technical change in a real codebase by binding the relevant current source, docs/contracts, runtime/configuration, tests, and production path before inference; separating observed truth from authorized proposal space; choosing the smallest coherent mechanism; iterating through edit-run-observe-rebind feedback; and proving the requested behavior at the real consumed seam. Use for ordinary feature, fix, refactor, configuration, or integration implementation when Product/behavior/design/policy truth is fixed enough to code.
+description: Implement a clear feature, fix, refactor, configuration, or integration change in a real codebase when Product, behavior, design, and policy truth are fixed enough to code. Bind the real source/runtime path, use the smallest coherent mechanism, iterate on execution feedback, and prove behavior at the consumed seam.
 ---
 
 # Implement

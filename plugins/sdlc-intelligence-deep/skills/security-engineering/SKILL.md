@@ -1,6 +1,6 @@
 ---
 name: security-engineering
-description: Implement and prove a material security or identity enforcement change by binding fixed policy to trust boundaries and unavoidable enforcement seams, separating authentication/authorization/freshness/containment, covering bypass paths and session/token/replay/secrets mechanics, and proving representative negative behavior through the real mechanism. Use directly when security/identity enforcement is the dominant implementation boundary or as on-demand specialist depth in broader implementation. Do not use as the primary owner for an immutable branch/PR/diff review; do not invent policy, accept risk, issue independent assurance, own QA, or claim release readiness.
+description: Implement security or identity enforcement changes when trust boundaries and enforcement are the dominant implementation boundary, including authentication/authorization, freshness, containment, bypass paths, token/session/replay/secrets mechanics, and representative negative proof. Use as bounded security depth in broader implementation; do not invent policy, accept risk, own QA, or claim release readiness.
 ---
 
 # Security Engineering

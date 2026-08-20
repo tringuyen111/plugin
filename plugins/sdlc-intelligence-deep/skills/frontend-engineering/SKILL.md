@@ -1,6 +1,6 @@
 ---
 name: frontend-engineering
-description: Implement and prove a material production frontend change with source-grounded system reconstruction, explicit state authority/lifecycle decisions, conditional runtime/performance expertise, economical component composition, real-browser proof, responsive/accessibility verification, and truthful boundaries. Use directly when the browser/frontend runtime is the dominant implementation boundary or as on-demand specialist depth during a broader implementation. Do not use as the primary owner for an immutable branch/PR/diff review; do not invent Product behavior, visual-design approval, architecture, security policy, or QA verdicts.
+description: Implement production frontend changes when browser/runtime behavior is the dominant boundary, including state/lifecycle, component composition, runtime/performance, responsive/accessibility behavior, and real-browser proof. Use as bounded frontend depth in broader implementation; not as code-review or owner of Product behavior, Design approval, architecture/security policy, or QA verdicts.
 ---
 
 # Frontend Engineering

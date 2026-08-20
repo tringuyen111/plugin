@@ -266,7 +266,7 @@ Preserve frozen Code/Spec findings; normalize presentation only. Cross-consisten
 
 State counts and worst consequence **within each primary pass**, plus material Cross-consistency findings, evidence limitations, and unresolved owner gaps. A clean review means no grounded finding in the reviewed source scope; it is not QA PASS or a merge/release verdict.
 
-If remediation is authorized, the next owner is `/implement`. Any source mutation invalidates the frozen review surface; re-review requires the new exact revision. Runtime/independent verification remains with `/verify-quality` or the applicable specialist verification owner.
+If remediation is authorized and still part of the active user outcome, the same capable session may continue through `/implement` without a handoff artifact. Freeze the review result first: any source mutation invalidates the reviewed revision and re-review must bind the new exact revision. Independent QA/runtime verification is a distinct claim; activate `/verify-quality` or a specialist only when the requested outcome, risk, or policy makes that proof material.
 
 ## Why Code + Spec
 

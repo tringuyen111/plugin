@@ -1,6 +1,6 @@
 ---
 name: qualify-sdlc-capability
-description: "Create, execute, preserve, and review invariant-based behavioral qualification evidence for an exact reusable capability or revision. Use when qualification itself is the bounded job: freeze representative cases, determine what execution/provenance is actually available, review evidence against explicit invariants, compare a bound baseline when required, and report truthful blockers or evidence strength. Do not redesign the capability under test, invent runtime/attestation, or treat qualification as publication authority or a universal packaging prerequisite."
+description: 'Create, execute, preserve, and review behavioral qualification evidence for an exact reusable capability or revision. Use when qualification itself is the bounded job: freeze representative cases, bind execution/provenance, evaluate explicit invariants, compare a baseline when required, and report truthful evidence strength. Do not redesign the capability or invent runtime/attestation.'
 ---
 
 # Qualify SDLC Capability
@@ -118,7 +118,7 @@ Before any protected repository/provider/publication/destructive action, verify 
 
 When qualification originated from a project gap, keep customer/project facts in the project. Do not bake project-specific policy into this reusable Skill.
 
-When the capability itself needs redesign, stop qualification at the demonstrated failure and return the evidence to the engineering owner (for example `skill-plugin-engineering`) rather than silently changing the candidate under test.
+When the capability itself needs redesign, freeze qualification at the demonstrated failure before any mutation. Return that evidence to the active job; if redesign is also authorized, the same session may continue through the relevant engineering capability (for example `skill-plugin-engineering`) without a handoff artifact. Never mutate the candidate under test before its failure evidence is fixed.
 
 ## Completion
 

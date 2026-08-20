@@ -36,8 +36,7 @@ documentation structure, or release approval.
    verify the intended state, masks, annotations, viewport, clipping, and font
    rendering. An API or process exit code is not visual proof.
 9. **Inspect manifest v4.** Confirm actual executor provider/source identity, provider version, adapter SHA-256 when applicable, image hashes, resolved mask/callout counts, boxes/placements, capture mode, warnings, failures, skipped captures, source mapping, and state coverage. When a Resolution Record was used, also confirm its exact reference/hash remains bound. Schema/provider examples alone do not prove availability of a non-local provider path; only live provider-specific execution evidence may support that claim.
-10. **Hand evidence to the owner.** Design Review, `verify-quality` visual conformance, User Guide, or
-   Engineering decides what the evidence means.
+10. **Return bounded evidence to the active job.** Capture does not decide meaning. If Design Review, `verify-quality` visual conformance, User Guide, or Engineering is also material to the user outcome, the same capable session may continue there without a handoff artifact.
 
 ## Completion
 

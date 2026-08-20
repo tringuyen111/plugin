@@ -1,6 +1,6 @@
 ---
 name: incident-learning
-description: "Analyze a stabilized or historical production incident to produce evidence-grounded causal learning, hindsight-resistant decision context, recurrence insight, and traceable corrective recommendations. Use for postmortems, retrospectives, root-cause learning after stabilization, review of incident timelines/records/logs/metrics, evaluation of detection or response contributors, and recommendation quality. Accept authoritative incident evidence from any source; a prior incident-response Skill run is not required. Do not use for active incident command/stabilization, ordinary debugging probes, production mutation, canonical backlog priority, or automatic implementation of recommendations."
+description: Analyze a stabilized or historical production incident for causal learning, decision context, recurrence insight, and traceable corrective recommendations. Use for postmortems, retrospectives, timelines, detection/response contributors, and recommendation quality. Do not use for active incident command, production mutation, backlog priority, or automatic implementation.
 ---
 
 # Incident Learning
@@ -163,7 +163,7 @@ intended effect: PREVENT | DETECT | MITIGATE | RECOVER | LEARN
 evidence target / verification / falsifier
         |
         v
-suggested owner / planning handoff
+execution target / authority (when known)
 ```
 
 Do not confuse effect classes. A faster alert is usually `DETECT`; a rollback drill may improve `RECOVER`; neither proves `PREVENT` unless the mechanism supports that claim.
@@ -176,7 +176,7 @@ Do not assign canonical priority. If an existing work item already owns the outc
 
 State the generalized failure mechanism or unsafe assumption first. Then identify other services/flows/components only where the same applicability conditions may hold, and name the bounded evidence/probe needed to confirm exposure.
 
-Do not turn one incident into an unbounded architecture audit. Hand broader design/engineering/product work to the appropriate owner with the incident finding, mechanism, scope, and evidence boundary intact.
+Do not turn one incident into an unbounded architecture audit. Return the incident finding, mechanism, scope, and evidence boundary to the active job. If the user outcome includes broader design/engineering/product work, continue through that capability in the same authorized session; only transfer state when a real continuation or authority boundary requires it.
 
 ## 7. Produce the learning artifact without taking execution authority
 

@@ -1,6 +1,6 @@
 ---
 name: skill-plugin-engineering
-description: "Engineer the capability design and lifecycle of reusable Agent Skills and Plugins: audit, review, diagnose weak behavior, decide whether a repeated workflow warrants a Skill, redesign capability boundaries, Prompt/Context, methodology, composition, evidence, migration, or verify a changed candidate. Use when the hard problem is what capability should exist or why it fails. Do not take straightforward native scaffolding, metadata, manifest, marketplace, cachebuster, or packaging mechanics after capability intent is settled; delegate those to skill-creator or plugin-creator when available. Bind exact artifact truth and diagnose before intervention."
+description: Engineer the capability design and lifecycle of reusable Agent Skills and Plugins. Use when the hard problem is what capability should exist, why behavior is weak, or how boundaries, Prompt/Context, methodology, composition, evidence, or migration should change. Once capability intent is settled, leave straightforward native scaffolding, manifest, marketplace, cachebuster, and packaging mechanics to the native creator tools.
 ---
 
 # Skill / Plugin Engineering

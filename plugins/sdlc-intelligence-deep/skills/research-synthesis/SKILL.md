@@ -37,7 +37,7 @@ Do not force every corpus through one named research framework. Methodological r
 6. **Integrate evidence deliberately.** Before calling sources reinforcing or conflicting, align the construct/question, population/segment, analysis unit, time window, and measurement meaning. For mixed evidence, state whether one source reinforces, explains, qualifies, contradicts, or is not comparable to another. Never vote-count sources or average unlike evidence into pseudo-certainty.
 7. **Construct the finding boundary.** Make each finding answer the research question with a clear scope, source support, contrary evidence, and limitations. Keep descriptive observation, analytical interpretation, causal claim, implication, and recommendation distinct. Do not claim causality unless the evidence design supports it.
 8. **Justify confidence and transferability separately.** Explain confidence using the material quality/directness, relevance, adequacy/coverage, coherence, dependency, selection, and methodological limitations of the evidence. Then state where the finding is likely or not known to transfer. Do not manufacture numeric confidence scores or universal sample thresholds.
-9. **Expose material interpretive ambiguity.** When analysts can reasonably read the same evidence differently and the difference changes a downstream decision, record the competing interpretations, inspect definitions/source context, seek discriminating evidence, or hand the unresolved interpretation to the qualified research/domain owner. Do not use analyst majority vote as proof.
+9. **Expose material interpretive ambiguity.** When analysts can reasonably read the same evidence differently and the difference changes a downstream decision, record the competing interpretations, inspect definitions/source context, seek discriminating evidence, or keep the unresolved interpretation with the qualified research/domain authority. If the same session can obtain the missing evidence, continue there and merge the bounded result back into the synthesis. Do not use analyst majority vote as proof.
 10. **Route implications, not decisions.** State what the finding may imply for Product, BA, Design, Engineering, or further research. Preserve the downstream owner's authority to choose priority, scope, behavior, design, or implementation.
 
 ## Correction and re-entry
@@ -53,7 +53,7 @@ Re-enter at the earliest invalidated step instead of preserving a polished findi
 
 ## Collection and owner boundary
 
-Require a named or inspectable corpus with enough readable material to support synthesis. If a material claim requires new external, versioned, or primary-source evidence, hand that question to `/research` and keep the affected synthesis `PARTIAL` until returned evidence is linked.
+Require a named or inspectable corpus with enough readable material to support synthesis. If a material claim requires new external, versioned, or primary-source evidence, use `/research` as a bounded evidence-acquisition capability when available, then continue the same synthesis with the returned evidence. Keep the affected synthesis `PARTIAL` only while that required evidence remains unresolved.
 
 If the input is one supplied document and the user only asks for a summary, summarize it directly rather than forcing a corpus-synthesis workflow.
 

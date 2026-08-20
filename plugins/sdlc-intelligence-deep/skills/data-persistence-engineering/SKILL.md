@@ -1,6 +1,6 @@
 ---
 name: data-persistence-engineering
-description: Implement and prove a material persistence, schema, migration, backfill, query, or durable-invariant change by binding canonical data meaning to real readers/writers/schema/runtime, classifying environment and compatibility, enforcing concurrency and atomicity at the durable mechanism, planning resumable evolution and recovery, and proving representative data/runtime behavior. Use directly when durable data/persistence is the dominant implementation boundary or as on-demand specialist depth in broader implementation. Do not use as the primary owner for an immutable branch/PR/diff review; do not invent business/data meaning, Product retention policy, API behavior, security policy, QA, or release truth.
+description: Implement persistence, schema, migration, backfill, query, or durable-invariant changes when durable data is the dominant boundary, including compatibility, atomicity/concurrency, recovery, and representative data/runtime proof. Use as bounded persistence depth in broader implementation; not as owner of business meaning, Product policy, API/security policy, QA, or release truth.
 ---
 
 # Data / Persistence Engineering

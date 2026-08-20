@@ -1,6 +1,6 @@
 ---
 name: user-acceptance
-description: "Design, execute, evaluate, or record user/business acceptance for a product change using authorized target meaning and representative business context. Use for UAT scenarios or business acceptance coverage, witnessed user/business testing, fitness-for-use evaluation, or an explicit authorized acceptance decision. Support design before a candidate exists; consume QA evidence only when policy or the acceptance decision actually depends on it. Do not use as the primary owner for requirement Acceptance Criteria or technical QA test design, redefine requirements, issue QA verdicts, infer business sign-off, or authorize release/deployment."
+description: Design, execute, evaluate, or record user/business acceptance for a product change from authorized target meaning and representative business context. Use for UAT scenarios, witnessed testing, fitness-for-use evaluation, or an explicitly authorized acceptance decision. Do not own requirement Acceptance Criteria, technical QA design/verdicts, redefine requirements, infer sign-off, or authorize release/deployment.
 ---
 
 # User Acceptance

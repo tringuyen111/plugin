@@ -21,7 +21,7 @@ If the local corpus or Python scripts are unreadable, return `BLOCKED`. If the c
 3. **Run deterministic retrieval.** Resolve `<skill-dir>` to the directory containing this `design-intelligence/SKILL.md`, then run `<skill-dir>/scripts/search.py`; never assume the host current working directory. Keep query, domain/stack, source file, and ranked records available in the result.
 4. **Use recommendation synthesis only when useful.** `--design-system` may synthesize the local corpus into a `Design Intelligence Recommendation`, but this command has no persistence surface and creates no canonical project state.
 5. **Reconcile with project truth.** Approved behavior, Visual Contract, technical decisions, brand constraints, and current authoritative platform guidance outrank this bundled snapshot. React/stack implementation guidance is candidate evidence only: `frontend-engineering` owns implementation reasoning and must verify current repository, dependency/version, runtime configuration, and authoritative vendor guidance when material.
-6. **Return bounded evidence.** State what the corpus supports, source/domain/stack, bundled snapshot/freshness state, material caveats, and the decision owner that must consume it. Version-sensitive technical evidence must remain `REQUIRES_CURRENT_VERIFICATION` until current truth is actually checked.
+6. **Return bounded evidence.** State what the corpus supports, source/domain/stack, bundled snapshot/freshness state, material caveats, and the decision/authority boundary that must consume it. If the active user outcome continues into Design or Frontend work, the same session may consume this evidence directly; no handoff artifact is implied. Version-sensitive technical evidence remains `REQUIRES_CURRENT_VERIFICATION` until current truth is actually checked.
 
 ## Commands
 
@@ -42,7 +42,7 @@ Read [Pro Rules](references/pro-rules.md) only for native/mobile anti-pattern ev
 - Do not invent Product behavior, Design decisions, technical architecture, implementation completion, or QA verdicts.
 - Do not force landing-page hero/CTA patterns into authenticated/product application contexts.
 - Treat bundled data as a snapshot, not live current truth. Current authoritative project/provider standards win when verified.
-- Do not use React/stack corpus output as final implementation authority; return it to `frontend-engineering` with current-verification requirements.
+- Do not use React/stack corpus output as final implementation authority. When implementation is part of the active outcome, continue through `frontend-engineering` with current-verification requirements rather than treating evidence transfer as a handoff.
 
 ## Completion
 

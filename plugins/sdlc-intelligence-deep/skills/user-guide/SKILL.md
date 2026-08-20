@@ -1,6 +1,6 @@
 ---
 name: user-guide
-description: Create or update source-grounded user/admin/support/product-operator guidance that helps a named reader understand or complete a real product task against a fixed released, verified-candidate, or explicitly preview state. Use for task guides, help pages, onboarding, product-use reference, troubleshooting, documentation information architecture, and instructional visuals. Do not own production/service runbooks, Product/UI design, markup rendering, QA/UAT, product repair, requirements, or unsupported behavior.
+description: Create or update source-grounded user, admin, support, or product-operator guidance for a real task against a fixed released, verified-candidate, or explicitly preview state. Use for task guides, help pages, onboarding, product-use reference, troubleshooting, documentation IA, and instructional visuals. Do not own production runbooks, Product/UI design, QA/UAT, product repair, requirements, or unsupported behavior.
 ---
 
 # User Guide
