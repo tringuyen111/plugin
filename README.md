@@ -6,7 +6,7 @@ Repository này cung cấp marketplace local cho Codex và workspace plugin cho 
 
 - Technical ID: `sdlc-intelligence-deep`
 - Display name: `SDLC Intelligence`
-- Version: `1.0.36`
+- Version: `1.0.81+codex.20260827055441`
 - Marketplace name: `tringuyen111-sdlc`
 - Marketplace manifest: `.agents/plugins/marketplace.json`
 - Plugin package: `plugins/sdlc-intelligence-deep/`
@@ -33,7 +33,7 @@ Tài liệu chính thức: [Plugins in ChatGPT and Codex](https://help.openai.co
 Trong hộp **Add plugin marketplace**, dùng:
 
 - **Source:** `https://github.com/tringuyen111/plugin.git`
-- **Git ref:** `agent/sdlc-intelligence-chatweb` (dùng `main` sau khi merge PR)
+- **Git ref:** `main`
 - **Sparse paths:** để trống
 
 Để trống Sparse paths vì marketplace manifest nằm ở `.agents/plugins/marketplace.json` và plugin source nằm ở `plugins/sdlc-intelligence-deep/`.
