@@ -5,10 +5,10 @@
   },
   "plugins": [
     {
-      "name": "sdlc-intelligence-deep",
+      "name": "sdlc-intelligence",
       "source": {
         "source": "local",
-        "path": "./plugins/sdlc-intelligence-deep"
+        "path": "./plugins/sdlc-intelligence"
       },
       "policy": {
         "installation": "AVAILABLE",
