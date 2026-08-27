@@ -4,12 +4,12 @@ Repository này cung cấp marketplace local cho Codex và workspace plugin cho 
 
 ## Plugin hiện tại
 
-- Technical ID: `sdlc-intelligence-deep`
+- Technical ID: `sdlc-intelligence`
 - Display name: `SDLC Intelligence`
-- Version: `1.0.81+codex.20260827110015`
+- Version: `1.1.0`
 - Marketplace name: `tringuyen111-sdlc`
 - Marketplace manifest: `.agents/plugins/marketplace.json`
-- Plugin package: `plugins/sdlc-intelligence-deep/`
+- Plugin package: `plugins/sdlc-intelligence/`
 - Loại package: Skill-only; không có MCP server, `.mcp.json` hoặc `.app.json`.
 
 ## Import vào ChatGPT web
@@ -36,8 +36,8 @@ Trong hộp **Add plugin marketplace**, dùng:
 - **Git ref:** `main`
 - **Sparse paths:** để trống
 
-Để trống Sparse paths vì marketplace manifest nằm ở `.agents/plugins/marketplace.json` và plugin source nằm ở `plugins/sdlc-intelligence-deep/`.
+Để trống Sparse paths vì marketplace manifest nằm ở `.agents/plugins/marketplace.json` và plugin source nằm ở `plugins/sdlc-intelligence/`.
 
 ## Phạm vi repository
 
-Marketplace chỉ trỏ tới `plugins/sdlc-intelligence-deep/`. Các thư mục `connectors/` và `.ai-router/` là dữ liệu local ngoài package, không được đưa vào commit marketplace này và không ảnh hưởng tới plugin import.
+Marketplace chỉ trỏ tới `plugins/sdlc-intelligence/`. Các thư mục `connectors/` và `.ai-router/` là dữ liệu local ngoài package, không được đưa vào commit marketplace này và không ảnh hưởng tới plugin import.

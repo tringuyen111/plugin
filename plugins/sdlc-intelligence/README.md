@@ -2,7 +2,7 @@
 
 A Codex Plugin for proportional SDLC judgment and focused independent engineering, product, design, QA, operations, documentation, and delivery Skills, with optional stateless Codex-native resident guidance.
 
-Created by **Trí Nguyễn**. The distributed package keeps the legacy technical ID `sdlc-intelligence-deep` for update/evidence continuity, while the user-facing product name is **SDLC Intelligence**.
+Created by **Trí Nguyễn**. The technical package ID is `sdlc-intelligence`, and the user-facing product name is **SDLC Intelligence**.
 
 `assets/icon.svg` is the canonical G3 personal-brand mark from Trí Nguyễn Brand System v0.6.1 and is reused directly for Plugin presentation metadata; it is not a separate SDLC Intelligence product logo.
 
