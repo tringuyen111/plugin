@@ -18,11 +18,11 @@ Do not turn requirement techniques or artifact formats into lifecycle phases. A 
 5. **Pressure the model.** Use counterexamples, boundary cases, conflict diagnosis and shared-understanding checks proportionally. When evidence falsifies a requirement assumption, re-enter at the earliest false meaning/authority decision instead of polishing downstream wording.
 6. **Project, do not duplicate truth.** Persist governed artifacts only when project-native identity/location/authority are real. PRD/BRD/SRS-like documents are audience projections over canonical truth unless project authority explicitly says otherwise.
 
-When the BA problem itself is ambiguous, conflicted, cross-stakeholder, transition-heavy, or vulnerable to document/template theater, read [BA Requirements Reasoning](references/REQUIREMENTS-REASONING.md).
+When the BA problem itself is ambiguous, conflicted, cross-stakeholder, transition-heavy, or vulnerable to document/template theater, **READ** [BA Requirements Reasoning](references/REQUIREMENTS-REASONING.md) **BECAUSE** the uncertainty/authority/shared-understanding mechanism can change the requirement model; **RETURN** the smallest resolved/remaining semantic frontier, discriminating source/probe, selected representation, and exact authority gap or re-entry point.
 
-When state, interruption, UNKNOWN outcome, partial commitment, duplicate/retry intent, multi-actor conflict, effective time, or current-target divergence changes business-visible meaning, read [Behavior Semantics Contract](references/BEHAVIOR-SEMANTICS-CONTRACT.md).
+When interruption, repeated or duplicate intent, uncertain outcome evidence, partial business effects, cancellation/compensation, multi-actor conflict, effective time, or current-target divergence can change business-visible meaning, **READ** [Behavior Semantics Contract](references/BEHAVIOR-SEMANTICS-CONTRACT.md) **BECAUSE** continuity semantics must be resolved without collapsing business meaning into transport/implementation mechanics; **RETURN** the bounded business-operation/attempt relation, per-effect evidence states, established progress, authoritative business guarantee/open rule, actor-safe next action, and affected requirement views.
 
-When durable cross-view governance or a requested requirements-document projection is material, read [Requirements Composition](references/REQUIREMENTS-COMPOSITION.md).
+When durable cross-view governance or a requested requirements-document projection is material, **READ** [Requirements Composition](references/REQUIREMENTS-COMPOSITION.md) **BECAUSE** canonical child truth must project without creating a second semantic owner; **RETURN** the requested projection fixed point, canonical source/revision links, cross-view conflicts/open decisions, and stale/invalidation conditions.
 
 ## Conditional semantic branches
 
@@ -43,14 +43,14 @@ Load only the branch that is decision-material. Direct requests may enter a bran
 - If a Story boundary depends on detailed actor-system sequence, load the **Use Case** branch only for that ambiguity; do not require every Story to have a Use Case.
 - If quality wording depends on a business flow/permission/policy rather than a measurable quality property, use the corresponding Use Case/Business Rule/AC branch instead of forcing it into an NFR.
 - If a migration/cutover need exists only until the future state is established, use the **Transition Requirement** branch. Keep permanent product/service behavior in the functional/quality/rule branches and implementation sequencing/mechanics with Engineering/DevOps.
-- If concept identity, vocabulary, relationship/role meaning, lifecycle identity, or semantic context itself is unresolved, compose `/domain-modeling`. Domain Modeling owns semantic coherence and remains independently accountable; this Skill does not absorb it.
+- If concept identity, vocabulary, relationship/role meaning, lifecycle identity, or semantic context itself is unresolved, compose `domain-modeling`. Domain Modeling owns semantic coherence and remains independently accountable; this Skill does not absorb it.
 
 ## Product and downstream boundaries
 
-- If the problem/opportunity itself is unsupported or materially uncertain, use `/product-discovery`; do not manufacture a requirement-ready problem.
-- If Product outcome, capability scope, priority, or Product commitment is materially unresolved, return only that decision to `/product-definition`.
+- If the problem/opportunity itself is unsupported or materially uncertain, use `product-discovery`; do not manufacture a requirement-ready problem.
+- If Product outcome, capability scope, priority, or Product commitment is materially unresolved, return only that decision to `product-definition`.
 - Product/domain/policy authority owns normative Product/rule/quality decisions. Requirements Engineering may preserve a proposal but cannot authorize it by wording.
-- Product Design owns interaction realization; Architecture/Engineering own technical realization; `/verify-quality` owns executable QA proof and observed QA verdict; `/user-acceptance` owns business acceptance coverage, witnessed user/business evidence, evaluation, and any explicit authorized acceptance decision; release/risk owners retain their authority.
+- Product Design owns interaction realization; Architecture/Engineering own technical realization; `verify-quality` owns executable QA proof and observed QA verdict; `user-acceptance` owns business acceptance coverage, witnessed user/business evidence, evaluation, and any explicit authorized acceptance decision; release/risk owners retain their authority.
 - A current implementation can evidence `CURRENT_VERIFIED`; it does not automatically authorize `TARGET_AUTHORIZED` semantics.
 
 ## Completeness and shared understanding

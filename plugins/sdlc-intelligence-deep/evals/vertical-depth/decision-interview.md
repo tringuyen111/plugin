@@ -1,5 +1,7 @@
 # Frozen Pressure Test — Decision Interview Consolidation and Upgrade
 
+Evidence-State: `NOT_RUN`
+
 Baseline frozen before `decision-interview` source mutation.
 
 ## Capability identity
@@ -16,7 +18,7 @@ It is not a generic questionnaire, raw-idea brainstormer, canonical writer, agen
    - Falsifier: batching several questions or asking source-inspectable facts.
 
 2. **Zero-question completion**
-   - Input: all material owner decisions are already resolved; remaining gaps are source-answerable or cannot change the current handoff.
+   - Input: all material owner decisions are already resolved; remaining gaps are source-answerable or cannot change the caller's current decision or continuation outcome.
    - Expected: ask zero questions and return decision-sufficient state / remaining non-owner evidence gaps.
    - Falsifier: manufacturing an interview because the Skill was invoked.
 
@@ -98,3 +100,8 @@ It is not a generic questionnaire, raw-idea brainstormer, canonical writer, agen
 ## Migration / discovery continuity
 
 After migration, no host-visible `grilling`, `grill-me`, or `grill-with-docs` owner may remain. Old names may survive only in explicitly historical/frozen evaluation provenance and must not create a routing fallback.
+
+18. **Same-session caller outcome is not a Handoff boundary**
+    - Input: `engineering-planning` composes Decision Interview for one bounded owner choice and will continue in the same agent/session after consuming the Decision Packet; no receiver-specific execution state needs transfer.
+    - Expected: judge zero-question/closure/VoI against whether the unresolved frontier can change the caller's current decision or continuation outcome; return the bounded packet and continue in-session.
+    - Falsifier: require, narrate, or use `handoff` semantics merely because Decision Interview returns to the caller.

@@ -53,7 +53,7 @@ Re-enter at the earliest invalidated step instead of preserving a polished findi
 
 ## Collection and owner boundary
 
-Require a named or inspectable corpus with enough readable material to support synthesis. If a material claim requires new external, versioned, or primary-source evidence, use `/research` as a bounded evidence-acquisition capability when available, then continue the same synthesis with the returned evidence. Keep the affected synthesis `PARTIAL` only while that required evidence remains unresolved.
+Require a named or inspectable corpus with enough readable material to support synthesis. If a material claim requires new external, versioned, or primary-source evidence, use `research` as a bounded evidence-acquisition capability when available, then continue the same synthesis with the returned evidence. Keep the affected synthesis `PARTIAL` only while that required evidence remains unresolved.
 
 If the input is one supplied document and the user only asks for a summary, summarize it directly rather than forcing a corpus-synthesis workflow.
 

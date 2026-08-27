@@ -51,7 +51,7 @@ S1 changes
 -> V1 stale only if the visualized state/label also changed
 ```
 
-Do not persist a formal graph unless broader traceability is itself a project need. If source lineage must be maintained across many lifecycle artifacts, compose `/traceability` with exact source/page fixed points.
+Do not persist a formal graph unless broader traceability is itself a project need. If source lineage must be maintained across many lifecycle artifacts, return the exact source/page fixed-point lineage requirement; when Traceability is selected by the host, that capability owns the durable cross-lifecycle relation.
 
 ## Re-entry table
 

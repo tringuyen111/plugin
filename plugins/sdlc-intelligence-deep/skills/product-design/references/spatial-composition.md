@@ -149,7 +149,7 @@ Do not treat these as one responsive layout tree. A sidebar collapse, inspector 
 - **Selection:** decide whether the event should preserve the existing transform/spatial memory, keep the active task locus visible, or deliberately change viewport framing. When visibility must change, adjust viewport/chrome first; move document objects only when the product operation itself changes their document position.
 - **Failure:** responsive reasoning reflows/moves canvas objects because a panel opened, or preserves a transform blindly while the active edit subject becomes unusably occluded.
 - **Correction:** restore the intended task locus by changing viewport scroll/pan/zoom, disclosure, or docked chrome while leaving canonical document geometry unchanged; then re-check orientation and spatial memory.
-- **Consequence:** preserve document geometry and interaction identity separately from viewport state. Hand gesture physics, animated camera continuity, or runtime focus timing to Prototype when static evidence cannot settle them.
+- **Consequence:** preserve document geometry and interaction identity separately from viewport state. Leave gesture physics, animated camera continuity, or runtime focus timing to Prototype when static evidence cannot settle them.
 
 For an overlay anchored to a document object, project the world anchor through the current viewport transform and then fit the overlay in usable screen space. Collision adjustment must not mutate the underlying document object.
 

@@ -1,5 +1,7 @@
 # Incident Management Topology — Frozen Representative Eval
 
+Evidence-State: `NOT_RUN`
+
 Frozen: 2026-08-17 before `incident-management` source mutation.
 Candidate direction: merge `incident-response` + `postmortem` into one capability with `RESPOND` and `LEARN` modes.
 Behavioral execution status at freeze: `NOT_RUN`.

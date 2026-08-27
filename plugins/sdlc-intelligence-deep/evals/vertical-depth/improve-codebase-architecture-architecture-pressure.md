@@ -1,5 +1,7 @@
 # Frozen Behavioral Cases — improve-codebase-architecture architecture pressure
 
+Evidence-State: `NOT_RUN`
+
 Freeze point: cases defined before the v1.0.31 architecture-pressure mutation. Behavioral runtime execution remains `NOT_RUN` until a real Skill-runtime cohort compares representative behavior.
 
 ## 1. Split/isolate beats deepen

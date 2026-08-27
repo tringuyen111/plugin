@@ -1,106 +1,87 @@
-# Qualification Method
+# Qualification Method — Advanced Evidence Dimensions
 
-Use this reference when evidence strength, comparison, independence, or canonical project integration is material.
+Load this reference only when Independence, process/trajectory evidence, a Project Qualification Contract, or interacting evidence-production dimensions can change the supported conclusion. The universal Case -> Execution Record -> Invariant review lifecycle remains in `SKILL.md`; do not repeat it here.
 
-## 1. Evidence-strength decision table
+## Evidence profile — orthogonal dimensions, not a tier ladder
 
-| Observed state | Strongest supported evidence | Claim boundary | Re-entry / blocker |
-| --- | --- | --- | --- |
-| No reproducible behavioral runner | advisory/source/deterministic checks only | No behavioral PASS; behavioral axes `NOT_RUN` | Re-enter when an actual runner is available |
-| Candidate cases execute and outputs are frozen | observed candidate evidence | Candidate behavior/invariant claims only | Comparison/independence remain unsupported |
-| Candidate + required baseline execute the same frozen cases | procedural comparative evidence | Bounded directional improvement if intended dimensions improve without material regression | Do not call this independent certification |
-| Claim needs process assurance and inspectable trajectory/tool/action evidence exists | observed process evidence for declared path invariants | Only the process dimensions actually observed | Missing required trace/tool evidence keeps that process claim non-ready |
-| Independent claim requested with authoritative independent provenance | independent evidence for the bounded claim | Independent conclusion only within the proven provenance/review boundary | Missing or unverifiable provenance blocks only the independent claim |
-| Current project exposes canonical qualification infrastructure | project-native evidence using that exact current contract | Claims allowed by the project's active policy | Missing schema/verifier/destination/authority blocks the project-native claim, not generic source review |
+Resolve only the dimensions material to the Qualification Claim:
 
-Do not encode the table as a universal tier ladder. The claim and actual evidence determine the needed strength.
+| Dimension | Material question | Claim consequence |
+| --- | --- | --- |
+| Runner availability | Can the exact candidate, and the exact Baseline when required, actually execute the frozen Cases with preservable observations? | Controls which behavioral axes can move beyond `NOT_RUN` |
+| Comparison obligation | Is the claim candidate-only or comparative? | A missing required Baseline blocks the comparative conclusion, not unrelated candidate-only evidence |
+| Process evidence | Is final output enough, or does the claim depend on observable tool/action trajectory? | Missing trajectory blocks only the process-dependent axis |
+| Project Qualification Contract | Does the current project require exact schemas, verifiers, probes, evidence destinations, or policy for this claim? | Controls project-native admissibility; it does not create stronger behavioral evidence by itself |
+| Independence | Does the claim require independent/attested provenance and review separation? | Controls whether an independent/attested conclusion is supportable |
+| Assertion result | What does the actual evidence say for each Invariant/Claim Axis? | `PASS | FAIL | NOT_RUN | INCONCLUSIVE` remains axis-specific |
 
-## 2. Evidence profile versus status
+For any dimension that cannot produce required evidence, preserve the reason separately from the assertion result: `MISSING` means the required capability/evidence identity is absent or not identifiable; `BLOCKED` means it is known but an authority/policy/provider gate prevents use. The dependent Claim Axis may still be `NOT_RUN` or `INCONCLUSIVE`.
 
-Keep separate:
+A stronger-looking value on one dimension never upgrades another. In particular:
 
-```text
-how evidence was produced
-what the evidence says
-whether comparison is required
-whether independence is proven
-whether a later lifecycle decision is authorized
-```
+- project-machine validation cannot turn an unexecuted behavioral axis into `PASS`;
+- candidate + Baseline execution does not prove Independence;
+- independent review cannot replace a missing required Baseline;
+- missing process evidence does not erase independently observed final-output evidence.
 
-Suggested status vocabulary for semantic assertions:
+Return from this reference with the material dimensions only: their observed state, which Claim Axes they affect, any explicit `MISSING`/`BLOCKED` prerequisite, the strongest conclusion still supportable, and the exact fact/action needed to re-enter.
 
-```text
-PASS | FAIL | NOT_RUN | INCONCLUSIVE
-```
+## Process evidence
 
-A project may define additional machine fields or profile names. Use that vocabulary only when the current project contract is authoritative and actually present. Do not infer profile availability from remembered repository structure.
+Use process/trajectory evidence only when the Qualification Claim depends on *how* execution occurred: tool choice, forbidden provider use, state transition, side-effect sequence, retry behavior, or another observable path property.
 
-## 3. Native validity is a different claim
+Require inspectable tool/action/state-transition evidence. Never request private chain-of-thought and never infer an unobserved process property from a plausible final answer.
 
-Examples:
+## Independence
 
-- Skill Creator validation/package can prove OpenAI Skill structure/package validity on exact bytes.
-- Plugin Creator validation can prove Plugin package/manifest validity on exact bytes.
-- A deterministic script can prove only the checks it actually executes.
-- None of these alone prove behavioral uplift, provider behavior, safety, or independent qualification.
+**Independence** means provenance and review separation sufficient for the specific independent/attested claim. Same-session role switching, timestamps, copied receipts, or frozen outputs alone do not establish it.
 
-Do not block a structural/package task merely because stronger behavioral evidence is unavailable unless the user/project explicitly requires that stronger claim.
+For an Independence claim, bind the provenance that matters: who/what executed, exact artifact/context, how Execution Records were preserved, and what review boundary makes the evaluator independent for the bounded claim. If that boundary is not proven, preserve other evidence and mark only the independence-dependent conclusion unsupported.
 
-## 4. Case design pressure
+## Project Qualification Contract
 
-A representative suite should pressure the real failure surfaces, not just repeat the happy path. Prefer:
+A **Project Qualification Contract** is the current project-specific policy and machine surface governing qualification: authoritative suite/report schemas, verifiers, probes, evidence destinations, and authorization rules that the requested claim actually depends on.
 
-- positive trigger;
-- near miss/non-trigger;
-- missing/conflicting/stale context;
-- authority boundary;
-- provider/tool absence or partial result;
-- failure/recovery path;
-- completion/evidence truth;
-- prior regression;
-- expensive/rare edge condition;
-- comparison case if uplift is claimed.
+When required:
 
-When behavior depends on tool sequence or intermediate actions, add inspectable trajectory/tool-call invariants. Keep them observable; do not request hidden reasoning.
+1. inspect current project instructions and qualification source;
+2. bind the exact active schemas/verifiers/probes/destinations/policy;
+3. run only obligations material to the Qualification Claim;
+4. preserve project-machine results beside semantic Invariant review;
+5. keep missing or failed project dependencies as blockers only for claims that require them.
 
-## 5. Frozen-output rule
+A project path, old execution map, remembered convention, or schema file by itself does not prove that contract is active. Project-native machine PASS proves only the predicates that machine check actually inspected.
 
-Semantic review starts only after execution output is frozen. If review causes a candidate/source/prompt/tool/context change, the old verdict does not transfer automatically; execute again under a new identity.
+## Contrastive SHOW cases
 
-## 6. Independent evidence
+### Native-valid but behavior unexecuted
 
-Sequential author and reviewer roles in one uncontrolled execution context are procedural separation, not independence. Independent qualification requires provenance appropriate to the claim: who/what executed, what exact artifact/context was used, how output was preserved, and how review independence is established.
+An exact Skill passes Skill Creator validation and packages successfully, but no Runner executes the frozen behavioral Cases.
 
-Never synthesize independence from labels, timestamps, copied receipts, or a candidate policy file.
+- Structural/native claim: may be `PASS` on exact bytes.
+- Behavioral Claim Axes: `NOT_RUN`.
+- Wrong move: call behavior qualified because packaging is valid.
 
-## 7. Canonical project qualification
+### Comparative project evidence without Independence
 
-Portable qualification must not assume a specific repository layout.
+Exact candidate B and Baseline A execute the same frozen Cases through an observed Runner, and the current project verifier accepts both evidence records. The author then reviews both outputs in the same uncontrolled session.
 
-When a project requires machine evidence artifacts:
+- Comparative execution: available.
+- Project Qualification Contract: may be satisfied for the predicates it owns.
+- Directional comparison: may be reviewable.
+- Independence: not proven.
+- Wrong move: collapse these facts into “canonical/independent PASS.”
 
-1. inspect current project instructions and qualification docs;
-2. locate the exact current suite/report schemas, verifier, probes, evidence destination, and authorization rules;
-3. bind their revisions/paths in the qualification record;
-4. run only the checks required for the current claim;
-5. preserve any missing or failed project dependency as a blocker;
-6. never substitute this Skill's generic method for a project-specific machine contract when that contract is required.
+### Final output observed, required process evidence missing
 
-This keeps the Skill portable while allowing a repository to provide stronger deterministic infrastructure.
+The frozen final output satisfies its domain Invariants, but the claim also says the Agent never invoked a forbidden provider and no inspectable trajectory was preserved.
 
-## 8. Failure and re-entry
+- Domain-output axis: reviewable from observed output.
+- Forbidden-provider/process axis: `NOT_RUN` or `INCONCLUSIVE` according to available evidence.
+- Wrong move: erase the valid output evidence or infer the missing process fact from the answer.
 
-Re-enter at the earliest invalidated truth:
+## Re-entry
 
-```text
-claim or artifact binding
--> execution availability
--> representative cases
--> frozen execution evidence
--> semantic invariant review
--> required comparison
--> independent/provenance claim
--> later authorized lifecycle decision
-```
+Re-enter at the earliest invalidated truth and preserve unaffected evidence:
 
-Do not carry a stronger downstream verdict across an invalidated upstream fact.
+`claim/binding -> material evidence dimension -> Cases -> Execution Records -> semantic review -> required comparison -> advanced project/Independence conclusion -> later lifecycle decision`.

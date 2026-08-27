@@ -1,5 +1,7 @@
 # Migrated Pressure Test — Requirements Engineering Core
 
+Evidence-State: `NOT_RUN`
+
 These cases are frozen before implementation. They are behavioral exam cases, not executed results.
 
 ## D1 — Vague account suspension request

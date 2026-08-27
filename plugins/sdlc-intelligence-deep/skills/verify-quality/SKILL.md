@@ -23,7 +23,7 @@ Do not implement fixes, silently redefine expected behavior, approve Design, acc
 - **WHEN** rendered/perceivable Design obligations are material, **READ** [Visual Conformance](references/visual-conformance.md) before selecting or closing visual proof rows.
 - **WHEN** pattern transfer is the problem, load only the matching example: [real API vs fixture](examples/real-api-vs-fixture.md), [stale test vs current truth](examples/stale-test-vs-current-truth.md), or [multi-probe proof ledger](examples/multi-probe-proof-ledger.md).
 
-## Always-active QA truth contract
+## CRITICAL INVARIANTS — always-active QA truth
 
 ### 1. Bind reality before inference
 
@@ -91,6 +91,49 @@ When source/runtime/evidence contradicts the QA model, invalidate dependent proo
 
 No pass percentage, clean code review, developer summary, historical PASS, or neighboring green row overrides a material `FAIL`, `INCONCLUSIVE`, `NOT_RUN`, stale result, or unexplained missing obligation unless an authorized waiver/disposition explicitly applies.
 
+## DECISION RULES — choose the next QA move
+
+- **Terminal-output gate:** when the bounded job is only a reusable Test Strategy, Test Condition, or Defect Report, complete that artifact truthfully and stop. Definition/recording is not probe execution and never invents a QA verdict.
+- **Verification-prerequisite gate:** if material expected truth, candidate identity, environment/data, authority, or execution capability is missing or conflicting, preserve affected rows as unresolved and use workflow `PARTIAL` or `BLOCKED` according to whether meaningful verification can still proceed. Absence of execution truth is not candidate `FAIL`.
+- **Evidence-authority gate:** admit an observation only to the claim, boundary, candidate, environment, and oracle it actually reaches. A narrower seam may PASS while the wider real-boundary claim remains unresolved or failed.
+- **Verdict gate:** candidate mismatch, QA workflow completion, acceptance readiness, business acceptance, and release authority are different truths. Derive each only from its own evidence/owner.
+- **Re-entry gate:** contradiction or invalidated evidence returns only dependent proof rows to the earliest broken truth/authority/failure-model/probe decision; preserve unaffected admitted evidence.
+
+## Executable QA control loop
+
+```text
+REQUEST + DECLARED QA SCOPE
+  -> BIND expected truth + exact candidate reality
+  -> TERMINAL-OUTPUT GATE
+       Strategy only  -> risk/proof plan -> Strategy READY + execution NOT_RUN -> END
+       Condition only -> durable falsifier/oracle condition -> READY + result NOT_RUN -> END
+       Defect only    -> evidence-bound deviation record -> READY + truthful persistence -> END
+       Verification   -> BUILD MATERIAL PROOF ROWS
+  -> VERIFICATION-PREREQUISITE GATE
+       unresolved prerequisite blocks all meaningful verification
+         -> preserve affected rows -> BLOCKED -> REPORT + exact re-entry
+       unresolved prerequisite affects only dependent rows
+         -> preserve those rows unresolved -> continue independent executable rows
+       executable rows
+         -> SELECT/AUTHOR smallest complete authoritative probe set + complementary real boundaries
+  -> EXECUTE BY DEPENDENCY -> ADMIT EVIDENCE
+  -> COVERAGE / WEAKEST-PROOF GATE
+       contradiction, stale authority, unreliable evidence, or material gap
+         -> invalidate dependent rows -> RE-ENTER earliest broken decision
+       required rows closed
+         -> DERIVE workflow state + QA verdict + acceptance-readiness separately
+  -> REPORT one bounded QA conclusion -> END
+```
+
+This is a control graph, not a ceremonial test lifecycle. Load only the decision-material depth needed at the current gateway.
+
+## HEURISTICS — optimize after correctness
+
+- Prefer the smallest probe boundary that still contains every material failure mechanism; add the smallest complementary real-boundary proof for anything intentionally substituted or bypassed.
+- Fan out independent probes when safe; sequence only when shared state, history, concurrency, migration order, or dependency coupling is material.
+- Keep the proof ledger compact. One strong probe may close several rows only when its boundary and oracle genuinely falsify each claim; several weak probes do not become strong evidence by count.
+- Load worked examples for pattern transfer, not as mandatory pre-reading or product authority.
+
 ## Fixed point and proof ledger
 
 For verification, record candidate/build, environment/config/data, expected-truth revisions, evidence cutoff, exclusions, separation mode, and invalidation triggers before deriving a verdict.
@@ -107,9 +150,9 @@ The ledger is coverage control, not bureaucracy. Add only material rows. One pro
 ## Process
 
 1. **Bind expected truth and real candidate reality.** Inspect decision-material docs/source/config/generated/runtime paths instead of imagining the feature. Record conflicts/unknowns explicitly.
-2. **Build the minimal risk/proof model.** Derive material claims from acceptance, NFR, Design, architecture/data semantics, change impact, prior defects/incidents, and runtime risk. Name a plausible failure and falsifier before choosing a probe. If planning is the requested terminal output, materialize the Test Strategy and stop.
+2. **Build the smallest complete material risk/proof model.** Derive material claims from acceptance, NFR, Design, architecture/data semantics, change impact, prior defects/incidents, and runtime risk. Name a plausible failure and falsifier before choosing a probe. If planning is the requested terminal output, materialize the Test Strategy and stop.
 3. **Define reusable conditions only when they add value.** A proof row can remain local/ephemeral. When a durable condition is requested, materialize exact source binding, bounded claim/falsifier, probe authority/substitution, oracle, evidence contract, cleanup, and `NOT_RUN` result before execution.
-4. **Choose or author the smallest authoritative probes.** Prefer the lowest boundary containing every material failure mechanism, then add complementary real-boundary probes for anything substituted/bypassed. Test families are tools, not lifecycle stages.
+4. **Choose or author the smallest complete authoritative probe set.** Prefer the lowest boundary containing every material failure mechanism, then add complementary real-boundary probes for anything substituted/bypassed. Test families are tools, not lifecycle stages.
 5. **Execute by dependency, not ceremony.** Fan out independent probes when resources permit. Sequence/isolate probes whose shared mutable state, history, concurrency, migration order, or dependency coupling is material. Establish controlled starting state and condition-driven synchronization.
 6. **Admit evidence and classify rows.** Confirm candidate/environment/data binding, producer/command, execution time, raw artifact identity, probe validity, falsifier reach, substitutions, retries, and limitations. Admit narrower truth when appropriate; never widen evidence by wording.
 7. **Record deviations/waivers when useful.** Keep the QA row result unchanged. A defect record preserves an observation and may be persisted only with exact destination/write authority. A waiver never converts the observed condition to PASS.

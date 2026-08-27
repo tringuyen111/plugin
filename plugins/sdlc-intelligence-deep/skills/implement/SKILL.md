@@ -83,7 +83,7 @@ If a material current truth remains `UNKNOWN`, a required real seam remains unpr
 - **WHEN** correctness depends on a version-sensitive framework/library/SDK/tool/provider API that current project source does not establish **READ** [Dependency API Truth](references/dependency-api-truth.md) **BEFORE** dependent mutation.
 - **WHEN** two or more engineering dimensions can materially change the same bounded implementation, or a broad change has no single domain proof boundary **READ** [Multi-specialist Composition](references/multi-specialist-composition.md) **TO** collect bounded specialist depth, reconcile overlapping semantics/conflicts, fan in shared mutation decisions, and integrate proof without inventing a scheduler.
 
-Load `/frontend-engineering`, `/backend-engineering`, `/api-engineering`, `/data-persistence-engineering`, `/security-engineering`, `/tdd`, `/diagnosing-bugs`, `/codebase-design`, or another installed specialist only when its procedural depth can change the implementation. When this Skill remains the primary implementation job, use co-loaded specialists as bounded supporting depth rather than independent scope/mutation/completion owners; direct specialist invocation remains standalone outside this composition.
+When host-native discovery activates specialist engineering depth that can materially change the implementation, integrate that depth against the same bounded source truth before shared mutation. This Skill does not enumerate, rank, or schedule sibling Skills; co-loaded capability context may support the implementation without becoming an independent scope/mutation/completion owner.
 
 Do not spend coding context on a permanent owner graph, route registry, semantic ledger, or capability-profile ceremony unless a real external consumer requires it. Use graphs only when ownership/dependency/topology edges materially change reasoning; they do not enforce the reality contract above.
 
@@ -92,6 +92,14 @@ Do not spend coding context on a permanent owner graph, route registry, semantic
 Proceed when the requested technical outcome is clear enough to implement without inventing missing Product behavior, UX/visual meaning, architecture authority, data meaning, security policy, or another external decision.
 
 A ticket, Product packet, tracker, delivery graph, or prior lifecycle artifact is not required merely to code. Use one when it exists and materially constrains the change. If an unresolved external truth can materially change the implementation, stop only that affected scope and name the exact gap.
+
+Before material mutation, separate **semantic uncertainty** from **consequence**:
+
+- low uncertainty + low consequence -> execute with bounded proof;
+- high uncertainty -> resolve or explicitly bound the consequential uncertainty before dependent mutation;
+- high consequence -> strengthen containment/recovery and representative proof without reopening settled meaning;
+- high uncertainty + high consequence -> stop the affected mutation until the uncertainty is resolved, then establish the stronger containment/proof posture;
+- authority remains an independent gate and cannot be supplied by confidence, evidence, or tool availability.
 
 ## Coding loop
 
@@ -102,7 +110,7 @@ A ticket, Product packet, tracker, delivery graph, or prior lifecycle artifact i
 5. **Edit -> execute -> observe -> compare -> re-enter.** Make the smallest coherent mutation that can teach you something, run the closest relevant proof, inspect the actual result, and compare it with the bound model. If evidence contradicts the model—API error, missing registration, different schema, alternate route, stale assumption—return to the earliest invalidated binding/mechanism instead of faking success or continuing the plan unchanged.
 6. **Migrate proof with behavior.** Classify affected existing tests, strengthen/add proof for the new semantic mechanism, challenge fixture-shaped implementations, and exercise representative failure/integration paths that can falsify the claim.
 7. **Inspect what is really consumed.** Open the real UI, inspect actual request/response behavior, query durable state, inspect runtime registration/logs/generated output, or otherwise observe the consumed artifact when relevant. Compile/isolated tests/static renders prove only their own seam.
-8. **Review and finish truthfully.** Re-run affected proof after the final mutation; inspect sibling callers/failure paths/synthetic paths/legacy fallbacks/scope growth. Report changed seams, observed evidence, remaining `UNKNOWN`/`NOT_RUN`/failures, and the exact external decision if one prevents a stronger claim. Use `/code-review` when separate review is required or materially useful, not ceremonially.
+8. **Review and finish truthfully.** Re-run affected proof after the final mutation; inspect sibling callers/failure paths/synthetic paths/legacy fallbacks/scope growth. Report changed seams, observed evidence, remaining `UNKNOWN`/`NOT_RUN`/failures, and the exact external decision if one prevents a stronger claim. When separate frozen-revision review is required or materially useful, return the bounded review need and exact revision/context; host-native discovery owns subsequent capability selection rather than this Skill routing a sibling.
 
 ## Contrastive near-misses
 

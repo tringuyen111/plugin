@@ -1,6 +1,8 @@
 # Eval — improve-codebase-architecture artifact mode continuity
 
-Status: `FROZEN_BEFORE_CORRECTION`
+Evidence-State: `NOT_RUN`
+
+Freeze-State: `FROZEN_BEFORE_CORRECTION`
 Purpose: falsify contradictions between discovery scope and optional report requirements.
 
 ## Case 1 — DISCOVERY_ONLY HTML must not force selection

@@ -64,7 +64,7 @@ AUTHORING DISCIPLINE
 | 9 | Risks | conditional |
 | 10 | Success Hypotheses / Signals | conditional |
 | 11 | Open Questions | core when unresolved material questions exist |
-| 12 | Next Steps / Handoff | core at meaningful checkpoint/finalization |
+| 12 | Next Steps / Downstream Continuation | core at meaningful checkpoint/finalization |
 
 ## 1. Idea Seed
 
@@ -238,7 +238,7 @@ Examples:
 - `ASSUMPTION: email is a unique identity — confirm with product/identity owner.`
 - `ASSUMPTION: users can access their email for 24 hours after signup.`
 
-## 9. Risks — when risk analysis changes the brainstorm/handoff
+## 9. Risks — when risk analysis changes the brainstorm/continuation
 
 | Risk | Likelihood | Business impact | Prevention / mitigation |
 |---|---|---|---|
@@ -269,17 +269,17 @@ These are pre-canonical hypotheses/signals, not mandatory Brainstorm completenes
 
 Keep OQ IDs stable for the artifact lifecycle. Do not renumber remaining OQs after one is resolved when that would break traceability. If resolving an OQ creates a material accepted decision, record the link such as `OQ-3 resolved by DEC-7`.
 
-## 12. Next Steps / Handoff
+## 12. Next Steps / Downstream Continuation
 
-### Suggested handoffs
+### Suggested downstream reviews/actions
 
-{{suggested_handoffs}}
+{{suggested_downstream_actions}}
 
 Name only downstream owners/workflows supported by the current project/orchestrator context. Do not invent legacy commands merely to fill this section. Brainstorm recommends or requests review; it does not authorize downstream canonicalization.
 
 ### Downstream impact — only when current Brainstorm changes may stale another artifact
 
-| Owner / Artifact | Detected impact | Why review is needed | Requested handoff |
+| Owner / Artifact | Detected impact | Why review is needed | Requested review/action |
 |---|---|---|---|
 | {{downstream_owner}} | {{impact}} | {{reason}} | {{requested_review}} |
 

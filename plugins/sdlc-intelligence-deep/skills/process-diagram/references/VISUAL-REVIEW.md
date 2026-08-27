@@ -75,7 +75,7 @@ If meaning is wrong, return to process truth. If the process is correct but the 
 
 Treat presentation as subordinate to process communication, but do not treat it as irrelevant. Current notation styling is deterministic; do not invent brand/theme fields or use color as a substitute for process semantics. Improve the artifact first through truthful hierarchy the Agent already controls: concise labels, semantic shapes, local grouping, whitespace ownership, alignment, connector identity, and task-driven decomposition. When a stable perceptual requirement needs a renderer channel that the current plan/mechanics does not expose, preserve the intent and report a translator gap instead of pretending stage/track is a universal styling control.
 
-For a repair handoff, carry only actionable control state rather than the whole diagnosis narrative:
+For repair continuation, carry only actionable control state rather than the whole diagnosis narrative. If a real owner/agent/session/runtime transfer requires durable state, the dedicated Handoff contract may carry the same bounded packet:
 
 ```text
 current plan/render identity:

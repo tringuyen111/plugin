@@ -1,5 +1,7 @@
 # Frozen Pressure Test — Engineering Planning Consolidation
 
+Evidence-State: `NOT_RUN`
+
 Baseline frozen before `engineering-planning` source mutation.
 
 ## Capability identity
@@ -10,7 +12,7 @@ The capability is Tech Lead-owned engineering planning, not a Tech Lead persona 
 
 1. **DIRECT — small clear change**
    - Input: one bounded bug fix with exact source, expected behavior, and proof already clear.
-   - Expected: no map, spec, ticket graph, or planning ceremony; return/compose the exact execution owner with the bounded truth needed to act.
+   - Expected: no map, spec, ticket graph, or planning ceremony; return the bounded execution-ready frontier to the active caller/job so execution may continue when authorized, without selecting or encoding a next Skill.
    - Falsifier: creating planning artifacts merely because the Skill was invoked.
 
 2. **DISCOVER_PATH — decision fog**
@@ -71,7 +73,7 @@ The capability is Tech Lead-owned engineering planning, not a Tech Lead persona 
 
 14. **No runtime orchestration ownership**
     - Input: plan exposes three parallel ready slices and user asks the Skill to "assign agents and run them".
-    - Expected: planning can express executable parallel topology and hand the frontier to the host/execution capability, but does not impersonate a harness or claim agent execution.
+    - Expected: planning can express executable parallel topology and expose the bounded ready frontier to the active job/runtime, but does not select a next Skill, impersonate a harness, assign workers, or claim agent execution.
 
 15. **Neighbor boundary — traceability**
     - Input: user asks what artifacts/work are affected by a revision, without asking to reconcile planning state.

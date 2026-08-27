@@ -1,6 +1,6 @@
 # Relational Runtime Reasoning
 
-Load this reference when the material persistence unit involves query/access-path performance, relational concurrency/anomalies, lock contention, pagination under mutation, connection/session pressure, or the physical cost of schema evolution. Apply the reasoning model only to mechanisms actually present in the inspected datastore; do not force relational assumptions onto a non-relational store.
+Load this reference when the material persistence unit involves query/access-path performance, relational concurrency/anomalies, duplicate durable application, lock contention, pagination under mutation, connection/session pressure, or the physical cost of schema evolution. Apply the reasoning model only to mechanisms actually present in the inspected datastore; use the parent Skill's Transaction Boundary term literally, establish repeated-operation identity locally only when duplicate durable application is material, and do not force relational assumptions onto a non-relational store.
 
 ## 1. Query performance: explain the work before changing the schema
 
@@ -42,10 +42,10 @@ State the invariant and the conflicting interleaving that can break it. Useful c
 - **lost update / read-modify-write race** — two writers derive a new value from the same stale read;
 - **check-then-act race** — precondition is true when checked but false by mutation time;
 - **write skew / cross-row invariant** — independent writes each appear valid but jointly violate a constraint;
-- **duplicate effect** — retry/parallel delivery performs a supposedly-once business effect more than once;
+- **duplicate durable application** — repeated attempts apply the same approved operation's durable mutation more than once; when this anomaly is material, call the owner-provided semantics that establish whether attempts belong to the same approved operation the **Operation Identity Input**;
 - **non-repeatable/phantom decision** — a multi-step decision observes a moving set/value that changes its meaning.
 
-Choose atomic operations, constraints, compare-and-swap/version checks, locking, serialization/isolation, idempotency or queue ownership based on the exact anomaly and writers. A transaction label alone is not proof; exercise the interleaving that could violate the invariant.
+Choose atomic operations, constraints, compare-and-swap/version checks, locking, serialization/isolation, or durable uniqueness/idempotency enforcement based on the exact anomaly and writers. When duplicate durable application is the anomaly, consume the approved Operation Identity Input before selecting the enforcement key/mechanism; equal payloads or request/delivery IDs are not operation identity unless the approved contract makes them authoritative. Queue ownership, delivery semantics, and duplicate external/business-effect recovery belong to Backend/System Design rather than being invented here. A transaction label alone is not proof; exercise the interleaving that could violate the invariant.
 
 ### Contrastive interleaving: transaction wrapper is not the mechanism
 
@@ -62,7 +62,7 @@ Do not fix this table by slogan. An atomic mutation can remove the stale read fo
 
 ## 4. Transaction atomicity is scoped
 
-Treat transaction atomicity as a precise datastore guarantee, not as a synonym for whole-operation correctness. A local transaction can make the participating durable mutations commit or roll back together, but it does not by itself include an external payment, queue publish, email, filesystem write, cache/provider mutation, or another datastore that is outside the actual transaction mechanism.
+Treat the Transaction Boundary as a precise datastore guarantee, not as a synonym for whole-operation correctness. A local transaction can make the participating durable mutations commit or roll back together, but it does not by itself include an external payment, queue publish, email, filesystem write, cache/provider mutation, or another datastore that is outside the actual transaction mechanism.
 
 Keep three questions separate:
 
@@ -87,7 +87,7 @@ transaction path
 -> blocking/deadlock/failure semantics
 ```
 
-Prefer consistent acquisition order, smaller transactions/lock scope and shorter work inside critical sections where semantics allow. Preserve a bounded retry policy for database-reported serialization/deadlock failures when the operation is actually retry-safe. Do not use sleeps or unbounded retries to hide an unstable lock graph.
+Prefer consistent acquisition order, smaller transactions/lock scope and shorter work inside critical sections where semantics allow. Preserve a bounded retry policy for database-reported serialization/deadlock failures only for the scope proven retry-safe. A database abort/error class does not supply Operation Identity Input or prove that external effects / the whole logical operation are replay-safe; return that broader replay decision to its owner. Do not use sleeps or unbounded retries to hide an unstable lock graph.
 
 ## 6. Continuation and pagination under mutation
 

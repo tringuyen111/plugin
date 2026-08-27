@@ -92,7 +92,7 @@ Do not inventory every possible tool/provider just because Bootstrap is running.
 
 When the bootstrap request depends on current runtime capability, inspect the live source/tool contract. Keep configured intent and live observations separate.
 
-Use `capability-resolver` only when provider/source/fidelity/fallback selection is itself a material decision. A single obvious live tool/source does not need a resolver hop.
+Use `provider-source-selection` only when provider/source/fidelity/fallback selection is itself a material decision. A single obvious live tool/source does not need a selection hop.
 
 Do not persist live availability, authentication state, discovered actions, or temporary sandbox reachability as timeless project truth unless a separate artifact explicitly owns freshness/provenance semantics.
 
@@ -129,7 +129,7 @@ Validation failure keeps the candidate non-canonical. Missing validator dependen
 
 Persist only at an approved project location and inspect the resulting artifact when possible. If durable persistence is required but unavailable, return `BLOCKED`; if the current bounded task can continue safely with session-visible truth, return `PARTIAL` and state what is not durable.
 
-Do not route back to `/sdlc`, invent a `next_owner`, or serialize a workflow-control result merely because Bootstrap finished.
+Do not route back to `sdlc`, invent a `next_owner`, or serialize a workflow-control result merely because Bootstrap finished.
 
 ## Completion semantics
 

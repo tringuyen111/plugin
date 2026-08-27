@@ -55,7 +55,7 @@ When queue/job/scheduler delivery identity, temporary work ownership, redelivery
 
 ## Build process and resource lifecycle from actual runtime facts
 
-Identify the resources this process actually owns or coordinates: server/listener, external-service clients, executors, caches, subscriptions, file/stream handles, telemetry exporters, or other shared runtime components. Keep database session/pool/transaction mechanics with `data-persistence-engineering` when they are the material boundary.
+Identify the resources this process actually owns or coordinates: server/listener, external-service clients, executors, caches, subscriptions, file/stream handles, telemetry exporters, or other shared runtime components. Keep database session/pool/transaction mechanics as a bounded Data/Persistence concern when they are the material boundary; host-native discovery owns any separate capability selection.
 
 For each material resource:
 
@@ -132,7 +132,7 @@ Keep caller-visible error mapping and retryability/idempotency semantics owned b
 
 ## Classify remote outcomes without inventing certainty
 
-A timeout, connection reset, lost response, or cancellation after dispatch can leave the remote effect **ambiguous**.
+When remote ambiguity is material, use **Effect Evidence State** for what authoritative evidence establishes about the remote effect: `ESTABLISHED`, `NOT_ESTABLISHED`, or `UNKNOWN`. A timeout, connection reset, lost response, or cancellation after dispatch can leave the remote effect `UNKNOWN`; transport failure alone does not prove it did not happen.
 
 Before deciding whether to repeat or fail an outbound operation:
 

@@ -37,7 +37,7 @@ This reference does **not** own:
 
 - Product behavior, QA verdicts, UAT acceptance, or release readiness;
 - release-readiness decision and the normal deployment/exposure transaction, owned by `devops-engineering` when those are the active delivery objective;
-- provider selection/translation, owned by `/capability-resolver` and integration surfaces;
+- provider selection/translation, owned by the provider-selection/integration surface rather than this design reference;
 - cloud/application architecture beyond the pipeline-facing interface;
 - provider-specific administration commands or secret values.
 

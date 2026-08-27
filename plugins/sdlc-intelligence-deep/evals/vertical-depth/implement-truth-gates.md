@@ -1,5 +1,7 @@
 # Frozen Behavioral Cases — implement truth gates
 
+Evidence-State: `NOT_RUN`
+
 Frozen before mutation of `skills/implement`. Runtime behavioral execution is `NOT_RUN`.
 
 ## Rubric

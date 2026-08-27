@@ -193,5 +193,76 @@ class ContractIdentityTests(unittest.TestCase):
 
 
 
+class StrictExecutorShapeTests(unittest.TestCase):
+    def test_namespace_and_revision_keys_are_required_even_when_nullable(self) -> None:
+        for field in ("namespace", "revision"):
+            job = minimal_job()
+            job["executor"].pop(field)
+            findings = validate_job(job)
+            self.assertTrue(any(f"executor.{field}" in finding for finding in findings), findings)
+
+
+class SelectiveRegenerationSafetyTests(unittest.TestCase):
+    def test_digest_binds_actual_executor_runtime_identity(self) -> None:
+        import capture_contract as contract
+
+        job = minimal_job()
+        job["application_commit"] = "commit-a"
+        shot = job["shots"][0]
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "fixture.html").write_text("<p>same source</p>", encoding="utf-8")
+            first = contract.canonical_shot_digest(
+                job,
+                shot,
+                root=root,
+                runtime_executor={"provider_version": "browser-a", "adapter_sha256": "a" * 64},
+            )
+            second = contract.canonical_shot_digest(
+                job,
+                shot,
+                root=root,
+                runtime_executor={"provider_version": "browser-b", "adapter_sha256": "a" * 64},
+            )
+            third = contract.canonical_shot_digest(
+                job,
+                shot,
+                root=root,
+                runtime_executor={"provider_version": "browser-a", "adapter_sha256": "b" * 64},
+            )
+        self.assertNotEqual(first, second)
+        self.assertNotEqual(first, third)
+
+    def test_capture_adapter_applies_safe_reuse_gate_and_runtime_digest(self) -> None:
+        capture_source = (Path(__file__).resolve().parent / "capture.py").read_text(encoding="utf-8")
+        self.assertIn("can_reuse_capture(", capture_source)
+        self.assertIn("runtime_executor=manifest[\"executor\"]", capture_source)
+
+    def test_reuse_requires_fixed_local_nondynamic_source(self) -> None:
+        import capture_contract as contract
+
+        job = minimal_job()
+        job["application_commit"] = "commit-a"
+        shot = job["shots"][0]
+        self.assertTrue(contract.can_reuse_capture(job, shot, source_sha256="a" * 64))
+
+        live = copy.deepcopy(shot)
+        live.pop("html")
+        live["url"] = "https://example.invalid/app"
+        self.assertFalse(contract.can_reuse_capture(job, live, source_sha256=None))
+
+        no_revision = copy.deepcopy(job)
+        no_revision.pop("application_commit")
+        self.assertFalse(contract.can_reuse_capture(no_revision, shot, source_sha256="a" * 64))
+
+        with_login = copy.deepcopy(job)
+        with_login["login"] = {"storageStatePathFromEnv": "AUTH_STATE"}
+        self.assertFalse(contract.can_reuse_capture(with_login, shot, source_sha256="a" * 64))
+
+        env_driven = copy.deepcopy(shot)
+        env_driven["steps"] = [{"fill": "#query", "valueFromEnv": "QUERY_VALUE"}]
+        self.assertFalse(contract.can_reuse_capture(job, env_driven, source_sha256="a" * 64))
+
+
 if __name__ == "__main__":
     unittest.main()

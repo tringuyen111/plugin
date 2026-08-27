@@ -50,7 +50,7 @@
 
 ## Follow-up action recommendations
 
-| Recommendation | Linked finding / causal condition | Class (PREVENT / DETECT / MITIGATE / RECOVER / LEARN) | Recommended outcome / risk | Suggested owner role | Evidence target | Verification / falsifier | Existing canonical work item | Planning handoff |
+| Recommendation | Linked finding / causal condition | Class (PREVENT / DETECT / MITIGATE / RECOVER / LEARN) | Recommended outcome / risk | Suggested owner role | Evidence target | Verification / falsifier | Existing canonical work item | Execution / planning continuation |
 |---|---|---|---|---|---|---|---|---|
 
 ## Recurrence generalization

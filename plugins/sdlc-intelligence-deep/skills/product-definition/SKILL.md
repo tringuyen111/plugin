@@ -5,177 +5,154 @@ description: Define an evidence-grounded Product commitment, user/business outco
 
 # Product Definition
 
-When source-evidence constraints, metric choice/target basis, guardrails/proxies, priority sensitivity, or scope commitment could change the Product decision, read [Product Outcome and Decision Contract](PRODUCT-OUTCOME-DECISION-CONTRACT.md).
+Turn an evidence-grounded opportunity into a bounded Product commitment and decision proposal that downstream BA, Design, Engineering, and QA can consume without inheriting hidden Product assumptions.
 
-When the Product decision can change based on current capability/blocker truth, business-value mechanism, scope sufficiency/necessity, feature/capability grouping, live operating shape, future option value, or commercial viability, read [Product Capability, Scope, and Value Contract](PRODUCT-CAPABILITY-SCOPE-CONTRACT.md).
+This Skill owns **Product commitment, user/business outcomes, success-measurement intent, target segment, capability scope/non-goals, Product-level dependencies/constraints, priority rationale, and Product recommendation**. It may record an Authorized Product decision only when the named authority explicitly decides against the exact artifact revision.
 
-Turn an opportunity into a Product definition and decision proposal that downstream BA, Design,
-Engineering, and QA can use without inheriting hidden Product assumptions. When the accountable
-Product authority is present, this workflow may also record that authority's explicit decision;
-otherwise it returns a recommendation, not an approval.
+It does not own use cases, business rules, user stories, acceptance criteria, visual design, architecture, implementation tasks, QA verdicts, measured-evidence/statistical validity owned by `metrics-review`, exact pricing/billing mechanics, or another owner's authority. A loaded knowledge module inherits this boundary and may return only Product-level decision/state/evidence updates.
 
-This skill owns:
+## Control model
 
-- desired user and business outcomes;
-- success metrics and evaluation window;
-- target segment;
-- priority rationale;
-- epic or feature scope;
-- non-goals;
-- product-level constraints and dependencies;
-- the recommended Product decision to define, experiment, gather evidence, park, or reject;
-- the authorized Product decision only when the named Product authority explicitly makes it for the exact artifact revision.
+```text
+BIND CURRENT OPPORTUNITY + AUTHORITY
+              |
+              v
+DECLARE COMMITMENT + OUTCOMES
+              |
+              v
+SELECT CURRENT PRODUCT DECISION FRONTIER
+   |        |         |        |        |        |
+   |        |         |        |        |        +--> PRIORITY
+   |        |         |        |        +-----------> COMMERCIAL VIABILITY
+   |        |         |        +--------------------> OPTION HORIZON
+   |        |         +-----------------------------> OPERATING SHAPE
+   |        +---------------------------------------> CAPABILITY / SCOPE
+   +------------------------------------------------> MEASUREMENT
+              |
+              v
+INTEGRATE RESULT / RE-ENTER EARLIEST INVALIDATED PREMISE
+              |
+              v
+RECOMMEND OR RECORD AUTHORIZED PRODUCT DECISION
+              |
+              +--> inline return
+              `--> durable projection only when required
+```
 
-It does not own use cases, business rules, user stories, acceptance criteria,
-visual design, architecture, implementation tasks, QA verdicts, or measured-evidence/statistical
-validity owned by `metrics-review`.
+Do not run every branch. A small reversible Product decision with clear commitment, scope, measurement intent, and priority may complete from the resident surface without topology, commercial, option-horizon, or operating-shape depth.
 
-Read `PRODUCT-DEFINITION-FORMAT.md` before writing the artifact.
+## Commitment semantics — use these terms literally
 
-## Preconditions
+- **Outcome Claim** — how strongly Product claims the target changed condition from this scope: `OUTCOME` when Product claims the bounded outcome can be achieved subject only to explicit dependencies, `CONTRIBUTION` when Product intentionally advances only part of a larger outcome, or `NO_OUTCOME_CLAIM` when the current scope exists only to learn and makes no present outcome-improvement claim.
+- **Learning Commitment** — whether the current scope must discriminate a named decision-critical assumption: `LEARNING` when that evidence obligation is material, otherwise `NO_LEARNING_COMMITMENT`. Learning is not a weaker Outcome Claim and may coexist with either `OUTCOME` or `CONTRIBUTION`.
 
-Start from an evidence-grounded opportunity with a canonical identity/location when one exists.
-`OPP-*` is one valid project representation, not a required global identifier. Preserve the exact
-source opportunity identity, source opportunity location, and **source opportunity revision**
-supplied by the project rather than fabricating a shadow `OPP-*` ID.
+Keep these dimensions independent. A Product slice can be `CONTRIBUTION + LEARNING` or `OUTCOME + LEARNING`; do not erase one truth to fit a single commitment label.
 
-Resolve the accountable Product decision owner and **decision authority** before treating any recommendation as approved Product truth. If the input is only a solution idea without a supported problem, treat it as discovery work rather than silently manufacturing a definition-ready opportunity.
+## Resident invariants
 
-## Process
+- **Bind exact opportunity truth.** Preserve source opportunity identity/location/revision and decision-relevant evidence constraints. Never upgrade a hypothesis to fact by dropping dependency, selection, transferability, counter-evidence, or learning-state limitations.
+- **Commitment precedes scope.** Declare both Outcome Claim and Learning Commitment. A contribution-sized scope cannot inherit an outcome-sized claim; a material Learning Commitment adds an evidence obligation without replacing an established Outcome Claim. Pure learning may use `NO_OUTCOME_CLAIM + LEARNING`.
+- **Outcomes are changed conditions, not deliverables.** Keep user outcome and business outcome distinct.
+- **Current capability truth precedes new scope.** Existing behavior/workaround may already satisfy part of the need or reveal the actual blocker; do not duplicate capability merely because it belongs to the same journey.
+- **Product scope stays solution-light.** Product may name the capability/change at feature or epic altitude, not framework, DB/module boundaries, screen layout, API/job design, tests, or deployment mechanics.
+- **Unknown numbers stay unknown.** Do not invent baselines, targets, effect sizes, market sizes, weights, reach, confidence, effort, or scores to complete a template.
+- **Measurement intent is not evidence verdict.** Product Definition chooses what should measure the outcome and why; `metrics-review` owns observed-data validity, uncertainty/statistical interpretation, experiment integrity, and whether evidence supports the Product claim.
+- **Recommendation is not authorization.** `READY` means definition-ready truth, not Product approval. Authorization requires named authority, exact artifact revision, and explicit decision.
+- **Do not invent continuation ownership.** For `RUN_EXPERIMENT`, use an existing canonical execution capability/owner only when project truth provides one; otherwise record the capability gap.
+- **Knowledge cannot widen the job.** Commercial depth may expose viability hypotheses but not price/billing/legal decisions; operating depth may return Product capability/constraints but not UI/API/batch mechanics; capability depth may not absorb BA/Design/Architecture/Engineering decisions.
 
-### 1. Revalidate the opportunity
+## 1. BIND — establish source truth and authority
 
-Read the exact current Opportunity revision and confirm:
+Read the exact current Opportunity revision. Confirm target actor/context, current reality/workaround, evidence strength/conflicts, decision-relevant evidence limitations, riskiest unresolved assumption/learning state, and why the opportunity matters now.
 
-- target user and triggering situation;
-- current workaround and cost;
-- evidence strength and conflicts;
-- material evidence dependency, collection/selection, transferability and counter-evidence constraints;
-- riskiest unresolved assumption and learning state;
-- why the opportunity matters now.
+Resolve the accountable Product decision owner and decision authority before treating any recommendation as approved Product truth. If the input is still only a solution idea without supported problem-space truth, return to Discovery rather than manufacturing a definition-ready opportunity.
 
-Do not silently upgrade a hypothesis into a fact or strengthen evidence by dropping source
-limitations. If the source Opportunity revision changed materially after definition began,
-revalidate the changed truth before carrying forward scope, metric, priority or authorization.
+**BIND complete when:** the source revision and material evidence constraints are visible, and recommendation authority is distinguished from approval authority.
 
-### 2. Define the commitment and outcomes
+## 2. COMMIT — declare what Product is trying to make true and learn
 
-Before claiming scope, state what this Product definition is committing to:
+Declare two independent dimensions. Do not infer one from the other.
 
-- **OUTCOME** — the scope claims the target condition can be achieved, subject only to explicit dependencies;
-- **CONTRIBUTION** — the scope intentionally advances part of a larger outcome while remaining blockers/owners stay explicit;
-- **LEARNING** — the scope primarily exists to answer a decision-critical Product assumption.
+### Outcome Claim
 
-Do not let a contribution-sized scope inherit an outcome-sized claim. When the commitment type itself is uncertain, keep it explicit and use the capability/scope contract before defining scope.
+| Outcome Claim | Meaning | Scope consequence |
+|---|---|---|
+| `OUTCOME` | Product claims the bounded target condition can be achieved subject only to explicit dependencies | every material blocker inside Product responsibility must be covered or the claim narrowed |
+| `CONTRIBUTION` | Product intentionally advances part of a larger outcome | remaining blockers/owners stay explicit; do not claim whole-outcome completion |
+| `NO_OUTCOME_CLAIM` | the current slice makes no present claim that it improves the target outcome | do not fabricate value completion merely because Product is running a learning activity |
 
-Write separately:
+### Learning Commitment
 
-- **User outcome** — what becomes easier, faster, safer, clearer, or possible.
-- **Business outcome** — what business condition should change.
+| Learning Commitment | Meaning | Scope consequence |
+|---|---|---|
+| `LEARNING` | the current scope must discriminate a named decision-critical assumption | scope/evidence path must answer the learning question; production completeness is unnecessary unless required by the evidence mechanism or an independent Outcome Claim |
+| `NO_LEARNING_COMMITMENT` | no decision-critical learning obligation is part of the current Product commitment | do not invent an experiment or evidence burden merely to make the definition look rigorous |
 
-Outcomes describe changed conditions, not deliverables.
+State the **user outcome** and **business outcome** separately even when the current Outcome Claim is `NO_OUTCOME_CLAIM`; they remain the opportunity context, not a fabricated claim by the current slice.
 
-### 3. Define measurement
+If Outcome Claim changes, reopen only the dependent outcome/scope/measurement/priority/recommendation truth. If Learning Commitment or its question changes, reopen the learning evidence path and dependent measurement/experiment/recommendation truth while preserving an independent established Outcome Claim and scope unless the changed learning premise actually affects them.
 
-For each material outcome define:
+## 3. SELECT DEPTH — load only the module that can change the current decision
 
-- metric role — primary outcome, supporting/diagnostic, or guardrail/counter-metric when relevant;
-- outcome link / expected signal and proxy limitation when applicable;
-- metric name and business meaning;
-- formula or event interpretation;
-- population/segment;
-- baseline and **baseline source** when known;
-- target/threshold and **target basis** when justified;
-- evaluation window;
-- data source and owner;
-- guardrail and quality caveats when a material dimension could worsen while the primary metric improves.
+| Frontier | WHEN | WHY | TARGET | RETURN |
+|---|---|---|---|---|
+| Measurement | metric choice/role, outcome link, proxy, guardrail, baseline, target basis, window, observability, or measurement ownership can change the Product decision | measurement must represent the intended outcome without fabricated certainty | [Outcome Measurement](references/outcome-measurement.md) | decision-useful metric set + roles/outcome links + baseline/target basis or explicit unknown + proxy/guardrail caveats + measurement prerequisite/owner |
+| Capability / scope | current capability/blocker, value mechanism, capability delta, necessity/sufficiency, coherence, or Product topology can change inclusion | scope must be the smallest Product capability envelope justified by current truth and commitment | [Capability Scope](references/capability-scope.md) | current truth + value mechanism + `REUSE/EXTEND/NEW` delta + smallest justified scope/non-goals/dependencies + topology only when decision-useful |
+| Operating shape | actor, cadence, criticality, scale, or recovery/support expectation can invalidate an otherwise plausible scope | demo-level usefulness may fail under real Product operation | [Operating Shape](references/operating-shape.md) | Product-level capability/constraint/guardrail required by live operation + unresolved owner/evidence; no implementation mechanics |
+| Option horizon | an evidence-backed adjacent future can change what must be preserved now | future relevance should constrain Product intent without speculative scope or technical runway | [Option Horizon](references/option-horizon.md) | `BUILD_NOW / PRESERVE_OPTION / DEFER_SPECULATIVE` + evidence basis + current trade-off/constraint if any |
+| Commercial viability | segment/core-vs-expansion, cost-to-serve, entitlement/package treatment, fairness/churn/support risk can change scope or priority | Product may need a viability hypothesis without fabricating commercial truth | [Commercial Viability](references/commercial-viability.md) | Product-level viability risk/hypothesis + affected scope/priority + unresolved evidence/owner; no exact price, billing, legal, or approval truth |
+| Priority | evidence-backed value, confidence, urgency, strategic fit, cost, reversibility, opportunity cost, or uncertain weights can change ordering/decision | prioritization must expose sensitivity rather than hide guessed precision | [Priority Decision](references/priority-decision.md) | priority rationale/disposition + uncertainty/sensitivity + opportunity cost + exact evidence or authorized input that would change it |
+| Durable projection | governed/cross-session Product artifact is actually required | persistence is representation/continuity, not additional Product reasoning | [Product Definition Format](references/product-definition-format.md) | faithful serialization of already-established Product truth; no invented identity, metric, target, scope, priority, or approval |
 
-If the metric cannot currently be measured, state the instrumentation or research prerequisite.
-Do not invent a baseline, target, stretch value, or convenient proxy to complete the form.
+If a module cannot produce the named `RETURN`, skip it. Do not directory-browse for generic context and do not preload future/commercial/topology/operational depth merely because those modules exist.
 
-Product Definition selects what should measure the outcome and why. `metrics-review` owns
-measured-evidence validity, experiment integrity, uncertainty/statistical interpretation, and
-whether observed results support the Product claim.
+## 4. INTEGRATE — update Product state and re-enter only dependents
 
-### 4. Define product scope from current capability truth
+Integrate each module return into the resident Product definition. Preserve independent established truth when a premise changes.
 
-For an existing product/workflow, inspect the strongest available current capability/workaround truth and identify the material blocker before adding scope. Do not rebuild or re-scope an existing capability merely because it belongs to the same journey.
+| New evidence invalidates... | Re-enter at... |
+|---|---|
+| source opportunity/evidence boundary | `BIND`, then every dependent commitment/outcome/scope/priority/decision |
+| Outcome Claim or user/business outcome | `COMMIT`, then dependent outcome measurement/scope/priority/recommendation |
+| Learning Commitment or learning question | `COMMIT`, then the learning evidence path and dependent measurement/experiment/recommendation; preserve independent Outcome Claim/scope unless actually affected |
+| measurement meaning/target/proxy assumption | measurement and any recommendation/experiment gate that depends on it; preserve independent scope when unaffected |
+| current capability/blocker/value mechanism | capability/scope and dependent priority/recommendation |
+| operating/future/commercial constraint | only affected scope/priority/recommendation dimensions |
+| priority input/authorized weight | priority + recommendation, not unrelated Product truth |
+| authorization source/revision | authorization only unless the underlying Product decision truth also changed |
 
-Specify:
+Do not keep obsolete scope for document stability and do not restart the whole definition when only one independent dimension changed.
 
-- target segment;
-- in-scope user capability at feature/epic altitude;
-- explicit non-goals;
-- product constraints;
-- external or cross-team dependencies;
-- release assumption or phasing hypothesis;
-- adjacent opportunities deliberately not included.
+## 5. RECOMMEND — make the Product disposition explicit
 
-When scope quality depends on the relation between current capability, blocker, business value, Product topology, live operating shape, future option value, or commercial viability, apply `PRODUCT-CAPABILITY-SCOPE-CONTRACT.md`. Test the smallest capability envelope for necessity and sufficiency relative to the declared `OUTCOME | CONTRIBUTION | LEARNING` commitment. Usage frequency alone is not Product value, technical adjacency is not Product grouping, and a plausible future is not automatic current scope.
+Return one Recommended Product decision:
 
-Keep scope solution-light. A feature scope may name a capability, but it must
-not prescribe framework, database, module boundaries, detailed screen layout, test cases, or
-deployment design.
+- `ADVANCE_TO_DEFINE_BEHAVIOR` — Product intent is coherent enough for BA/behavior definition.
+- `RUN_EXPERIMENT` — a Product value/metric assumption needs discriminating evidence first.
+- `GATHER_EVIDENCE` — source quality or decision-critical truth is insufficient.
+- `PARK_OR_REJECT` — not justified relative to supported alternatives/opportunity cost.
+- `BLOCKED` — a load-bearing source, authority, or dependency is unavailable.
 
-### 5. Prioritize
+A recommendation remains distinct from an Authorized Product decision. Record authorization only when the named Product decision owner has authority and explicitly decides against the exact artifact revision; preserve decision owner, authority/source, revision/date.
 
-Record the basis for priority:
+For `RUN_EXPERIMENT`, name an existing canonical execution capability/accountable owner only when project truth provides one. Otherwise record the unresolved capability gap and Product owner responsible for resolving it; do not invent a Skill/provider/team/execution path.
 
-- expected value and the evidence-backed mechanism by which the capability changes a user/business condition;
-- evidence confidence and transferability;
-- urgency or timing;
-- strategic alignment;
-- estimated learning or delivery cost if available;
-- risk/reversibility when material;
-- opportunity cost — what moves or remains uncommitted.
+## 6. RETURN / PERSIST
 
-Frameworks such as RICE, ICE, MoSCoW, or value/effort may support a decision.
-They do not replace judgment. Do not use **invented weights** or guessed inputs as scoring authority,
-and uncertain inputs must stay uncertain. Record **sensitivity** when plausible input/weight changes
-would change the priority ordering.
+Return the smallest complete Product truth needed by the caller. Load the durable format only when a canonical writable destination or cross-session/governance requirement exists. Provider/tool availability is not write authority; if no canonical destination is known, return inline and mark persistence `NOT_RUN`/`PARTIAL`/`BLOCKED` according to the real continuity need.
 
-### 6. Recommend or record the Product decision
-
-Produce one **Recommended Product decision**:
-
-- **ADVANCE_TO_DEFINE_BEHAVIOR** — Product intent appears ready for BA definition.
-- **RUN_EXPERIMENT** — Product value or metric assumptions need evidence first.
-- **GATHER_EVIDENCE** — source quality is insufficient.
-- **PARK_OR_REJECT** — not justified relative to alternatives.
-- **BLOCKED** — decision owner, source, or dependency is unavailable.
-
-A recommendation is not authorization. Record an **Authorized Product decision** only when the
-named Product decision owner has authority for this scope and explicitly approves that decision
-against the **exact artifact revision**. Preserve who decided, the authority/source, and the decision
-revision/date. Workflow `READY` does not imply Product approval.
-
-For **RUN_EXPERIMENT**, identify an existing canonical project execution capability/accountable owner only when project truth actually provides one. If none exists, record a **capability gap** and the Product owner responsible for resolving it. Do not invent a new experiment Skill, provider, team assignment, or execution path, and do not silently substitute Prototype, Research, Design, or Engineering as the Product experiment owner. The
-Product definition may still be complete as a recommendation; execution-dependent continuation is
-`PARTIAL` or `BLOCKED` when the required owner/capability is absent.
-
-### 7. Write the product definition
-
-Use the project-selected product artifact location. Persist only when the exact destination and write authority are known; provider/tool availability alone is not authority. If no canonical writable location is configured, return the complete definition inline with persistence `NOT_RUN`.
-Use `PARTIAL` when the current session can consume it and `BLOCKED` when durable
-or cross-session truth is required. Do not create a repository path by default.
-
-The artifact remains `DRAFT` until the accountable Product/PO owner reviews it. Approval or a
-protected Product decision is recorded as a separate authority-bearing field; DRAFT content never
-becomes authorized simply because this workflow completed.
+The artifact remains `DRAFT` until the accountable Product owner reviews it. Approval is a separate authority-bearing field, never an implication of workflow completion.
 
 ## Completion
 
 `READY` requires:
 
 - exact source opportunity revision linked and material evidence constraints preserved;
-- user and business outcomes separated;
-- metrics connected to outcomes/signals with role, population, window, source/owner and proxy/guardrail caveats when material;
-- baselines/targets carry source/basis or remain explicitly unknown/TBD;
-- declared `OUTCOME | CONTRIBUTION | LEARNING` commitment is consistent with the scope claim;
-- scope and non-goals explicit and solution-light;
-- when material, current capability/workaround, blocker, capability delta, operating/future/commercial constraints, and scope necessity/sufficiency are resolved or explicitly bounded without fabricated downstream/commercial truth;
-- priority rationale, uncertainty/sensitivity and opportunity cost visible without invented weights;
-- Recommended Product decision separated from any Authorized Product decision;
-- decision authority and exact artifact revision recorded when an authorized decision exists;
-- unresolved experiment capability/owner gap visible when `RUN_EXPERIMENT` cannot be executed by a canonical capability/owner;
-- no metrics-review, BA, Design, Engineering, Architecture, QA, or release decision silently made.
+- Outcome Claim, Learning Commitment, and separate user/business outcomes are coherent without collapsing the two commitment dimensions;
+- measurement intent is sufficient for the decision, with unknown baselines/targets/proxies/guardrails left explicit when unresolved;
+- current capability truth and the smallest justified scope/non-goals/dependencies are clear;
+- any material operating/future/commercial/priority condition that can change the decision is resolved or explicitly open;
+- recommendation is explicit and authorization is separate;
+- no BA/Design/Architecture/Engineering/QA, metrics evidence verdict, exact pricing/billing/legal mechanics, release-readiness verdict, or invented execution ownership leaked into Product truth.
+
+Use `PARTIAL` when useful Product truth exists but one non-load-bearing continuation/persistence obligation remains. Use `BLOCKED` only when a load-bearing source, authority, dependency, or decision truth prevents the requested Product disposition.

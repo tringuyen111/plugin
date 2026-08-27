@@ -203,4 +203,4 @@ Do not claim formal GRADE-CERQual assessment unless the task is actually perform
 | Analyst interpretations diverge on a decision-material point | interpretation frame | inspect definitions/context, seek discriminating evidence, or escalate |
 | Product/design recommendation exceeds evidence | finding/implication boundary | restate the evidence-grounded implication and return the decision to its owner |
 
-Stop when re-analysis cannot change a material finding/decision, or when the next uncertainty requires new evidence owned by `/research`.
+Stop when re-analysis cannot change a material finding/decision, or when the next uncertainty requires new evidence owned by `research`.

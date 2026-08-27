@@ -44,7 +44,7 @@ Group and label by reader task/intent, not internal module ownership unless the 
 
 Use cross-links when they reduce duplication or bridge a real reader transition. Factor shared prerequisites/reference only when genuinely reused; do not make every small task traverse a long prerequisite chain.
 
-If the unresolved issue is the **visible help/docs application surface**—navigation interaction, responsive reading shell, spatial hierarchy, component composition—pass the semantic navigation/content constraints to `product-design`. Markup parser/build semantics remain with the selected target stack.
+If the unresolved issue is the **visible help/docs application surface**—navigation interaction, responsive reading shell, spatial hierarchy, component composition—return the semantic navigation/content constraints for the separate Product Design problem. Host-native discovery owns subsequent capability selection. Markup parser/build semantics remain with the selected target stack.
 
 For visual selection/framing/annotation decisions, use the directly linked Visual Instruction method from `SKILL.md`; this bundle only records the visual linkage/provenance required by scope.
 

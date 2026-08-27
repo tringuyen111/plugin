@@ -4,17 +4,16 @@ Load this reference only when interruption, UNKNOWN/pending outcome, partial com
 
 This reference deepens **observable acceptance semantics**. It does not prescribe technical recovery, retry, transaction, queue, locking, or test-execution mechanics.
 
-## Observable outcome classes
+## Independent acceptance dimensions
 
-Keep only classes that change acceptance meaning:
+Do not force continuity into one mutually exclusive outcome enum. Preserve only the dimensions that change acceptance meaning:
 
-- **NO_CHANGE / REJECTED** — the business effect did not occur and any required no-change guarantee holds;
-- **COMPLETED** — the required externally meaningful effect is observably complete;
-- **PARTIAL** — some externally meaningful effect is already real but the full accepted outcome is not complete;
-- **UNKNOWN / PENDING** — evidence cannot yet determine the final business outcome;
-- **COMPENSATED / REVERSED** — a later business action addressed an already-real effect when that outcome is itself acceptance-relevant.
+- **Effect Evidence State** — for each material business-visible effect, state `ESTABLISHED`, `NOT_ESTABLISHED`, or `UNKNOWN`;
+- **Partial Progress** — separately state which established subset of the business operation is already real when the full required result is incomplete;
+- **actor-visible status / obligation** — rejected/no-change, accepted/pending/reconciliation-required, completed, compensated/reversed, or another authorized business status only when that status changes the criterion;
+- **final postcondition** — what observable condition eventually closes the accepted/rejected/reconciled path.
 
-Do not turn timeout, acknowledgement, or missing response into automatic success/failure. Acceptance must reflect what can actually be known or observed.
+These dimensions can coexist. Known Partial Progress may exist while another material effect remains `UNKNOWN`; an actor-visible pending state may coexist with established effects. Do not turn timeout, acknowledgement, missing response, or one transport result into automatic whole-operation success/failure.
 
 ## Continuity map
 
@@ -22,9 +21,10 @@ When material, pressure the criterion with:
 
 ```text
 trigger / condition
--> observable business effect certainty
--> accepted / rejected / pending / partial outcome
--> actor-visible state or obligation
+-> business operation + concrete submission/attempt relation when repetition is material
+-> per-effect Effect Evidence State
+-> established Partial Progress
+-> actor-visible status or obligation
 -> safe repeat/cancel/reconcile behavior
 -> controlling Business Rule / authority
 -> final observable postcondition
@@ -40,14 +40,14 @@ For a partially completed business operation, preserve only material observable 
 - effects not completed;
 - pending/reconciliation-required status;
 - no-duplicate/no-extra-effect guarantees when authorized;
-- required refund/release/reversal/notification/manual-review obligation when authoritative;
+- required refund/release/reversal/notification/manual review obligation when authoritative;
 - final accepted postcondition.
 
 A business compensation obligation does not prescribe technical rollback.
 
 ## Repeated intent and multiple actors
 
-Repeated actor intent may mean retry same intent, create a new intent, query/reconcile prior intent, or reject/merge a duplicate. Acceptance Criteria may state the observable guarantee only when grounded in authoritative behavior/rule truth.
+Repeated actor submissions may be **Request Attempts** (concrete submissions/deliveries) for the same **Logical Operation** (one business-visible intent/effect obligation), new Logical Operations, or attempts only to query/reconcile a prior operation. Bind that relation from authoritative behavior/rule truth; equal payloads, request/delivery IDs, or retry labels do not decide it. Acceptance Criteria may state the observable duplicate/no-extra-effect guarantee only when that business meaning is grounded.
 
 For multi-actor/time conflicts, state the accepted observable outcome and link authoritative precedence/effective-time semantics. Do not invent last-write-wins, queue order, locking, or merge policy.
 

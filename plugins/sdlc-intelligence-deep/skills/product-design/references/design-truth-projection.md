@@ -38,7 +38,7 @@ Preserve only the fields material to the job:
 
 ## Open Design decisions / evidence gaps
 
-## Handoffs
+## Downstream continuation
 - Prototype question, if any:
 - Frontend implementation constraints:
 - Review / QA visual-conformance scope:
@@ -52,7 +52,7 @@ When the user/project specifically needs a user flow, wireframe, visual-directio
 
 ### Flow projection
 
-Include scoped task, truth altitude (`CURRENT_OBSERVED | TARGET_AUTHORIZED | PROPOSED_EXPLORATION`), entry context, typed transitions, perceivable states, valid continuation, governing behavior truth, recovery/unknown branches when material, handoffs, and open Design decisions.
+Include scoped task, truth altitude (`CURRENT_OBSERVED | TARGET_AUTHORIZED | PROPOSED_EXPLORATION`), entry context, typed transitions, perceivable states, valid continuation, governing behavior truth, recovery/unknown branches when material, actor/process handoffs, and open Design decisions.
 
 ### Wireframe projection
 

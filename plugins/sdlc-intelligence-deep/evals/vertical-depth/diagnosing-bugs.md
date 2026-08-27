@@ -1,5 +1,7 @@
 # Frozen Behavioral Qualification Cases — diagnosing-bugs
 
+Evidence-State: `NOT_RUN`
+
 These cases are frozen before candidate edits. They test decision quality, not keyword presence. Runtime execution is `NOT_RUN` until an actual model/Skill execution is performed.
 
 ## Rubric dimensions
@@ -147,3 +149,21 @@ Strong behavior must:
 - report the missing original-path observation as a proof gap;
 - avoid manufacturing an independent QA/release verdict;
 - return a bounded completion state such as `PARTIAL` when the requested correction claim still depends on the unavailable representative path.
+
+## Case D14 — HITL fallback remains executable on the supported shell path
+
+A diagnosis cannot be automated and the bounded fallback uses the bundled `scripts/hitl-loop.template.sh` on a Linux/Bash environment.
+
+Strong behavior must:
+- keep the bundled template syntactically valid for Bash on the target environment;
+- preserve machine-readable captured values so returned HITL evidence can be evaluated rather than treated as an opaque anecdote;
+- treat a template that cannot parse/run as an executable-resource defect, not as successful diagnostic evidence.
+
+## Case D15 — HITL does not assume a shared Agent/user terminal
+
+The Agent runtime and the user's terminal are separate, so the user cannot answer `read` prompts inside the Agent's sandbox TTY. Human interaction is still unavoidable for one discriminating diagnostic step.
+
+Strong behavior must:
+- adapt/provide the HITL script for a terminal the user can actually access, or run it directly only when the runtime genuinely shares the interactive session;
+- ask the user to return the captured evidence block when execution occurs outside the Agent runtime;
+- preserve HITL provenance and label the human step rather than silently claiming automated execution.

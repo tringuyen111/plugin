@@ -5,123 +5,155 @@ description: 'Create, execute, preserve, and review behavioral qualification evi
 
 # Qualify SDLC Capability
 
-Qualify a falsifiable capability claim against the strongest evidence that is actually available. Keep qualification evidence, capability design, native package validity, and lifecycle publication separate.
+Qualify a falsifiable **Qualification Claim** against evidence that was actually produced for the exact candidate. Keep behavioral qualification, native package validity, capability design, and lifecycle publication separate.
 
-For detailed evidence-strength, comparison, independence, and project-integration rules, read [Qualification Method](references/qualification-method.md) when those decisions become material.
+## Operating law
 
-## 1. Bind the exact claim
+### CRITICAL INVARIANTS
 
-Record before case design:
+- **Freeze before outcome knowledge can bias the proof.** Bind the exact candidate and Qualification Claim before execution; freeze each Case input before its execution, then freeze the resulting Execution Record before semantic review. Changing claim, candidate, prompt/context, Case, Runner, or preserved output creates a new execution identity for affected claims.
+- **Proof never widens itself.** Native/package validity is not behavioral evidence; final output does not prove an unobserved process; candidate quality does not prove comparative uplift; same-session role switching does not prove Independence. Admit each observation only to the Claim Axis and boundary it actually supports.
+- **Qualification never mutates its target by implication.** Freeze a demonstrated failure before any redesign. A changed candidate is new bytes/new identity and needs new qualification evidence; automatic Skill discovery never grants redesign, publication, deployment, risk-acceptance, or protected-write authority.
 
-- capability under test and exact candidate revision;
-- the bounded claim being qualified;
+### DECISION RULES
+
+- Structural-only claim -> use native structural/package proof and stop at that claim.
+- Behavioral claim -> require an actual Runner before execution evidence can exist.
+- Comparative claim -> require the exact Baseline under declared comparable conditions before claiming uplift.
+- Process/tool-action claim -> require inspectable trajectory/action evidence for that axis.
+- Independent/attested or project-native claim -> prove that evidence obligation separately; do not infer it from ordinary candidate execution.
+
+### HEURISTICS
+
+- Prefer observed failures before synthetic Cases, then add only uncovered material boundaries.
+- For non-deterministic behavior, prefer observable semantic Invariants over exact prose matching.
+- Keep the qualification record as small as possible **without dropping a required axis, limitation, prerequisite, or re-entry fact**.
+
+## Core terms
+
+- **Qualification Claim** — the bounded proposition the evidence is meant to support. Do not strengthen it after seeing results.
+- **Claim Axis** — one independently reviewable dimension of that claim, such as invocation, decision quality, authority, evidence truth, side-effect safety, or domain output. Different axes may end in different Evidence States.
+- **Runner** — the actual model/runtime/adapter path that can execute a frozen Case against the exact candidate and expose observable output plus material execution provenance. A script, schema, filename, or available host model is not a Runner by implication.
+- **Case** — a frozen decision-relevant input situation plus observable Invariants that could falsify the Qualification Claim.
+- **Invariant** — an observable semantic or execution condition used to judge a Case. Prefer invariants over exact prose for non-deterministic outputs.
+- **Execution Record** — the frozen Case input, exact artifact/runtime identity, Runner provenance, observable output, material tool/action side effects, and postconditions captured before semantic review.
+- **Evidence State** — `PASS | FAIL | NOT_RUN | INCONCLUSIVE` for a required Invariant or Claim Axis. It states what the observed assertion evidence supports.
+- **Prerequisite State** — preserve `MISSING` when a required Runner/Baseline/provenance/evidence capability is absent or cannot be identified, and `BLOCKED` when it is identified but execution/evidence production is prevented by authority, policy, provider access, or another explicit gate. This is orthogonal to Evidence State: an affected behavioral axis can remain `NOT_RUN` while its re-entry reason is `MISSING` or `BLOCKED`.
+
+## Qualification control loop
+
+Use this as the executable shape; the numbered sections below define each edge in depth. Do not turn it into a central Skill router or a maturity ladder.
+
+```text
+BIND exact candidate + bounded Qualification Claim
+  -> CLAIM GATE
+     structural-only -> native structural proof -> REPORT
+     behavioral -> EVIDENCE-PROFILE GATE
+  -> EVIDENCE-PROFILE GATE (before execution)
+     comparative? -> bind exact Baseline + comparable conditions
+     process claim? -> require trajectory/action capture for that axis
+     independent/project-native? -> bind the separate provenance/contract obligation
+  -> RUNNER / PREREQUISITE GATE
+     required Runner/evidence capability absent -> affected axis NOT_RUN + MISSING -> REPORT / re-entry
+     known but gated -> affected axis NOT_RUN + BLOCKED -> REPORT / re-entry
+     available but not executed -> affected axis NOT_RUN; invent no missing/blocked reason
+     execution proceeds -> freeze Cases -> execute with required observations -> freeze Execution Record
+  -> SEMANTIC REVIEW -> per-Invariant / per-axis Evidence States
+  -> OBLIGATION CLOSURE
+     compare only when exact Baseline evidence exists
+     admit process evidence only from captured trajectory/action observations
+     admit independent/project-native conclusions only from their bound proof
+  -> derive strongest conclusion supported by admitted evidence
+  -> contradiction or invalidation?
+     yes -> invalidate only dependent conclusions and re-enter at earliest affected truth
+     no -> REPORT smallest complete qualification record
+```
+
+If execution is not requested, authorized, or possible, the workflow may validly end in a truthful qualification plan/review record with `NOT_RUN`, `MISSING`, `BLOCKED`, or `INCONCLUSIVE` preserved where applicable. Do not manufacture execution merely to force a terminal `PASS`/`FAIL`.
+
+## 1. Bind the claim and exact target
+
+Before designing Cases, establish:
+
+- exact candidate identity/revision and the bounded Qualification Claim;
+- required Claim Axes, critical Invariants, and realistic falsifiers;
 - the decision this evidence may support;
-- critical invariants and realistic falsifiers;
-- whether comparison is required and the exact baseline kind/revision;
-- any process/trajectory claim that requires inspectable execution-path evidence;
-- authority boundaries and material side effects.
+- whether the claim is candidate-only or comparative;
+- whether the claim requires inspectable process evidence, independent/attested assurance, project-native qualification machinery, or protected side effects.
 
-Do not let the candidate assign its own assurance need or redefine the claim after seeing results.
+Do not let the candidate assign its own assurance need or redefine the claim after results appear.
 
-If the request is only native Skill/Plugin validity, use the appropriate native validator/package proof. Do not require behavioral execution merely to prove a structural/package claim.
+If the request is only native Skill/Plugin validity, use the appropriate native validator/package proof and stop at that structural claim. Native validity is not behavioral `PASS`.
 
-## 2. Classify the execution environment
+**WHEN** the claim requires independent/attested evidence, inspectable process/tool-action evidence, a project-native qualification contract, or several evidence-production dimensions whose interaction can change the conclusion, **READ** [Qualification Method](references/qualification-method.md) **BECAUSE** these are orthogonal evidence obligations rather than a single maturity tier; **RETURN** only the material evidence profile, unsupported axes, and exact re-entry requirement.
 
-Choose from observed facts, not filenames or prior handoffs:
+## 2. Establish executable evidence
 
-- **ADVISORY_ONLY** — no reproducible runner exists for the required behavioral claim. Case design, source review, and deterministic evidence-package checks may still be useful, but behavioral axes remain `NOT_RUN`.
-- **EXECUTABLE_OBSERVED** — a real runner can execute frozen candidate cases and preserve inspectable outputs plus runtime/model/adapter identity.
-- **EXECUTABLE_COMPARATIVE** — candidate and required baseline can execute the same frozen cases under declared comparable conditions.
-- **CANONICAL_PROJECT_QUALIFICATION** — the current project additionally exposes authorized qualification definitions, evidence destinations, schemas/verifiers, and project-specific probes required by its own policy.
+Confirm the actual Runner before treating Cases as behavioral evidence.
 
-A project directory name, an old execution map, a schema file by itself, or an available host model does not prove the stronger mode.
+- If no reproducible candidate Runner can execute and preserve the required observations, Case design/qualification review may continue, but affected behavioral Claim Axes remain `NOT_RUN`. Preserve why separately: `MISSING` when the required Runner/capability cannot be identified or does not exist; `BLOCKED` when the Runner is known but execution is prevented by an authority/policy/provider gate.
+- If the claim says candidate B improves over A, bind the exact **Baseline** — the comparison artifact/revision that will run the same frozen Cases under declared comparable conditions. If the required Baseline cannot execute, candidate-only evidence may remain valid while the comparative claim stays `NOT_RUN` or `INCONCLUSIVE`; preserve the exact Baseline prerequisite as `MISSING` or `BLOCKED` when that distinction is known.
+- If a process claim depends on what tools/actions occurred, require inspectable trajectory/tool/action evidence; never infer an unobserved process from final output.
 
-When canonical project qualification is requested, **discover the project's current qualification infrastructure from exact project source**. Use its current schemas/verifier/destinations only after confirming they exist and are authoritative for that project. Do not assume this Skill's host Plugin layout or hard-code repository-relative paths.
+Do not substitute source review, native validation, deterministic fixtures, memory, or an approximate prior revision for execution the claim actually requires.
 
-## 3. Build representative cases
+## 3. Build representative Cases
 
-Prefer real or observed failures, then add synthetic cases only for uncovered material boundaries. Cover as applicable:
+Prefer observed failures, then add synthetic Cases only for uncovered material boundaries. Pressure the failure surfaces relevant to the claim, for example:
 
 - positive trigger and near-miss/non-trigger;
-- sufficient, missing, conflicting, and stale context;
+- missing, conflicting, or stale context;
 - authority/ownership and forbidden assumptions;
-- provider present/absent/denied/partial/stale behavior;
-- side-effect guards and ambiguous results;
-- failure/recovery/re-entry paths;
-- completion/evidence truth;
-- regressions and costly edge conditions;
-- candidate/baseline comparison when the claim requires it.
+- provider/tool absence, denial, partial results, or ambiguous side effects;
+- recovery/re-entry and completion/evidence truth;
+- prior regressions or costly edge conditions.
 
-Use explicit invariants rather than exact prose for non-deterministic output. A case identifier or rubric label is not an executable prompt.
+A Case identifier or rubric label is not an executable input. When behavior is non-deterministic, judge observable Invariants rather than exact wording.
 
-When the claim concerns *how* an agent executed, include inspectable trajectory/tool/action evidence. Do not request or require private chain-of-thought.
+## 4. Freeze execution before semantic review
 
-## 4. Freeze execution before review
+For every executed candidate or Baseline variant:
 
-For every executed variant:
-
-1. freeze the case input and exact artifact/runtime identity;
+1. freeze the Case input and exact artifact/runtime identity;
 2. execute without semantic reviewer intervention;
-3. preserve raw or inspectable output before review;
-4. record material tool/action side effects and postconditions;
-5. only then perform semantic review.
+3. preserve the Execution Record before review;
+4. record material side effects and postconditions;
+5. only then review the output against Invariants.
 
-Do not repair, rewrite, or coach the output under test during frozen review. A changed output is a new execution record.
+Do not coach, repair, rewrite, or selectively rerun an output under frozen review. Changing candidate, prompt, context, Case, Runner, or output creates a new execution identity for affected claims.
 
-If execution is unavailable, preserve `NOT_RUN` rather than substituting source inspection or a validator fixture for behavioral evidence.
+## 5. Review only what the evidence can support
 
-## 5. Review evidence against invariants
+Assign `PASS | FAIL | NOT_RUN | INCONCLUSIVE` to every required Invariant and Claim Axis. For any axis that cannot advance because a required execution/evidence prerequisite is absent or gated, also preserve the exact `MISSING` or `BLOCKED` prerequisite and its re-entry condition.
 
-Use `PASS | FAIL | NOT_RUN | INCONCLUSIVE` for each required invariant. Review the dimensions the claim actually depends on, such as:
+One critical forbidden behavior can fail a Case even when other Invariants pass. Missing evidence blocks only the axis that depends on it: absent trajectory need not erase valid final-output evidence, and a passing project/native verifier cannot repair a semantic failure it never inspected.
 
-- invocation/discovery;
-- decision quality;
-- context/source truth;
-- authority/ownership;
-- evidence/completion truth;
-- side-effect safety;
-- domain output;
-- process/trajectory evidence when required.
+When evidence invalidates an earlier conclusion, re-enter at the earliest affected truth rather than restarting unrelated evidence.
 
-A longer answer is not automatically better. One critical forbidden behavior can fail a case even when other assertions pass.
+## 6. Compare only for a comparative claim
 
-When evidence contradicts an earlier verdict, re-enter at the earliest invalidated point: claim/binding -> execution environment -> cases -> execution/raw evidence -> semantic review -> comparison -> decision support.
+Use the exact Baseline, same frozen Cases, and declared comparable conditions. Require the intended improvement without material regression in safety, authority, ownership, or truthfulness.
 
-## 6. Compare only when the claim requires it
+Candidate quality alone does not prove uplift. Procedurally separated self-comparison may support a bounded directional result, but it is not independent certification. If the claim requires independent/attested assurance, load the advanced evidence method and prove that obligation separately.
 
-Use the same frozen representative cases and declared conditions for candidate and baseline. Require intended improvement without material regression in safety, authority, ownership, or truthfulness.
+## 7. Report evidence without taking lifecycle authority
 
-A procedurally separated self-comparison may support a bounded directional conclusion; it is not independent certification. An independent claim requires actual independent execution/review provenance that is authoritative for that claim.
+Report the smallest complete qualification record:
 
-If the required baseline cannot execute or its revision is unknown, keep the comparison non-ready. Do not compare to memory or an approximate prior version.
+- exact candidate and Baseline identity when applicable;
+- Qualification Claim and required Claim Axes;
+- actual Runner/provenance and Cases executed versus not run;
+- evidence locations/Execution Records when they exist;
+- per-Invariant or per-axis Evidence States, critical failures, and material `MISSING`/`BLOCKED` prerequisites with their exact re-entry fact/action;
+- comparison result and advanced evidence obligations only when material;
+- other evidence limitations not already represented above.
 
-## 7. Keep evidence and publication authority separate
+Qualification can state that evidence is sufficient for a later authorized decision. It does not publish, promote, deploy, accept risk, or grant write authority. Before any protected repository/provider/publication/destructive action, verify authority and expected postcondition at that action.
 
-Qualification may report that evidence is sufficient for a later authorized decision. It does not publish, promote, deploy, or grant write authority.
-
-Report at minimum:
-
-- evaluated candidate and baseline identity when applicable;
-- execution environment and actual runner/provenance state;
-- cases/invariants executed versus not run;
-- evidence locations or inspectable outputs when they exist;
-- per-axis/case verdicts and critical failures;
-- comparison result when required;
-- independent-claim support or blocker;
-- evidence limitations and the next fact/action needed to re-enter qualification.
-
-Do not manufacture a workflow state, owner route, Project Capability Profile, Integration Result, or generic operation envelope merely to finish qualification.
-
-## 8. Repository and side-effect discipline
-
-Before any protected repository/provider/publication/destructive action, verify the exact authority and expected postcondition at that action. Tool availability is not authority.
-
-When qualification originated from a project gap, keep customer/project facts in the project. Do not bake project-specific policy into this reusable Skill.
-
-When the capability itself needs redesign, freeze qualification at the demonstrated failure before any mutation. Return that evidence to the active job; if redesign is also authorized, the same session may continue through the relevant engineering capability (for example `skill-plugin-engineering`) without a handoff artifact. Never mutate the candidate under test before its failure evidence is fixed.
+If qualification exposes a capability-design defect, freeze the demonstrated failure before any authorized redesign. Do not mutate the candidate under test and then transfer the old verdict to the new bytes.
 
 ## Completion
 
-Complete when every required claim axis has an explicit evidence state and the strongest supported conclusion is no stronger than the observed proof.
+Complete when every required Claim Axis has an explicit Evidence State, every material missing/blocked prerequisite remains explicit, and the strongest conclusion is no stronger than the observed proof.
 
-`FAIL`, `NOT_RUN`, `INCONCLUSIVE`, missing required baseline evidence, missing required provenance, or unreviewed material side effects remain visible blockers for the affected claim. Native package validity remains valid for the structural claim it actually proves; it is not behavioral evidence.
+Keep `FAIL`, `NOT_RUN`, `INCONCLUSIVE`, missing required Baseline/Runner/provenance, or any advanced evidence obligation unresolved for the affected claim visible. Structural/native validity remains valid only for the structural claim it actually proves.

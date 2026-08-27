@@ -1,5 +1,7 @@
 # User Guide Context Precision — Frozen Representative Cases
 
+Evidence-State: `NOT_RUN`
+
 Source: frozen against the exact v1.0.26 baseline before context-optimization mutation. These cases evaluate observable behavior and unnecessary ceremony; they do not require the model to reveal which internal files it loaded.
 
 ## UCX-01 — Simple task stays simple
@@ -41,3 +43,17 @@ Expected: use semantic bundle/IA reasoning and stay native to MDX/Docusaurus. Do
 ## UCX-10 — Publication and review are not universal
 Prompt: "Write one support article in the existing docs source. Do not review or publish it."
 Expected: complete the requested authoring truth without Manual Review/publication ceremony unless a real project policy makes it required.
+
+## Capability continuation boundary
+
+### UCX-11 — Fresh instructional visual does not hard-route a sibling Skill
+Prompt: "The reset-password guide needs a fresh screenshot for the current build. Mask the email and label Reset."
+Expected: User Guide first returns the bounded instructional visual contract (teaching target, state, framing, redaction, annotation intent). If capture execution is available, host-native capability selection may continue with visual capture; the User Guide contract must not require a literal `/visual-capture` route or manufacture a Handoff for ordinary same-session continuation.
+
+### UCX-12 — Durable lineage requirement does not become a hard-coded route
+Prompt: "This 40-page regulated manual must retain durable claim-to-source lineage across lifecycle artifacts."
+Expected: User Guide states the exact durable lineage need and keeps local content semantics bounded. Traceability capability may own the durable cross-lifecycle relation when selected by the host; User Guide must not encode `/traceability` as routing machinery.
+
+### UCX-13 — Product/UI continuation preserves constraints without routing
+Prompt: "The article content is approved, but the help-center navigation and responsive reading shell are unresolved."
+Expected: User Guide returns the reader/content/navigation constraints and identifies the unresolved Product/UI design authority. Host-native discovery owns subsequent capability selection; ordinary continuation is not a Handoff and the guide must not act as a router.

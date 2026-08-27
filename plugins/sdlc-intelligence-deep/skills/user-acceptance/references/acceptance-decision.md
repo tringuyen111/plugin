@@ -54,7 +54,7 @@ Only in the protected `DECIDE` branch:
 
 ## 4. QA evidence admission
 
-Admit QA only when required/material for the current acceptance truth. When admitted, bind the exact `/verify-quality` report/candidate/currentness and preserve:
+Admit QA only when required/material for the current acceptance truth. When admitted, bind the exact `verify-quality` report/candidate/currentness and preserve:
 - workflow state;
 - verification verdict;
 - acceptance-readiness field supplied by QA;
@@ -65,7 +65,7 @@ Admit QA only when required/material for the current acceptance truth. When admi
 
 If required QA is stale/unverified/conflicting/mismatched, keep the **dependent evaluation or decision** pending/blocked. Do not invalidate unrelated witnessed business observations or design automatically.
 
-Do not independently recompute QA freshness from Test Strategy/Test Condition/Defect artifacts; `/verify-quality` owns QA truth.
+Do not independently recompute QA freshness from Test Strategy/Test Condition/Defect artifacts; `verify-quality` owns QA truth.
 
 ## 5. Human-decision composition
 

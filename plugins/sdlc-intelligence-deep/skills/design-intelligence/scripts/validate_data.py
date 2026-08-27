@@ -24,9 +24,6 @@ from pathlib import Path
 
 from core import CSV_CONFIG, STACK_CONFIG, _STACK_COLS, DATA_DIR, SOURCE_MANIFEST_FILE
 
-# REASONING_FILE lives in design_system.py, not core.py -- redeclared here to
-# avoid a circular import (design_system.py imports core.py).
-REASONING_FILE = "ui-reasoning.csv"
 JSON_COLUMNS = {"Decision_Rules"}
 
 
@@ -123,12 +120,6 @@ def main():
         _check_file(f"stack:{stack}", DATA_DIR / config["file"],
                     _STACK_COLS["search_cols"], _STACK_COLS["output_cols"], problems)
 
-    reasoning_path = DATA_DIR / REASONING_FILE
-    if reasoning_path.exists():
-        _check_file("reasoning", reasoning_path, ["UI_Category"], ["UI_Category", "Decision_Rules"], problems)
-    else:
-        problems.append(f"[reasoning] missing file: {reasoning_path}")
-
     if not SOURCE_MANIFEST_FILE.exists():
         problems.append(f"[provenance] missing file: {SOURCE_MANIFEST_FILE}")
     else:
@@ -161,7 +152,7 @@ def main():
 
     print(
         f"OK: validated {len(CSV_CONFIG)} domain files, {len(STACK_CONFIG)} stack files, "
-        "ui-reasoning.csv, and source-manifest.json"
+        "and source-manifest.json"
     )
     sys.exit(0)
 

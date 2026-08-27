@@ -175,7 +175,7 @@ If the user later asks for stabilized-incident causal learning, preserve this fi
 - If impact or provider state changes materially, re-bind current truth before continuing the plan.
 - If an action falsifier fires, stop/replan/escalate rather than continuing because the action was approved earlier.
 - If production/security/data/communication authority is missing, block that side effect while continuing safe evidence/coordination work when useful.
-- If active command is no longer the terminal job, close/handoff response truth rather than silently continuing into postmortem, implementation, QA, or routine operations.
+- If active command is no longer the terminal job, close response truth and expose the bounded continuation. Create a handoff only when a real owner/session/runtime state-transfer boundary requires it; do not silently continue into postmortem, implementation, QA, or routine operations.
 
 ## Completion
 

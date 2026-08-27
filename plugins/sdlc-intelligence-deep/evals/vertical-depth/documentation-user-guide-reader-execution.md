@@ -1,5 +1,7 @@
 # User Guide Reader Execution — Frozen Supplemental Cases
 
+Evidence-State: `NOT_RUN`
+
 Frozen before v1.0.25 User Guide source mutation. These are behavioral evaluation inputs/expectations, not implementation prose.
 
 ## Reader/task/execution cognition

@@ -1,9 +1,0 @@
-interface:
-  display_name: Manual Review
-  short_description: Review User Guide or help documentation by simulating reader
-    jobs, tracing claim evidence, diagnosing causal failures, and returning a bounded
-    Documentation verdict.
-  icon_small: assets/icon.svg
-  icon_large: assets/icon.svg
-policy:
-  allow_implicit_invocation: true

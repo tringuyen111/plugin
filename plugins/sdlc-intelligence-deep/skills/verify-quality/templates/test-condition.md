@@ -28,7 +28,7 @@
 - Automation class:
 - Allowed execution results: PASS | FAIL | INCONCLUSIVE | NOT_RUN | NOT_APPLICABLE
 - Observed result: NOT_RUN
-- Result owner: /verify-quality
+- Result authority / QA execution owner: UNBOUND_UNTIL_EXECUTION
 - Candidate / environment binding: NONE_UNTIL_EXECUTION
 - Execution evidence: []
 - Limitation / note:

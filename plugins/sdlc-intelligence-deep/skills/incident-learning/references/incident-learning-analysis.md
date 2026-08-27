@@ -10,7 +10,7 @@ Use this reference when stabilized or historical incident evidence requires caus
 4. Decision-context reconstruction
 5. Recommendation traceability
 6. Recurrence generalization
-7. Ownership and handoff
+7. Ownership and continuation
 8. Anti-patterns
 
 ## 1. Analysis boundary
@@ -96,7 +96,7 @@ recommendation
 -> evidence target
 -> verification / falsifier / closure condition
 -> existing canonical work item when one already represents it
--> planning handoff when executable work must be created/reconciled
+-> execution/planning continuation context when executable work must be created/reconciled; use Handoff only for a real owner/session/runtime state-transfer boundary
 ```
 
 Classify the effect truthfully. A faster alert is usually `DETECT`, not proof of `PREVENT`. A rollback drill may improve `RECOVER` even if the initiating failure remains possible.
@@ -128,9 +128,9 @@ unsafe assumption: one operation can affect resources across isolation boundarie
 -> outcome: exposed | not exposed | unknown
 ```
 
-Do not turn incident learning into an unbounded architecture audit. Hand a reusable cross-system gap to the correct Architecture/Engineering/Product owner when broader work is warranted.
+Do not turn incident learning into an unbounded architecture audit. Return a reusable cross-system gap and bounded evidence context when broader Architecture/Engineering/Product work is warranted.
 
-## 7. Ownership and handoff
+## 7. Ownership and continuation
 
 Incident learning owns the learning artifact and its recommendation set. It does not own:
 
@@ -141,7 +141,7 @@ Incident learning owns the learning artifact and its recommendation set. It does
 - incident history rewrite -> incident record owner;
 - production mutation or external communication -> side-effect owner/policy.
 
-Before handoff, each recommendation should be either linked to existing canonical work or carry enough finding/outcome/evidence context for the planning owner to create/reconcile work without rereading the entire learning artifact.
+Before downstream planning/execution, each recommendation should be either linked to existing canonical work or carry enough finding/outcome/evidence context for the next owner/capability to create or reconcile work without rereading the entire learning artifact. Create a Handoff artifact only when a real owner/session/runtime transfer boundary requires durable state transfer.
 
 ## 8. Anti-patterns
 

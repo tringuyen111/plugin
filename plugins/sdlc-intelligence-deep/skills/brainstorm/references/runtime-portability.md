@@ -26,7 +26,7 @@ Use when no durable writable project workspace is available.
 - Preserve the same seven-lens semantic routing, no-re-ask behavior, exactness discipline, representation logic, epistemic states, quality gate, and L1 finalization semantics.
 - Maintain one coherent **semantic brainstorm state** in the conversation; no file or Markdown representation is required.
 - If the host provides a mutable artifact/file surface and durable materialization is useful, update the same selected artifact identity.
-- If the host only creates immutable attachments, do not emit replacement attachments after every answer. Materialize only at explicit user request or a meaningful handoff/finalization checkpoint.
+- If the host only creates immutable attachments, do not emit replacement attachments after every answer. Materialize only at explicit user request or a meaningful continuation/finalization checkpoint.
 - If a later immutable attachment replaces an earlier one, state that it supersedes the prior copy and treat only the newest durable materialization as current.
 - Never claim durable persistence, path collision checking, conditional patching, hook execution, Git identity lookup, or downstream file updates that did not occur.
 
@@ -42,7 +42,7 @@ explicit user/project rule
 → Brainstorm fallback path/template
 ```
 
-Do not ask the user to choose a file structure when one safe compatible choice is already evident. Ask one bounded question only when competing choices could create parallel truth, overwrite another artifact, or materially change downstream handoff.
+Do not ask the user to choose a file structure when one safe compatible choice is already evident. Ask one bounded question only when competing choices could create parallel truth, overwrite another artifact, or materially change downstream continuation.
 
 The fallback path is:
 
@@ -120,7 +120,7 @@ In either execution mode, keep one primary artifact language stable and preserve
 ## 8. Writes, changelog, and downstream impact
 
 - Brainstorm invocation authorizes maintenance of the selected brainstorm artifact only to the extent project policy permits reversible local writes.
-- L1 is finalization/handoff review, not approval before initial working capture.
+- L1 is finalization/continuation review, not approval before initial working capture.
 - If local write policy requires a separate confirmation, follow the project policy without changing Brainstorm's semantic model.
 - OQ resolution updates the same brainstorm artifact and propagates dependent current meaning.
 - Downstream artifacts may be read for impact verification when permitted; Brainstorm never edits downstream canonical Product/BA/technical truth.

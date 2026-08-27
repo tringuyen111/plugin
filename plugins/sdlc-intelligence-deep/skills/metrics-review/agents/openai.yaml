@@ -1,7 +1,7 @@
 interface:
   display_name: Metrics Review
   short_description: Review product metrics and experiments with explicit definitions,
-    populations, trends, data caveats, and non-causal interpretation.
+    statistical interpretation, and causal-validity judgment when supported.
   icon_small: assets/icon.svg
   icon_large: assets/icon.svg
 policy:

@@ -39,11 +39,11 @@ condition revision when an existing condition is consumed.
 - Required data classes / invariants:
 - Isolation / cleanup / idempotency:
 - Known planning limitations:
-- Execution binding: NONE_UNTIL_VERIFY_QUALITY
+- Execution binding: NONE_UNTIL_EXECUTION
 
 Planning requirements do not prove live environment availability or data
 representativeness. Exact candidate/environment/data/configuration execution
-binding belongs to `/verify-quality`.
+binding belongs to the actual QA verification execution fixed point.
 
 ## Tooling, observability, cleanup, and idempotency
 

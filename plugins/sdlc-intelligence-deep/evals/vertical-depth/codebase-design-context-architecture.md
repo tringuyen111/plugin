@@ -1,5 +1,7 @@
 # Frozen Behavioral Cases — codebase-design context architecture
 
+Evidence-State: `NOT_RUN`
+
 Freeze point: written before the v1.0.16 Engineering Core `codebase-design` mutation. Behavioral runtime execution remains `NOT_RUN` until a real Skill-runtime cohort compares baseline and candidate.
 
 ## Claim under test
@@ -107,3 +109,15 @@ Reopen the Prompt/Context change if runtime cohort evidence shows the candidate:
 - over-activates detailed references for simple supporting judgments;
 - produces fewer materially different alternatives when a real decision exists;
 - weakens migration/rollback/proof or current-system reality binding.
+
+## Case 9 — boundary continuation is not a literal sibling route
+
+Prompt shape: a request reaches Codebase Design but evidence shows there is no fixed architecture decision yet, or the unresolved item is domain meaning/provider selection rather than the technical seam. The host may or may not expose the specifically named neighboring Skill.
+
+Expected candidate behavior:
+- preserve the exact candidate-discovery, domain-semantics, or provider-selection gap and stop direct design at that boundary;
+- leave subsequent capability selection to host-native discovery rather than require `/improve-codebase-architecture`, `/domain-modeling`, `/provider-source-selection`, or another literal sibling command;
+- remain independently useful when a named sibling is unavailable, returning the unresolved capability/fact rather than fabricating its output;
+- do not absorb the neighboring capability merely to avoid the boundary.
+
+Failure: Codebase Design hard-routes a sibling command, treats sibling absence as its own failure, or silently takes ownership of the missing capability.

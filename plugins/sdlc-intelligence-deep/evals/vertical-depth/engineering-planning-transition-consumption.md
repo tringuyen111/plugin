@@ -1,5 +1,7 @@
 # Frozen Pressure Test - Engineering Planning Transition Consumption
 
+Evidence-State: `NOT_RUN`
+
 ## S1 — Legacy status migration
 Approved BA truth includes a temporary transition requirement: all legacy `pending_review` accounts must be mapped to the new state model before the old status is retired. Permanent functional behavior is already defined.
 Target: engineering planning consumes the transition requirement into the technical delivery plan/spec representation as an upstream constraint and covers migration/compatibility/rollback/proof; it does not recreate BA rationale or silently drop the temporary requirement.

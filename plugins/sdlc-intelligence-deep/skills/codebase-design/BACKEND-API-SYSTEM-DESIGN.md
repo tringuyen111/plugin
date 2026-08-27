@@ -9,11 +9,20 @@ concurrency, retry, side effects, or ordering semantics are material.
 operation contract; it does not create Product behavior, authorization policy,
 or an implementation framework.
 
+## Operation semantics — use these terms literally
+
+- **Logical Operation** — the intended business/system operation whose equivalence semantics come from approved caller/Product/domain truth; it is not defined by transport payload equality alone.
+- **Request Attempt** — one transport/execution attempt to carry out a Logical Operation. One Logical Operation may have several attempts; similar attempts may also be distinct Logical Operations.
+- **Effect Evidence State** — what current evidence establishes for a material effect: `ESTABLISHED | NOT_ESTABLISHED | UNKNOWN`. `UNKNOWN` is evidence uncertainty, not known partial completion.
+- **Partial Progress** — known durable/external residue after only part of a multi-step operation progressed. It can coexist with established effect states and must not be used as a synonym for `UNKNOWN`.
+- **Acceptance** — confirmation that a system accepted responsibility/work; it is not proof that every material effect completed.
+- **Business Idempotency** — repeated Request Attempts for the same Logical Operation do not repeat the protected business effect. A technical idempotency/deduplication key may enforce established operation equivalence; it must not invent that equivalence.
+
 ## Start from the real operation
 
 Inspect the actual caller and runtime path before designing:
 
-- caller intent, preconditions, and accepted upstream behavior;
+- caller intent, approved Logical Operation/equivalence semantics, preconditions, and accepted upstream behavior;
 - request/input boundary and validation already owned by Product/BA/Design;
 - current module/interface, persistence, external integrations, queues/jobs, and
   transaction boundaries;
@@ -32,13 +41,12 @@ behavior, system correctness, or proof:
 - accepted input and preconditions;
 - success result and externally observable postcondition;
 - stable error/conflict/not-found/denied semantics as applicable;
-- retryability and whether a repeated request can repeat effects;
-- timeout or lost-response ambiguity: what the caller may safely conclude;
+- retryability, Request Attempt identity, and whether a repeated attempt for an established Logical Operation can repeat effects;
+- timeout or lost-response Effect Evidence State: what the caller may safely conclude and what remains `UNKNOWN`;
 - ordering requirements when operations can race or arrive out of order;
 - concurrency/precondition behavior when simultaneous writes can violate intent;
 - transaction boundary and which side effects are inside or outside it;
-- partial-failure/recovery semantics when durable state and external effects can
-  diverge;
+- Partial Progress/recovery semantics when durable state and external effects can diverge, kept distinct from effects whose state remains `UNKNOWN`;
 - pagination/continuation/order consistency when a mutable collection is read;
 - observability needed to distinguish success, retry, duplicate, conflict,
   partial failure, and recovery.
@@ -49,14 +57,11 @@ they are common backend techniques.
 
 ## Retry and duplicate discipline
 
-When a caller, worker, gateway, webhook sender, or operator may retry after an
-ambiguous result, the design MUST state whether repeating the operation is safe,
-conditionally safe, or effect-repeating. Define the identity/precondition basis
-only when needed and make duplicate handling observable enough to verify.
+When a caller, worker, gateway, webhook sender, or operator may retry, first establish whether the new request is another **Request Attempt** for the same **Logical Operation**. Equal payloads, delivery IDs, request IDs, or convenient storage keys do not establish operation equivalence unless approved upstream semantics say they do. Keep the design `PARTIAL` rather than silently defining business equivalence inside the technical seam.
 
-A successful happy-path response does not prove retry safety. A timeout does not
-prove the operation failed. If the caller cannot distinguish these states, the
-contract must say what recovery or reconciliation path exists.
+Then state whether another Request Attempt is safe, conditionally safe, or effect-repeating, and which technical key/precondition encodes the already-established equivalence when Business Idempotency is required. Make duplicate/retry handling observable enough to verify.
+
+A successful happy-path response does not prove retry safety. A timeout or lost response does not prove the operation failed; it can leave one or more material effects in Effect Evidence State `UNKNOWN`. Known Partial Progress is a separate condition and needs explicit recovery ownership. If the caller cannot distinguish these states, the contract must say what reconciliation or recovery path exists.
 
 ## Concurrency and consistency discipline
 
@@ -78,21 +83,19 @@ Do not use “atomic” as one undifferentiated property. Bind the scope that th
 
 | Scope | Design question | Do not confuse it with |
 |---|---|---|
-| Caller/operation semantics | Must the caller observe all-or-nothing completion, or are accepted/partial/unknown outcomes valid? | one request/command automatically implying one transaction |
+| Caller/operation semantics | What may the caller conclude about Acceptance, material Effect Evidence State, and known Partial Progress? | treating `accepted`, `partial`, and `UNKNOWN` as one outcome axis or assuming one Request Attempt implies one transaction |
 | Local durable transaction | Which mutations can truly commit/roll back together in the selected datastore/runtime? | proof that concurrent interleavings preserve every invariant |
 | Cross-system effect coordination | What happens when a provider/queue/other datastore effect cannot share that local commit boundary? | claiming ACID atomicity without an actual supported distributed transaction mechanism |
 
 A batch envelope can contain independent operations; multiple components can participate without requiring global atomicity. Conversely, an approved all-or-nothing invariant may require a stronger boundary or coordination mechanism than the current implementation provides. Choose from the required invariant, completion semantics, actual transaction capabilities, failure residue and operational constraints before selecting a mechanism.
 
-If no single mechanism can make every effect atomic, design the partial/ambiguous states and recovery ownership explicitly. Do not relabel eventual reconciliation or compensation as atomicity.
+If no single mechanism can make every effect atomic, design known Partial Progress and any `UNKNOWN` effect states separately, with explicit recovery/reconciliation ownership. Do not relabel eventual reconciliation or compensation as atomicity.
 
 ## Durable state and external side effects
 
 When an operation spans persistence plus email, payment, storage, queue, webhook,
 or another external effect, name the atomicity boundary explicitly. Define what
-can be durably committed before/after the external action, how partial progress
-is detected, and how retry/reconciliation/compensation preserves the approved
-outcome.
+can be durably committed before/after the external action, how known Partial Progress is detected, when an external effect can remain `UNKNOWN`, and how retry/reconciliation/compensation preserves the approved outcome.
 
 Do not mandate an outbox, saga, two-phase commit, or compensating transaction.
 Choose the smallest mechanism that satisfies the declared semantics, failure
@@ -120,8 +123,8 @@ artifact:
 
 ```markdown
 ## Operation intent, callers, and preconditions
-## Success, error, conflict, and ambiguous-result contract
-## Retry / duplicate / idempotency semantics
+## Acceptance, success/error/conflict, effect-evidence, and Partial Progress contract
+## Logical Operation / Request Attempt / retry / Business Idempotency semantics
 ## Concurrency, ordering, and consistency semantics
 ## Transaction and external-side-effect boundary
 ## Partial failure, recovery, and reconciliation
@@ -134,7 +137,7 @@ artifact:
 
 Proof must target the failure mechanism, not only the happy-path handler. Use the
 smallest representative evidence that can falsify the declared contract: repeat
-requests, injected timeout/partial failure, concurrent writers, reordered events,
+Request Attempts, injected timeout/lost response/Partial Progress, concurrent writers, reordered events,
 continuation under mutation, compatibility callers, or runtime telemetry when
 material. A mocked 2xx response or unit test that bypasses the relevant boundary
 cannot prove the wider operation claim.

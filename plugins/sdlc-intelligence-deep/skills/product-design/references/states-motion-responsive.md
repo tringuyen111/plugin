@@ -38,7 +38,7 @@ Use motion to clarify, for example:
 
 Avoid motion that competes with reading/comparison or exists only to make the interface feel dynamic.
 
-For drag/drop, distinguish source, valid target, rejected target, pending persistence, and server correction. Preserve an operable alternative when drag is not essential to the authorized behavior. If timing/continuity cannot be evaluated statically, state the unresolved question and hand it to Prototype.
+For drag/drop, distinguish source, valid target, rejected target, pending persistence, and server correction. Preserve an operable alternative when drag is not essential to the authorized behavior. If timing/continuity cannot be evaluated statically, state the unresolved question and return it as bounded input for Prototype.
 
 Reduced-motion behavior must preserve state and spatial meaning without depending on animation.
 
@@ -51,7 +51,7 @@ Reduced-motion behavior must preserve state and spatial meaning without dependin
 - **Selection:** choose the smallest composition/interaction-mode change that preserves those invariants. Breakpoints implement a decision; they are not the reason for it.
 - **Failure:** width/device label alone chooses the mode, extra width is filled without task value, or essential meaning depends on hover/drag.
 - **Correction:** identify which invariant actually failed and reopen only the relevant topology/disclosure/target/persistence relation.
-- **Consequence:** stress the changed mode under one neighboring geometry/input/state; hand unresolved runtime continuity to Prototype.
+- **Consequence:** stress the changed mode under one neighboring geometry/input/state; return unresolved runtime continuity as bounded input for Prototype.
 
 Do not start from `desktop / tablet / mobile` labels. Bind the actual constraints that can invalidate the current composition or interaction:
 

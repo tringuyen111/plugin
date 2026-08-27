@@ -155,16 +155,21 @@ material-change reason, and declared scope.
 
 Load canonical forward and backward links. For every material edge inspect its
 `edge_id`, relationship type, exact source artifact + source revision, exact
-target artifact + target revision, truth basis/evidence, and edge state. Record
-missing, conflicting, stale, unverified, or duplicate edges before relying on
-them. A graph edge bound to a superseded endpoint revision is stale even when
-the artifact ID is unchanged. Missing endpoint revisions are unverified, not
-current coverage.
+target artifact + target revision, truth basis/evidence, Binding Freshness,
+Verification State, and Agreement State. Record missing, conflicting, stale,
+unverified, or duplicate graph truth before relying on it. These findings overlap:
+an edge may be stale and conflicting, or current-binding but unverified. A graph
+edge bound to a superseded endpoint revision has `Binding Freshness = STALE` even
+when the artifact ID is unchanged. Missing endpoint revisions are
+`Binding Freshness = UNBOUND`; missing/insufficient truth basis is
+`Verification State = UNVERIFIED`. Neither counts as current coverage.
 
 Use source/runtime inspection to add observed analysis evidence, but do not
 silently rewrite canonical links. If observed consumption conflicts with a
-canonical declaration, preserve both facts as a graph conflict for owner
-resolution rather than choosing whichever path is convenient.
+canonical declaration, preserve both facts as `Agreement State = CONFLICTING`
+for owner resolution rather than choosing whichever path is convenient. A
+conflict does not erase stale/unbound Binding Freshness or an UNVERIFIED
+Verification State already present on the same edge.
 
 ### Step 3 — Find direct consumers
 
@@ -176,9 +181,11 @@ owner.
 
 Traverse from every affected artifact through inspectable revision-bound edge
 paths. Record the exact edge IDs plus source and target revisions used by each
-material path. Keep stale, conflicting, and unverified edges visible in the
-traversal result; a branch that crosses one cannot become `CONFIRMED` or
-`NO_MATERIAL_IMPACT` until the edge is resolved or revalidated. Continue while
+material path. Keep every material edge truth axis visible in the traversal
+result. A branch that crosses `Binding Freshness != CURRENT`,
+`Verification State != VERIFIED`, or `Agreement State = CONFLICTING` cannot
+become `CONFIRMED` or `NO_MATERIAL_IMPACT` until the required edge truth is
+resolved or revalidated. Continue while
 the downstream artifact inherits the changed assumption. Stop a branch only when:
 
 - an evidence-backed invariance boundary proves compatibility;
@@ -227,9 +234,10 @@ Do not turn the impact report into a route table. For each affected branch, name
 
 For an implementation impact:
 
-- if a current approved canonical work item already binds the changed revision and evidence target, Engineering can consume that work contract when implementation is actually requested;
-- if the only work item is done, closed, draft, or bound to superseded input, the first unresolved action belongs to the project-selected planning/work owner so it can revise/reopen/approve the canonical work contract;
-- if the canonical work owner or source is unknown, expose that missing project context instead of creating a local task/status file; use project setup/reconciliation only when resolving that project context is itself required;
+- when project policy or the canonical workflow requires an approved work item and a current item already binds the changed revision/evidence target, Engineering can consume that work contract when implementation is actually requested;
+- when that work-item gate is required but the only item is done, closed, draft, or bound to superseded input, the first unresolved action belongs to the project-selected planning/work owner so it can revise/reopen/approve the canonical work contract;
+- when no work-item gate is established and the bounded implementation is already authorized and execution-ready, record the implementation/reverification obligation directly without inventing a planning hop or ticket;
+- if whether a work contract is required is genuinely unknown and that uncertainty changes execution authority/readiness, expose the missing project context instead of creating a local task/status file; use project setup/reconciliation only when resolving that project context is itself required;
 - traceability never reopens, approves, rewrites, or changes task status merely because impact was detected.
 
 Later Engineering, QA, UAT, Release, Documentation, or Metrics work may be listed in dependency order, but the report records **owner actions**, not simulated workflow routing.

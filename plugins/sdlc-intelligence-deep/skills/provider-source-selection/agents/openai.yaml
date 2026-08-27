@@ -1,0 +1,8 @@
+interface:
+  display_name: Provider / Source Selection
+  short_description: Select a provider/source when live choices materially differ in
+    fidelity, boundary, cost, latency, or fallback semantics.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  allow_implicit_invocation: true

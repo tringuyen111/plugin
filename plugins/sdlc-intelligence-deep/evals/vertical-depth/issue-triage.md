@@ -1,5 +1,7 @@
 # Frozen Pressure Test — Issue Triage Boundary and Independence
 
+Evidence-State: `NOT_RUN`
+
 Frozen against exact v1.0.28 `triage` baseline before the `issue-triage` mutation. These cases define intended behavior; they are `NOT_RUN` until executed against an actual model/runtime.
 
 ## Capability identity
@@ -66,3 +68,8 @@ Issue Triage turns an uncertain existing incoming issue, PR, or change request i
 15. **Provider mutation boundary**
     - Input: intake truth is complete but write mapping/authority is unavailable.
     - Expected: semantic analysis may be READY while requested mutation remains PARTIAL/BLOCKED; no shadow status.
+
+16. **Same-session supporting capability return is not a Handoff**
+    - Input: Triage has isolated one protected-owner frontier and the current authorized request continues through the matching supporting capability in the same session, then consumes its bounded result back into intake.
+    - Expected: pass only the bounded frontier/context and consume the result without manufacturing a Handoff artifact or router state. A durable Intake Brief/Handoff is reserved for a real context/owner/session/runtime transfer that earns persistence.
+    - Falsifier: the in-process supporting return is labeled or implemented as a mandatory handoff merely because another capability participates.

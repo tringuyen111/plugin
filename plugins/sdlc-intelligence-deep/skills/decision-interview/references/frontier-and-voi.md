@@ -23,7 +23,7 @@ Filter before prioritizing:
 2. If external evidence or an experiment can answer it, compose the available `research` or `prototype` owner only when the Value-of-Information gate below passes; consume the bounded result back into the same decision surface.
 3. If a participant lacks final decision authority but owns decision-changing evidence, a constraint, or stakeholder value input, collect only that bounded input and keep disposition unresolved for the decision authority.
 4. If another canonical owner must decide the choice, preserve/return that final authority boundary.
-5. If the answer cannot change the current decision or caller handoff, defer/drop it.
+5. If the answer cannot change the current decision or continuation outcome, defer/drop it.
 
 ## Frontier selection lenses
 
@@ -48,7 +48,7 @@ A low-impact branch does **not** outrank a high-leverage frontier merely because
 
 Reduce uncertainty only when **both** are true:
 
-1. the uncertain variable could credibly change the preferred option, invalidate a load-bearing assumption, or change the safe handoff; and
+1. the uncertain variable could credibly change the preferred option, invalidate a load-bearing assumption, or change what continuation is safe; and
 2. the expected decision benefit justifies owner attention, tool/research cost, schedule delay, or prototype cost.
 
 Otherwise proceed with residual uncertainty visible or defer to the correct owner. No universal numeric VoI formula is required.
@@ -61,7 +61,7 @@ Otherwise proceed with residual uncertainty visible or defer to the correct owne
 - `DECIDE_WITH_UNCERTAINTY` — more evidence is unlikely to change the choice or costs too much relative to value.
 - `COLLECT_BOUNDED_INPUT` — a non-final participant owns decision-changing evidence/constraint/value input; collect that input without treating it as final disposition.
 - `DEFER_TO_DECISION_AUTHORITY` — the unknown is actually a protected value/authority decision.
-- `DROP` — the gap cannot affect the current handoff.
+- `DROP` — the gap cannot affect the current decision or continuation outcome.
 
 ## Failure corrections
 

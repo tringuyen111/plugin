@@ -5,188 +5,156 @@ description: Turn noisy product signals such as requests, complaints, behavior, 
 
 # Product Discovery
 
-When signal disposition, customer-progress framing, competing opportunity interpretations, segment/granularity, or solution-shaped inputs could change the recommendation, read [Product Opportunity Modeling](OPPORTUNITY-MODELING.md).
-
-When evidence sufficiency, assumption-test design, opportunity comparison, evidence dependency/selection, or solution contamination could change the recommendation, read [Discovery Evidence and Decision Contract](DISCOVERY-EVIDENCE-DECISION-CONTRACT.md).
-
 Discover whether there is a product opportunity worth defining further and establish the bounded problem-space truth before Product scope is designed.
 
-This skill owns the **customer opportunity/problem, target actor/context, desired progress/outcome, evidence boundary, and riskiest assumption**. It does not own raw idea articulation, Product capability/scope decisions, detailed behavior, acceptance criteria, visual designs, technical architecture, or implementation tickets.
-It does not own deep corpus synthesis. When coding, triangulation, sample-shape analysis, or synthesis confidence is itself decision-material, consume qualified synthesis from an available capability or preserve the exact unsynthesized evidence frontier; do not imitate that separate method locally.
+This Skill owns the **customer opportunity/problem, target actor/context, desired progress/outcome, evidence boundary, riskiest assumption, and Discovery recommendation**. It does not own raw idea articulation, Product capability/scope decisions, detailed behavior, acceptance criteria, visual design, technical architecture, implementation, deep corpus synthesis, or another owner's domain truth.
 
-Read `OPPORTUNITY-FORMAT.md` only when a durable, governed, or cross-session opportunity projection is actually required. A compact inline opportunity/disposition is a first-class completion surface.
+A missing sibling Skill is never the missing truth itself. Name the evidence, analysis, semantic clarification, authority, or owner decision actually required. Conditionally loaded knowledge inherits this Product Discovery boundary and cannot authorize Product Definition or another capability's decision.
 
-## Universal decision frontier
-
-For noisy or ambiguous signals, reason in this order:
+## Control model
 
 ```text
-SIGNAL
--> disposition
--> actor/context + desired progress
--> current reality / workaround / alternative
--> progress gap + consequence
--> competing opportunity frames
--> discriminating evidence
--> bounded opportunity
--> next learning / advance recommendation
+BIND SIGNAL / SOURCE
+        |
+        v
+FRAME PROBLEM-SPACE TRUTH
+        |
+        v
+SELECT CURRENT DECISION FRONTIER
+   |         |          |          |
+   |         |          |          +--> COMPARE opportunities
+   |         |          +-------------> DESIGN learning test
+   |         +------------------------> JUDGE evidence
+   +----------------------------------> REFINE frame
+        |
+        v
+INTEGRATE RESULT / RE-ENTER EARLIEST INVALIDATED PREMISE
+        |
+        v
+DISCOVERY RECOMMENDATION
+        |
+        +--> inline return
+        `--> durable projection only when required
 ```
 
-Do not require every step when the opportunity is already directly evidenced and bounded. A signal is not automatically an opportunity, and Product Discovery stops before selecting the Product capability delta or requirement semantics.
+Do not run every branch. If the opportunity is already directly evidenced, bounded, and decision-sufficient, skip unnecessary depth and return the smallest complete Discovery truth.
 
-## Standalone evidence and decision frontier
+## Resident invariants
 
-Classify the missing truth before composing another capability. A sibling Skill name is never the missing truth itself.
+- **Signal is not opportunity.** A request, workaround, metric shift, competitor launch, mandate, or executive direction is evidence/input requiring disposition, not automatic customer validation.
+- **Keep problem and solution evidence separate.** Preserve solution requests/prototypes as hypotheses or constraints; do not let favorable solution reaction silently prove problem frequency, consequence, or target-user need.
+- **Current-state truth comes first.** A defect/regression, authoritative mandate, or already-existing capability may explain the signal; do not manufacture a new desirability opportunity around it.
+- **Evidence and assumption stay distinct.** Counts are not automatically independent corroboration or prevalence; segment, dependency, selection, transferability, recency, and counter-evidence remain visible when material.
+- **Cross-owner assumptions do not transfer authority.** Product Discovery may record usability, feasibility, security, operability, metric-validity, or strategic dependencies but must not decide another owner's truth.
+- **Discovery recommendation is not an Authorized Product decision.** Product scope/priority/commitment belongs downstream to the accountable Product owner/capability.
+- **Stop before solution scope.** Do not select capability delta, feature cluster, packaging, business rules, states, AC, NFRs, implementation, or visual/technical design.
+
+## 1. BIND — establish the source and missing-truth frontier
+
+Read the current project context and only the source/evidence surfaces that can change the Discovery judgment: user research, support signals, behavior/usage, business metrics, stakeholder requests, prior Product decisions/non-goals, and runtime truth when the claim concerns an existing product.
+
+If the user only has an idea, keep it as a hypothesis. Do not manufacture user evidence.
+
+Classify the current evidence situation:
+
+| Situation | Discovery action |
+|---|---|
+| Available, decision-sufficient evidence | make the bounded Discovery judgment locally |
+| Small coherent supplied corpus | inspect proportionally when separate synthesis methodology is unnecessary |
+| Large/heterogeneous unsynthesized corpus | name the exact synthesis question and decision consequence; consume qualified synthesis if available, otherwise preserve the unsynthesized frontier |
+| New external evidence needed | name the evidence question, applicability/source need, and decision consequence; use an authorized source surface if available |
+| Human-owned weighting/judgment | expose sensitivity and ask only the bounded decision-changing owner input when appropriate |
+| Semantic ambiguity | qualify local terminology when sufficient; require deeper semantic clarification only when concept identity/relations themselves change the opportunity |
+
+**BIND complete when:** every material input is identifiable as observation, interpretation, request, constraint, or assumption, and any collection/selection/synthesis limitation capable of changing the recommendation is visible.
+
+## 2. FRAME — establish the opportunity unit
+
+Use the smallest frame that can be falsified:
 
 ```text
-AVAILABLE, DECISION-SUFFICIENT EVIDENCE
-    -> make the bounded Discovery judgment locally
-
-SMALL, COHERENT SUPPLIED CORPUS
-    -> inspect proportionally when the evidence can be understood without a separate synthesis method
-
-LARGE OR HETEROGENEOUS UNSYNTHESIZED CORPUS
-    -> name the synthesis question and the decision it can change
-    -> consume qualified synthesis when available; otherwise preserve the unsynthesized frontier
-
-NEW EXTERNAL EVIDENCE NEEDED
-    -> name the exact evidence question, source/applicability need, and decision consequence
-    -> use an authorized evidence surface when actually available; otherwise keep the evidence gap explicit
-
-HUMAN-OWNED WEIGHT OR JUDGMENT
-    -> expose the sensitivity and ask only the bounded decision-changing input when appropriate
-    -> optional decision-interview depth may improve that separate human decision surface
-
-SEMANTIC AMBIGUITY
-    -> qualify ordinary source/context-specific terminology locally when sufficient
-    -> require separate semantic-model clarification only when concept identity, relationships, roles, lifecycle meaning, or cross-context semantics themselves are decision-material
+ACTOR / SEGMENT
++ CONTEXT
++ DESIRED PROGRESS
++ CURRENT REALITY / WORKAROUND / ALTERNATIVE
++ PROGRESS GAP
++ MATERIAL CONSEQUENCE
++ EVIDENCE BOUNDARY
++ STRONGEST COMPETING FRAME
 ```
 
-Missing support changes the evidence/decision frontier, not Product Discovery identity. Return `GATHER_EVIDENCE`, `PARTIAL`, or `BLOCKED` only because required truth or analysis is genuinely unavailable for the declared scope, never merely because a named sibling is absent.
+Keep plural explanations when evidence does not discriminate them. Do not require a singular root cause or an opportunity hierarchy by default.
 
-## Process
+For a simple bounded signal, frame locally. When signal disposition, segment/granularity, competing interpretations, or solution-shaped input can change the opportunity identity, use the framing module below rather than loading unrelated evidence/test/comparison depth.
 
-### 1. Establish the source surface
+## 3. SELECT DEPTH — load only the module that can change the current decision
 
-Read the current project context and any available:
+| Frontier | WHEN | WHY | TARGET | RETURN |
+|---|---|---|---|---|
+| Opportunity framing | signal disposition, actor/context, progress gap, segment/granularity, competing frames, or opportunity structure is materially unclear | wrong opportunity identity invalidates all downstream evidence/recommendation work | [Opportunity Framing](references/opportunity-framing.md) | bounded solution-free frame + strongest alternatives + exact discriminating evidence question |
+| Evidence judgment | evidence dependency, selection, sufficiency, transferability, counter-evidence, or solution contamination can change whether the frame may advance | recommendation strength must match what the evidence actually supports | [Evidence Judgment](references/evidence-judgment.md) | evidence boundary + dependency/selection limits + sufficiency disposition + material evidence gap/counter-signal |
+| Learning test | one unresolved assumption can kill/materially change the recommendation and more learning is justified | activity is useful only if the result can discriminate and change a decision | [Learning Test](references/learning-test.md) | material assumption + learning question + evidence source/method + discriminating evidence + pre-bound decision rule + limitations/execution need |
+| Opportunity comparison | two or more bounded opportunities/segments remain plausible and their relative disposition matters | comparison must expose trade-off/sensitivity without invented precision | [Opportunity Comparison](references/opportunity-comparison.md) | dominance/trade-off/tie + sensitivity + exact evidence or authorized weight that would change the ordering |
+| Durable projection | governed/cross-session Discovery state is actually required | persistence is a representation/continuity need, not additional Discovery reasoning | [Opportunity Format](references/opportunity-format.md) | faithful projection of already-established Discovery truth; no new decision truth |
 
-- user research;
-- support reports;
-- usage or business metrics;
-- stakeholder requests;
-- prior opportunities, product goals, or out-of-scope decisions;
-- relevant runtime behavior when the claim concerns an existing product.
+If a reference can be loaded without producing the named `RETURN`, skip it. Do not directory-browse for generic context.
 
-If the user only has an idea, keep it as a hypothesis. Do not manufacture user evidence to make the idea look validated.
+### Strategy exploration
 
-For a large or heterogeneous corpus where corpus-level coding, triangulation, sample shape, or synthesis confidence is itself decision-material, do not duplicate that workflow. Consume qualified synthesis when an appropriate capability/artifact is available; otherwise state which unsynthesized evidence question prevents or limits the current Discovery judgment.
+When the remaining uncertainty is directional strategy rather than one of the four depth modules, map plausible **problem-space bets**, assumptions, and second-order effects locally. Keep them solution-free and stop before committed Product scope. If strategy depends on an unauthorized weight, external fact, or another owner's truth, expose that dependency rather than inventing it.
 
-**Complete when:** every input is identified as observation, interpretation, request, or assumption, and any material collection/selection limitation is visible.
+## 4. INTEGRATE — update evidence and re-enter only what changed
 
-### 2. Model the opportunity unit when the signal is not already bounded
-
-Do not rename the incoming request/behavior/metric as an opportunity. Determine:
-
-- actor/segment and concrete context;
-- desired customer progress;
-- current behavior, existing capability, workaround, or alternative;
-- the progress gap;
-- material consequence;
-- competing problem/opportunity frames that could explain the same signal;
-- the evidence/segment boundary of the current claim.
-
-Use [Product Opportunity Modeling](OPPORTUNITY-MODELING.md) when any of those could change the recommendation. Keep plural explanations until evidence discriminates them; a singular root cause is not required by default.
-
-If the signal is better explained by a current defect/regression, an authoritative mandate, an already-existing capability with a discoverability problem, or another established current-state truth, preserve that truth instead of manufacturing a new desirability opportunity.
-
-**Complete when:** the candidate opportunity is solution-free, bounded enough to falsify, and distinct from the strongest material alternative frame.
-
-### 3. Pick the discovery branch
-
-Use the smallest branch that matches the remaining uncertainty:
-
-- **Problem exploration** — establish or discriminate the customer opportunity/problem and its segment/context.
-- **Assumption test** — list the assumptions the opportunity/idea depends on, identify the one that would kill or materially change the recommendation, and define the smallest **decision-useful** test. Bind the learning question, discriminating evidence, and decision rule before observing the result when that rule is material.
-- **Opportunity comparison** — compare multiple bounded problems or segments by user consequence, strategic relevance, evidence strength, and learning cost. Do not invent numeric scores or weights to force a ranking; preserve ties, uncertainty, and the evidence or authorized weight that would change the choice.
-- **Strategy exploration** — map plausible problem-space bets and second-order effects without turning directional thinking into committed Product scope.
-
-Keep Product Discovery primary for the opportunity judgment. When a concrete human-owned Product weight or branch is the remaining discriminator, preserve the sensitivity and ask the bounded owner input when appropriate; use `decision-interview` only as optional depth when a separate decision-quality interview is useful. When external primary evidence is needed, name the exact evidence question and use an actually available authorized research/source capability rather than depending on a specific sibling. Qualify ordinary overloaded terminology from source/context locally when that resolves the opportunity; use `domain-modeling` only when the semantic model itself is unresolved and decision-material.
-
-### 4. Build and test the evidence model
-
-For every material claim record:
+For every material opportunity claim retain enough provenance to avoid false confidence:
 
 ```text
 Observation
-Source
-Observed date or period
+Source + observed date/period
 Scope / segment
-Evidence unit / dependency
+Evidence unit + dependency
 Collection / selection mechanism
-Confidence
-Limitations or conflicting evidence
+Confidence / limitation
+Counter-evidence or conflicting frame
 ```
 
-When sources disagree, keep the disagreement visible. Recency and authority are part of the finding, not footnotes to omit.
+There is no universal sample count that makes Discovery evidence sufficient. Sufficiency is relative to the claim, consequence of being wrong, and reversibility of the next step.
 
-Do not treat observation count as independent corroboration or prevalence. A shared outage, copied request, repeated participant/session, or derived source can create many observations from one evidence cluster. Inbound or otherwise selected evidence only supports prevalence when the collection design supports that inference.
+When new evidence invalidates the current model, re-enter at the earliest affected premise:
 
-There is no universal sample count that makes discovery evidence sufficient. Judge sufficiency relative to the claim and next decision: directness, target coverage, dependency/source diversity, selection limits, counter-evidence, recency, consequence of being wrong, and reversibility of the next step.
+| Failure | Re-enter at |
+|---|---|
+| feature/solution promoted directly to opportunity | signal disposition + customer progress |
+| current defect/mandate/existing capability explains the signal | current-state truth + remaining gap |
+| one generic frame averages materially different segments | actor/context + segment boundary |
+| metric symptom lacks a problem mechanism | current reality + competing frames |
+| evidence dependency/selection invalidates confidence | evidence judgment |
+| learning result falsifies a material assumption | affected frame/assumption + dependent comparison/recommendation |
+| comparison depends on unknown/unauthorized weight | comparison sensitivity / owner input |
+| new capability/scope/rules/states are being selected | stop at Product Discovery boundary |
 
-If evidence falsifies the current opportunity frame, re-enter at the earliest wrong signal disposition, actor/context, current reality, progress gap, consequence, or competing frame. Do not keep the original opportunity and merely lower confidence.
+Preserve independent valid evidence and decisions. Do not restart Discovery from zero unless the invalidated premise is shared/root truth for the whole opportunity.
 
-**Complete when:** each opportunity claim can be traced to evidence or is explicitly labeled as an assumption, material dependency/selection limits cannot be mistaken for confidence, and the problem-space frame still survives the evidence.
+## 5. RECOMMEND — choose the next Product disposition
 
-### 5. Bound the opportunity and learning frontier
+Return exactly one Discovery recommendation:
 
-Record:
+- **ADVANCE_TO_PRODUCT_DEFINITION** — evidence and strategic relevance justify defining Product outcome/capability scope while preserving remaining uncertainty.
+- **RUN_EXPERIMENT** — a critical assumption needs a decision-useful test before scoping.
+- **GATHER_EVIDENCE** — the opportunity may exist, but current evidence or competing frame is insufficient for the declared next decision.
+- **REJECT_OR_PARK** — current problem-space evidence/consequence does not justify more Discovery work; do not invent portfolio-priority authority.
+- **BLOCKED** — required source, authority, or decision-critical analysis prevents a truthful Discovery judgment for the declared scope.
 
-- target actor/segment and situation;
-- desired customer progress/condition;
-- current reality/workaround/alternative;
-- progress gap and material consequence;
-- bounded opportunity statement;
-- evidence/transferability boundary;
-- competing opportunity frames still material;
-- strategic/business relevance that is supported or explicitly hypothetical;
-- what happens if nothing changes;
-- non-goals for this discovery pass;
-- riskiest assumption;
-- next learning plan when more evidence is required.
+For `RUN_EXPERIMENT` / `GATHER_EVIDENCE`, the learning plan must name the material assumption, learning question, evidence source/method, discriminating evidence, and decision rule. Cheapness never upgrades weak evidence into decision-useful evidence.
 
-Use parent/child/sibling/segment-variant structure only when it changes understanding, comparison, or the next learning question. Do not require an Opportunity Solution Tree or other hierarchy for a single bounded opportunity.
+If experiment execution is in scope, use an existing canonical owner/capability only when project truth supplies one. Otherwise expose the execution-capability gap. Product Discovery may still be `READY` when its requested scope ends at a truthful recommendation.
 
-A solution request, prototype preference, or executive commitment may create a hypothesis or constraint; it is not evidence that the target-user problem is validated. Keep problem/outcome evidence separate from solution-specific evidence.
+## 6. RETURN / PERSIST — project only what the consumer needs
 
-**STOP:** do not select the capability delta, feature cluster, Product scope/priority, packaging, business rules, states, AC, NFRs, or implementation. Those belong to Product Definition / Define Behavior and their child owners.
+For a session-bound or simple request, return the smallest complete inline opportunity/disposition. Do not manufacture an OPP identifier, approval table, repository path, or full artifact schema merely because a format exists.
 
-### 6. Recommend the next Product decision
+Use [Opportunity Format](references/opportunity-format.md) only when durable, governed, or cross-session state is required and the exact destination/write authority is known. Tool/provider availability is not write authority. If persistence is required but unavailable, keep persistence `NOT_RUN` and set the overall disposition according to whether the declared Discovery scope can still complete truthfully.
 
-Produce one **Discovery recommendation**:
-
-- **ADVANCE_TO_PRODUCT_DEFINITION** — evidence and strategic value justify defining a Product outcome and capability scope.
-- **RUN_EXPERIMENT** — a critical assumption should be tested before scoping.
-- **GATHER_EVIDENCE** — the opportunity may exist, but current evidence is too weak or the competing frame remains unresolved.
-- **REJECT_OR_PARK** — current problem-space evidence or consequence does not justify more Discovery work; do not make portfolio-priority judgments here.
-- **BLOCKED** — required source, authority, or decision-critical analysis prevents a truthful Discovery judgment for the declared scope. Missing sibling availability alone is never the blocker.
-
-A Discovery recommendation is Product judgment from this workflow; it is not an **Authorized Product decision**. The recommendation does not authorize scope, priority, rejection, or downstream execution. Record the accountable Product owner's decision separately when that owner actually reviews the artifact.
-
-For `RUN_EXPERIMENT` or `GATHER_EVIDENCE`, the learning plan must identify the material assumption, learning question, method/evidence source, discriminating evidence, and the decision rule that would change or preserve the recommendation. Cheapness never upgrades weak evidence into decision-useful evidence.
-
-For **RUN_EXPERIMENT**, identify an existing canonical project capability or accountable owner for the specific experiment only when project truth actually provides one. If none exists, record the experiment-execution **capability gap** and the Product owner who must resolve it. Do not invent a Skill, provider, team assignment, or execution path merely to keep the lifecycle moving. Discovery itself may be `READY` when its declared scope ends at a truthful recommendation; if the current requested scope requires executing the experiment and no canonical owner/capability exists, return `PARTIAL` or `BLOCKED` with the gap explicit.
-
-Technical feasibility, operability, security, usability, or metric-validity uncertainty may be recorded as assumptions/dependencies, but Product Discovery does not decide another owner's technical or domain truth.
-
-Do not treat an unvalidated idea as Build-ready.
-
-### 7. Return or persist the Discovery truth
-
-For a session-bound or simple request, return the smallest complete inline opportunity/disposition needed by the current consumer. Do not manufacture an OPP identifier, approval table, persistent path, or full artifact schema merely because a template exists.
-
-When durable, governed, or cross-session Product Discovery state is required, read `OPPORTUNITY-FORMAT.md`, use the project-selected product artifact identity/location, and persist only when the exact destination and write authority are known. Tool/provider availability alone is not authority. If durable persistence is required but unavailable, return the usable inline truth with persistence `NOT_RUN` and mark `PARTIAL` or `BLOCKED` only according to whether the declared scope can still complete truthfully. Do not create a repository path by default.
-
-Preserve unresolved or conflicting Product questions instead of smoothing them into the recommendation. A governed artifact remains `DRAFT` until the accountable Product owner reviews it. An authorized Product decision records its decision owner and provenance separately from the workflow's Discovery recommendation.
+Preserve unresolved/conflicting Product questions. A governed artifact remains `DRAFT` until the accountable Product owner reviews it; an Authorized Product decision records owner/provenance separately from the Discovery recommendation.
 
 ## Completion
 
@@ -195,14 +163,13 @@ Report `READY`, `PARTIAL`, `BLOCKED`, or `FAILED`.
 `READY` requires:
 
 - evidence and assumptions separated;
-- opportunity framed as actor/context + desired progress + current reality + progress gap/consequence, not a disguised solution;
-- evidence/segment boundary and material competing opportunity frames preserved;
-- material evidence dependency, selection, transferability, and counter-evidence limitations preserved when they affect the recommendation;
+- solution-free opportunity framed as actor/context + desired progress + current reality + gap/consequence;
+- evidence/segment boundary and material competing frame preserved;
+- material dependency/selection/transferability/counter-evidence limitations preserved when they affect the recommendation;
 - riskiest assumption identified;
-- when more learning is recommended, the next learning plan includes discriminating evidence and a decision rule rather than only an activity;
-- Discovery recommendation recorded separately from any Authorized Product decision;
-- opportunity comparison, when used, does not rely on invented weights or false precision;
-- missing sibling capability names are never treated as missing truth; any required evidence/analysis/authority gap is named directly;
-- compact inline Discovery truth is sufficient when durable/governed persistence is not part of the requested scope;
-- unresolved execution-capability gap visible when `RUN_EXPERIMENT` lacks a canonical execution capability/owner;
-- no mandatory opportunity hierarchy, fixed sample-size rule, market size, Product Definition, BA, Design, Engineering, or QA decision silently invented.
+- additional learning, when recommended, contains discriminating evidence and a decision rule;
+- comparison, when used, avoids invented weights/false precision;
+- Discovery recommendation remains separate from Authorized Product decision;
+- missing sibling names are never treated as missing truth;
+- no Product Definition, behavior/AC/NFR, visual design, architecture, implementation, or other-owner truth is silently invented;
+- compact inline truth is sufficient when durable persistence is not part of the requested scope.

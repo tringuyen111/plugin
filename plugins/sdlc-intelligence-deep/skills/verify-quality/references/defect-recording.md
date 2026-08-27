@@ -36,7 +36,7 @@ Persist only when destination and write authority are exact. Otherwise return an
 
 Record actual behavior without interpretation; reproduction preconditions/steps/frequency; evidence; user/business/data/security/availability impact and severity; affected AC/NFR/risk; regression condition; root-cause state (`UNKNOWN | HYPOTHESIS_ONLY | PROVEN_BY_DIAGNOSIS`); canonical relationship; persistence truth; and downstream fix/re-verification/requirement-decision links when real.
 
-Severity describes observed consequence. Remediation priority/scheduling stays with the appropriate Product/Planning/Incident owner. Route hard diagnosis to `diagnosing-bugs` rather than converting a symptom into a cause claim.
+Severity describes observed consequence. Remediation priority/scheduling stays with the appropriate Product/Planning/Incident owner. Preserve hard unknown/disputed cause as a distinct causal-diagnosis need for host-native discovery rather than converting a symptom into a cause claim.
 
 ## Defect-only completion
 

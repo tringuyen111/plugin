@@ -21,9 +21,11 @@ Visual Design, production implementation, or QA verification.
 - UI interaction, real application state, data density, auth/routing context, or
   technical feasibility must be experienced in execution → [UI.md](UI.md).
 - User flow, hierarchy, typography, visual direction, components, or stakeholder
-  design approval can be decided without runtime behavior → route to
-  `/product-design`, not this skill.
-- Implementation already exists and needs visual feedback → `/design-review`.
+  design approval can be decided without runtime behavior → stop Prototype and
+  return the bounded Product Design concern; host-native discovery owns any
+  subsequent capability selection.
+- Implementation already exists and needs visual feedback → stop Prototype and
+  return the bounded Design Review concern.
 
 If the question is ambiguous, state the assumption and ask only when choosing
 the wrong branch would invalidate the experiment.
@@ -65,7 +67,7 @@ Disposition owner
 
 ## Productionization gate
 
-A request to "keep", "promote", "ship", or "use the winner" does not change a prototype into supported source. Preserve the learned decision/invariant, observed evidence, prototype reference/run command, and any exact prototype code proposed for reuse as implementation input. Use `implement` when productionization is requested and that capability is available; normal production source, tests, review, runtime/output verification, replacement/cutover, and project truth still have to be established rather than inherited from the prototype.
+A request to "keep", "promote", "ship", or "use the winner" does not change a prototype into supported source. Preserve the learned decision/invariant, observed evidence, prototype reference/run command, and any exact prototype code proposed for reuse as bounded implementation input. Production implementation still has to establish normal source, tests, review, runtime/output verification, replacement/cutover, and project truth rather than inheriting production status from the prototype.
 
 If exact prototype bytes are intentionally retained as starting material, mark
 them as prototype-origin implementation input until the production implementation has applied the normal tests, review, runtime evidence, and cleanup gates. The

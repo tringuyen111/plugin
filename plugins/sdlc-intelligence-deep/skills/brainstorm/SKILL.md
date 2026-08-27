@@ -19,7 +19,7 @@ FRAME -> DIVERGE -> DEEPEN -> DISCRIMINATE -> CONVERGE
 COHERENT PRE-CANONICAL IDEA STATE
 ```
 
-Brainstorm must be able to complete this job when installed alone. A neighboring Skill may receive an out-of-boundary handoff or add optional leverage when available, but Brainstorm must not require a sibling Skill to supply its own exploration, reasoning, correction, or completion method.
+Brainstorm must be able to complete this job when installed alone. A neighboring Skill may receive an out-of-boundary result or add optional leverage when available, but Brainstorm must not require a sibling Skill to supply its own exploration, reasoning, correction, or completion method.
 
 Brainstorm owns idea exploration and clarification. It does **not** own canonical Product scope/priority, evidence-grounded opportunity judgment, formal business requirements, Product/UI Design approval, technical architecture, implementation, QA/UAT, release, or production operations.
 
@@ -70,7 +70,7 @@ Do **not** converge while alternatives are still being generated unless a hard c
 
 ### 3. DEEPEN — make each live possibility behaviorally meaningful
 
-Deepen only the semantics that can change understanding, risk, comparison, or downstream handoff.
+Deepen only the semantics that can change understanding, risk, comparison, or downstream continuation.
 
 Use this compact seven-lens map:
 
@@ -143,7 +143,7 @@ Do not create decorative tables, diagrams, or a full document package when conve
 
 ## Persistence is conditional, not identity
 
-Durable persistence is optional. Use it when the user asks for a file/artifact, a project-native ideation artifact already exists, continuation across sessions requires durable state, or downstream consumers need a stable handoff.
+Durable persistence is optional. Use it when the user asks for a file/artifact, a project-native ideation artifact already exists, continuation across sessions requires durable state, or downstream consumers need a stable continuation reference.
 
 **WHEN** files/workspace/artifact identity, safe writes, collision handling, or durable lifecycle become material, **READ** [Runtime Portability](references/runtime-portability.md) **BECAUSE** it defines workspace/chat behavior and one-current-truth write safety.
 
@@ -170,7 +170,7 @@ Read `references/keyword-detection.md` only when source-role, language, complexi
 
 ## Boundary continuation without dependency
 
-When Brainstorm reaches a question outside its authority, return the unresolved truth in a form the active job can consume. Name the **kind of authority/evidence needed**; if the same session can resolve it, the caller may continue through another capability and feed the bounded result back. Naming an installed sibling capability is optional convenience, never required execution machinery or a handoff by itself.
+When Brainstorm reaches a question outside its authority, return the unresolved truth in a form the active job can consume. Name the **kind of authority/evidence needed**; if the same session can resolve it, the caller may continue through another capability and feed the bounded result back. Naming an installed sibling capability is optional convenience, never required execution machinery or a handoff by itself. Use Handoff semantics only when a real owner/agent/session/runtime boundary must transfer state that the receiver cannot safely recover from canonical sources; ordinary downstream review or same-session continuation is not Handoff.
 
 Examples:
 
@@ -186,7 +186,7 @@ Brainstorm remains complete when its own pre-canonical job is complete even if a
 
 Return the smallest truthful terminal state:
 
-- **READY** — the current brainstorm is coherent enough for its intended checkpoint/handoff: the open space was explored proportionally, material semantics are understood or explicitly unresolved, and authority boundaries are clear.
+- **READY** — the current brainstorm is coherent enough for its intended checkpoint/continuation: the open space was explored proportionally, material semantics are understood or explicitly unresolved, and authority boundaries are clear.
 - **PARTIAL** — useful exploration exists but a material idea-level frontier still needs user input, source evidence, or further brainstorming.
 - **BLOCKED** — the idea/source needed to make truthful progress is unavailable.
 - **FAILED** — a required attempted read/write/tool action failed; preserve the latest known semantic state and the exact failure.

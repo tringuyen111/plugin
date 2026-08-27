@@ -81,7 +81,7 @@ After resolving an OQ, inspect every section that may now be stale:
 - Risks;
 - Success Criteria;
 - Open Questions;
-- Next Steps / downstream impact handoff.
+- Next Steps / downstream impact continuation.
 
 Example:
 
@@ -98,7 +98,7 @@ Potentially stale content:
 - interruption path if the user cannot remember the local password;
 - assumption `same email auto-merges`;
 - error/info wording;
-- PRD/SRS impact handoff.
+- PRD/SRS impact review action.
 
 Update all affected sections of the **same artifact**, not only the OQ row.
 
@@ -120,7 +120,7 @@ The artifact is a current consolidated model, not a raw history log. Historical 
 
 After internal propagation, inspect downstream artifacts **read-only** when the runtime/project policy permits it.
 
-Create a handoff such as:
+Create a downstream review/continuation table such as:
 
 | Owner / Artifact | Potentially stale content | Brainstorm evidence | Requested action |
 |---|---|---|---|
@@ -131,7 +131,7 @@ Rules:
 
 - Brainstorm may detect + describe impact.
 - Brainstorm must not edit URD/BRD/PRD/SRS.
-- If downstream files cannot be read, a handoff may still be produced from known links, but file-level impact verification remains `NOT_RUN`.
+- If downstream files cannot be read, a review/continuation note may still be produced from known links, but file-level impact verification remains `NOT_RUN`.
 
 ## 8. Persist and review
 

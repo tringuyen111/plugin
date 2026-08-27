@@ -154,7 +154,7 @@ After the general Correctness sweep, apply every lens selected from the reconstr
 
 A lens concern becomes a finding only when it still satisfies the normal finding contract: change-bound cause, realistic affected path/trigger, source/evidence-grounded impact, and an actionable correction direction. A lens may instead produce `UNRESOLVED` coverage when the needed runtime/project authority is unavailable.
 
-Do not import implementation authority from neighboring engineering Skills. These local references are review-only failure models. Concrete fixes remain `/implement`; material seams remain `codebase-design`; unknown root-cause diagnosis remains `/diagnosing-bugs`; runtime/risk acceptance remains `/verify-quality`.
+Do not import implementation authority from neighboring engineering Skills. These local references are review-only failure models. Concrete fixes remain a distinct implementation job; material seams remain `codebase-design`; unknown root-cause diagnosis remains a distinct causal-diagnosis job; runtime/risk acceptance remains a distinct QA/verification job. Preserve the bounded continuation need and let host-native discovery select any subsequent capability.
 
 ### 7. Code pass — resolve scoped Standards and maintainability
 
@@ -266,7 +266,7 @@ Preserve frozen Code/Spec findings; normalize presentation only. Cross-consisten
 
 State counts and worst consequence **within each primary pass**, plus material Cross-consistency findings, evidence limitations, and unresolved owner gaps. A clean review means no grounded finding in the reviewed source scope; it is not QA PASS or a merge/release verdict.
 
-If remediation is authorized and still part of the active user outcome, the same capable session may continue through `/implement` without a handoff artifact. Freeze the review result first: any source mutation invalidates the reviewed revision and re-review must bind the new exact revision. Independent QA/runtime verification is a distinct claim; activate `/verify-quality` or a specialist only when the requested outcome, risk, or policy makes that proof material.
+If remediation is authorized and still part of the active user outcome, the same capable session may continue into the authorized implementation job without a handoff artifact. Freeze the review result first: any source mutation invalidates the reviewed revision and re-review must bind the new exact revision. Independent QA/runtime verification is a distinct claim; continue into verification or specialist depth only when the requested outcome, risk, or policy makes that proof material, leaving capability selection to host-native discovery.
 
 ## Why Code + Spec
 

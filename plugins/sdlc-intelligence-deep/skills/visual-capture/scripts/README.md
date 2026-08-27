@@ -20,7 +20,7 @@ The job supports:
 - box, number, and label callouts with exact visible-match expectations;
 - leader lines for labels;
 - viewport, full-page, element, or explicit clip capture;
-- source-bound SHA-256 selective regeneration;
+- fixed-point selective regeneration for local HTML only when a source SHA-256, declared application commit, non-dynamic inputs, and the actual adapter/browser runtime identity all match; live URL and auth/env-driven capture paths always recapture;
 - machine-readable manifest with resolved selector counts, boxes, placements,
   image hashes, warnings, limitations, failures, capability-resolution binding, and actual executor identity/version.
 
@@ -66,6 +66,11 @@ The adapter does not install Playwright or Chromium silently. Use
 without browser dependencies. An `ok: true` validation result means the exact
 READY/AVAILABLE record and executor pair is capture-admissible; it is not by itself a
 workflow `READY` verdict because image inspection and manifest/post-capture checks still apply.
+
+Selective reuse is deliberately conservative. The local adapter may reuse a prior PNG only for
+a local-HTML shot with a content SHA-256, a non-empty declared `application_commit`, no login,
+no environment-driven shot fill value, and an input digest that also binds the actual adapter
+SHA-256 plus Chromium version. Live URLs and dynamic/authenticated inputs are captured again.
 
 ## Known qualification boundary
 

@@ -1,5 +1,7 @@
 # Incident Split Topology — Frozen Representative Eval
 
+Evidence-State: `NOT_RUN`
+
 Frozen: 2026-08-18 before split source mutation.
 Approved direction: replace merged `incident-management` with independent `incident-response` and `incident-learning` Skills.
 Behavioral execution status at freeze: `NOT_RUN`.
@@ -107,3 +109,27 @@ Failure: static validation is called behavioral superiority.
 - each replacement remains useful when the sibling is absent;
 - active consumers point to capability semantics, not a hidden parent router;
 - historical frozen evals may retain the old merged name as history and must not be rewritten to pretend the old decision never existed.
+
+## IS17 — Same-session capability continuation is not a generic handoff
+
+Prompt shape: active response has sufficient fixed incident evidence; technical diagnosis is already running in the same session, or after stabilization the user asks to continue into incident learning without changing owner/session/runtime.
+Expected: preserve bounded incident evidence and expose the distinct diagnosis/learning continuation without manufacturing a Handoff artifact or treating the sibling capability name as a router.
+Failure: a mere same-session capability transition or owner note is labeled `handoff` even though no durable state-transfer boundary exists.
+
+## IS18 — Real command transfer remains a handoff
+
+Prompt shape: the active incident commander/authority changes during an unresolved incident and the receiving commander must continue from current mitigation/recovery state.
+Expected: transfer a fixed incident snapshot, preserve from/to and timestamp, active/pending actions, recovery gaps and residual divergence, and require receiving acknowledgement before command transfer is complete.
+Failure: terminology cleanup weakens a real command/authority state transfer into an unacknowledged next-step note.
+
+## IS19 — Learning recommendation continuation is not a mandatory planning handoff
+
+Prompt shape: a stabilized incident yields two traceable recommendations; one already maps to canonical work and another needs later planning in the same authorized session.
+Expected: link the existing work item and preserve bounded finding/outcome/evidence/owner context for the other continuation. Do not require a `Planning handoff` field or Handoff artifact merely because executable work may follow.
+Failure: the learning artifact turns every recommendation into a mandatory handoff/route to planning.
+
+## IS20 — Real recommendation transfer may still use Handoff
+
+Prompt shape: incident learning is complete, but a different team/session/runtime must continue recommendation planning and cannot safely recover the needed finding/evidence context from canonical sources.
+Expected: transfer only the bounded learning delta/references required by that receiver and preserve the real transfer boundary; generic learning completion remains independent of Handoff.
+Failure: terminology cleanup prevents a genuine cross-owner/session/runtime transfer, or learning becomes dependent on the Handoff Skill for ordinary completion.

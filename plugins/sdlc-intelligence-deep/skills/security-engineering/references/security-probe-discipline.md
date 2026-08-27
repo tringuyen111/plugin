@@ -35,10 +35,20 @@ State the claim before running the check, for example:
 
 - “A member of tenant A cannot read invoice B owned by tenant B.”
 - “A valid but revoked session cannot authorize after password reset.”
-- “The same valid webhook event cannot create a second credit.”
+- “An otherwise authentic stale/replayed webhook that violates the approved replay-admission rule is rejected at the real handler.”
 - “A user-controlled avatar URL cannot make the service reach a prohibited network destination.”
 
 Then choose the smallest real boundary that can make the claim false. Avoid broad scanners when one targeted request/harness gives clearer evidence.
+
+### Security replay proof is not business-idempotency proof
+
+If a requirement says an authenticated event must not create a repeated business effect, decompose the statement before probing:
+
+1. Security owns the bounded Security Claim for authenticity and approved replay/freshness admission under Security Policy.
+2. API/Backend/Data owns the approved logical-operation/effect identity and business-idempotency invariant when repeated attempts must map to one business effect.
+3. Prove each property at its authoritative Enforcement Site. A replay cache or provider event ID may support the security admission rule without being the canonical business-operation identity; a durable uniqueness mechanism may enforce the business-effect invariant without proving request authenticity/freshness.
+
+Do not derive business-operation equivalence from equal payloads, signatures, event/delivery/request IDs, nonce values or storage keys merely because they are available to the security handler.
 
 ## 3. Vary the security-relevant dimension, not everything at once
 
@@ -48,7 +58,7 @@ Keep the legitimate path fixed and change one material dimension:
 - same-scope versus cross-scope object;
 - permitted versus forbidden property/action;
 - current versus stale/revoked credential;
-- first event versus valid duplicate/replay;
+- admissible authenticated event versus an otherwise valid event that violates the approved timestamp/nonce/reuse rule;
 - approved versus prohibited outbound destination;
 - same-site/approved browser request versus cross-site state-changing near miss;
 - normal versus abusive-but-policy-valid use rate when resource abuse is the class.
@@ -74,7 +84,7 @@ Record the outcome that matters without leaking secrets:
 - status/error category and machine-consumed response shape;
 - resource/object actually selected or rejected;
 - authorization decision inputs at non-secret scope;
-- duplicate/idempotency result;
+- replay/freshness admission decision and its non-secret policy inputs;
 - outbound destination class and blocked/allowed disposition;
 - audit/log event containing useful subject/scope/action/result context but no raw credential/token/secret.
 

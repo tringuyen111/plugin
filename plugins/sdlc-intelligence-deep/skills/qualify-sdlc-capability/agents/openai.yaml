@@ -1,8 +1,8 @@
 interface:
   display_name: Qualify SDLC Capability
-  short_description: Evaluate a fixed reusable SDLC artifact with frozen cases, exact
-    revision binding, comparison evidence, and truthful verdict.
+  short_description: Qualify an exact reusable capability revision with frozen cases, exact
+    execution evidence, baseline comparison when required, and truthful claim-axis verdicts.
   icon_small: assets/icon.svg
   icon_large: assets/icon.svg
 policy:
-  allow_implicit_invocation: false
+  allow_implicit_invocation: true

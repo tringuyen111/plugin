@@ -127,7 +127,7 @@ action id
 -> execute only if policy permits
 -> observed outcome
 -> reconcile ambiguous state
--> decision: continue | stop | replan | escalate | handoff
+-> decision: continue | stop | replan | escalate | continuation
 ```
 
 ### Expected signal
@@ -164,7 +164,7 @@ After observing the action, choose explicitly:
 - **stop** — objective is met or risk now exceeds expected benefit;
 - **replan** — evidence contradicts the current mitigation model;
 - **escalate** — missing authority/capability/specialist evidence blocks safe continuation;
-- **handoff** — another canonical owner must execute the next domain action.
+- **continuation** — the current incident action loop does not own the next domain action; expose the required concern/owner and bounded evidence. Create a handoff only when a real owner/session/runtime state-transfer boundary requires it.
 
 ## 6. Mitigation archetypes
 

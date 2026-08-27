@@ -73,7 +73,7 @@ A second provider is not required. One production adapter can justify a seam whe
 
 Prefer interfaces whose public behavior can be exercised without knowing internals. Accept dependencies when that reflects a real seam, but do not manufacture a dependency interface solely because a mock is imaginable.
 
-For owned side effects, keep the effect contract visible: ordering, idempotency/retry, ambiguous outcomes, observability, and recovery. A pure-return wrapper that hides a real side-effect responsibility is not automatically more testable or deeper.
+For owned side effects, keep the effect contract visible: Logical Operation versus Request Attempt semantics when material, retry/Business Idempotency behavior, Effect Evidence State, known Partial Progress, ordering, observability, and recovery. A pure-return wrapper that hides a real side-effect responsibility is not automatically more testable or deeper.
 
 The deletion test is useful: if deleting the owner makes its knowledge scatter back through several callers, it was earning locality. If deletion mostly removes forwarding boilerplate, it was probably shallow.
 

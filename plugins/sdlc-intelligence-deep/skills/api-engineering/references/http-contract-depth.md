@@ -1,6 +1,8 @@
 # HTTP / Request-Response Contract Depth
 
-Load this reference only when the current API unit uses HTTP-like request/response semantics and retry, concurrency preconditions, caching, validation/errors, pagination/continuation, or long-running work is material. Preserve the project's existing protocol conventions and approved operation semantics; this reference does not mandate Azure-specific shapes or REST where another protocol is canonical.
+Load this reference only when the current API unit uses HTTP-like request/response semantics and retry/repeated delivery, lost-response ambiguity, concurrency preconditions, continuation under mutation, partial effects, or work that can outlive the request is material. Preserve the project's existing protocol conventions and approved operation semantics; this reference does not mandate Azure-specific shapes or REST where another protocol is canonical.
+
+Use the parent term **Caller Contract** literally. This reference establishes specialized operation/attempt/effect/temporal distinctions only when the current caller journey needs them; do not promote them back into every API task.
 
 ## 1. Model the caller journey, current surface, and uncertainty
 
@@ -10,25 +12,33 @@ Start from the caller's intended outcome, not from an endpoint shape. Reconstruc
 caller intent
 -> existing operation / request
 -> transport admissibility
--> accepted or executed work
+-> accepted/non-terminal work or executed work
 -> caller-visible result/current state
--> next action, recovery, or terminal completion
+-> next action, recovery, or terminal result
 ```
 
 Before creating a new operation, inspect the current route/operation inventory, request/response schemas, generated/manual clients and compatibility surface. If an existing operation already owns the same caller-visible capability, extend or reuse it when the approved semantics fit instead of creating parallel contract truth. Similar internal handlers are not proof that the caller concepts are the same.
 
+When repetition, boundary ambiguity, partial application, or non-terminal work is material, establish the distinctions at the point they control the caller decision:
+
+- The **Logical Operation** is one approved caller intent/effect across retries or repeated delivery; a **Request Attempt** is one concrete transport exchange that tries to advance or observe it. Equal payloads, request/trace IDs, a connection, or one handler execution do not establish operation equivalence unless the Caller Contract says they do.
+- The **Effect Evidence State** for each material caller-visible effect is what authoritative current evidence establishes: `ESTABLISHED`, `NOT_ESTABLISHED`, or `UNKNOWN`. **Partial Progress** is separately the subset of a multi-step Logical Operation known to be complete; uncertainty about one effect is not itself progress.
+- **Acceptance** means the system has accepted responsibility/work but is not yet terminal. **Completion** is the approved terminal condition with enough stable result/state for the caller's next action. Transport success or schema validity alone proves neither distinction.
+
 For each material input, distinguish **wire/schema admissibility** (parse/type/format/range/null/unknown-field rules owned at the transport contract) from **domain admissibility** (business state, inventory, authorization, durable invariants or other decisions owned by their canonical seams). API Engineering owns the stable caller-visible mapping of those outcomes; it does not become the owner of the underlying business/security/data decision.
 
-For every material operation state what the caller can conclude after:
+For every material **Logical Operation**, state what the caller can conclude after:
 
 - successful response;
 - explicit validation/domain/conflict/authorization failure;
-- timeout, dropped connection or lost response;
-- duplicate/retried request;
+- timeout, dropped connection or lost response with a possibly `UNKNOWN` **Effect Evidence State**;
+- duplicate/retried **Request Attempt**;
 - concurrent modification;
-- partial/long-running completion.
+- known **Partial Progress**;
+- **Acceptance** / long-running non-terminal state;
+- **Completion**.
 
-A robust contract makes ambiguous outcomes recoverable. “The handler ran” is an implementation fact, not a caller contract.
+A robust **Caller Contract** makes `UNKNOWN` outcomes recoverable without pretending they are known Partial Progress or known non-completion. “The handler ran” is an implementation fact, not a Caller Contract.
 
 ### Choose from uncertainty, not endpoint shape
 
@@ -37,10 +47,10 @@ Use this table to turn caller uncertainty into a mechanism family and a falsifia
 | Caller uncertainty | Contract question that controls the choice | Mechanism family | Negative/temporal proof |
 |---|---|---|---|
 | A read or protocol-idempotent operation loses its response | Can repeating the intended operation create a new caller-visible business effect, and does project retry policy allow automatic retry? | Existing method semantics plus the project's bounded retry/deadline policy; do **not** add duplicate-tracking state by reflex | Repeat after transport failure; prove the caller-visible effect is unchanged and retry limits remain truthful |
-| An effectful operation may have completed before the response was lost | How does the caller identify the **same intended operation**, what counts as the same request, what does a duplicate/in-flight duplicate return, and how long is that identity meaningful? | Existing business/resource identity, caller operation identity, or an approved repeatability/idempotency mechanism | Lose the response after the effect, retry the same intent, send the same identity with different intent, and race concurrent duplicates |
+| An effectful operation may have completed before the response was lost | How does the caller identify the same **Logical Operation** across **Request Attempts**, what counts as equivalent intent, what does a duplicate/in-flight duplicate return, and how long is that identity meaningful? | Existing business/resource identity, caller operation identity, or an approved repeatability/idempotency mechanism | Lose the response after the effect, retry the same Logical Operation, send the same identity with materially different intent, and race concurrent duplicates |
 | A write may be based on stale state | Which caller-visible version/precondition protects the invariant, and what must the caller do after conflict? | Existing validator/version/precondition semantics | Current and stale preconditions through the real transport path |
 | A collection is traversed while it changes | What ordering/continuation guarantees must remain true across page boundaries? | Existing page/continuation contract with deterministic ordering and a stable tie-breaker/token when required | Insert/update/delete around the page boundary and inspect duplicates/misses according to the approved contract |
-| Work can outlive the request budget | What proves acceptance versus completion, and how does the caller recover status/result/failure after disconnect? | Existing operation/job resource or other approved asynchronous completion contract | Disconnect after acceptance; retry/start duplicate when material; exercise terminal success/failure and expiry |
+| Work can outlive the request budget | What proves **Acceptance** versus **Completion**, and how does the caller recover status/result/failure after disconnect? | Existing operation/job resource or other approved asynchronous completion contract | Disconnect after Acceptance; retry/start duplicate when material; exercise terminal success/failure and expiry |
 
 If no row's contract question is material, do not add its mechanism merely because it is common API infrastructure.
 
@@ -48,11 +58,11 @@ If no row's contract question is material, do not add its mechanism merely becau
 
 Use the protocol's method semantics as a starting constraint, then define application repeatability explicitly.
 
-For effectful operations that can be retried after an ambiguous result, identify the operation identity/precondition needed to prevent or detect duplicate effects. The mechanism may be a caller-chosen resource identity, idempotency/repeatability key, version precondition or existing business identity; do not add a new key when the operation is already naturally repeatable.
+For effectful **Logical Operations** that can be retried after an `UNKNOWN` result, identify the operation identity/precondition needed to prevent or detect duplicate effects. The mechanism may be a caller-chosen resource identity, idempotency/repeatability key, version precondition or existing business identity; do not add a new key when the operation is already naturally repeatable.
 
-Record what a repeated request returns and for how long duplicate identity must remain meaningful. Also define how the contract detects reuse of one operation identity for a materially different request and what an in-flight duplicate observes. A successful first response does not prove retry safety; a timeout does not prove the effect did not happen.
+Record what another **Request Attempt** for the same Logical Operation returns and for how long duplicate identity must remain meaningful. Define the equivalence rule for that identity: equal payloads do not necessarily mean the same Logical Operation, and transport metadata may change across attempts without creating new intent. Also define how the Caller Contract detects reuse of one operation identity for materially different intent and what an in-flight duplicate observes. A successful first response does not prove retry safety; a timeout does not prove the effect did not happen.
 
-### Contrastive example: ambiguous charge
+### Contrastive example: `UNKNOWN` charge effect after lost response
 
 Suppose the approved charge contract already includes a caller-generated `charge_operation_id`. A sound contract can define the same ID plus equivalent charge intent as the same operation, return the approved prior/in-progress outcome on a duplicate, reject the same ID with materially different intent, state the retention window, and require concurrent duplicates not to create a second charge. Backend/Data owns the atomic persistence mechanism; API Engineering owns these caller-visible semantics and their transport proof.
 
@@ -77,7 +87,7 @@ Separate at least the material classes the caller handles differently: malformed
 
 Provide stable machine-consumed identity/details according to the approved project convention. Human messages may evolve and must not become the only parsing surface. Do not expose stack traces, secrets or internal implementation details.
 
-When retryability matters, distinguish failures that may succeed unchanged later from bugs/permanent invalid requests and from ambiguous results where the original effect is unknown.
+When retryability matters, distinguish failures that may succeed unchanged later from bugs/permanent invalid requests and from an `UNKNOWN` **Effect Evidence State** where the original effect cannot yet be established or refuted.
 
 ### Contrastive example: machine identity versus human detail
 
@@ -92,13 +102,14 @@ Separate these questions:
 | Question | API responsibility | Mechanism owned elsewhere |
 |---|---|---|
 | Is this input representable/admissible on the wire? | request schema/representation and stable validation outcome | domain/security/data truth behind a schema-valid request |
-| Does a successful response mean accepted, partially progressed, or completed? | caller-visible completion semantics | backend/runtime execution and persistence mechanism |
-| Must the approved operation appear all-or-nothing to the caller? | expose that semantic guarantee or an explicit partial/unknown model | transaction/coordination mechanism in Backend/Data/System Design |
-| What does a partial/ambiguous result mean? | stable observable state and caller recovery path | reconciliation/compensation/durable progress mechanism |
+| Does a successful response mean **Acceptance**, known **Partial Progress**, or **Completion**? | caller-visible temporal/completion semantics | backend/runtime execution and persistence mechanism |
+| Must the approved operation appear all-or-nothing to the caller? | expose that semantic guarantee or an explicit Partial Progress / `UNKNOWN` model | transaction/coordination mechanism in Backend/Data/System Design |
+| What does known **Partial Progress** mean? | stable established progress plus the approved caller next action | reconciliation/compensation/resume/durable progress mechanism |
+| What does an `UNKNOWN` **Effect Evidence State** mean? | expose uncertainty/current observable state and the approved observation/recovery path without asserting completion or non-completion | authoritative observation/reconciliation mechanism |
 
 Do not infer all-or-nothing behavior from one HTTP request, one endpoint, or one batch envelope. Independent items in one request may legitimately have per-item outcomes when the approved contract allows it; conversely, an approved all-or-nothing operation requires a real mechanism capable of upholding that guarantee. API Engineering states and proves the caller-visible semantics, not a fictitious database/distributed transaction.
 
-For HTTP, `202 Accepted` means processing was accepted but not completed; when the caller must eventually know the result, the approved contract needs a status/result/recovery path rather than treating acceptance as terminal success. Preserve the project's existing status and representation conventions rather than introducing a shape by habit.
+For HTTP, `202 Accepted` is **Acceptance**, not **Completion**; when the caller must eventually know the result, the approved Caller Contract needs a status/result/recovery path rather than treating Acceptance as terminal success. Preserve the project's existing status and representation conventions rather than introducing a shape by habit.
 
 ### Contrastive example: valid JSON, unusable contract
 
@@ -119,7 +130,7 @@ Offset/page-number, cursor and keyset are mechanisms with different costs. Choos
 
 ## 7. Long-running operations
 
-When work outlives a normal request budget, separate **accept/start** from **completion**. Define the project's protocol for:
+When work outlives a normal request budget, separate **Acceptance/start** from **Completion**. Define the project's protocol for:
 
 - operation/job identity;
 - current state/progress when observable;
@@ -135,7 +146,7 @@ Do not hold a request open merely because the implementation is currently synchr
 
 Validate external values at the transport boundary according to the approved schema, including type/format/range/unknown-field/null semantics when material. A schema-valid request can still be rejected by approved domain, security, concurrency or data rules; keep that distinction visible so transport validation does not duplicate or redefine semantic truth. Keep protocol representation separate from internal ORM/service objects so internal refactors do not silently become contract changes.
 
-Inspect both request parsing and actual response serialization. Verify required/optional/null/default/unknown-field behavior and representative success/error/accepted/partial shapes through the real path; a handler unit test can miss status/header/content-type/encoding/schema behavior and cannot prove that the response gives the caller enough information to continue.
+Inspect both request parsing and actual response serialization. Verify required/optional/null/default/unknown-field behavior and representative success/error/**Acceptance**/**Partial Progress**/`UNKNOWN`/**Completion** shapes through the real path; a handler unit test can miss status/header/content-type/encoding/schema behavior and cannot prove that the response gives the caller enough information to continue.
 
 ## 9. Contract proof
 

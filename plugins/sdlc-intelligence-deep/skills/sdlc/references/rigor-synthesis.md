@@ -1,21 +1,19 @@
 # SDLC Rigor Synthesis
 
-Use this reference when more than one material concern is active, when "how much SDLC" is unclear, or when new evidence may justify de-escalation. The goal is not to score a project or force phases. The goal is to choose the **smallest controls that can actually discharge the active concerns**, order them by dependency, then re-evaluate.
+Use this reference after `SKILL.md` has selected the core **semantic uncertainty x consequence** posture. This file applies that posture to interacting SDLC concerns; it does not redefine the governing System Plane law. The goal is not to score a project or force phases. Choose the **smallest controls that can actually discharge the active concerns**, order them by dependency, then re-evaluate.
 
-## 1. Start with uncertainty x consequence
+## 1. Turn the selected rigor posture into SDLC controls
 
-Use semantic uncertainty and consequence/reversibility as the first interaction, because they determine whether the next move is mainly **clarify**, **contain**, **execute**, or **stop affected mutation**.
+Apply the posture to the actual concern rather than repeating a generic phase sequence:
 
-| Semantic uncertainty | Consequence / reversibility | Default treatment |
-|---|---|---|
-| Low | Low | Use the most specific capability directly; keep proof targeted to the requested claim. |
-| High | Low | Resolve or explicitly bound the smallest consequential decision. A reversible assumption is acceptable only when plausible alternatives do not materially change the correct outcome. |
-| Low | High | Do not reopen settled Product/Design truth. Increase impact analysis, containment/recovery, rollout caution, and representative proof appropriate to the consequence. |
-| High | High | Stop the affected mutation. Resolve the semantic/architecture/security decision first, then establish containment/recovery and stronger proof before execution. |
+- **Execute:** use the most specific capability directly and keep proof targeted to the requested claim.
+- **Clarify/bound:** resolve or explicitly bound the smallest consequential decision; a reversible assumption is acceptable only when plausible alternatives do not materially change the correct outcome.
+- **Contain + prove:** keep settled Product/Design meaning fixed; increase impact analysis, containment/recovery, rollout caution, and representative proof appropriate to the consequence.
+- **Stop affected mutation:** resolve the semantic/architecture/security uncertainty first, then establish containment/recovery and stronger proof before execution.
 
-Do not convert this table into a numeric risk score. The cells are reasoning defaults; exact controls come from the real concern and project policy.
+These are reasoning postures, not numeric risk scores. Exact controls come from the real concern and project policy.
 
-## 2. Apply orthogonal gates
+## 2. Apply orthogonal SDLC gates
 
 The following dimensions do not collapse into the matrix and cannot compensate for one another.
 

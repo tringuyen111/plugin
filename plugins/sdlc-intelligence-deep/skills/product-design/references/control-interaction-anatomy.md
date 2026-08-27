@@ -21,7 +21,7 @@ Do not begin from a pixel recipe. Bind the approved action/behavior and current 
 - **Selection:** preserve semantic action/state identity; adapt only geometry/affordance required by hierarchy, content, input capability, or platform truth.
 - **Failure:** the fix changes icon size when the target is the problem, hides an essential action behind hover, or resolves nested actions only with cosmetic spacing.
 - **Correction:** reopen target/action/state ownership; inspect one neighboring state/input mode before inventing a new component or token.
-- **Consequence:** use rendered component + repeated-context proof for craft; hand unresolved timing/focus-trap/gesture continuity to `prototype`.
+- **Consequence:** use rendered component + repeated-context proof for craft; return unresolved timing/focus-trap/gesture continuity as bounded input for `prototype`.
 
 ## Separate the geometry layers
 
@@ -116,7 +116,7 @@ Check when material:
 - touch target reliability and keyboard/pointer continuity;
 - long labels/localization and viewport-edge pressure.
 
-If correctness depends on timing, focus trapping, asynchronous persistence, drag physics, or runtime continuity that cannot be resolved statically, state the exact question and hand it to `prototype`.
+If correctness depends on timing, focus trapping, asynchronous persistence, drag physics, or runtime continuity that cannot be resolved statically, state the exact question and return it as bounded input for `prototype`.
 
 ## Worked example — environment selector
 

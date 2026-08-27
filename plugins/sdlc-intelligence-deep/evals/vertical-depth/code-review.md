@@ -1,5 +1,7 @@
 # Frozen Behavioral Qualification Cases — code-review
 
+Evidence-State: `NOT_RUN`
+
 The cases below were derived and pressure-tested **before** the `code-review` candidate source revision. This file snapshots the pre-edit criteria for later execution. Runtime execution is `NOT_RUN` until a real model/Skill runner can compare baseline versus candidate behavior.
 
 ## Rubric dimensions

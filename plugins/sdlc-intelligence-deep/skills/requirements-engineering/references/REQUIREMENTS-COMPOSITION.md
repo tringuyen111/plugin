@@ -118,7 +118,7 @@ Only when relevant, summarize cross-view coverage for state, invalid transition,
 
 ## Cross-lifecycle continuity
 
-Only when an authorized requirement revision already has downstream consumers/evidence and lineage/change-impact analysis is material, record the exact changed source/revision and use `/traceability`. Do not add traceability as an empty requirement-view row.
+Only when an authorized requirement revision already has downstream consumers/evidence and lineage/change-impact analysis is material, record the exact changed source/revision and use `traceability`. Do not add traceability as an empty requirement-view row.
 
 ## Downstream / document sections
 

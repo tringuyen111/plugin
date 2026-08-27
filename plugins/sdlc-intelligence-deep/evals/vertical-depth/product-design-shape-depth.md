@@ -1,5 +1,7 @@
 # Frozen Product Design Shape / Depth Cases
 
+Evidence-State: `NOT_RUN`
+
 Frozen before Product Design mutation. These cases test mechanism, not a visual style recipe.
 
 ## PDSH1 — Structural shell vs control silhouette

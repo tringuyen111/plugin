@@ -11,7 +11,6 @@ SEARCH = SCRIPT_DIR / "search.py"
 VALIDATE = SCRIPT_DIR / "validate_data.py"
 
 sys.path.insert(0, str(SCRIPT_DIR))
-from design_system import DesignSystemGenerator  # noqa: E402
 from validate_data import DuplicateJsonKeyError, parse_json_object_strict  # noqa: E402
 
 
@@ -28,20 +27,32 @@ def test_search_returns_traceable_accessibility_evidence():
     assert "Focus States" in r.stdout
 
 
-def test_design_recommendation_has_no_persistence_cli():
+def test_search_cli_exposes_retrieval_not_semantic_synthesis_or_persistence():
     r = run("--help")
     assert r.returncode == 0
-    for forbidden in ("--persist", "--output-dir", "--page", "--force"):
+    for forbidden in (
+        "--design-system", "--variance", "--motion", "--density",
+        "--persist", "--output-dir", "--page", "--force",
+    ):
         assert forbidden not in r.stdout
 
 
-def test_application_recommendation_avoids_landing_hero_cta_structure():
-    r = run("B2B operations dashboard", "--design-system", "--format", "markdown")
+def test_raw_no_match_preserves_no_match_instead_of_injecting_defaults():
+    r = run("zzzxxyyqq nonexistentsignal", "--domain", "style")
     assert r.returncode == 0
-    text = r.stdout.lower()
-    assert "app shell" in text
-    assert "hero >" not in text
-    assert "cta placement: hero" not in text
+    assert "NO_MATCH" in r.stdout
+    assert "Glassmorphism" not in r.stdout
+
+
+def test_reasoning_rows_are_traceable_advisory_evidence():
+    r = run("B2B Service", "--domain", "reasoning", "-n", "2", "--json")
+    assert r.returncode == 0
+    data = json.loads(r.stdout)
+    assert data["file"] == "ui-reasoning.csv"
+    assert data["count"] >= 1
+    assert data["evidence"]["authority"] == "ADVISORY_LOCAL_CORPUS"
+    assert data["evidence"]["canonical"] is False
+    assert any(row.get("UI_Category") == "B2B Service" for row in data["results"])
 
 
 def test_stack_search_is_explicit_traceable_and_requires_current_verification():
@@ -55,32 +66,8 @@ def test_stack_search_is_explicit_traceable_and_requires_current_verification():
     assert data["evidence"]["freshness"] == "BUNDLED_SNAPSHOT"
 
 
-def test_default_ascii_design_recommendation_executes_with_advisory_boundary():
-    r = run("B2B operations dashboard", "--design-system")
-    assert r.returncode == 0, r.stderr
-    text = r.stdout.upper()
-    assert "DESIGN INTELLIGENCE RECOMMENDATION" in text
-    assert "EVIDENCE BOUNDARY" in text
-    assert "ADVISORY_LOCAL_CORPUS" in text
-    assert "PRE-DELIVERY CHECKLIST" not in text
-
-
-def test_markdown_and_json_synthesis_expose_same_advisory_evidence_identity():
-    md = run("B2B operations dashboard", "--design-system", "--format", "markdown")
-    js = run("B2B operations dashboard", "--design-system", "--json")
-    assert md.returncode == 0
-    assert js.returncode == 0
-    assert "## Design Intelligence Recommendation:" in md.stdout
-    assert "not a canonical Visual Contract" in md.stdout
-    data = json.loads(js.stdout)
-    assert data["evidence"]["authority"] == "ADVISORY_LOCAL_CORPUS"
-    assert data["evidence"]["canonical"] is False
-    assert data["evidence"]["freshness"] == "BUNDLED_SNAPSHOT"
-
-
-def test_reasoning_preserves_multi_value_must_have():
-    reasoning = DesignSystemGenerator()._apply_reasoning("B2B Service", {})
-    assert reasoning["decision_rules"]["must_have"] == ["case-studies", "roi-messaging"]
+def test_semantic_synthesis_helper_is_not_active_source():
+    assert not (SCRIPT_DIR / "design_system.py").exists()
 
 
 def test_strict_json_parser_rejects_duplicate_object_names():
@@ -91,6 +78,7 @@ def test_strict_json_parser_rejects_duplicate_object_names():
 def test_data_validator_passes_normalized_corpus_and_manifest():
     r = subprocess.run([sys.executable, str(VALIDATE)], text=True, capture_output=True)
     assert r.returncode == 0, r.stdout + r.stderr
+    assert "13 domain files" in r.stdout
     assert "source-manifest.json" in r.stdout
 
 

@@ -1,5 +1,7 @@
 # Frozen Supplemental Pressure Test — Decision Interview System Plane Correction
 
+Evidence-State: `NOT_RUN`
+
 Frozen after the v1.0.21 System Plane audit and before correction mutation.
 
 ## 1. Leverage before local weakness

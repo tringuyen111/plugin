@@ -76,7 +76,7 @@ Include only behavior that is itself part of this quality requirement. Link a se
 | Evidence class | Broad environment / conditions | Falsifying or satisfying boundary | Known limitation / unresolved point |
 |---|---|---|---|
 
-> Keep this at requirement-owned evidence intent. `/verify-quality` derives/executes the QA proof and verdict and can materialize a durable reusable condition artifact when needed.
+> Keep this at requirement-owned evidence intent. `verify-quality` derives/executes the QA proof and verdict and can materialize a durable reusable condition artifact when needed.
 
 ## Canonical downstream references (links only, when real)
 

@@ -1,5 +1,7 @@
 # Frozen Behavioral Cases — implement reality-bound cognition
 
+Evidence-State: `NOT_RUN`
+
 Frozen before mutation of `skills/implement` for the reality-binding specimen. Runtime behavioral execution is `NOT_RUN`.
 
 ## Rubric

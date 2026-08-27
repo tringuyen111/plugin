@@ -1,6 +1,8 @@
 # Brainstorm standalone / anti-fixation qualification cases
 
-Status: `NOT_RUN` until executed against an actual model/runtime. Baseline was frozen before Brainstorm source mutation at exact Plugin `sdlc-intelligence-deep v1.0.27`, SHA-256 `233c9ba86928ebfe33d3be73b6d9557b07359131a34b9675bc50f0a096df862e`.
+Evidence-State: `NOT_RUN`
+
+Freeze-Note: Baseline frozen before Brainstorm source mutation at exact Plugin `sdlc-intelligence-deep v1.0.27`, SHA-256 `233c9ba86928ebfe33d3be73b6d9557b07359131a34b9675bc50f0a096df862e`.
 
 The changed claim is not "more complete documentation." It is: Brainstorm independently improves raw/fuzzy idea quality through proportional divergence, semantic deepening, discrimination, and convergence without requiring sibling Skills or a Markdown/file lifecycle.
 
@@ -76,9 +78,19 @@ The changed claim is not "more complete documentation." It is: Brainstorm indepe
     - Expected: return `READY` or `PARTIAL` semantic state as appropriate without forcing L1/finalization/file materialization.
     - Falsifier: `Finalize / Continue / Hold` is mandatory for ordinary conversation.
 
+15. **Downstream review note is not a Handoff**
+    - Input: a durable brainstorm identifies an affected PRD and one owner review action; the same session/canonical sources already carry the relevant state.
+    - Expected: record a downstream review/continuation action with the bounded Brainstorm truth and canonical references; do not create or narrate a Handoff transfer artifact merely because another owner/capability may act next.
+    - Falsifier: label an ordinary next-step/owner note as a Handoff or require the Handoff Skill for same-session capability continuation.
+
+16. **Real transfer can use Handoff without changing Brainstorm ownership**
+    - Input: a different session/agent/owner must continue and cannot safely recover the current Brainstorm delta from canonical sources.
+    - Expected: preserve Brainstorm idea truth and package only the necessary transfer delta/references through real Handoff semantics when available; absence of Handoff must not make Brainstorm itself incomplete.
+    - Falsifier: treat all downstream continuation as Handoff, or let Handoff become the owner/canonicalizer of Brainstorm decisions.
+
 ## Skill-independence invariants
 
 - Local references count as Brainstorm's own methodology; sibling Skills do not.
-- A boundary handoff may remain unresolved when a downstream owner is unavailable without making Brainstorm's own completed work `BLOCKED`.
+- A downstream owner action/real transfer may remain unresolved when another owner is unavailable without making Brainstorm's own completed work `BLOCKED`.
 - Optional composition may improve evidence or downstream continuation, but absence of a sibling must not erase Brainstorm's exploration, correction, or completion method.
 - Structural validation or a well-formed artifact is not behavioral proof.

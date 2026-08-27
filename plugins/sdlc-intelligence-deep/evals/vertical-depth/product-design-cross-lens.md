@@ -1,6 +1,8 @@
 # Frozen Product Design Cross-Lens Diagnosis Cases — PRE-MUTATION
 
-Status: `NOT_RUN`. Frozen before Product Design source mutation on 2026-08-17.
+Evidence-State: `NOT_RUN`
+
+Freeze-Note: Frozen before Product Design source mutation on 2026-08-17.
 
 ## PDX1 — Weak hierarchy, typography is not the cause
 A settings page has a correctly differentiated heading/body type scale, but every secondary card uses saturated borders and every control label uses accent color. The primary task does not dominate.

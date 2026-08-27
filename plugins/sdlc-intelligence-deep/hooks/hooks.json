@@ -1,5 +1,5 @@
 {
-  "description": "Load the thin SDLC Intelligence operating kernel at Codex session boundaries.",
+  "description": "Load small stateless SDLC Intelligence resident guidance at SessionStart.",
   "hooks": {
     "SessionStart": [
       {
@@ -8,7 +8,8 @@
             "type": "command",
             "command": "python3 \"${PLUGIN_ROOT}/hooks/session_start.py\"",
             "timeout": 5,
-            "statusMessage": "Loading SDLC operating context"
+            "additionalContextLimit": 2500,
+            "statusMessage": "Loading SDLC resident guidance"
           }
         ]
       }

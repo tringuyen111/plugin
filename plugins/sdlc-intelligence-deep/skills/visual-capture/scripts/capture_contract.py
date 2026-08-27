@@ -65,6 +65,9 @@ def _validate_executor(executor: Any, *, label: str, findings: list[str]) -> Non
     if not isinstance(source_id, str) or not source_id:
         findings.append(f"{label}.source_id must be a non-empty string")
     for field in ("namespace", "revision"):
+        if field not in executor:
+            findings.append(f"{label}.{field} must be present as a string or null")
+            continue
         value = executor.get(field)
         if value is not None and not isinstance(value, str):
             findings.append(f"{label}.{field} must be a string or null")
@@ -435,11 +438,33 @@ def source_content_sha256(shot: Mapping[str, Any], root: Path | None = None) -> 
     return file_sha256(path)
 
 
-def canonical_shot_digest(job: Mapping[str, Any], shot: Mapping[str, Any], *, root: Path | None = None) -> str:
+def can_reuse_capture(job: Mapping[str, Any], shot: Mapping[str, Any], *, source_sha256: str | None) -> bool:
+    """Return whether a prior local capture has enough fixed-point input identity to reuse safely."""
+    application_commit = job.get("application_commit")
+    if not isinstance(application_commit, str) or not application_commit:
+        return False
+    if source_sha256 is None or not shot.get("html") or shot.get("url"):
+        return False
+    if job.get("login") is not None:
+        return False
+    for step in shot.get("steps", []) or []:
+        if isinstance(step, Mapping) and "valueFromEnv" in step:
+            return False
+    return True
+
+
+def canonical_shot_digest(
+    job: Mapping[str, Any],
+    shot: Mapping[str, Any],
+    *,
+    root: Path | None = None,
+    runtime_executor: Mapping[str, Any] | None = None,
+) -> str:
     payload = {
         "schema_version": job.get("schema_version"),
         "capability_resolution": job.get("capability_resolution"),
         "executor": job.get("executor"),
+        "runtime_executor": dict(runtime_executor or {}),
         "intent": job.get("intent"),
         "environment": job.get("environment"),
         "application_commit": job.get("application_commit"),

@@ -43,7 +43,7 @@ an invariant when concurrent writers can bypass the assumption.
 
 For material reads, define what callers may rely on:
 
-- stable identity and deterministic ordering when order matters;
+- stable read/reference key and deterministic ordering when order matters; do not treat a storage/cursor key as Domain Identity unless authoritative domain semantics establish that relationship;
 - consistency/freshness expectation;
 - continuation/pagination behavior under concurrent inserts, updates, deletes,
   or backfill;

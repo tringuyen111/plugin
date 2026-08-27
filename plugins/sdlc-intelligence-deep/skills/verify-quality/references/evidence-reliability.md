@@ -35,7 +35,7 @@ Plan retry/repetition only when it changes a decision:
 - one retry may expose isolation/setup leakage but cannot characterize a rare failure rate;
 - repeated trials may bound stochastic behavior for a specific risk decision, but there is no universal correct count;
 - if a failure is materially release-blocking, "eventually one run passed" is not a risk disposition;
-- if the root cause of instability matters after execution, route diagnosis to `diagnosing-bugs` rather than baking causal guesses into the strategy.
+- if the root cause of instability matters after execution, preserve the distinct causal-diagnosis need for host-native discovery rather than baking causal guesses into the strategy.
 
 ## 3. Preserve history for higher-order failures
 

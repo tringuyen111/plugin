@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 # Human-in-the-loop reproduction loop.
 # Copy this file, edit the steps below, and run it.
-# The agent runs the script; the user follows prompts in their terminal.
+# Run this in a terminal the human participant can actually access.
+# If the Agent runtime does not share that interactive terminal, the user runs
+# the adapted script and returns the final Captured block to the Agent.
 #
 # Usage:
 #   bash hitl-loop.template.sh

@@ -7,7 +7,7 @@ description: Design or revise product/application experiences from approved Prod
 
 Produce coherent Product/UI Design truth, not a sequence of ceremonial artifacts.
 
-Own one coupled design cognition from the user's task and approved behavior through experience structure, construction, interaction, visual composition, system coherence, and Design handoff. A flow, wireframe, high-fidelity composition, system specimen, or Design-truth projection is a **representation of this job**, not a mandatory lifecycle stage.
+Own one coupled design cognition from the user's task and approved behavior through experience structure, construction, interaction, visual composition, system coherence, and downstream Design continuation. A flow, wireframe, high-fidelity composition, system specimen, or Design-truth projection is a **representation of this job**, not a mandatory lifecycle stage.
 
 Do not invent Product behavior, business rules, user evidence, platform constraints, Design-System authority, technical architecture, or QA approval. When source truth is unresolved, expose the gap rather than designing around it.
 
@@ -91,12 +91,12 @@ When a locally plausible answer still has multiple valid interpretations, load [
 | Active question | Minimum faithful representation | Stop / escalate rule |
 |---|---|---|
 | Wider journey, information grouping, navigation topology | scenario/topology model | Stop when topology is resolved; do not draw screens by ceremony. |
-| Local task progression, choices, waits, handoffs, recovery | typed interaction flow | Stop after flow if spatial/visual questions are not material. |
+| Local task progression, choices, waits, actor/process handoffs, recovery | typed interaction flow | Stop after flow if spatial/visual questions are not material. |
 | Screen hierarchy, grouping, comparison, construction, density, placement | low-fidelity frame/wireframe + structural graph | Keep visual styling unresolved; escalate only when perceptual craft/system proof needs it. |
 | Typography/color/material/whole-composition quality | rendered visual composition | Inspect and iterate; prose or token validity alone is insufficient proof. |
 | Repeated component/system relationship, change propagation | system specimen + component/style graphs in representative contexts | Prove invariants, controlled variation, source-of-truth, and affected consumers before widening scope. |
 | Interactive control anatomy / micro-geometry | control/state specimen in real context | Separate content/container/target and state/input ownership; inspect at component and page scale. |
-| Timing, drag, focus, delayed completion, runtime continuity | hand to `prototype` | Product Design states the runtime question; Prototype owns executable learning. |
+| Timing, drag, focus, delayed completion, runtime continuity | `prototype` runtime experiment | Product Design states the runtime question; Prototype owns executable learning. |
 
 Direct requests such as **"make a user flow"** or **"make a wireframe"** should enter that branch immediately and stop proportionally. Do not force the user through the rest of this Skill.
 

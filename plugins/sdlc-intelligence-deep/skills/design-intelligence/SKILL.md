@@ -19,9 +19,9 @@ If the local corpus or Python scripts are unreadable, return `BLOCKED`. If the c
 1. **Freeze the question and owner.** Record the parent owner, target artifact/decision, current canonical constraints, and whether the evidence is application, marketing, or creative context.
 2. **Choose the narrowest corpus.** Search one relevant domain first. Use stack search only when the repository/project establishes that stack. Broaden once after a real `NO_MATCH`; report no-match truth if evidence remains absent.
 3. **Run deterministic retrieval.** Resolve `<skill-dir>` to the directory containing this `design-intelligence/SKILL.md`, then run `<skill-dir>/scripts/search.py`; never assume the host current working directory. Keep query, domain/stack, source file, and ranked records available in the result.
-4. **Use recommendation synthesis only when useful.** `--design-system` may synthesize the local corpus into a `Design Intelligence Recommendation`, but this command has no persistence surface and creates no canonical project state.
+4. **Synthesize recommendations in Skill reasoning, not deterministic code.** When advice is requested, retrieve only the material candidate domains (for example `product`, `reasoning`, `style`, `color`, `typography`, or a stack) and compare the returned records against the supplied/current constraints. A top-ranked row is evidence, not the answer; preserve competing records when the evidence does not force one choice.
 5. **Reconcile with project truth.** Approved behavior, Visual Contract, technical decisions, brand constraints, and current authoritative platform guidance outrank this bundled snapshot. React/stack implementation guidance is candidate evidence only: `frontend-engineering` owns implementation reasoning and must verify current repository, dependency/version, runtime configuration, and authoritative vendor guidance when material.
-6. **Return bounded evidence.** State what the corpus supports, source/domain/stack, bundled snapshot/freshness state, material caveats, and the decision/authority boundary that must consume it. If the active user outcome continues into Design or Frontend work, the same session may consume this evidence directly; no handoff artifact is implied. Version-sensitive technical evidence remains `REQUIRES_CURRENT_VERIFICATION` until current truth is actually checked.
+6. **Return bounded evidence and judgment.** State what the corpus supports, source/domain/stack, bundled snapshot/freshness state, material caveats, the reasoning that makes one candidate more relevant when a recommendation was requested, and the decision/authority boundary that must consume it. If the active user outcome continues into Design or Frontend work, the same session may consume this evidence directly; no handoff artifact is implied. Version-sensitive technical evidence remains `REQUIRES_CURRENT_VERIFICATION` until current truth is actually checked.
 
 ## Commands
 
@@ -29,7 +29,8 @@ If the local corpus or Python scripts are unreadable, return `BLOCKED`. If the c
 python3 "<skill-dir>/scripts/search.py" "admin analytics dashboard" --domain style -n 5
 python3 "<skill-dir>/scripts/search.py" "focus keyboard error feedback" --domain ux
 python3 "<skill-dir>/scripts/search.py" "server components image optimization" --stack nextjs
-python3 "<skill-dir>/scripts/search.py" "B2B operations dashboard" --design-system --format markdown
+python3 "<skill-dir>/scripts/search.py" "B2B operations dashboard" --domain product -n 5
+python3 "<skill-dir>/scripts/search.py" "B2B Service" --domain reasoning -n 3
 python3 "<skill-dir>/scripts/validate_data.py"
 ```
 
@@ -39,6 +40,7 @@ Read [Pro Rules](references/pro-rules.md) only for native/mobile anti-pattern ev
 
 - Corpus ranking is evidence, not approval.
 - Do not persist a generated `MASTER.md`, token source, or alternate design-system truth.
+- Deterministic helpers may retrieve, rank, validate, or format corpus evidence; they must not choose the semantic Product/UI pattern, style, palette, typography, motion, or Design recommendation on the Agent's behalf.
 - Do not invent Product behavior, Design decisions, technical architecture, implementation completion, or QA verdicts.
 - Do not force landing-page hero/CTA patterns into authenticated/product application contexts.
 - Treat bundled data as a snapshot, not live current truth. Current authoritative project/provider standards win when verified.

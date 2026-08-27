@@ -1,6 +1,8 @@
 # Eval — improve-codebase-architecture Prompt / Context architecture
 
-Status: `FROZEN_BEFORE_MUTATION`
+Evidence-State: `NOT_RUN`
+
+Freeze-State: `FROZEN_BEFORE_MUTATION`
 Purpose: falsify the claim that architecture-improvement discovery can use deep-module reasoning without rewriting project-native architecture vocabulary or prematurely loading detailed design context.
 
 ## Case 1 — service names are source truth, not forbidden vocabulary

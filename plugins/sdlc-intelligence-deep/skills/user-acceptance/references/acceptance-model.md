@@ -121,7 +121,7 @@ Ask two separate questions:
 
 If neither: do not manufacture a QA gate.
 
-If yes: bind exact current `/verify-quality` evidence and preserve separately:
+If yes: bind exact current `verify-quality` evidence and preserve separately:
 - QA workflow state;
 - QA verification verdict;
 - acceptance readiness;

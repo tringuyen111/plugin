@@ -1,5 +1,7 @@
 # Frozen Behavioral Qualification Cases — verify-quality reality kernel
 
+Evidence-State: `NOT_RUN`
+
 Frozen before QA-core consolidation mutation. Runtime execution remains `NOT_RUN` until a real model/Skill runner executes these cases against exact candidate bytes.
 
 ## Rubric dimensions

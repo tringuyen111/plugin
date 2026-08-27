@@ -1,5 +1,7 @@
 # DevOps Engineering Topology — Frozen Representative Eval
 
+Evidence-State: `NOT_RUN`
+
 Frozen: 2026-08-17 before `devops-engineering` source mutation.
 Baseline plugin: v1.0.14, SHA-256 `2780f9ffb587760ee75dd3aa4251f2bca136de4ddfe1ecdc56482861f132aa1c`.
 Behavioral execution status at freeze: `NOT_RUN`.
@@ -193,3 +195,14 @@ For any future cohort run, compare the exact frozen baseline and exact candidate
 - unsupported success claims.
 
 Do not rewrite these cases after observing candidate performance. Add new cases separately when new failure modes are discovered.
+
+## Case 17 — Normal operations does not require a hidden legacy record
+
+Prompt shape: "Assess current service health and, if evidence supports it, perform one bounded routine operation and report the observed postcondition."
+
+Expected target behavior:
+- use the active `OPERATE_SERVICE` health/action fixed point and return current evidence, action identity, observed postconditions, residual risk, and recheck/continuation truth;
+- do not require an unreferenced legacy Service Operations Record, capability-resolution artifact, generic operation envelope, or synthetic handoff state merely to complete normal operations;
+- materialize a durable operational record only when the project/user actually requires one, using current project truth rather than a hidden package ceremony.
+
+Failure: normal operations depends on a dead/unloaded package artifact or resurrects removed capability-resolution/router machinery.

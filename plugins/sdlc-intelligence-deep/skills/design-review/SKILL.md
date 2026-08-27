@@ -9,7 +9,7 @@ Review the Design proposition, not merely its pixels. Treat screenshots, flows, 
 
 Own one independent second-order judgment loop: bind the exact review subject and authority, reconstruct only the material Design reasoning, challenge the claims and their realization, locate the earliest evidence-supported break, determine impact/scope/owner, state correction intent, and define a falsifiable re-review target.
 
-A review may challenge approved Design truth; it does **not** silently supersede it. A review may expose an unsupported upstream Product premise; it does **not** resolve that Product truth by assumption. Hand authoring/recomposition to `product-design`, explicit visual/design conformance PASS/FAIL to `verify-quality` with a bounded visual-conformance scope, production source correction to Engineering, and missing visual evidence mechanics to `visual-capture`.
+A review may challenge approved Design truth; it does **not** silently supersede it. A review may expose an unsupported upstream Product premise; it does **not** resolve that Product truth by assumption. Return authoring/recomposition to `product-design`, explicit visual/design conformance PASS/FAIL to `verify-quality` with a bounded visual-conformance scope, production source correction to Engineering, and missing visual evidence mechanics to `visual-capture`.
 
 Read [Design Claim Diagnosis](references/design-claim-diagnosis.md) whenever the issue may live above visual realization, a Design inference itself is challengeable, a material omission/conflict/trade-off exists, or apparently correct realization still produces a bad outcome. Read [Perceptual Diagnosis](references/perceptual-diagnosis.md) only when visible/spatial/typographic/color/material/control/responsive signals are material to the judgment. Read [Review Format](references/review-format.md) before reporting material findings.
 
@@ -78,7 +78,7 @@ A polished downstream node never repairs a broken upstream relation.
 | `CLAIM_BOUND` | The material claim/relation under review is falsifiable. | Existing evidence is sufficient or the smallest discriminating evidence gap is named. | Do not broaden into generic critique or substitute convention for missing truth. |
 | `EVIDENCE_READY` | Evidence is inspectable and bound to the relevant claim/state/version. | Node/edge quality and plausible alternative explanations can be judged without guessing. | Record the exact evidence gap; acquire only evidence capable of changing the conclusion. |
 | `DIAGNOSED` | Earliest supported break, consequence, scope, uncertainty, and authority effect are explicit. | Correction intent/owner and re-review falsifier are coherent. | Keep locus/scope `UNKNOWN`; do not prescribe a downstream patch. |
-| `HANDOFF_READY` | Findings preserve evidence trails and have bounded owner/action/re-review targets. | Result can be handed off without silently authoring or granting acceptance. | Re-enter at the earliest invalid claim/evidence state. |
+| `CONTINUATION_READY` | Findings preserve evidence trails and have bounded owner/action/re-review targets. | Result can continue to the accountable owner/capability without silently authoring or granting acceptance. | Re-enter at the earliest invalid claim/evidence state. |
 
 A correction or superseded Design decision starts a new review cycle at the earliest changed node/edge. Reuse unaffected evidence only when its candidate/authority/state relation remains exact.
 
@@ -93,7 +93,7 @@ For every material concern, ask only the questions that can falsify or relocate 
 5. **Where is the earliest supported break?** Prefer the earliest causal relation that explains downstream symptoms; do not blame Engineering for faithful execution of a weak Design decision.
 6. **What alternative explanation competes?** Generate alternatives only when evidence leaves more than one plausible cause; seek discriminating evidence instead of listing lenses.
 7. **What consequence follows?** Tie the issue to task comprehension, action, continuity/recovery, system coherence, perceptual hierarchy, accessibility-visible risk, or supplied outcome evidence.
-8. **What is the smallest correction intent?** Reopen a premise/decision, restore a relation, complete a missing state/model, correct a projection, or hand an implementation divergence to Engineering. Do not author the replacement unless the terminal job moves to `product-design`.
+8. **What is the smallest correction intent?** Reopen a premise/decision, restore a relation, complete a missing state/model, correct a projection, or return an implementation divergence to Engineering. Do not author the replacement unless the terminal job moves to `product-design`.
 9. **What would falsify the finding?** Name the smallest observable evidence that would show the challenged relation is restored or the diagnosis was wrong.
 
 ## Use expert lenses conditionally

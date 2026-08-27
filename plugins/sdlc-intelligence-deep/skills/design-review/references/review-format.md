@@ -48,7 +48,7 @@ Use this shape for material Design-review results. Omit immaterial fields; never
 
 ## Open Design decisions / upstream evidence needs
 
-## Handoff
+## Downstream continuation / owners
 - Product / research truth to resolve:
 - Product Design decision to reopen:
 - Engineering divergence to correct:

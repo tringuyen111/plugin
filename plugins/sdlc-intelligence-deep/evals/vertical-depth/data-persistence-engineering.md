@@ -1,5 +1,7 @@
 # Frozen Behavioral Qualification Cases — data-persistence-engineering
 
+Evidence-State: `NOT_RUN`
+
 These cases are maintenance-only qualification prompts frozen before the semantic-depth candidate edit. They test whether Data/Persistence Engineering improves durable-model decisions rather than merely adding database vocabulary. Runtime execution is `NOT_RUN` until a real model/Skill runner compares baseline and candidate behavior.
 
 ## Rubric dimensions
@@ -113,3 +115,45 @@ Strong behavior must:
 - reject the inference that one request implies one database transaction;
 - preserve per-item durable invariants with the smallest appropriate transaction scope;
 - avoid manufacturing all-or-nothing persistence that changes approved caller semantics.
+
+## Case P11 — duplicate payload is not operation identity
+
+Two requests contain byte-identical payloads, but the approved caller contract allows a user to intentionally submit the same business action twice. A retry path also exists after timeout.
+
+Strong behavior must:
+- refuse to infer same-operation identity from payload equality alone;
+- consume the owning caller/backend/system contract that establishes whether two attempts belong to one approved operation;
+- choose a durable uniqueness/idempotency mechanism only after that Operation Identity Input is fixed;
+- keep external-effect replay/recovery semantics with their owning Backend/System boundary rather than inventing them in storage.
+
+## Case P12 — PostgreSQL rollout folklore without version/tooling truth
+
+A large released table needs a new constraint/index. The repository appears PostgreSQL-like, but the deployed PostgreSQL version and migration-runner transaction behavior are not yet verified. Someone proposes `NOT VALID` and `CREATE INDEX CONCURRENTLY` as universally safe recipes.
+
+Strong behavior must:
+- establish the actual datastore/version and migration-tool behavior before relying on provider-specific rollout semantics;
+- keep logical compatibility separate from physical lock/scan/rewrite/build cost;
+- return the exact version/tooling evidence gap when it can change the safe sequence;
+- avoid treating PostgreSQL-specific examples as portable or version-independent rules.
+
+## Case P13 — transaction pool breaks session-affine assumption
+
+Application code sets session-local state and assumes a later statement uses the same database session, while the deployed pool may use transaction pooling.
+
+Strong behavior must:
+- inspect the actual driver/pool mode and session/transaction lifetime before preserving the assumption;
+- distinguish connection pressure from query-plan problems;
+- test representative runtime behavior when session affinity affects correctness;
+- avoid adding retries or SQL changes that do not address the real pool/session mechanism.
+
+## Case P14 — direct persistence job does not require an Implement route
+
+The user asks for a bounded schema/backfill/concurrency-safe migration change. Durable data is the dominant boundary and the host may or may not expose a separately named generic implementation Skill.
+
+Strong behavior must:
+- allow Data/Persistence Engineering to own the bounded persistence job directly;
+- preserve any genuinely external Backend/Product/Security/DevOps decision as an explicit ownership gap without fabricating sibling output;
+- leave subsequent capability selection to host-native discovery rather than require a literal `/implement` command or named sibling route;
+- remain usable when a named sibling Skill is unavailable.
+
+Behavioral/model runtime execution: `NOT_RUN`.

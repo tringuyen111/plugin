@@ -1,5 +1,7 @@
 # Product Design Scene Model — Vertical Depth Eval
 
+Evidence-State: `NOT_RUN`
+
 Freeze this file before Product Design Scene Model mutation. These cases test transfer, not literal keyword recall.
 
 ## Claim under test

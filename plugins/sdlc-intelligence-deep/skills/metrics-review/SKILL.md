@@ -1,6 +1,6 @@
 ---
 name: metrics-review
-description: Review product metrics and experiments with explicit definitions, populations, trends, data-quality caveats, and non-causal interpretations. Use when another workflow needs to compare product performance with targets, investigate a change, or turn released-product data into learning.
+description: Review product metrics and experiments with explicit definitions, populations, trends, data-quality caveats, statistical interpretation, and causal-validity judgment when the evidence design supports it. Use when another workflow needs to compare product performance with targets, investigate a change, evaluate an experiment, or turn released-product data into learning.
 ---
 
 # Metrics Review

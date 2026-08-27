@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "artifact": "creative-production",
+  "authority": {
+    "class": "ADVISORY_LOCAL_CORPUS",
+    "canonical": false,
+    "caller_retains_decision_authority": true,
+    "project_brand_truth_precedence": true,
+    "product_ui_owner": "product-design",
+    "technical_implementation_owner": "frontend-engineering",
+    "slide_file_implementation_owner": "host presentation capability"
+  },
+  "source_snapshot": {
+    "archive": "ui-ux-pro-max-codex-native-v1(1).zip",
+    "sha256": "abc04a9dc62b73fc3ce9388157dd9982e3669de51bb52584497fa475e23850d0",
+    "git_provenance": "UNAVAILABLE",
+    "adaptation": "Selective SDLC Intelligence import. Lookup corpora are retained as advisory evidence; duplicate prose taxonomies and implementation-owned slide/icon mechanics are removed or narrowed while Creative Production keeps visual-direction HOW/caveats.",
+    "provenance_reference": "UPSTREAM.md"
+  },
+  "freshness": {
+    "mode": "BUNDLED_SNAPSHOT",
+    "live_current_claim": false,
+    "platform_constraints_status": "REQUIRES_CURRENT_VERIFICATION_WHEN_MATERIAL",
+    "project_truth_status": "BIND_CURRENT_SOURCE_OR_USER_PROJECT_TRUTH",
+    "technical_implementation_status": "OUT_OF_SCOPE_FOR_THIS_CORPUS"
+  }
+}

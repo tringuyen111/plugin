@@ -1,6 +1,6 @@
 ---
 name: domain-modeling
-description: Build, challenge, and optionally persist a project's domain semantic model when shared business meaning is ambiguous, conflicting, or changing. Use it to clarify concept identity and vocabulary, meaningful relationships and roles, domain-significant invariants, lifecycle/time semantics, and context-specific meanings. Do not use it to approve business policy, choose code/database/module seams, select architecture, or turn implementation artifacts into domain authority.
+description: Build, challenge, and optionally persist a project's domain semantic model when shared business meaning is ambiguous, conflicting, or changing. Use it to clarify Domain Identity versus identifiers, concept vocabulary, meaningful relationships and roles, domain-significant invariants, lifecycle/time semantics, and context-specific meanings. Do not use it to approve business policy, choose code/database/module seams, select architecture, or turn implementation artifacts into domain authority.
 ---
 
 # Domain Modeling
@@ -12,17 +12,27 @@ The accountable outcome is a coherent, context-valid semantic model that downstr
 
 Domain Modeling owns **semantic coherence**. It does not own Product intent, Business Rule approval, Use Case behavior, architecture selection, code/data seams, UI structure, or implementation.
 
+## Glossary — use these terms literally
+
+- **Domain Concept** — a coherent business/domain meaning inside one Semantic Context. A label, class, table, endpoint, field, UI control, or identifier is not automatically a Domain Concept.
+- **Domain Identity** — the semantic continuity that makes observations refer to the same domain instance through time/change. Domain Identity is not a UUID, primary key, username, customer number, provider ID, or other Identifier merely because that value is unique in one system.
+- **Identifier** — a scoped value or reference used to name, locate, correlate, or re-identify a Domain Identity under an approved convention. An Identifier can change while Domain Identity remains, and the same Identifier value can later denote a different Domain Identity when lifetime/scope semantics permit reuse.
+- **Role** — context/relationship-specific participation of a Domain Concept. A Role does not automatically create a new Domain Concept, subtype, or Domain Identity.
+- **Semantic Context** — the scope in which a set of meanings, relationships, roles, and invariants is coherent for a business purpose. A Semantic Context is not automatically a service, module, repository, team, deployment unit, or datastore boundary.
+
+Use these distinctions only where they change the model. Do not inflate ordinary nouns into glossary terms or force tactical DDD categories that the modeling decision does not need.
+
 ## Universal reasoning kernel
 
 Use the smallest depth that can change the semantic decision:
 
 `purpose/context -> evidence -> concept identity -> relationships/roles -> invariants -> lifecycle/time -> examples/counterexamples -> context boundary -> contradiction pressure -> accepted model or unresolved authority -> optional capture`
 
-For a simple term clarification, stop after the first dimensions that settle meaning. When relationships, invariants, lifecycle, or multiple semantic contexts can change downstream interpretation, read [Domain Model Method Contract](DOMAIN-MODEL-METHOD-CONTRACT.md).
+For a simple term clarification, stop after the first dimensions that settle meaning. **WHEN** Domain Identity/Identifier semantics, non-trivial relationships, invariants, lifecycle/time, multiple Semantic Contexts, or contradictory evidence can change downstream interpretation, **READ** [Domain Model Method Contract](DOMAIN-MODEL-METHOD-CONTRACT.md) **BECAUSE** the model needs more than a label definition; **RETURN** the smallest decision-material semantic packet: Domain Concepts plus Domain Identity/Identifier relations, relationships/Roles, authority-qualified invariants, lifecycle/time distinctions, Semantic Context boundaries/translations, counterexamples, and exact unresolved authority gaps.
 
-### 1. Establish modeling purpose and semantic context
+### 1. Establish modeling purpose and Semantic Context
 
-State what downstream misunderstanding or decision the model must resolve. Identify the relevant business/domain context before attempting a project-wide vocabulary.
+State what downstream misunderstanding or decision the model must resolve. Identify the relevant **Semantic Context** before attempting a project-wide vocabulary. A Semantic Context is established by coherent meaning/relationships/invariants for the business purpose, not by current repository, service, team, module, deployment, or datastore topology.
 
 Use source authority proportionally:
 
@@ -35,13 +45,18 @@ Do not invent a global domain boundary from repository folders, service names, t
 
 ### 2. Identify concepts by meaning, not labels
 
-For each decision-material term, ask what concept it denotes **in this context**.
+For each decision-material term, ask what **Domain Concept** it denotes **in this Semantic Context**. When instance continuity matters, separate two questions before choosing names or keys:
+
+1. **Domain Identity:** what semantic continuity makes two observations the same domain instance through state, time, migration, or representation change?
+2. **Identifier:** which scoped value/reference is used to refer to or correlate that identity, under what authority/lifetime/reuse rules?
+
+Identifier equality does not prove Domain Identity, and Identifier replacement does not prove a new Domain Identity. Use rights/obligations, lifecycle continuity, business meaning, authoritative mappings, and counterexamples to establish identity; then bind Identifiers as representations of that decision.
 
 Distinguish:
 
 - one concept with multiple names or aliases;
 - one overloaded term denoting different concepts;
-- a role a concept can play versus a distinct concept;
+- a **Role** a Domain Concept can play versus a distinct Domain Concept;
 - a state/lifecycle phase versus a new concept;
 - a business concept versus an implementation artifact, UI control, message shape, table, class, or endpoint.
 
@@ -65,13 +80,13 @@ Never invent multiplicity, ownership, aggregation, composition, or lifecycle con
 
 An invariant is domain-significant only when violating it would make the modeled state/relationship semantically invalid **and** the claim has suitable authority.
 
-When a proposed invariant is actually a permission, eligibility rule, threshold, calculation, precedence, policy, or other normative directive, preserve the semantic consequence but return the directive to the `/requirements-engineering` Business Rule branch or the appropriate authority. Domain Modeling cannot make an unapproved rule true by placing it in a model.
+When a proposed invariant is actually a permission, eligibility rule, threshold, calculation, precedence, policy, or other normative directive, preserve the semantic consequence but return the directive to the `requirements-engineering` Business Rule branch or the appropriate authority. Domain Modeling cannot make an unapproved rule true by placing it in a model.
 
 Do not convert technical constraints, database constraints, validation code, or current UI restrictions into target domain invariants without domain authority.
 
 ### 5. Model lifecycle and time when identity depends on them
 
-When meaning changes over time, determine whether the case is:
+When meaning changes over time, determine whether **Domain Identity** is preserved and whether the case is:
 
 - the same concept in a different state;
 - a role becoming active/inactive;
@@ -79,7 +94,7 @@ When meaning changes over time, determine whether the case is:
 - a historical version of the same concept;
 - or a genuinely new concept linked to the prior one.
 
-Use identity continuity, rights/obligations, business meaning, and examples to discriminate these possibilities. Do not infer persistence schemas, event-sourcing strategies, temporal tables, state-machine implementation, or transaction design.
+Use Domain Identity continuity, rights/obligations, business meaning, authoritative Identifier mappings when relevant, and examples/counterexamples to discriminate these possibilities. Do not let a changed key create a new instance by itself, and do not let a reused key merge distinct lifecycle histories by itself. Do not infer persistence schemas, event-sourcing strategies, temporal tables, state-machine implementation, or transaction design.
 
 ### 6. Pressure-test with examples and counterexamples
 
@@ -96,9 +111,9 @@ Use concrete positive examples, boundary examples, and counterexamples to test:
 
 When a counterexample falsifies the current model, **change the model**: narrow, split, merge, rename, qualify, or retract the affected claim. Do not preserve a false definition by labeling the contradiction an exception.
 
-### 7. Preserve context-specific model integrity
+### 7. Preserve Semantic Context integrity
 
-Different business contexts may legitimately use the same word differently or different words for related concepts.
+Different **Semantic Contexts** may legitimately use the same word differently or different words for related Domain Concepts. A single Semantic Context may span several technical units, and one technical unit may contain several Semantic Contexts; neither direction establishes an architecture boundary.
 
 When both models are internally coherent:
 
@@ -107,7 +122,7 @@ When both models are internally coherent:
 - identify shared identifiers/value concepts only when real;
 - expose semantic mismatch that downstream consumers must translate.
 
-Do not force global vocabulary unification and do not infer software service/module boundaries from semantic context boundaries. Architecture owns technical decomposition.
+Do not force global vocabulary unification and do not infer software service/module boundaries from Semantic Context boundaries. Architecture owns technical decomposition.
 
 ### 8. Resolve contradictions and re-enter at the earliest falsified decision
 
@@ -115,12 +130,12 @@ When evidence conflicts, do not patch the glossary sentence downstream.
 
 Re-enter where the model first became invalid:
 
-- wrong context -> re-establish context;
+- wrong Semantic Context -> re-establish the meaning-validity scope;
 - ambiguous/overloaded label -> re-test concept identity;
 - counterexample breaks membership -> narrow/split/merge the concept;
 - relationship role is wrong -> revise the relationship before derived invariants;
 - invariant lacks authority -> preserve the authority gap; if the same session can obtain the rule/domain decision, consume it and re-enter here without a handoff artifact;
-- lifecycle example breaks identity -> revisit state-versus-new-concept choice;
+- lifecycle/Identifier example breaks Domain Identity -> revisit same-instance versus new-concept choice;
 - code differs from accepted model -> determine whether code is stale or the accepted semantic truth must be reopened.
 
 Preserve unresolved authority conflicts explicitly. Do not select a side because one artifact is easier to edit.
@@ -134,7 +149,7 @@ Use only what improves the current semantic decision:
 - concise definitions/aliases for isolated terminology;
 - a concept-and-relationship table or small diagram for structural ambiguity;
 - lifecycle/state notes when identity or validity changes over time;
-- a context map when distinct coherent vocabularies must coexist and interact;
+- a context map when distinct coherent Semantic Contexts must coexist and interact;
 - examples/counterexamples when boundaries are disputed.
 
 The representation is a reasoning aid, not the source of authority.
@@ -165,7 +180,7 @@ Use this branch only after the semantic claim itself is resolved:
 
 Read the [semantic/context decision-record projection](ADR-FORMAT.md) only for the second row. An ADR-named project store is compatible only when current project convention explicitly permits domain semantic/context decisions there.
 
-**Contrast:** preserving why Billing `Account` and Authentication `Account` remain distinct context-qualified concepts can be a Domain Modeling decision record after domain authority accepts that semantic trade-off. Choosing event-driven messaging, REST, database ownership, or a service boundary between those contexts is an Architecture decision and must be handed off instead.
+**Contrast:** preserving why Billing `Account` and Authentication `Account` remain distinct context-qualified concepts can be a Domain Modeling decision record after domain authority accepts that semantic trade-off. Choosing event-driven messaging, REST, database ownership, or a service boundary between those contexts is an Architecture decision. Keep that decision with Architecture authority; continue there in-session when available, and use a real handoff only when transferable continuation state must cross an owner/agent/session/runtime boundary or project policy requires one.
 
 ## Completion
 

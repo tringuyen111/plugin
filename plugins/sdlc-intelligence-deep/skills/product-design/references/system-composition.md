@@ -20,7 +20,7 @@ Use this reference when a Design System exists, when repeated UI roles/component
 - **Selection:** choose the smallest valid scope: `INSTANCE`, `COMPONENT`, `SEMANTIC_ROLE`, or `FOUNDATION`.
 - **Failure:** broad edits are justified only by visual similarity, token names, or a single broken consumer.
 - **Correction:** test the strongest local-vs-shared alternative explanation and inspect neighboring consumers before widening scope.
-- **Consequence:** record Design propagation and proof targets; hand implementation dependency discovery to Frontend Engineering.
+- **Consequence:** record Design propagation and proof targets; leave implementation dependency discovery to Frontend Engineering.
 
 ## Atomic thinking is bidirectional
 
@@ -168,5 +168,5 @@ Test a candidate role/component/system change in:
 - **Token consistency but visual inconsistency:** token usage may encode the wrong semantic relation; fix role mapping/anatomy before changing values.
 - **Many local overrides:** treat as evidence of a shared component/role mismatch or a legitimately different semantic role; do not normalize exceptions blindly.
 - **One bad icon triggers a global icon rewrite:** locate asset/slot/semantic-role ownership and prove propagation scope first.
-- **System change lists React/CSS files from Design inference:** stop at Design propagation and hand implementation dependency discovery to Frontend Engineering.
+- **System change lists React/CSS files from Design inference:** stop at Design propagation and leave implementation dependency discovery to Frontend Engineering.
 - **Everything must match exactly across mobile/desktop:** preserve semantic/system invariants while allowing constraint-driven presentation changes.

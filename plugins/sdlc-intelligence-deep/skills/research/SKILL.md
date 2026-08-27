@@ -9,7 +9,7 @@ description: Collect and verify new evidence for a decision-relevant question us
 
 Research reduces a named uncertainty for a product, architecture, implementation, test, release, or operational decision by collecting or verifying evidence not already available in a sufficient corpus. It does not own the downstream decision merely because it collected evidence.
 
-When interviews, surveys, support reports, feedback, and product data already exist and the main job is to compare, theme, reconcile, and assess product-learning confidence, keep the Product/Learn workflow primary and invoke `/research-synthesis`. Do not launch new source collection merely because the existing corpus is complex.
+When interviews, surveys, support reports, feedback, and product data already exist and the main job is to compare, theme, reconcile, and assess product-learning confidence, keep the Product/Learn workflow primary and invoke `research-synthesis`. Do not launch new source collection merely because the existing corpus is complex.
 
 For external, versioned, conflicting, or incomplete evidence, read [Research Source Authority](SOURCE-AUTHORITY.md).
 When initial retrieval is partial, repetitive, contradictory, or the nearest source owner is unclear, read [Evidence Acquisition Frontier](EVIDENCE-ACQUISITION.md) and actively change acquisition strategy instead of repeating the same search pattern.

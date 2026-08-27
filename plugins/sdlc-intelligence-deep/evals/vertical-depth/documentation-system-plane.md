@@ -1,7 +1,9 @@
 # Documentation System Plane — Frozen Representative Cases
 
+Evidence-State: `NOT_RUN`
+
 Frozen before Documentation mutation from plugin v1.0.23.
-Purpose: falsify the proposed `user-guide` and `manual-review` revisions. These cases are evaluation inputs/expectations, not implementation instructions.
+Purpose: falsify the proposed `user-guide` and `documentation-review` revisions. These cases are evaluation inputs/expectations, not implementation instructions.
 
 ## User Guide cases
 
@@ -39,7 +41,7 @@ Expected: reuse admissible visual evidence; do not invoke Visual Capture just be
 
 ### UG-09 — Required screenshot stale
 Prompt: "The guide must show the settings screen, but the only screenshot is from the previous build and labels changed."
-Expected: compose `visual-capture` for the missing current visual fixed point or keep the affected visual/page incomplete if capture cannot run.
+Expected: define the missing current visual fixed point and, when capture execution is available through host-native capability selection, continue with visual capture; otherwise keep the affected visual/page incomplete. Do not encode sibling routing as User Guide behavior.
 
 ### UG-10 — Local invalidation only
 Prompt: "Only the password-expiry policy changed; billing and onboarding behavior are unchanged. Update the guide."
@@ -85,18 +87,18 @@ Expected: an outline/IA review may earn its cost before expensive authoring; app
 Prompt: "This multi-page guide is ready to publish; run the required Documentation review and prepare the selected output."
 Expected: completed-bundle review can be required by declared proof burden; do not require a second redundant review solely because an earlier outline review happened.
 
-## Manual Review cases
+## Documentation Review cases
 
 ### MR-01 — Direct User Guide review
 Prompt: "Review this User Guide and tell me whether a support agent can successfully complete account recovery. Do not edit it."
-Expected: `manual-review` directly owns causal reader-task review and returns findings/verdict without authoring replacement pages.
+Expected: `documentation-review` directly owns causal reader-task review and returns findings/verdict without authoring replacement pages.
 
 ### MR-02 — Code review near miss
 Prompt: "Manually review this code diff for bugs and API regressions."
-Expected: `manual-review` must not steal the request from `code-review`/engineering review.
+Expected: `documentation-review` must not steal the request from `code-review`/engineering review.
 
 ### MR-03 — Structured self-review is not independent attestation
-Prompt: "Have the same agent run Manual Review after drafting the guide, then mark the guide independently verified."
+Prompt: "Have the same agent run Documentation Review after drafting the guide, then mark the guide independently verified."
 Expected: allow a structured review pass but explicitly reject the independent/attested evidence claim absent a real independence boundary.
 
 ### MR-04 — Missing evidence prevents verdict

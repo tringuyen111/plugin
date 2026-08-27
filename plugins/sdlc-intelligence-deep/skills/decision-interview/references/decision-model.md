@@ -94,4 +94,4 @@ Do not expose the full register after every answer. Surface a concise delta plus
 - A source-inspectable fact is not a human decision node.
 - A protected decision remains unresolved when the participant lacks final authority even if they express a preference.
 - A non-final participant may still be the legitimate source of a bounded fact, constraint, or stakeholder value input; collect only that input and preserve the final authority boundary.
-- A reversible low-impact preference may be deferred when it does not constrain the current handoff.
+- A reversible low-impact preference may be deferred when it does not constrain the current decision or continuation outcome.

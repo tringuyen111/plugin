@@ -26,7 +26,7 @@ subject to Apache License 2.0 where applicable.
 
 ## User Guide BA Kit
 
-User Guide workflow, manual-review, Diátaxis, approval, and visual-capture ideas
+User Guide workflow, documentation-review, Diátaxis, approval, and visual-capture ideas
 were studied and adapted. The runtime capture adapter was independently
 reimplemented and tested in this repository.
 

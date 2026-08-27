@@ -1,5 +1,7 @@
 # Frozen Adversarial Cases — Code Review Truth Gates
 
+Evidence-State: `NOT_RUN`
+
 Freeze status: written before any `code-review` source mutation in this run.
 Runtime execution remains `NOT_RUN` until an actual model/Skill runner executes the cases.
 

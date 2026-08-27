@@ -1,5 +1,7 @@
 # Frozen Behavioral Qualification Cases — verify-quality planning/evidence reliability
 
+Evidence-State: `NOT_RUN`
+
 Frozen before candidate edits. Runtime execution remains `NOT_RUN` until a real model/Skill runner exists.
 
 ## Rubric dimensions

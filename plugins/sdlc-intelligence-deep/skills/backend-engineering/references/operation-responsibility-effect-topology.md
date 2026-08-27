@@ -4,16 +4,18 @@ Load this reference when a backend operation crosses material frontend/API/backe
 
 Do not turn every backend edit into a distributed-systems diagram. Keep this topology bounded to the fixed operation and the seams that can change correctness or proof.
 
+Use the parent Skill terms **Semantic Authority** and **Enforcement Site** literally. Establish operation/attempt/effect/progress terms locally where the topology first needs them rather than assuming every backend task already loaded them.
+
 ## Contents
 
 1. Inventory the current substrate
 2. Separate semantic authority from enforcement location
 3. Trace data and effects, not only calls
-4. Bind logical operation identity and multiplicity
+4. Bind operation identity and multiplicity
 5. Model durable, possible and unknown residue
 6. Own every material composition seam
 7. Reuse by semantics rather than shape
-8. Route specialist truth without absorbing it
+8. Preserve specialist truth without absorbing it
 9. Completion test
 
 ## 1. Inventory the current substrate
@@ -39,7 +41,7 @@ Inspect only layers touched by the fixed operation. The question is not “where
 
 For database-backed behavior, check the current schema/data shape, constraints/indexes, migration state, repository/query/error paths and relevant transaction boundary before adding an application-level invariant or tracker.
 
-## 2. Separate semantic authority from enforcement location
+## 2. Separate Semantic Authority from Enforcement Sites
 
 One meaning can legitimately appear at several layers when each layer has a different responsibility.
 
@@ -74,7 +76,7 @@ For each step, state what fact becomes authoritative and which next step depends
 
 Do not manufacture project policy from this map. If the accepted completion meaning, consistency requirement or recovery policy is missing, return that owner gap.
 
-## 4. Bind logical operation identity and multiplicity
+## 4. Bind operation identity and multiplicity
 
 Assume an effectful backend operation can execute more than once unless the real contract/runtime proves otherwise.
 
@@ -96,15 +98,17 @@ Then ask two different questions:
 1. **Is this another execution?**
 2. **Does it represent the same logical intent or a new intent?**
 
-Same payload, same URL or same backoff loop does not answer the second question. Bind operation identity to the approved API/domain/runtime contract and current durable/provider identity seams. Do not invent an idempotency key or deduplication lifetime when those are caller-visible/design decisions.
+Call one approved business/application intent across retries, replays, redeliveries or concurrent arrivals the **Logical Operation**. Call one concrete processing instance through a request/job/event path an **Execution Attempt**. Same payload, same URL or same backoff loop does not answer whether two attempts belong to the same operation. Bind Logical Operation identity to the approved API/domain/runtime contract and current durable/provider identity seams; do not invent an idempotency key or deduplication lifetime when those are caller-visible/design decisions.
 
-## 5. Model durable, possible and unknown residue
+## 5. Model effect evidence and partial progress
 
-At each material failure boundary, classify what remains:
+At each material failure boundary, classify the **Effect Evidence State** — what authoritative current evidence establishes about each relevant durable/external effect:
 
-- **durable** — authoritative evidence proves the state/effect happened;
-- **not established** — authoritative evidence proves it did not happen;
-- **possible/unknown** — the operation crossed a boundary but evidence cannot prove whether the effect completed.
+- **`ESTABLISHED`** — authoritative evidence proves the particular state/effect happened;
+- **`NOT_ESTABLISHED`** — authoritative evidence proves the particular state/effect did not happen;
+- **`UNKNOWN`** — the operation crossed a boundary but current evidence cannot prove or refute completion of that effect.
+
+Classify **Partial Progress** separately. Partial Progress means one or more required steps are already `ESTABLISHED` while the Logical Operation is not complete; a different effect may simultaneously be `UNKNOWN`. Do not collapse known progress and uncertainty into one `partial/ambiguous` state.
 
 Use a compact state/effect map:
 
@@ -164,16 +168,16 @@ Code similarity alone is weak evidence. Request-scoped retry and durable worker 
 
 Prefer one semantic owner with adapters/enforcers at the edges over two active policy/default implementations. Do not extract a generic framework merely to remove repetition.
 
-## 8. Route specialist truth without absorbing it
+## 8. Preserve specialist truth without absorbing it
 
 This topology decides what backend implementation must know; it does not acquire every sibling Skill's authority.
 
 - Caller-visible operation identity/completion/error contract unresolved -> API/design owner.
-- Canonical data meaning, migration or storage/concurrency mechanism unresolved -> data/design owner or `data-persistence-engineering` when the implementation mechanism is fixed enough.
+- Canonical data meaning, migration or storage/concurrency mechanism unresolved -> return the bounded data/design gap; when host-native discovery supplies decision-changing Data/Persistence depth and the implementation mechanism is fixed enough, integrate it against the same bound truth.
 - Authorization/trust/credential policy unresolved -> Security owner.
 - Service/client lifecycle, deadline, pressure, ambiguity or drain material -> [Service Runtime Discipline](service-runtime-discipline.md).
 - Queue/job delivery/attempt ownership material -> [Background Execution Discipline](background-execution-discipline.md).
-- Broad source/docs/change consistency review -> `code-review`, not a backend implementation ceremony.
+- Broad source/docs/change consistency review -> preserve the separate frozen-review need and exact revision/context; host-native discovery owns any Code Review capability selection, and Backend does not turn it into implementation ceremony.
 - Capacity/SLO/recovery/operator policy unresolved -> NFR/Operations owner.
 
 Backend should stop the affected branch on a material contradiction it encounters; it should not audit the entire repository for contradictions before every change.

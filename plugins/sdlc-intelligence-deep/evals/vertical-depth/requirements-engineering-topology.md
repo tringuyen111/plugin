@@ -1,5 +1,7 @@
 # Frozen Pressure Test — Requirements Engineering Topology
 
+Evidence-State: `NOT_RUN`
+
 Frozen before replacement of `define-behavior` and before removal/reclassification of `user-story`, `use-case`, `acceptance-criteria`, `business-rule`, and `quality-requirement` host Skills. These are behavioral exam cases, not executed results.
 
 ## RT1 — Direct acceptance criteria without BA ceremony

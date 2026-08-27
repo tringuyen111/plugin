@@ -58,7 +58,7 @@ Prefer evidence closest to the business-visible claim. Examples:
 
 Technical logs/metrics may support the story but do not replace a business oracle unless the target acceptance meaning is itself defined on that signal.
 
-If visual/system proof is technical and requires rigorous QA, consume `/verify-quality` rather than redefining its verdict in UAT.
+If visual/system proof is technical and requires rigorous QA, consume `verify-quality` rather than redefining its verdict in UAT.
 
 ## 5. Contrastive examples
 

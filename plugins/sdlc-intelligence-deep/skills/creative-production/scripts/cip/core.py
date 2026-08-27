@@ -179,37 +179,3 @@ def search_all(query, max_results=2):
         if result.get("results"):
             all_results[domain] = result["results"]
     return all_results
-
-
-def get_cip_brief(brand_name, industry_query, style_query=None):
-    """Generate a comprehensive CIP brief for a brand"""
-    # Search industry
-    industry_results = search(industry_query, "industry", 1)
-    industry = industry_results.get("results", [{}])[0] if industry_results.get("results") else {}
-
-    # Search style (use industry style if not specified)
-    style_query = style_query or industry.get("CIP Style", "corporate minimal")
-    style_results = search(style_query, "style", 1)
-    style = style_results.get("results", [{}])[0] if style_results.get("results") else {}
-
-    # Get recommended deliverables for the industry
-    key_deliverables = industry.get("Key Deliverables", "").split()
-    deliverable_results = []
-    for d in key_deliverables[:5]:
-        result = search(d, "deliverable", 1)
-        if result.get("results"):
-            deliverable_results.append(result["results"][0])
-
-    return {
-        "brand_name": brand_name,
-        "industry": industry,
-        "style": style,
-        "recommended_deliverables": deliverable_results,
-        "color_system": {
-            "primary": style.get("Primary Colors", industry.get("Primary Colors", "")),
-            "secondary": style.get("Secondary Colors", industry.get("Secondary Colors", ""))
-        },
-        "typography": style.get("Typography", industry.get("Typography", "")),
-        "materials": style.get("Materials", ""),
-        "finishes": style.get("Finishes", "")
-    }

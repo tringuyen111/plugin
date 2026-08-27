@@ -32,7 +32,7 @@ durable progress + external effects
 success | retry | terminal | handback/cancel
 ```
 
-The logical operation remains upstream design truth. A dispatch or delivery is a runtime carrier when such an identity exists. An attempt is one processing ownership window, not proof that the logical work is unique.
+Call the approved upstream business/application intent the **Logical Operation** and one concrete processing ownership window an **Execution Attempt**. A dispatch or delivery is only a runtime carrier when such an identity exists; redelivery can create another Execution Attempt without creating a new Logical Operation.
 
 For the active path, identify only the dimensions that can change correctness or proof:
 
@@ -45,7 +45,7 @@ For the active path, identify only the dimensions that can change correctness or
 
 ## Correct ambiguous completion
 
-Treat a missing acknowledgement, timeout, worker crash, or lost response as **ambiguous completion** until durable evidence resolves what happened.
+For an ambiguous effect, use **Effect Evidence State** for what authoritative current evidence establishes: `ESTABLISHED`, `NOT_ESTABLISHED`, or `UNKNOWN`. Treat a missing acknowledgement, timeout, worker crash, or lost response as `UNKNOWN` when completion cannot be proven until durable evidence resolves what happened.
 
 Before replaying work:
 
@@ -75,7 +75,7 @@ The near-miss is to infer an exactly-once guarantee from a lease/visibility mech
 
 ## Make partial progress replayable by contract
 
-Use existing canonical durable seams to distinguish progress that has happened from work that is still pending.
+Call known completion of only a subset of the Logical Operation **Partial Progress**. It is separate from an `UNKNOWN` effect: some progress may be established while another effect remains unresolved. Use existing canonical durable seams to distinguish progress that has happened from work that is still pending.
 
 - Resume or reconcile only where approved operation/data semantics make that safe.
 - Keep side effects ordered according to the approved transaction/external-effect contract.

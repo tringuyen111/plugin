@@ -1,5 +1,7 @@
 # Frozen Behavioral Qualification Cases — design-review
 
+Evidence-State: `NOT_RUN`
+
 Frozen before any `design-review` source mutation.
 
 ## Rubric dimensions
@@ -9,7 +11,7 @@ Frozen before any `design-review` source mutation.
 - `CAUSAL_DIAGNOSIS`: reasons intended relation -> signals -> perception/consequence -> mismatch -> cause scope instead of taste labels or pixel prescriptions.
 - `CAUSE_SCOPE`: discriminates LOCAL / REPEATED_PATTERN / SYSTEMIC / UNKNOWN and tests an alternative explanation before broad changes.
 - `CORRECTION_COHERENCE`: chooses the smallest coherent Design/system lever and avoids symptom patches.
-- `PRIORITY_HANDOFF`: distinguishes Design contract changes, implementation gaps, evidence gaps, and optional refinement; assigns the correct correction owner and re-review target.
+- `CONTINUATION_OWNERSHIP`: distinguishes Design contract changes, implementation gaps, evidence gaps, and optional refinement; assigns the correct correction owner and re-review target.
 - `BOUNDARY_DISCIPLINE`: does not redesign, edit source, issue formal QA/UAT/release acceptance, or absorb capture mechanics.
 - `CONTENT_STRESS`: uses material content/state/viewport/localization/repetition pressure when it can invalidate the conclusion.
 - `REVIEW_CYCLE`: correction re-enters at the earliest invalid fixed-point/evidence state and reuses still-valid evidence instead of ceremonial full recapture.
@@ -73,7 +75,7 @@ A fixed implementation looks coherent against the reviewed Design reference. The
 Strong behavior must:
 - state that Design Review can report no blocking Design feedback for its reviewed scope;
 - not issue QA, UAT, or release acceptance;
-- hand the acceptance question to the QA/release owner with the exact reviewed evidence/limitations.
+- return the acceptance question to the QA/release owner with the exact reviewed evidence/limitations.
 
 ## DR8 — Review request turns into redesign
 A user starts with “critique this dashboard,” then asks “replace it with a new hierarchy and visual direction.”
@@ -81,7 +83,7 @@ A user starts with “critique this dashboard,” then asks “replace it with a
 Strong behavior must:
 - finish or summarize the critique truth that remains useful;
 - recognize that the terminal job has changed from review to authoring;
-- hand the recomposition/design decision to `product-design` rather than continuing to redesign inside `design-review`.
+- continue the recomposition/design decision through `product-design` rather than redesigning inside `design-review`.
 
 ## DR9 — Localization and responsive stress invalidate a clean screenshot
 English desktop screenshots look clean. German 200% text scaling causes action labels to wrap over values and destroys table comparison; no mobile screenshot exists.
@@ -203,8 +205,35 @@ The user provides an approved design reference and exact rendered implementation
 
 Strong behavior must:
 - recognize that the terminal job is Design/visual conformance rather than Design Review;
-- hand the PASS/FAIL acceptance question to `verify-quality` with visual-conformance scope;
+- continue the PASS/FAIL acceptance question through `verify-quality` with visual-conformance scope;
 - not expand the request into a broad critique unless a material contradiction blocks conformance truth;
 - preserve any existing Design Review findings as context only, never inherited QA verdicts.
+
+## Continuation / Handoff boundary cohort — frozen before source mutation
+
+## DR21 — Same-session redesign continuation is not a Handoff artifact
+A Design Review identifies the exact failed relation and the user immediately asks the same capable session to author the corrected composition. Canonical project sources already contain the review evidence and current Design truth.
+
+Strong behavior must:
+- close the review finding at correction intent/re-review target without authoring inside Design Review;
+- continue the new terminal authoring job through `product-design` without creating a Handoff artifact merely because the capability changes;
+- preserve the review evidence as bounded context rather than turning it into Design approval or Product truth.
+
+## DR22 — Downstream owner/action notes are not a default Handoff section
+A material Design Review result needs to record one Product decision to reopen, one Engineering divergence, and a future QA visual-conformance scope. All state is recoverable from the review result and canonical project sources.
+
+Strong behavior must:
+- record bounded continuation/owner/re-review notes without labeling the section `Handoff` by default;
+- keep each downstream authority separate and avoid inventing a route/orchestration sequence;
+- invoke dedicated Handoff semantics only when a real owner/agent/session/runtime transfer needs state that canonical sources cannot safely recover.
+
+## DR23 — Real transfer boundary still permits dedicated Handoff semantics
+A different external owner must continue the review correction in another runtime that cannot access the current evidence bundle or reconstruct the discriminating evidence from canonical sources.
+
+Strong behavior must:
+- recognize that this is a genuine transfer boundary rather than ordinary capability continuation;
+- preserve Design Review's bounded finding/authority and use the dedicated Handoff contract only for the unrecoverable continuation state;
+- not redefine every Product Design, Engineering, QA, or evidence-acquisition continuation as Handoff merely because this case qualifies.
+
 
 Runtime execution remains `NOT_RUN` until both the original and claim-centered cohorts are executed against an actual model/runtime with the final Skill loaded.

@@ -54,7 +54,7 @@ Rules:
 - Direct user/authorized decision in the current brainstorm → may be `DECIDED` within Brainstorm scope.
 - `DEC-n` is a stable reference for a material accepted Brainstorm decision, not evidence that downstream owners accepted it.
 - Decision-point row IDs such as `D1`/`D2` are structurally different from `DEC-n` decision references.
-- A source says something was decided but authority is unclear → preserve as an observed source claim or downstream handoff; do not silently canonicalize it.
+- A source says something was decided but authority is unclear → preserve as an observed source claim or downstream review/continuation note; do not silently canonicalize it.
 
 ## 4. Proposal signals
 

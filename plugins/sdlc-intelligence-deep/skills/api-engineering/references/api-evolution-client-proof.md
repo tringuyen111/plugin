@@ -1,12 +1,12 @@
 # API Evolution and Client Proof
 
-Load this reference when a caller-visible API change affects released/current consumers, schema evolution, versioning, deprecation, generated clients, endpoint inventory or compatibility migration. The goal is one current supported contract plus explicit coexistence only where real consumers require it.
+Load this reference when a caller-visible API change affects released/current consumers, schema evolution, versioning, deprecation, generated clients, endpoint inventory or compatibility migration. Use the parent term **Caller Contract** literally. The goal is one current supported Caller Contract plus explicit coexistence only where real consumers require it.
 
 ## 1. Compatibility is a consumer property
 
-Freeze the current contract and named consumers before judging a change. Inspect actual serialized requests/responses and client behavior, not source-type similarity.
+Freeze the current **Caller Contract** and named consumers before judging a change. Inspect actual serialized requests/responses and client behavior, not source-type similarity.
 
-Potential break surfaces include:
+Potential **Caller Contract** break surfaces include:
 
 - removing/renaming fields, operations or enum values;
 - changing type/shape/null/default/requiredness;
@@ -21,22 +21,22 @@ An additive change can still break strict clients; a semantic-equivalent replace
 
 ## 2. Prefer stable abstractions over handler-shaped contracts
 
-The API should express caller concepts, not leak database/service implementation structures. When a proposed change exists only because an internal model changed, adapt internally unless the approved external contract itself must change.
+The API should express caller concepts, not leak database/service implementation structures. When a proposed change exists only because an internal model changed, adapt internally unless the approved external **Caller Contract** itself must change.
 
-For new operations, validate the existing approved scenario/abstraction and current naming conventions. Do not add speculative operations or generic “execute/action/data” wrappers merely to avoid modeling the caller-visible concept.
+For new operations, validate the existing approved scenario/abstraction and current naming conventions. Do not add speculative operations or generic “execute/action/data” wrappers merely to avoid modeling the caller-visible concept in the **Caller Contract**.
 
 ## 3. Version only for a real compatibility boundary
 
 A new version is justified by an actual incompatible contract/lifetime requirement, not by fear of future change. Record:
 
 - current consumers and versions;
-- why one contract cannot serve them compatibly;
+- why one **Caller Contract** cannot serve them compatibly;
 - routing/version selection mechanism;
 - support/deprecation lifetime;
 - migration guidance/evidence;
 - removal owner/gate.
 
-Before an external compatibility obligation exists, keep one canonical API truth instead of parallel `v2` sediment.
+Before an external compatibility obligation exists, keep one canonical **Caller Contract** instead of parallel `v2` sediment.
 
 ## 4. Deprecation and inventory
 
@@ -59,7 +59,7 @@ API Engineering should recognize when a contract touches object/property/functio
 Before claiming compatibility:
 
 1. name the supported consumers/versions;
-2. state the exact old/new contract delta;
+2. state the exact old/new **Caller Contract** delta;
 3. identify potential parse/compile/behavior changes;
 4. run representative old/new client proof at the real transport boundary where feasible;
 5. record coexistence/deprecation/removal if more than one contract remains active.

@@ -152,4 +152,4 @@ Do not invent:
 - security/privacy control, implementation mechanism or provider;
 - verification PASS/FAIL, waiver decision, or release readiness.
 
-A source-complete requirement may still be `NOT_RUN` for verification. A local or substitute probe may later support only the claim it can falsify. `/verify-quality` owns executable QA proof semantics, evidence admission/verdict, and durable reusable condition artifacts when needed. The requirement must make the intended claim clear enough that downstream proof cannot silently change its meaning.
+A source-complete requirement may still be `NOT_RUN` for verification. A local or substitute probe may later support only the claim it can falsify. `verify-quality` owns executable QA proof semantics, evidence admission/verdict, and durable reusable condition artifacts when needed. The requirement must make the intended claim clear enough that downstream proof cannot silently change its meaning.

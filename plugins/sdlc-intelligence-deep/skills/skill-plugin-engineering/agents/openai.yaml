@@ -1,7 +1,7 @@
 interface:
   display_name: Skill & Plugin Engineering
-  short_description: Engineer, audit, upgrade, package, and migrate reusable Skills
-    or Plugins from exact artifact truth.
+  short_description: Engineer Skills, Plugins, and governing cross-capability semantics
+    from exact artifact truth.
   icon_small: assets/icon.svg
   icon_large: assets/icon.svg
 policy:

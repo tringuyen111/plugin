@@ -1,17 +1,17 @@
 {
   "name": "sdlc-intelligence-deep",
-  "version": "1.0.39",
-  "description": "SDLC judgment, independent engineering Skills, and a thin outcome-oriented Codex session kernel without a central Delivery router.",
+  "version": "1.0.81+codex.20260827055441",
+  "description": "SDLC judgment, independent engineering Skills, and optional stateless Codex-native resident guidance.",
   "author": {
-    "name": "Trí Nguyễn"
+    "name": "Tr\u00ed Nguy\u1ec5n"
   },
   "license": "LicenseRef-SDLC-Intelligence-Personal-Use-1.0",
   "skills": "./skills/",
   "interface": {
     "displayName": "SDLC Intelligence",
     "shortDescription": "Proportional SDLC judgment",
-    "longDescription": "Independent SDLC, product, design, engineering, QA, operations, documentation, and delivery Skills plus a thin Codex-native session kernel for source-first work, progressive context use, same-session capability composition, decision-dense communication, and proportional proof. Native Skill discovery selects capabilities; Skill activation is not a handoff, and the plugin does not reproduce a central Delivery router or host agent runtime.",
-    "developerName": "Trí Nguyễn",
+    "longDescription": "Independent SDLC, product, design, engineering, QA, operations, documentation, and delivery Skills with optional stateless Codex-native resident guidance. Codex owns native Skill discovery, execution, and session continuity; Skill activation adds procedural context rather than a workflow worker, router, scheduler, continuity store, or agent harness.",
+    "developerName": "Tr\u00ed Nguy\u1ec5n",
     "category": "Productivity",
     "capabilities": [
       "Proportional SDLC judgment",
@@ -23,8 +23,7 @@
       "End-to-end DevOps engineering",
       "Direct Skill and Plugin engineering",
       "Capability qualification evidence",
-      "Editable BPMN and Flowchart process diagrams",
-      "Deterministic Skill helpers"
+      "Editable BPMN and Flowchart process diagrams"
     ],
     "defaultPrompt": [
       "Audit this repository from verified source before proposing changes.",

@@ -36,7 +36,7 @@ Ask what is actually wrong:
 - Share meaning/glyph mapping is wrong across contexts -> `SEMANTIC_ROLE` scope;
 - the whole iconography family has mismatched stroke/optical mass -> `FOUNDATION` scope.
 
-**Correction:** change the smallest valid Design owner, then inspect at least one neighboring consumer/state. Hand file/import/source propagation to Frontend Engineering instead of inventing source dependencies inside Product Design.
+**Correction:** change the smallest valid Design owner, then inspect at least one neighboring consumer/state. Leave file/import/source propagation to Frontend Engineering instead of inventing source dependencies inside Product Design.
 
 ## 2. The same `24` does not mean the same spacing role
 

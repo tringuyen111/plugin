@@ -1,6 +1,8 @@
 # Frozen Vertical-Depth Cases — Product Design System Coherence & Adaptation
 
-Status: frozen before Product Design source mutation. Behavioral execution remains separate from validator status.
+Evidence-State: `NOT_RUN`
+
+Freeze-Note: Frozen before Product Design source mutation; behavioral execution remains separate from validator status.
 
 ## Rubric
 
@@ -13,7 +15,7 @@ Status: frozen before Product Design source mutation. Behavioral execution remai
 - `INTERACTION_ANATOMY`: models anchor/target/action/state relations including nested interactions and material pointer/touch/keyboard behavior.
 - `ADAPTIVE_CONSTRAINTS`: reasons width, height, aspect/usable viewport, content pressure, text scale/locale, overlays/keyboard, input capabilities and state together rather than device labels alone.
 - `MODALITY_CONTINUITY`: preserves semantic action across touch/pointer/keyboard/stylus/assistive modes without requiring identical presentation.
-- `BOUNDARY_DISCIPLINE`: keeps Product Design at design truth/propagation and hands code/source dependency propagation to Frontend Engineering.
+- `BOUNDARY_DISCIPLINE`: keeps Product Design at design truth/propagation and leaves code/source dependency propagation to Frontend Engineering.
 - `VISIBLE_PROOF`: uses render/inspection when micro-geometry or visible coherence is material; does not upgrade prose completeness to craft proof.
 
 ## PDS1 — Cross-screen color drift
@@ -123,7 +125,7 @@ A shared button should become more compact across the product. Product truth per
 Strong behavior must:
 - define the Design-system change and design-level affected contexts/variants/states;
 - state the invariants that must survive the compact treatment;
-- hand source-file/import/CSS dependency discovery and implementation migration to Frontend Engineering;
+- leave source-file/import/CSS dependency discovery and implementation migration to Frontend Engineering;
 - not claim implementation blast radius without source evidence.
 
 ## PDS14 — Micro-geometry visible inconsistency
@@ -134,3 +136,27 @@ Strong behavior must:
 - diagnose whether the defect is shared anatomy, icon asset geometry or local wrapper/mapping;
 - use the smallest coherent correction and re-render representative repeated instances;
 - not treat token conformance alone as visual READY.
+
+## PDS15 — same-session capability continuation is not a Handoff artifact
+A Product Design task resolves static composition but leaves one runtime focus/timing question that Prototype could answer in the same active session. Canonical project sources already carry the Design state.
+
+Strong behavior must:
+- return the bounded unresolved runtime question/constraints for Prototype consumption;
+- not create or label a Handoff artifact merely because another capability becomes useful;
+- keep Product Design as the owner of the Design decision and Prototype as executable learning only.
+
+## PDS16 — downstream implementation/review notes are not automatically Handoff
+A durable Design projection needs to record Frontend implementation constraints and later visual review/QA scope. No owner/session/runtime transfer needs non-recoverable execution state.
+
+Strong behavior must:
+- record these as downstream continuation/consumer notes;
+- not call the section `Handoffs` by default;
+- use the dedicated Handoff semantics only when a real transfer boundary exists and canonical sources are insufficient for safe continuation.
+
+## PDS17 — user/process handoff inside a designed flow remains domain semantics
+A business workflow moves from requester to approver and that actor transition changes user-visible state and valid continuation.
+
+Strong behavior must:
+- preserve the actor/process handoff as part of the designed experience/flow;
+- not confuse that domain transition with the Plugin Handoff capability;
+- keep technical/runtime owner routing out of the user flow unless it is user-visible approved behavior.

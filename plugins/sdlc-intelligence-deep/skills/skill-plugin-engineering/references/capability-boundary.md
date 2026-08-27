@@ -50,6 +50,8 @@ Do not improve a weak candidate until it passes. Reclassify it instead.
 
 First-class identity implies local sufficiency, not knowledge exclusivity. Unless the runtime contract guarantees another capability will be active, a Skill must expose enough of its own decision mechanism, governing constraints, failure/correction logic, and completion semantics to perform its accountable job when invoked directly. Its own conditional references count as local context; an unrelated sibling Skill does not.
 
+Treat the boundary as an **accountability/authority boundary, not an ignorance boundary**. A Skill may need deep knowledge from adjacent specialties when that knowledge changes whether its own outcome is correct. Keep the foreign terminal decision or authority with the proper owner, but do not eject the local consequence: apply already-established adjacent constraints, preserve unblocked work, and hand off/compose only the genuinely foreign decision.
+
 Do not remove a decision-critical rule merely because another Skill teaches a similar principle. Adjacent Skills may legitimately repeat a compact concept when it drives different decisions under different accountable outcomes. Split/merge decisions follow job, mechanism, authority, completion, and independent value—not whether two Skills share vocabulary or a reusable heuristic.
 
 Challenge cross-Skill overlap only when it creates a material defect: contradictory guidance, boundary/authority collision, repeated context cost under real co-loading, or maintenance divergence capable of changing behavior. Otherwise prefer independently capable Skills over theoretical deduplication.

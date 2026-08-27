@@ -1,10 +1,11 @@
 # Product Definition vertical-depth behavioral cases
 
-Status: `NOT_RUN` unless executed with a suitable agent/runtime. These cases freeze the expected decision delta from the pre-edit v1.0.11 baseline and the reviewed P1-P28 pressure test.
+Evidence-State: `NOT_RUN`
+Freeze-Note: Cases freeze the expected Product Definition decision behavior; they are not behavioral PASS evidence by themselves.
 
 ## Rubric
 
-- `COMMITMENT`: distinguishes `OUTCOME | CONTRIBUTION | LEARNING` so partial scope cannot silently claim a whole-journey outcome.
+- `COMMITMENT`: keeps `Outcome Claim = OUTCOME | CONTRIBUTION | NO_OUTCOME_CLAIM` independent from `Learning Commitment = LEARNING | NO_LEARNING_COMMITMENT`, so learning does not erase outcome truth and partial scope cannot silently claim a whole-journey outcome.
 - `VALUE_MECHANISM`: connects user-condition change to business value; usage/frequency alone is not value.
 - `CURRENT_TRUTH`: inventories existing capability/workaround and identifies the material blocker before adding scope.
 - `SCOPE_ENVELOPE`: tests necessity and sufficiency relative to the declared commitment without importing BA/Design/Engineering detail.
@@ -78,3 +79,68 @@ Expected: treat cost shape as a business-viability risk that can change entitlem
 - Agent ignores live operating cadence/scale/criticality that makes the proposed capability unusable for the declared commitment.
 - Agent invents Free/Pro/Enterprise fences, price points, willingness-to-pay evidence, billing mechanics, or commercial authority.
 - Agent forces deep topology/commercial analysis on a simple case where those decisions are not material.
+
+## F5d Prompt / Knowledge Architecture qualification
+
+These cases freeze the expected context-activation behavior after the Product Definition prompt-architecture refactor. Status remains `NOT_RUN` until executed against an actual model/runtime.
+
+### P14 — simple bounded Product definition does not preload depth
+Input: one small reversible capability has a supported opportunity, `Outcome Claim = CONTRIBUTION`, `Learning Commitment = NO_LEARNING_COMMITMENT`, an obvious current capability delta, one directly linked metric with no target controversy, and no material operating/future/commercial uncertainty.
+Expected: complete the Product recommendation from resident truth plus only the depth actually needed. Do not load topology, operating-shape, option-horizon, commercial-viability, priority-framework, or durable-format modules merely because they exist.
+
+### P15 — measurement uncertainty activates measurement only
+Input: Product outcome and scope are stable, but the proposed success metric is an engagement proxy with no defensible target basis and a plausible quality guardrail.
+Expected: activate `references/outcome-measurement.md`; return metric role/outcome link, proxy limitation, target basis/unknown, and guardrail/prerequisite. Do not reopen unrelated capability scope unless the measurement finding actually invalidates it.
+
+### P16 — current capability truth activates capability/scope
+Input: account recovery already supports password reset but inaccessible MFA remains the blocker; proposal rebuilds all recovery in a new center.
+Expected: activate `references/capability-scope.md`; return current capability truth, blocker, `REUSE/EXTEND/NEW` delta, smallest justified scope/non-goals, and no implementation/module architecture.
+
+### P17 — operating shape returns Product constraint, not mechanics
+Input: migration admins must onboard 2,000 employees periodically and one-at-a-time operation cannot satisfy the declared Product commitment.
+Expected: activate `references/operating-shape.md`; return the scale/cadence insufficiency and Product-level capability/constraint. Do not choose bulk UI, import format, API, queue, or batch-job implementation.
+
+### P18 — option horizon does not become technical future-proofing
+Input: repeated evidence makes scheduled report delivery a likely adjacent need, but it is not required for the current reporting commitment.
+Expected: activate `references/option-horizon.md`; return `PRESERVE_OPTION` only when justified, plus the current Product relation/trade-off. Do not mandate generic platform/extensibility architecture or scope the future capability now.
+
+### P19 — commercial viability stays Product-level
+Input: an AI capability has strong value but cost-to-serve grows materially with usage; no pricing research or commercial authority is present.
+Expected: activate `references/commercial-viability.md`; return the viability risk/hypothesis and its effect on scope/priority with unresolved evidence/owner. Do not invent price points, tiers, usage limits, billing mechanics, or commercial approval.
+
+### P20 — priority sensitivity avoids fake precision
+Input: two Product commitments remain close; one has higher user consequence while the other has stronger strategic alignment, and no authorized weights exist.
+Expected: activate `references/priority-decision.md`; return evidence-backed trade-off/tie and the exact evidence or authorized weight that would change disposition. Do not fabricate a composite score.
+
+### P21 — durable format is projection only
+Input: Product truth is complete inline and later needs durable governed persistence.
+Expected: load `references/product-definition-format.md` only to serialize established truth. Do not let the template invent a Product identity, baseline, target, scope, priority, continuation owner, or Authorized Product decision.
+
+### P22 — contribution and learning are independent
+Input: Product can materially improve one part of a larger outcome but must also use the same bounded scope to discriminate a decision-critical adoption assumption.
+Expected: return `Outcome Claim = CONTRIBUTION` and `Learning Commitment = LEARNING`; preserve remaining whole-outcome blockers and the named learning question. Do not collapse the pair into one mutually-exclusive `LEARNING` commitment or silently upgrade the contribution to `OUTCOME`.
+
+### P23 — outcome and learning may coexist
+Input: Product claims the bounded target condition is achievable subject only to explicit dependencies, while a decision-critical assumption still requires discriminating evidence during the scope.
+Expected: allow `Outcome Claim = OUTCOME` together with `Learning Commitment = LEARNING`; the learning obligation does not automatically weaken the Outcome Claim.
+
+### P24 — pure learning does not fabricate outcome value
+Input: the current Product slice exists only to discriminate a strategic assumption and makes no present claim that the target user/business condition improves.
+Expected: return `Outcome Claim = NO_OUTCOME_CLAIM` and `Learning Commitment = LEARNING`; keep user/business outcomes as opportunity context without presenting experiment activity as delivered Product value.
+
+### P25 — no ceremonial learning commitment
+Input: one bounded contribution has a clear evidence-grounded scope and no decision-critical assumption that the current slice must discriminate.
+Expected: return `Outcome Claim = CONTRIBUTION` and `Learning Commitment = NO_LEARNING_COMMITMENT`; do not invent an experiment or evidence obligation merely for completeness.
+
+### P26 — learning invalidation re-enters only dependents
+Input: a Product definition has an independently supported Outcome Claim and scope plus a Learning Commitment. New evidence invalidates only the learning question, not the outcome mechanism or scope premise.
+Expected: reopen the learning evidence path and dependent measurement/experiment/recommendation only. Preserve the independent Outcome Claim and scope unless the invalidated learning premise actually supported them.
+
+## F5d prompt-architecture falsifiers
+
+- The Agent loads both legacy-sized Product Definition contracts or all decision modules before identifying the current Product decision frontier.
+- A conditional module ends at `read this reference` without returning the named Product decision/state/evidence update.
+- `SKILL.md` and a support module each act as competing end-to-end Product Definition workflow authorities.
+- A simple bounded Product definition forces topology, operating-shape, future-option, commercial, priority-framework, or durable-format depth.
+- A loaded module widens Product Definition into BA/Design/Architecture/Engineering/QA, metrics evidence verdicts, pricing/billing/legal mechanics, or invented execution ownership.
+- Durable projection creates Product truth that was not established or authorized before serialization.

@@ -22,8 +22,8 @@ source_refs:
 links: []
 tags: [brainstorm, checkout]
 changelog:
-  - 2026-08-09 | /brainstorm | created working brainstorm artifact from fixture seed
-  - 2026-08-09 | /brainstorm | DEC-1: pending attempt prevents automatic competing payment attempts; OQ-3 remains open
+  - 2026-08-09 | brainstorm | created working brainstorm artifact from fixture seed
+  - 2026-08-09 | brainstorm | DEC-1: pending attempt prevents automatic competing payment attempts; OQ-3 remains open
 ---
 
 # Recover an external payment attempt after redirect interruption
@@ -242,15 +242,15 @@ Exact target percentages are **UNRESOLVED**.
 
 ## 12. Next Steps
 
-### Suggested handoffs
+### Suggested downstream reviews/actions
 
 - PRD owner: decide canonical pending/retry/price-change product rules and v1 support scope.
 - SRS owner: design technical reconciliation/idempotency after product behavior is decided.
 - Operations/support owner: review customer-support implications if support visibility enters scope.
 
-### Downstream impact handoff
+### Downstream impact continuation
 
-| Owner / Artifact | Detected impact | Why review is needed | Requested handoff |
+| Owner / Artifact | Detected impact | Why review is needed | Requested review/action |
 |---|---|---|---|
 | PRD | pending/retry policy | changes user-visible product behavior | product owner decides canonical rule |
 | SRS | concurrent/late result handling | technical design depends on canonical product rule | architect/engineering designs after PRD decision |

@@ -1,5 +1,7 @@
 # Frozen Behavioral Qualification Cases — codebase-design atomicity scope
 
+Evidence-State: `NOT_RUN`
+
 These cases were frozen before the candidate edit. They test architectural atomicity reasoning; runtime execution is `NOT_RUN` until an actual model/Skill runner exists.
 
 ## Rubric dimensions

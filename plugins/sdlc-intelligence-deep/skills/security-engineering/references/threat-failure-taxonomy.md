@@ -25,7 +25,7 @@ One mechanism can establish one security property while leaving another complete
 | --- | --- | --- | --- |
 | authentication/session validation | who the current subject/session is, within the validated lifecycle | permission for this object/property/action or current relationship | keep the valid identity; change only object/action/scope |
 | object/action authorization decision | whether this subject may perform this operation on this scope under the bound policy inputs | credential freshness outside the inputs, request authenticity, replay uniqueness, network containment | keep identity/object; vary the policy-relevant relationship/property/action |
-| signature/MAC verification | authenticity/integrity for exactly the signed fields under that key contract | freshness, uniqueness, business idempotency, resource authorization | keep the signature valid; replay or change a separately authorized resource dimension |
+| signature/MAC verification | authenticity/integrity for exactly the signed fields under that key contract | Replay Freshness, Business Idempotency, resource authorization | keep the signature valid; violate the approved Replay Freshness rule or change a separately authorized resource dimension |
 | CSRF/origin/token control | whether an ambient-credential browser state change satisfies the approved cross-site request protection | object/action authorization or XSS resistance | keep the authenticated session/action; vary same-site vs cross-site request provenance |
 | outbound destination containment | whether the server may reach the resolved destination under the approved network rule | caller permission for the business action or trustworthiness of returned content | keep request semantics; vary only destination/redirect/resolution class |
 | rate/usage control | whether consumption remains within the approved abuse/resource envelope | authorization to the object/action or semantic validity of each request | keep requests policy-valid; vary only approved usage-rate/resource dimension |
@@ -68,11 +68,13 @@ Separate credential validity from session authorization freshness. Material clas
 
 A cryptographically valid token can still be stale, mis-scoped or no longer authorized.
 
-## 4. Authenticity, replay and duplicate side effects
+## 4. Authenticity and replay; keep the business-effect boundary explicit
 
-A valid signature/MAC proves only the property covered by the signing contract. It does not automatically prove freshness, uniqueness, authorization of the resulting business action or idempotent processing.
+A valid signature/MAC proves only authenticity/integrity for the fields covered by the signing contract. It does not automatically prove replay admission, authorization of the resulting business action, business idempotency or one-business-effect semantics.
 
-When duplicate execution matters, inspect timestamp/nonce/event-id/idempotency semantics, accepted replay window, storage lifetime and duplicate behavior. Probe a valid duplicate through the real handler.
+Call the Security Property that decides whether an otherwise authentic request/event is still admissible under approved timestamp, nonce, replay-window or event-reuse semantics **Replay Freshness**. Inspect those inputs only insofar as approved Security Policy gives them security meaning, plus the accepted replay window, replay-state lifetime and admission behavior. Probe an otherwise authentic stale/replayed request through the real handler. Replay Freshness is separate from business idempotency, whose operation/effect identity comes from API/Backend/Data.
+
+If the requirement concerns preventing a repeated business effect, consume the approved logical-operation/effect identity and equivalence contract from API/Backend/Data. Do not infer that identity from payload equality, signatures, nonce values or transport/event/delivery/request IDs merely because Security can observe them. Prove security admission separately from the business-effect/idempotency enforcement site.
 
 ## 5. Browser ambient-authority / CSRF boundary
 
@@ -110,7 +112,7 @@ Reject these unless the named authoritative proof exists:
 - **“The ID is unguessable.”** Object scope still needs authorization.
 - **“The user is authenticated.”** Identity is not permission for every object/action/property.
 - **“The route/button is hidden.”** Client/navigation visibility is not server enforcement.
-- **“The signature is valid.”** Authenticity does not prove freshness, replay safety or business idempotency.
+- **“The signature is valid.”** Authenticity does not prove replay/freshness admission or business idempotency.
 - **“The URL is syntactically valid / internal.”** Parsing and naming do not establish safe network destination/reachability.
 - **“The framework handles it.”** Verify the actual configuration and that the inspected path passes through the control.
 - **“There is rate limiting.”** Throttling is not authorization and may not cover a sensitive business-flow invariant.

@@ -7,7 +7,7 @@ description: Capture state-aware visual evidence from local HTML or a live appli
 
 
 
-Own the visual-evidence workflow for the provider-neutral `browser.capture` capability. Use the deterministic local implementation in [`scripts/`](scripts/) when it is the known suitable executor. If several live sources could materially change fidelity, data boundary, or outcome, resolve the source choice from explicit user/project/provider evidence before capture. When `capability-resolver` is available it may supply that bounded selection evidence, but absence of that sibling Skill is not itself a blocker. A Project Capability Profile or Resolution Record is not a prerequisite for an obvious single-source capture.
+Own the visual-evidence workflow for the provider-neutral `browser.capture` capability. Use the deterministic local implementation in [`scripts/`](scripts/) when it is the known suitable executor. If several live sources could materially change fidelity, data boundary, or outcome, resolve the source choice from explicit user/project/provider evidence before capture. When `provider-source-selection` is available it may supply that bounded selection evidence, but absence of that sibling Skill is not itself a blocker. A Project Capability Profile or Resolution Record is not a prerequisite for an obvious single-source capture.
 
 This workflow owns the capture job, redaction policy, annotation intent, image
 inspection requirement, and provenance handoff. Provider adapters own capture

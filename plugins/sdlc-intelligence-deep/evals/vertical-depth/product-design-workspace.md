@@ -1,6 +1,8 @@
 # Product Design — Spatial Workspace / Coordinate-Space Pressure Test
 
-Status: FROZEN BEFORE PRODUCT-DESIGN SOURCE MUTATION
+Evidence-State: `NOT_RUN`
+
+Freeze-State: `FROZEN_BEFORE_PRODUCT_DESIGN_SOURCE_MUTATION`
 
 ## Exact real application binding
 

@@ -7,7 +7,7 @@ Load this reference when a raw idea needs deeper behavioral clarification, compl
 Classify each lens from current evidence:
 
 ```text
-ACTIVE        missing/partial meaning can materially change the idea or handoff
+ACTIVE        missing/partial meaning can materially change the idea or continuation
 SATISFIED     current information is sufficient for this brainstorm scope
 DORMANT       not currently needed, but plausible new information could activate it
 NOT_MATERIAL  current evidence makes omission safe for this scope
@@ -20,7 +20,7 @@ OBSERVED / resolved
 DECIDED within brainstorm scope
 PROPOSED and awaiting judgment
 UNRESOLVED / TBD / OQ
-correct downstream-authority handoff
+correct downstream-authority continuation
 ```
 
 Do not mark a lens complete merely to shorten the interview.
@@ -174,7 +174,7 @@ Do not force a representation when prose is clearer.
 
 Question selection is value-of-information driven:
 
-- ask when an answer can change a possibility, flow, rule, risk, or handoff;
+- ask when an answer can change a possibility, flow, rule, risk, or continuation;
 - inspect source-answerable facts instead of asking;
 - group only tightly coupled factual gaps;
 - re-enter divergence when new information invalidates the initial framing or reveals a credible new alternative;

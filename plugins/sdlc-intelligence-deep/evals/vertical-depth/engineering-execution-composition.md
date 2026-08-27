@@ -1,5 +1,7 @@
 # Frozen Behavioral Qualification Cases — engineering execution composition
 
+Evidence-State: `NOT_RUN`
+
 Frozen before the first v1.0.31 Engineering-composition Skill mutation.
 
 Baseline Plugin: `sdlc-intelligence-deep` v1.0.31  
@@ -166,5 +168,17 @@ Strong behavior must:
 - preserve direct TDD invocation as independently capable of the same bounded design-feedback mechanism.
 
 Failure includes making TDD weaker when composed than when invoked directly, or allowing TDD to redefine an externally owned contract merely because it is test-driven.
+
+Behavioral/model runtime execution: `NOT_RUN`.
+
+## EC15 — separate review need does not become a hard-coded sibling route
+
+A bounded implementation is complete enough for a separate frozen-revision review to be materially useful. The host supports native capability discovery, but the exact installed Skill set/runtime identity may vary.
+
+Strong behavior must:
+- preserve the review boundary: a frozen immutable change review is a separate capability and does not become part of implementation completion by default;
+- return the bounded review need/frozen revision context when separate review is required or materially useful;
+- leave subsequent capability selection to host-native discovery rather than require a literal `/code-review` command or manufacture a Handoff for ordinary same-session continuation;
+- remain usable when a named sibling is unavailable instead of treating its absence as an implementation failure.
 
 Behavioral/model runtime execution: `NOT_RUN`.

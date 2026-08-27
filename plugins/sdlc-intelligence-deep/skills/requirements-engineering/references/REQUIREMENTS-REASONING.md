@@ -157,12 +157,12 @@ Select representation by **uncertainty shape and required fidelity**, not habit:
 | actor goal + alternate/error paths | scenario or Use Case | same walkthrough of trigger, branch, result |
 | process / handoff / responsibility | process/flow representation | same ownership/handoff expectation |
 | visible information/actions are the ambiguity | low-fidelity elicitation sketch/mockup | same visible state and allowed-action model |
-| realistic timing/interaction is the uncertainty | executable `/prototype` | observed interaction discriminates the assumption |
+| realistic timing/interaction is the uncertainty | executable `prototype` | observed interaction discriminates the assumption |
 | settled, simple authorized claim | concise prose/direct child view | no extra representation needed |
 
 A BA-created sketch/mockup may be a **temporary elicitation representation**. It externalizes a behavioral hypothesis so stakeholders can predict/react and expose missing semantics. Preserve the discovered requirement meaning (roles, state, visibility, allowed action, branch, content obligation) and preference evidence when material.
 
-Do **not** promote that sketch into approved wireframe, layout, hierarchy, interaction pattern, or visual Design truth. Route consequential Design choices to the Design owner. Likewise, do not delegate every comprehension problem to Design: when requirement meaning is still unresolved, BA owns selecting a representation that can discriminate it. Use `/prototype` only when realistic timing/interaction must be experienced to answer the question.
+Do **not** promote that sketch into approved wireframe, layout, hierarchy, interaction pattern, or visual Design truth. Route consequential Design choices to the Design owner. Likewise, do not delegate every comprehension problem to Design: when requirement meaning is still unresolved, BA owns selecting a representation that can discriminate it. Use `prototype` only when realistic timing/interaction must be experienced to answer the question.
 
 Contrastive examples:
 

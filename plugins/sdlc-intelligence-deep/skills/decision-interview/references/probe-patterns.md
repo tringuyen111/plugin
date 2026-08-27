@@ -121,7 +121,7 @@ Weak:
 > Everything looks resolved. One more question: what is your rollback plan?
 
 Better:
-> No material human-owned or bounded-input frontier remains for this handoff. Rollback mechanics are already source-defined and belong to execution/release verification, so I would close the interview here.
+> No material human-owned or bounded-input frontier remains for the caller's current decision or continuation. Rollback mechanics are already source-defined and belong to execution/release verification, so I would close the interview here.
 
 Why: invocation does not justify ceremony.
 

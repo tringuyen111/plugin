@@ -85,7 +85,7 @@ A result inherits only the environment/data/workload actually executed. A laptop
 
 When the exact required environment is unavailable, preserve useful narrower evidence and keep the wider condition non-PASS rather than pretending equivalence.
 
-## 10. Evidence handoff to QA admission
+## 10. Evidence packet for QA admission
 
 After execution record:
 

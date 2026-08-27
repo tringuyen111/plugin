@@ -76,7 +76,7 @@ Use when the user/project is creating or updating a canonical Story artifact, re
 - Add canonical implementation / QA / release references only when they really exist and are needed for navigation or change impact.
 
 ## Change impact
-- When this persisted approved Story/source revision changes materially and downstream artifacts exist, use `/traceability` for impact analysis.
+- When this persisted approved Story/source revision changes materially and downstream artifacts exist, use `traceability` for impact analysis.
 
 ## Open questions
 ```

@@ -53,7 +53,7 @@ Try these roughly in order when they exercise the real symptom without unaccepta
 7. **Property / fuzz loop** for input-sensitive or intermittent failures.
 8. **Bisection harness** only when a stable predicate can classify the property being searched.
 9. **Differential loop** over old/new versions, configs, or environments with the same meaningful input.
-10. **HITL loop** as a last resort. If a human action is unavoidable, structure it through `scripts/hitl-loop.template.sh` and preserve the evidence as HITL.
+10. **HITL loop** as a last resort. If a human action is unavoidable, adapt `scripts/hitl-loop.template.sh` for a user-accessible interactive terminal. Run it directly only when the user can participate in that same session; otherwise provide the adapted script for the user to run and return the machine-readable captured block. Preserve that result as labeled HITL evidence.
 
 ### Tighten the evidence
 

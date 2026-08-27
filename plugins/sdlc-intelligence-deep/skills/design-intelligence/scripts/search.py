@@ -6,7 +6,6 @@ import io
 import json
 import sys
 from core import AVAILABLE_STACKS, CSV_CONFIG, MAX_RESULTS, UNTRUNCATED_COLS, search, search_stack
-from design_system import generate_design_system
 
 if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
@@ -71,21 +70,8 @@ def main() -> int:
     parser.add_argument("--max-results", "-n", type=int, default=MAX_RESULTS)
     parser.add_argument("--json", action="store_true")
     parser.add_argument("--full", action="store_true")
-    parser.add_argument("--design-system", "-ds", action="store_true", help="Generate an advisory Design Intelligence recommendation from bundled evidence")
-    parser.add_argument("--project-name", "-p")
-    parser.add_argument("--format", "-f", choices=["ascii", "markdown"], default="ascii")
-    parser.add_argument("--variance", type=int, choices=range(1, 11), metavar="1-10")
-    parser.add_argument("--motion", type=int, choices=range(1, 11), metavar="1-10")
-    parser.add_argument("--density", type=int, choices=range(1, 11), metavar="1-10")
     args = parser.parse_args()
 
-    if args.design_system:
-        result = generate_design_system(
-            args.query, args.project_name, args.format,
-            variance=args.variance, motion=args.motion, density=args.density,
-        )
-        print(json.dumps(result["design_system"], indent=2, ensure_ascii=False) if args.json else result["text"])
-        return 0
     result = search_stack(args.query, args.stack, args.max_results) if args.stack else search(args.query, args.domain, args.max_results)
     print(json.dumps(result, indent=2, ensure_ascii=False) if args.json else format_output(result, full=args.full))
     return 0

@@ -60,7 +60,7 @@ For provider acknowledgement, timeout, or ambiguous results, record observed/rec
 | Time | Observation / decision / action | Evidence | Owner / authority | Outcome |
 |---|---|---|---|---|
 
-## Technical diagnosis handoff
+## Technical diagnosis evidence / ownership
 
 - Engineering / diagnosis owner:
 - Evidence mode: REPRODUCTION | OBSERVATION | FORENSIC | INSUFFICIENT
@@ -108,5 +108,5 @@ For provider acknowledgement, timeout, or ambiguous results, record observed/rec
 - Cleanup or restoration owner:
 - Remaining unknowns / risks:
 - Customer/support obligations:
-- Incident-learning / postmortem handoff:
+- Incident-learning / postmortem continuation:
 ```

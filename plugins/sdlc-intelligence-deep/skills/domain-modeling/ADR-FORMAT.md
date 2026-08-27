@@ -14,7 +14,7 @@ All of the following must hold before Domain Modeling captures a durable semanti
 4. **Real trade-off** — material semantic alternatives existed and the authorized owner selected one for specific reasons.
 5. **Authorized durable store** — current project truth permits this class of domain decision in the selected store.
 
-If authority is unresolved, keep the proposal inline as `PARTIAL`; do not create an accepted decision record. If the actual decision is architectural, technical, Product, or Business Rule policy, hand it to that owner and only link the resulting canonical decision back into the domain model when useful.
+If authority is unresolved, keep the proposal inline as `PARTIAL`; do not create an accepted decision record. If the actual decision is architectural, technical, Product, or Business Rule policy, return that decision to the accountable owner and only link the resulting canonical decision back into the domain model when useful.
 
 ## Minimum semantic record
 
@@ -51,8 +51,8 @@ Include only when they add decision value:
 | Decision actually being made | Domain Modeling action |
 |---|---|
 | concept identity, vocabulary, role/relationship meaning, invariant authority already established, lifecycle identity, semantic context boundary, or context translation | may capture the accepted semantic/context rationale when the admission boundary above is satisfied |
-| eligibility, permission, threshold, calculation, precedence, obligation, exception, or other normative policy | return the directive to the `/requirements-engineering` Business Rule branch or Product/domain policy authority; do not record it as a Domain Modeling decision |
-| architecture shape, service/module/data ownership, API/interface design, event vs request/response integration, database choice, framework/library/tool, deployment/construction technique, or implementation mechanism | hand the semantic constraints to the Architecture/Engineering owner; do not author or approve an architectural ADR here |
+| eligibility, permission, threshold, calculation, precedence, obligation, exception, or other normative policy | return the directive to the `requirements-engineering` Business Rule branch or Product/domain policy authority; do not record it as a Domain Modeling decision |
+| architecture shape, service/module/data ownership, API/interface design, event vs request/response integration, database choice, framework/library/tool, deployment/construction technique, or implementation mechanism | return the semantic constraints to the Architecture/Engineering owner; do not author or approve an architectural ADR here |
 | unresolved proposal, stakeholder preference, or inferred meaning without required authority | keep it proposed/`PARTIAL`; do not create an accepted durable decision record |
 
 ## Identifier and location policy
@@ -66,6 +66,6 @@ Include only when they add decision value:
 
 **Domain-semantic decision:** Billing uses `Account` for a financial ledger while Authentication uses `Account` for a login identity. The domain owners accept two context-qualified concepts plus an explicit translation boundary after rejecting forced global unification. If this trade-off is consequential and the project permits domain decisions in its decision log, Domain Modeling may capture that rationale.
 
-**Architecture near-miss:** The same contexts need to exchange customer status. Choosing Kafka, REST, shared storage, or a service ownership boundary is not Domain Modeling. Preserve the semantic facts that must cross the boundary, then hand the technical decision to the Architecture owner.
+**Architecture near-miss:** The same contexts need to exchange customer status. Choosing Kafka, REST, shared storage, or a service ownership boundary is not Domain Modeling. Preserve the semantic facts that must cross the boundary, then return the technical decision to the Architecture owner.
 
 **Policy near-miss:** Deciding that Gold customers receive a 15% refund is a normative Business Rule/Product decision, not a semantic/context decision, even if the project stores all decisions in one folder.

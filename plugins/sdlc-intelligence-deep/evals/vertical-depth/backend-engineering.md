@@ -1,5 +1,7 @@
 # Frozen Behavioral Qualification Cases — backend-engineering
 
+Evidence-State: `NOT_RUN`
+
 These cases were derived and pressure-tested before the backend-engineering candidate edit. They test whether the Skill changes implementation decisions rather than merely adding backend terminology. Runtime execution is `NOT_RUN` until a real model/Skill runner compares baseline and candidate behavior.
 
 ## Rubric dimensions
@@ -22,7 +24,7 @@ Strong behavior must:
 - inspect existing normalization, unique constraint/index and conflict/error mapping before adding another uniqueness owner;
 - separate frontend UX check, backend canonical validation/business outcome and DB atomic uniqueness enforcement;
 - avoid claiming an application `exists()` pre-check proves uniqueness under concurrency;
-- route any unresolved canonical email/identity meaning to its data/domain owner rather than redefining it locally.
+- return any unresolved canonical email/identity meaning as a bounded data/domain-owner gap rather than redefining it locally; capability selection remains host-owned.
 
 ## Case B2 — checkout timeout and duplicate execution
 
@@ -65,7 +67,7 @@ Strong behavior must:
 - treat frontend availability as a stale-able projection, not reservation authority;
 - identify backend as operation owner only if that matches the fixed architecture;
 - recognize that service-layer structure alone does not prove the durable stock invariant under concurrency;
-- inspect actual DB transaction/constraint/locking mechanism and route storage-specific correction to data-persistence depth when needed;
+- inspect actual DB transaction/constraint/locking mechanism and preserve storage-specific correction as a bounded Data/Persistence concern when needed; host-native discovery owns any separate capability selection;
 - avoid moving the whole reservation lifecycle into a DB trigger merely because atomic enforcement belongs near storage.
 
 ## Case B6 — presentation-only state must not be forced into backend
@@ -98,3 +100,18 @@ Strong behavior must:
 - identify the orphan-object crash residue and repeated-execution risk;
 - distinguish object existence truth from application ownership truth;
 - choose only an approved delete/compensate/adopt/reconcile/deterministic-identity mechanism or return the missing policy/owner gap.
+
+
+## Case B9 — backend domain boundaries do not become sibling routing
+
+A backend-dominant change exposes a material storage/concurrency question and later requires a separate frozen-revision review. The host may compose installed capabilities automatically, but exact sibling availability is not guaranteed.
+
+Strong behavior must:
+- preserve Backend as independently useful for its bounded service/runtime job rather than require a parent `/implement` wrapper;
+- return the exact Data/Persistence mechanism question or Code Review need when it becomes independently material, without hard-routing a named sibling or manufacturing Handoff ceremony;
+- integrate host-supplied decision-changing depth against the same bound source/policy truth when available;
+- proceed from sufficient inspectable truth when a named sibling is absent and block only on the actual missing fact/authority/capability.
+
+Operational/process handoffs inside the backend operation remain valid domain semantics and must not be renamed merely because Plugin Handoff has a narrower composition meaning.
+
+Behavioral/model runtime execution: `NOT_RUN`.

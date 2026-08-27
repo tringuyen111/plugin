@@ -29,7 +29,7 @@ If project policy requires extra confirmation for local writes, follow that poli
 
 ## L1 — Finalize the living brainstorm
 
-**Question:** `Does the user accept this consolidated brainstorm state as finalized for now and ready for downstream handoff?`
+**Question:** `Does the user accept this consolidated brainstorm state as finalized for now and ready for downstream continuation?`
 
 L1 happens after the skill has already maintained the working artifact.
 
@@ -61,7 +61,7 @@ Finalize / Continue revising / Hold
 
 ### Outcomes
 
-- **Finalize** → set `status: finalized`, update changelog/date, preserve unresolved OQs visibly, and provide downstream handoff suggestions.
+- **Finalize** → set `status: finalized`, update changelog/date, preserve unresolved OQs visibly, and provide downstream review/continuation suggestions.
 - **Continue revising** → keep `status: working` and continue using the same artifact.
 - **Hold** → keep `status: working`; do not force downstream progression.
 
@@ -124,7 +124,7 @@ Never say the artifact is accepted merely because the round limit was reached.
 | Concept | Meaning |
 |---|---|
 | Approval | The user accepts the workflow action/state within their authority. |
-| Quality/readiness | The artifact has enough evidence/content for the intended handoff. |
+| Quality/readiness | The artifact has enough evidence/content for the intended continuation. |
 
 A user can finalize an artifact that still contains visible `TBD`/OQ items. In that case, approval is real while quality may remain `partial`.
 
@@ -137,7 +137,7 @@ working capture/update in one artifact
 → L3 refinement where needed
 → quality gate
 → L1 finalization
-→ downstream handoff suggestions
+→ downstream review/continuation suggestions
 ```
 
 Typical revision of an already-finalized artifact:

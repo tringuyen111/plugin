@@ -23,10 +23,12 @@ approved_change:
 source_authority: []
 graph_revision:
 graph_quality:
-  current_edge_count:
-  stale_edge_count:
-  conflicting_edge_count:
+  current_coverage_edge_count:
+  stale_binding_edge_count:
+  unbound_edge_count:
   unverified_edge_count:
+  conflicting_edge_count:
+  agreement_not_assessed_edge_count:
   findings: []
 assumptions: []
 unresolved: []
@@ -53,7 +55,9 @@ affected_artifacts:
         source_revision:
         target_artifact_id:
         target_revision:
-        edge_state: CURRENT | STALE | CONFLICTING | UNVERIFIED
+        binding_freshness: CURRENT | STALE | UNBOUND
+        verification_state: VERIFIED | UNVERIFIED
+        agreement_state: CONSISTENT | CONFLICTING | NOT_ASSESSED
         truth_basis:
     stale_reason:
     confidence: CONFIRMED | LIKELY | POSSIBLE | UNKNOWN
@@ -100,9 +104,9 @@ evidence: []
 Rules:
 
 - Record the first unresolved owner action needed to make an affected branch actionable; do not encode a workflow route table.
-- An implementation branch is actionable only when a current approved canonical work item binds the changed revision and evidence target. Otherwise the canonical planning/work owner must reconcile that work contract first.
-- Each material `path_from_change` must be inspectable down to revision-bound edge IDs, relationship type, source/target artifact IDs and revisions, edge state, and truth basis. A stale/conflicting/unverified edge stays visible rather than disappearing from the path.
-- `graph_quality` must preserve stale, conflicting, and unverified edge counts/findings; missing or superseded endpoint revisions cannot be counted as current graph coverage.
+- When project policy or the canonical workflow requires an approved work item, an implementation branch is actionable only when a current work contract binds the changed revision and evidence target; otherwise name canonical planning/work reconciliation as the first unresolved owner action. When no such gate is established and bounded execution is already authorized/ready, do not invent a work item or Planning hop merely because implementation is affected.
+- Each material `path_from_change` must be inspectable down to revision-bound edge IDs, relationship type, source/target artifact IDs and revisions, Binding Freshness, Verification State, Agreement State, and truth basis. Every unresolved axis stays visible rather than disappearing from the path.
+- `graph_quality` counts are overlapping diagnostic dimensions, not a partition of edges. One edge may increment stale-binding, unverified, and conflicting counts at the same time. `current_coverage_edge_count` requires current binding, verified relationship truth, and no unresolved conflict for the claim being made; missing or superseded endpoint revisions cannot count as current coverage.
 - Do not create a second source of task or artifact status.
 - Persistence is optional unless explicitly required. When attempted, preserve the actual canonical target, provider/tool result when one exists, and re-read postcondition evidence. A denied or unverified write cannot be upgraded by this report.
 - Do not claim an artifact is unaffected without an invariance boundary and evidence.

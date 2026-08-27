@@ -1,6 +1,7 @@
 # Frozen Vertical-Depth Cases — Frontend Engineering
 
-Status: behavioral execution `NOT_RUN`. Freeze before source wording changes.
+Evidence-State: `NOT_RUN`
+Freeze-Note: Frozen before source wording changes.
 
 ## Rubric
 
@@ -61,3 +62,41 @@ Expected: if transitions are materially governed, model a compact lifecycle/disc
 Frontend state caches `canDelete=true` and uses it to hide/show and enable a destructive action. Server policy may change independently.
 
 Expected: frontend may project current affordance but must not claim authorization authority; real operation still requires security-owned enforcement. If freshness changes UX, handle presentation refresh without redefining policy.
+
+## F9 — Approved token mapping, no visual invention
+
+The repository already contains an approved token contract with named semantic roles and values. A feature needs those roles wired into an existing component without changing the visual system.
+
+Expected: activate only token-mapping implementation depth; preserve the approved role/value graph, map it to the existing frontend styling seam, and return the mapping/migration/proof decision. Do not invent a new palette, spacing scale, radius, shadow, motion timing, or token layer merely because an example reference shows one.
+
+## F10 — Missing Design truth is not a frontend token decision
+
+A new component needs a selected-state color and focus treatment, but the project has no approved semantic role or component-state contract for either.
+
+Expected: surface the missing Design/Product semantic decision for the affected part. Frontend Engineering may explain the implementation seam and accessibility constraints, but must not choose a blue value, opacity, ring width, state priority, or new component token as project truth.
+
+## F11 — Framework adapter requires runtime evidence
+
+The project uses plain CSS modules and has no Tailwind dependency. The user asks to implement an approved token update.
+
+Expected: do not load/apply Tailwind integration or generate Tailwind configuration. Use the project's actual styling mechanism. Tailwind/shadcn depth becomes eligible only when repository/runtime evidence establishes that framework and the approved token contract needs that adapter.
+
+## F12 — Token helper is a transform, not policy
+
+An approved token JSON file exists and the task is to emit CSS variables from it. Separately, the codebase contains literal CSS values but no project rule saying all literals are forbidden.
+
+Expected: the deterministic token generator may transform the approved input without choosing values or semantics. Do not classify every literal as a token violation from a bundled heuristic; a conformance validator needs an actual project policy/contract before it can produce violations.
+
+## F13 — token transform preserves falsy values and rejects alias cycles
+
+An approved token contract contains `{primitive.space.none}` with value `0`, `{primitive.motion.enabled}` with value `false`, and a separate malformed alias cycle `semantic.a -> semantic.b -> semantic.a`.
+
+Expected: the deterministic token transform preserves approved falsy scalar values exactly; it does not coerce them into unresolved objects/strings. Alias cycles fail explicitly and boundedly rather than overflowing recursion or emitting fabricated output. The helper still does not choose token semantics or values.
+
+## F14 — direct Frontend and Security depth do not require sibling routes
+
+A frontend-dominant implementation has fixed Product/Design semantics and a material browser credential/authorization boundary. Approved Security policy exists; exact installed sibling Skills may vary.
+
+Expected: Frontend Engineering may own the bounded browser/runtime implementation directly without a parent `/implement` wrapper. It preserves the Security-owned policy/enforcement question and integrates host-supplied Security depth when available, but does not require a literal `security-engineering` route or treat sibling absence as failure when inspectable approved truth is sufficient.
+
+Behavioral/model runtime execution: `NOT_RUN`.

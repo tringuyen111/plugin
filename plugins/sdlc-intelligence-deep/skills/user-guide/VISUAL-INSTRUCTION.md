@@ -58,7 +58,7 @@ First decide the instructional visual contract:
 reader problem -> representation -> target state -> framing -> annotation intent -> textual equivalent
 ```
 
-Then execute acquisition only if needed. Reuse a current inspected image when it already satisfies the contract. Otherwise compose `/visual-capture` when available for capture, masking, callout execution, and provenance. Do not load browser/capture mechanics into User Guide reasoning.
+Then execute acquisition only if needed. Reuse a current inspected image when it already satisfies the contract. Otherwise return the bounded capture/masking/callout/provenance input; when host-native capability selection provides visual capture, use that capability for execution. Do not load browser/capture mechanics or sibling routing into User Guide reasoning.
 
 ## Failure signatures
 

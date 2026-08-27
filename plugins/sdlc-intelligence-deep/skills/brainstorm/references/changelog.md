@@ -6,15 +6,15 @@ Example:
 
 ```yaml
 changelog:
-  - 2026-08-09 | /brainstorm | finalized current brainstorm; OQ-3 remains open
-  - 2026-08-09 | /brainstorm | OQ-2 resolved by DEC-4; updated OAuth recovery and PRD impact handoff
-  - 2026-08-08 | /brainstorm | created working brainstorm artifact
+  - 2026-08-09 | brainstorm | finalized current brainstorm; OQ-3 remains open
+  - 2026-08-09 | brainstorm | OQ-2 resolved by DEC-4; updated OAuth recovery and PRD impact review
+  - 2026-08-08 | brainstorm | created working brainstorm artifact
 ```
 
 ## Entry format
 
 ```text
-- {YYYY-MM-DD} | /brainstorm | {factual note}
+- {YYYY-MM-DD} | brainstorm | {factual note}
 ```
 
 ## Rules

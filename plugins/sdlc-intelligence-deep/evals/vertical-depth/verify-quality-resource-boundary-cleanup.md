@@ -1,5 +1,7 @@
 # Frozen Behavioral Cases — Verify Quality Resource/Boundary Cleanup
 
+Evidence-State: `NOT_RUN`
+
 Frozen before removing first-class `test-strategy`, `test-condition`, and `defect-report`.
 Behavioral execution status at freeze: `NOT_RUN`.
 

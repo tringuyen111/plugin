@@ -94,7 +94,7 @@ Issue Triage must classify the missing truth itself; sibling Skills are optional
 | Technical sequencing/dependency/cutover/proof topology is materially unresolved | Name the engineering-planning frontier; do not synthesize the plan here. |
 | Required truth is sufficient for a concrete next action/owner | Mark the intake as actionable and identify that next continuation. |
 
-When a corresponding sibling capability is available **and the current request authorizes continuing beyond intake**, hand off only the bounded frontier and consume the result back if useful. If it is absent, Issue Triage still completes by returning the truthful frontier; helper absence alone is not `BLOCKED`.
+When a corresponding supporting capability is available **and the current request authorizes continuing beyond intake**, pass only the bounded frontier/context and consume the result back if useful. Do not manufacture a Handoff artifact for this in-process exchange. If the capability is absent, Issue Triage still completes by returning the truthful frontier; helper absence alone is not `BLOCKED`.
 
 ### 5. Determine disposition separately from actionability
 

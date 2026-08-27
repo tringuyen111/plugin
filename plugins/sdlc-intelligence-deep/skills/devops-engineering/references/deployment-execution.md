@@ -32,7 +32,7 @@ A material candidate, config, environment, plan, release-record, or authority ch
 
 ## 2. Resolve live capability and operation authority
 
-For each semantic operation, identify the exact live project/provider primitive that can perform it. Use `capability-resolver` only when provider/source/fidelity/fallback ambiguity is material; an already-known exact project primitive does not need a synthetic resolution record. Examples include project-mapped equivalents of:
+For each semantic operation, identify the exact live project/provider primitive that can perform it. Use `provider-source-selection` only when provider/source/fidelity/fallback ambiguity is material; an already-known exact project primitive does not need a synthetic resolution record. Examples include project-mapped equivalents of:
 
 - `deploy.execute`;
 - `deploy.rollback`;

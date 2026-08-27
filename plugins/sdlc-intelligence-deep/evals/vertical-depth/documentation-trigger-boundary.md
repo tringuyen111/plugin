@@ -1,5 +1,7 @@
 # Documentation Trigger Boundary — Frozen Supplement
 
+Evidence-State: `NOT_RUN`
+
 Frozen after the initial Documentation method revision but before any activation-state mutation.
 Purpose: decide whether `user-guide` should remain conditional/implicit-false or become conditional/implicit-true without widening its capability boundary.
 
@@ -13,7 +15,7 @@ Expected owner: `devops-engineering`; `user-guide` must not steal software-to-pr
 
 ## DT-03 — Documentation review near miss
 Prompt: "Review this existing User Guide for unsupported claims and reader failures; do not rewrite it."
-Expected owner: `manual-review`; `user-guide` must not steal a fixed-target review job.
+Expected owner: `documentation-review`; `user-guide` must not steal a fixed-target review job.
 
 ## DT-04 — Help-center Product/UI redesign near miss
 Prompt: "Redesign the help center shell and responsive navigation for 150 approved articles."

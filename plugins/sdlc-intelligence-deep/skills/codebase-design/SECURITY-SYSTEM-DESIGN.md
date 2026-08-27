@@ -61,7 +61,7 @@ When identity/permission freshness matters, define the relevant lifecycle:
 - issuance/establishment and bound identity/scope;
 - expiry and renewal/refresh behavior;
 - revocation, logout, credential rotation, or permission-change propagation;
-- replay/duplicate behavior when credentials or signed requests may be reused;
+- replay/duplicate-admission behavior when credentials or signed requests may be reused;
 - failure semantics for stale, invalid, missing, or insufficient credentials;
 - secret storage/transport/logging boundaries.
 
@@ -71,10 +71,9 @@ source constraints and threat/failure evidence.
 
 ## Signed external requests and replay
 
-For webhooks, callbacks, or signed service requests, distinguish authenticity
-from freshness/replay resistance. A cryptographically valid request may still be
-an old duplicate. Define the material timestamp/nonce/idempotency/duplicate
-window semantics only when the threat or external contract requires them.
+For webhooks, callbacks, or signed service requests, call the security-admission property that decides whether an otherwise authentic request is still fresh enough to admit **Replay Freshness**. A cryptographically valid request may still be an old replay. Define the material timestamp, nonce, replay-window, and duplicate-admission semantics only when the threat or external contract requires them.
+
+Replay Freshness is not business idempotency. If repeated authenticated/provider events must not repeat a protected business effect, require established operation/equivalence semantics from the operation/domain owner and return that gap to the parent design when missing. A signature, nonce, timestamp, provider event ID, or replay cache may carry evidence or enforce admission; none may silently define business-operation equivalence.
 
 ## Secrets and observability
 
@@ -103,7 +102,7 @@ artifact:
 ## Authorization / tenant / resource scope
 ## Enforcement seam and bypass analysis
 ## Session/token/credential expiry, revocation, and rotation
-## Signed-request authenticity / replay semantics
+## Signed-request authenticity / Replay Freshness semantics
 ## Secret handling and security observability
 ## Abuse/failure behavior and recovery
 ## Negative-path security proof

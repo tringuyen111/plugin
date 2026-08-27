@@ -13,7 +13,7 @@ Challenge the smallest material set:
 - material failure/recovery/rollback implication;
 - changed or stale source truth.
 
-Do not run a universal security/scale/rollback/UX/etc. checklist. A topic earns attention only when it can change the current decision or safe handoff.
+Do not run a universal security/scale/rollback/UX/etc. checklist. A topic earns attention only when it can change the current decision or what continuation is safe.
 
 ## Proportional rigor
 
@@ -67,7 +67,7 @@ Close when no unresolved branch can still:
 
 - change a load-bearing decision;
 - invalidate a recommendation;
-- block the caller's current handoff;
+- block the caller's current decision or continuation outcome;
 - create a material evidence/input/authority contradiction.
 
 A branch may be deliberately deferred when it is reversible, cannot affect the current decision, has a safe later owner, or residual uncertainty is explicitly accepted by the authorized owner.

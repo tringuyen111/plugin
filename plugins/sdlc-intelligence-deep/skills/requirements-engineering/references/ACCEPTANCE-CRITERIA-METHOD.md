@@ -57,8 +57,8 @@ Keep HTTP/database assertions only when an external contract makes them requirem
 - **Business Rule** owns policy, eligibility, formula, precedence, and authoritative business boundaries.
 - The **Quality Requirement branch** owns measurable quality constraints and their authority; project records may still use legacy `NFR-*` identifiers when those identities are real.
 - **Definition of Done / team quality policy** owns broad completion requirements that apply across items; do not relabel them as item-specific AC without a distinct authorized item requirement.
-- **`/verify-quality`** owns executable QA proof semantics, admitted execution evidence, the QA verdict, and any durable reusable Test Condition artifact materialized for that proof boundary.
-- **`/user-acceptance` / business acceptance authority** owns acceptance coverage projection, witnessed user/business evidence, evaluation, and any explicit authorized acceptance decision; authoring criteria does not grant that authority.
+- **`verify-quality`** owns executable QA proof semantics, admitted execution evidence, the QA verdict, and any durable reusable Test Condition artifact materialized for that proof boundary.
+- **`user-acceptance` / business acceptance authority** owns acceptance coverage projection, witnessed user/business evidence, evaluation, and any explicit authorized acceptance decision; authoring criteria does not grant that authority.
 - **Design/Engineering** own UI/technical solution and implementation mechanisms.
 
 State verification intent or observable evidence need when useful so QA can derive probes, but do not copy mutable test results, QA verdicts, waiver decisions, or UAT status into AC truth.

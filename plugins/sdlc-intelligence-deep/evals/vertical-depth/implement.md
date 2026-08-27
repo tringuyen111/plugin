@@ -1,5 +1,7 @@
 # Frozen Behavioral Qualification Cases — implement change topology/cutover
 
+Evidence-State: `NOT_RUN`
+
 Runtime behavioral execution is `NOT_RUN`; these are frozen decision cases for static methodology qualification and later A/B execution.
 
 ## Rubric

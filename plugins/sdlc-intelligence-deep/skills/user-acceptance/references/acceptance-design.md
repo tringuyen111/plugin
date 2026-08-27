@@ -19,7 +19,7 @@ Choose the form that exposes the business acceptance oracle with the least disto
 | Learning/usability/workflow uncertainty is material | Exploratory acceptance charter | pretending expected behavior is already fully known |
 | Mixed coverage across several representations | Compact acceptance evidence matrix referencing each | duplicating the same oracle in multiple formats |
 
-A representation is not a first-class capability. Use whichever one makes business meaning and limitations easiest to evaluate. A business-acceptance matrix consumes authorized requirement Acceptance Criteria when they exist; it does **not** redefine those criteria. A UAT test-case/evidence row is also not a `/verify-quality` Test Condition or automated QA probe.
+A representation is not a first-class capability. Use whichever one makes business meaning and limitations easiest to evaluate. A business-acceptance matrix consumes authorized requirement Acceptance Criteria when they exist; it does **not** redefine those criteria. A UAT test-case/evidence row is also not a `verify-quality` Test Condition or automated QA probe.
 
 ## 2. Design mechanism
 
@@ -56,7 +56,7 @@ For each representation preserve:
 - what it does **not** prove;
 - untested roles/branches/conditions;
 - known assumption/proposal status;
-- whether technical proof must come from `/verify-quality` rather than UAT witnessing.
+- whether technical proof must come from `verify-quality` rather than UAT witnessing.
 
 Do not use one representative scenario as statistical proof of all users or exhaustive QA coverage.
 

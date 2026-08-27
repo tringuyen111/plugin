@@ -27,7 +27,7 @@ Every index adds write/WAL/storage/maintenance cost. Avoid redundant indexes and
 
 PostgreSQL readers/writers operate through MVCC snapshots. Long-running transactions/snapshots can retain old row versions and interfere with cleanup/freeze/maintenance progress even when the application is “only reading.” When table/index growth, vacuum lag or plan quality is involved, inspect transaction age and maintenance evidence instead of tuning autovacuum blindly.
 
-Do not infer anomaly protection solely from the isolation-level name. Define the invariant, identify the concurrent interleaving and prove whether the selected PostgreSQL mechanism prevents or surfaces the conflict. Serializable/SSI can abort transactions that must be handled as retryable only when the whole application operation is safe to retry.
+Do not infer anomaly protection solely from the isolation-level name. Define the invariant, identify the concurrent interleaving and prove whether the selected PostgreSQL mechanism prevents or surfaces the conflict. Serializable/SSI can abort transactions; retry only the scope proven replay-safe. A PostgreSQL abort does not supply Operation Identity Input or prove that effects outside the Transaction Boundary / whole application operation are safe to replay.
 
 ## 4. Locking and blocking
 

@@ -1,5 +1,7 @@
 # Frozen Behavioral Qualification Cases — api-engineering
 
+Evidence-State: `NOT_RUN`
+
 These cases were frozen before the candidate edit. They test whether API Engineering improves caller-contract decisions rather than merely adding protocol vocabulary. Runtime execution is `NOT_RUN` until a real model/Skill runner compares baseline and candidate behavior.
 
 ## Rubric dimensions
@@ -72,3 +74,25 @@ Strong behavior must:
 - identify the stable result/state identity the approved caller journey requires;
 - inspect status/headers/body/serialization together;
 - keep optional fields or links out unless they change caller behavior or proof.
+
+## Case A7 — direct API job does not require an Implement wrapper
+
+The user asks to add one caller-visible API operation against an already-approved contract. The API boundary dominates the requested change and the project source/runtime seam is directly inspectable.
+
+Strong behavior must:
+- allow API Engineering to own the bounded implementation/proof job directly;
+- not require a parent `/implement` command, wrapper, owner graph, or synthetic lifecycle artifact;
+- still integrate broader implementation context when host-native composition actually makes another dimension decision-changing;
+- keep API `READY` bounded to caller-contract/transport proof rather than claiming whole-product QA/release readiness.
+
+## Case A8 — material authorization depth is not a hard-coded Security route
+
+A caller-visible API change has fixed caller semantics, but object-level authorization enforcement and failure mapping are material. Approved Security policy exists; the host may or may not expose a named Security Skill.
+
+Strong behavior must:
+- preserve the approved API surface and Security-owned policy/failure semantics without redefining authorization inside API Engineering;
+- use host-native capability composition when Security depth is available and decision-changing, but not require a literal `security-engineering` route/dependency;
+- proceed from inspectable approved policy/source/runtime truth when sufficient even if a named sibling is unavailable;
+- stop only the affected scope when Security policy/authority itself is unresolved.
+
+Behavioral/model runtime execution: `NOT_RUN`.

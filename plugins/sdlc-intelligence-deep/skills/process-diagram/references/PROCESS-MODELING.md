@@ -87,7 +87,7 @@ user commitments to preserve:
 unresolved truth:
 ```
 
-For a high-fanout semantic choice that downstream work may need to preserve across a render, handoff, or later evidence update, add only the material decision memory:
+For a high-fanout semantic choice that downstream work may need to preserve across a render, ordinary continuation, a real transfer, or a later evidence update, add only the material decision memory:
 
 ```text
 material decision:
@@ -98,4 +98,4 @@ material decision:
 
 Use this for choices such as participant boundaries, split/join meaning, decomposition, exception/recovery outcome, or a stop/resume boundary. `reopen if` names concrete evidence that would make the basis no longer sufficient; do not use a vague condition such as `if wrong`. Do not record this tuple for obvious facts that can be recovered directly from the source.
 
-The checkpoint is a downstream handoff surface, not a reasoning transcript. It must preserve enough causal and user-facing commitments that spatial composition / notation authoring does not need to infer missing process steps or wording from memory. Keep the original source available for provenance, but do not repeatedly reconstruct or restate it during build/render unless new evidence satisfies a stored reopen condition or otherwise directly falsifies the decision basis.
+The checkpoint is a downstream continuation surface, not a reasoning transcript. It must preserve enough causal and user-facing commitments that spatial composition / notation authoring does not need to infer missing process steps or wording from memory. Keep the original source available for provenance, but do not repeatedly reconstruct or restate it during build/render unless new evidence satisfies a stored reopen condition or otherwise directly falsifies the decision basis.

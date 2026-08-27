@@ -5,36 +5,82 @@ import subprocess
 from pathlib import Path
 
 GENERATOR = Path(__file__).parents[1] / 'design-tokens' / 'generate-tokens.cjs'
-VALIDATOR = Path(__file__).parents[1] / 'design-tokens' / 'validate-tokens.cjs'
+
 
 def run_node(script: Path, *args: str) -> subprocess.CompletedProcess[str]:
     return subprocess.run(['node', str(script), *args], text=True, capture_output=True, check=False)
 
+
 def test_generator_accepts_documented_generic_dtcg_shape(tmp_path: Path) -> None:
     config = tmp_path / 'tokens.json'
     output = tmp_path / 'tokens.css'
-    config.write_text(json.dumps({'color': {'blue': {'600': {'$value': '#2563EB', '$type': 'color'}}}}))
+    config.write_text(json.dumps({'color': {'brand': {'primary': {'$value': '#123456', '$type': 'color'}}}}))
     result = run_node(GENERATOR, '--config', str(config), '--output', str(output))
     assert result.returncode == 0, result.stderr
     css = output.read_text()
-    assert '--color-blue-600: #2563EB;' in css
+    assert '--color-brand-primary: #123456;' in css
+
 
 def test_generator_preserves_layered_input_contract(tmp_path: Path) -> None:
     config = tmp_path / 'tokens.json'
     output = tmp_path / 'tokens.css'
-    config.write_text(json.dumps({'primitive': {'color': {'blue': {'600': {'$value': '#2563EB'}}}}}))
+    config.write_text(json.dumps({'primitive': {'color': {'brand': {'primary': {'$value': '#123456'}}}}}))
     result = run_node(GENERATOR, '--config', str(config), '--output', str(output))
     assert result.returncode == 0, result.stderr
-    assert '--primitive-color-blue-600: #2563EB;' in output.read_text()
+    assert '--primitive-color-brand-primary: #123456;' in output.read_text()
 
-def test_usage_validator_accepts_variable_usage_and_rejects_literal(tmp_path: Path) -> None:
-    src = tmp_path / 'src'
-    src.mkdir()
-    app = src / 'app.css'
-    app.write_text('.ok{color:var(--color-blue-600)}\n')
-    good = run_node(VALIDATOR, '--dir', str(src))
-    assert good.returncode == 0, good.stdout + good.stderr
-    app.write_text('.bad{color:#2563EB}\n')
-    bad = run_node(VALIDATOR, '--dir', str(src))
-    assert bad.returncode != 0
-    assert 'Hardcoded hex color' in bad.stdout
+
+def test_generator_resolves_approved_aliases_without_selecting_values(tmp_path: Path) -> None:
+    config = tmp_path / 'tokens.json'
+    output = tmp_path / 'tokens.css'
+    config.write_text(json.dumps({
+        'primitive': {'color': {'brand': {'primary': {'$value': '#123456'}}}},
+        'semantic': {'color': {'action': {'$value': '{primitive.color.brand.primary}'}}},
+    }))
+    result = run_node(GENERATOR, '--config', str(config), '--output', str(output))
+    assert result.returncode == 0, result.stderr
+    css = output.read_text()
+    assert '--color-action: #123456;' in css
+
+
+def test_generator_rejects_unknown_output_format(tmp_path: Path) -> None:
+    config = tmp_path / 'tokens.json'
+    config.write_text(json.dumps({'color': {'brand': {'primary': {'$value': '#123456'}}}}))
+    result = run_node(GENERATOR, '--config', str(config), '--format', 'unknown')
+    assert result.returncode == 2
+    assert 'unsupported --format' in result.stderr
+
+
+def test_generator_preserves_falsy_alias_values(tmp_path: Path) -> None:
+    config = tmp_path / 'tokens.json'
+    output = tmp_path / 'tokens.css'
+    config.write_text(json.dumps({
+        'primitive': {
+            'space': {'none': {'$value': 0}},
+            'motion': {'enabled': {'$value': False}},
+        },
+        'semantic': {
+            'space': {'none': {'$value': '{primitive.space.none}'}},
+            'motion': {'enabled': {'$value': '{primitive.motion.enabled}'}},
+        },
+    }))
+    result = run_node(GENERATOR, '--config', str(config), '--output', str(output))
+    assert result.returncode == 0, result.stderr
+    css = output.read_text()
+    assert '--space-none: 0;' in css
+    assert '--motion-enabled: false;' in css
+    assert '[object Object]' not in css
+
+
+def test_generator_rejects_alias_cycles_explicitly(tmp_path: Path) -> None:
+    config = tmp_path / 'tokens.json'
+    config.write_text(json.dumps({
+        'semantic': {
+            'a': {'$value': '{semantic.b}'},
+            'b': {'$value': '{semantic.a}'},
+        },
+    }))
+    result = run_node(GENERATOR, '--config', str(config))
+    assert result.returncode == 2
+    assert 'cyclic token reference' in result.stderr.lower()
+    assert 'maximum call stack' not in result.stderr.lower()

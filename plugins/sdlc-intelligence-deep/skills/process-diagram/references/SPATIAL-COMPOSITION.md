@@ -510,7 +510,7 @@ spatial scene:
   chosen direction + reason:
   projected Q footprint / clearance hotspots:
   blocks needing explicit sides:
-  material decision memory when handoff/re-entry matters:
+  material decision memory when continuation/re-entry or a real transfer matters:
     decision / supporting relation or footprint basis / reopen if:
 ```
 

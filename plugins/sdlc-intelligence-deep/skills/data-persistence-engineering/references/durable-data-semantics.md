@@ -1,6 +1,6 @@
 # Durable Data Semantics and Lifecycle
 
-Load this reference when a persistence change alters or depends on entity/field meaning, canonical versus derived truth, lifecycle states, identity/equivalence, representation migration, soft-delete/restore/archive behavior, or when the current model is hard to understand safely from structure and evidence. This method does not invent business meaning; unresolved domain semantics remain a gap.
+Load this reference when a persistence change alters or depends on entity/field meaning, Canonical Durable Fact versus Derived Representation, lifecycle states, identity/equivalence, representation migration, soft-delete/restore/archive behavior, or when the current model is hard to understand safely from structure and evidence. Use the parent Skill terms Canonical Durable Fact, Derived Representation and Invariant Membership literally. Establish representation-change terminology locally when that branch becomes material. This method does not invent business meaning; unresolved domain semantics remain a gap.
 
 ## Contents
 
@@ -35,7 +35,7 @@ concept / field
 -> business meaning
 -> identity or unit/representation
 -> absent / unknown / explicit / default-derived meaning
--> canonical / derived / historical-snapshot role
+-> Canonical Durable Fact / Derived Representation / historical-snapshot role
 -> valid lifecycle states
 -> invariant or relation that gives it meaning
 ```
@@ -49,10 +49,10 @@ Generic fields such as `type`, `status`, `value`, `data`, or `flag` are not auto
 Build a small semantic ownership map for the changed concept:
 
 ```text
-CANONICAL FACT
-  -> derived value
-  -> historical snapshot
-  -> projection/read model
+CANONICAL DURABLE FACT
+  -> Derived Representation: computed value
+  -> Derived Representation: historical snapshot
+  -> Derived Representation: projection/read model
   -> external identifier/copy
 ```
 
@@ -85,9 +85,9 @@ At each transition ask:
 
 This is a semantic lineage, not a requirement to diagram every column in the database.
 
-## 5. Bind invariants to lifecycle membership
+## 5. Bind invariants to Invariant Membership
 
-An invariant applies to a defined set of states/rows, not to an entity name in the abstract. State the membership explicitly when lifecycle matters.
+Invariant Membership is the defined set of states/rows/transitions/writers to which an invariant applies, not an entity name in the abstract. State it explicitly when lifecycle matters.
 
 Example: “email is unique among active accounts” requires create, reactivation/restore and any transition into `active` to participate in the same durable enforcement. A soft-deleted row may be outside that invariant while still retaining historical identity.
 
@@ -102,7 +102,7 @@ Before backfill/cutover, classify the transform:
 - **meaning-fabricating** — a default/backfill assigns a business fact that was never recorded;
 - **ambiguous** — old values cannot be mapped without an unresolved domain decision.
 
-Executable rollback is not semantic reversibility. Splitting `full_name` into components and later concatenating them may run successfully while failing to reconstruct the original value or meaning. Preserve source data or an approved recovery path when reversibility matters.
+Call the ability to recover the original information and meaning after a representation change **Semantic Reversibility**. An executable reverse migration or rollback command does not by itself prove it. Splitting `full_name` into components and later concatenating them may run successfully while failing to reconstruct the original value or meaning. Preserve source data or an approved recovery path when reversibility matters.
 
 Treat `unknown/not recorded`, explicit `false`, and a database default as distinct until approved semantics prove them equivalent.
 
@@ -117,7 +117,7 @@ If two mechanisms produce the same fact, decide whether one is canonical and the
 The semantic model is deep enough when the changed concept can be explained as:
 
 ```text
-meaning + canonical representation + lifecycle membership
+meaning + Canonical Durable Fact + Derived Representations + Invariant Membership
 + readers/writers/derivers + transition semantics + invariant/enforcement
 ```
 

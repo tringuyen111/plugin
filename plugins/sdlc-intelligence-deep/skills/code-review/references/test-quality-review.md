@@ -35,4 +35,4 @@ runtime reproduction
 QA acceptance
 ```
 
-Review can identify a missing/weak test and its failure mode; `/implement` owns remediation and `/verify-quality` owns runtime/risk acceptance evidence.
+Review can identify a missing/weak test and its failure mode; remediation remains a distinct authorized implementation job, while runtime/risk acceptance evidence remains a distinct QA/verification job selected through host-native discovery when material.

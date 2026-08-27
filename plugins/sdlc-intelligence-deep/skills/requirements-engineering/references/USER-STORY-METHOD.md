@@ -31,7 +31,7 @@ Use the strongest available truth that can change actor, capability, value, scop
 
 Do not fabricate Story IDs, source IDs, revision numbers, approval states, or downstream references to make a template look complete. When canonical sources/revisions exist or persistence is requested, bind them exactly. Otherwise preserve the useful semantics without fake governance metadata.
 
-Current verified runtime/business behavior may constrain refinement, but it does not silently override authorized Product intent. When a real canonical Product/Behavior/Rule revision changes materially, revalidate only the affected Story meaning and use `/traceability` for downstream lineage/change-impact when downstream artifacts actually exist.
+Current verified runtime/business behavior may constrain refinement, but it does not silently override authorized Product intent. When a real canonical Product/Behavior/Rule revision changes materially, revalidate only the affected Story meaning and use `traceability` for downstream lineage/change-impact when downstream artifacts actually exist.
 
 ## Card -> Conversation -> Confirmation
 
@@ -87,7 +87,7 @@ Confirmation is not implementation or QA completion. A Story can be ready for ac
 - the **Use Case branch** owns detailed actor-system interaction sequence when that behavior depth is material.
 - The **Business Rule** and **Quality Requirement** branches keep rule/quality semantics; Story links or carries only constraints that materially affect the value boundary.
 - Architecture/Engineering own technical design, tasks, implementation, and technical enablers.
-- `/traceability` owns downstream impact/staleness traversal after material changes to persisted approved truth.
+- `traceability` owns downstream impact/staleness traversal after material changes to persisted approved truth.
 - QA/UAT/release owners keep their evidence and status; Story maturity never absorbs those states.
 
 ## Anti-patterns

@@ -4,24 +4,25 @@ Load this reference only when interruption, UNKNOWN outcome, partial commitment,
 
 This reference owns **Use Case scenario continuity**, not technical recovery design. Keep the scenario business-observable and link authoritative Business Rules when policy is needed.
 
-## 1. Classify the observable outcome before inventing a branch
+## 1. Separate effect evidence from progress before inventing a branch
 
-For an interrupted or externally confirmed action, distinguish only states that change business interpretation:
+For an interrupted or externally confirmed action, preserve only dimensions that change business interpretation:
 
-- **NOT_STARTED / NO_CHANGE** — the requested business effect definitely did not occur;
-- **COMPLETED** — the externally meaningful effect is known to have occurred;
-- **PARTIAL** — one or more externally meaningful effects occurred but the goal is not fully complete;
-- **UNKNOWN / PENDING** — available evidence cannot yet determine whether the business effect occurred;
-- **COMPENSATED / REVERSED** — a later business action addressed an already-real effect when that distinction matters.
+- **Effect Evidence State** — for each material business-visible effect, state `ESTABLISHED`, `NOT_ESTABLISHED`, or `UNKNOWN`;
+- **Partial Progress** — separately identify the established subset already real when the actor goal is not fully complete;
+- **actor-visible status / obligation** — no-change/rejected, pending/reconciliation-required, completed, compensated/reversed, or another authoritative business status when that changes the scenario;
+- **final/reconciliation condition** — what observation/event can legitimately close the scenario.
 
-Do not collapse `UNKNOWN` into success or failure. An acknowledgement, timeout, lost response, or incomplete observation is evidence about certainty, not automatically the business outcome.
+These dimensions may coexist. A scenario can have established Partial Progress while another effect remains `UNKNOWN`. Do not collapse `UNKNOWN` into success or failure, and do not let an acknowledgement, timeout, lost response, or incomplete observation stand in for the business effect itself.
 
 ## 2. Define the safe actor/business next action
 
 When the outcome is not final, state what the actor or business may safely do next and what remains prohibited or unresolved. Ask:
 
 ```text
-observable outcome certainty
+business operation + concrete submission/attempt relation when repetition is material
+-> per-effect Effect Evidence State
+-> established Partial Progress
 -> actor-visible status / obligation
 -> safe next action
 -> rule/authority governing retry, cancellation, compensation or escalation
@@ -34,10 +35,12 @@ If no authorized rule determines a retry or compensation choice, keep that branc
 
 A **business-visible commitment boundary** is the point after which a meaningful obligation/effect has changed from the actor or business perspective. It is not a database transaction boundary.
 
-For a partial scenario, identify only what is material:
+When Partial Progress is material, identify only what matters:
 
-- which externally meaningful effects already happened;
-- which effects did not happen;
+- which externally meaningful effects are `ESTABLISHED`;
+- which are `NOT_ESTABLISHED`;
+- which remain `UNKNOWN`;
+- which established subset constitutes Partial Progress;
 - current actor-visible/business status;
 - whether cancellation remains allowed;
 - any required refund/release/reversal/notification/manual review or other business obligation;
@@ -45,16 +48,13 @@ For a partial scenario, identify only what is material:
 
 Architecture/Engineering own transaction design, queues, locks, idempotency keys, retry counts, and technical rollback.
 
-## 4. Treat repeated intent as business semantics
+## 4. Treat repeated submissions as business semantics
 
-When the actor repeats the same intent, distinguish:
+When an actor submits again, treat each concrete submission/delivery as a **Request Attempt** and first determine whether those attempts belong to the same **Logical Operation** (one business-visible intent/effect obligation), represent new Logical Operations, or only query/reconcile a prior operation. Equal payloads, request/delivery IDs, retry labels, or transport behavior do not decide that relation.
 
-- retry the same business intent;
-- create a new intent;
-- query/reconcile the prior intent;
-- reject/merge a duplicate according to an authoritative Business Rule.
+Then preserve only the authoritative business behavior: advance/retry the same Logical Operation, create a new operation, query/reconcile the prior operation, or reject/merge a duplicate according to an authoritative Business Rule.
 
-Do not infer technical idempotency from a business duplicate guarantee, and do not infer a business duplicate guarantee from an implementation mechanism.
+Do not infer technical idempotency from a business duplicate guarantee, and do not infer a business duplicate guarantee or Logical Operation identity from an implementation mechanism.
 
 ## 5. Handle multi-actor and effective-time conflicts explicitly
 

@@ -60,24 +60,27 @@ When an operation has an externally meaningful point after which the business ob
 
 ## 4. Interrupted and repeated operations
 
-For an operation that can be interrupted, time out, be retried, or receive a duplicate request, separate these business questions:
+For an operation that can be interrupted, time out, be retried, or receive a duplicate request, keep **operation identity**, **attempt identity**, **effect evidence**, and **progress** separate:
 
-- Was the requested business effect definitely not started, definitely completed, partially applied, or is the outcome **unknown**?
-- What can the actor safely do while the outcome is unknown?
-- What does a retry mean in business terms: re-attempt the same intent, create a new intent, query status, or require reconciliation?
-- What must happen if the same actor intent is submitted more than once?
-- Which duplicate outcome is allowed, rejected, merged, or escalated?
+1. **Bind the Logical Operation** — the single business-visible intent/effect obligation being reasoned about. Do not infer operation equivalence from equal payload, request/delivery ID, timeout, acknowledgement, or transport retry alone. If authoritative Product/domain/Business Rule truth cannot establish whether two submissions are the same intent or new intents, keep that relation unresolved.
+2. **Name material Request Attempts** — the concrete submissions/deliveries that tried to advance or observe that Logical Operation. Attempt identity is evidence about execution, not business-operation authority.
+3. **Classify each material effect independently.** `Effect Evidence State = ESTABLISHED | NOT_ESTABLISHED | UNKNOWN` states what authoritative current evidence establishes for each business-visible effect. A lost response can leave an effect `UNKNOWN`; it does not prove the effect did not happen.
+4. **Record Partial Progress separately** — the subset of a multi-step Logical Operation already known complete/real. Partial Progress can coexist with an `UNKNOWN` effect elsewhere in the same operation.
+5. **Derive the actor-safe business behavior.** What may the actor safely do while an effect is `UNKNOWN` or progress is incomplete? Does a further attempt mean observe/reconcile the same Logical Operation, try to advance it, create a new Logical Operation, or require an authorized decision?
+6. **Preserve the business guarantee.** What must happen when the same Logical Operation is attempted more than once, and which duplicate/no-extra-effect outcome is allowed, rejected, merged, compensated, or escalated?
 
-Do not invent technical idempotency, idempotency keys, locks, queues, endpoint retry policy, or database transactions. Architecture/Engineering owns the mechanism that satisfies the business guarantee.
+Do not invent technical idempotency, idempotency keys, locks, queues, endpoint retry policy, request identity, or database transactions. Architecture/Engineering owns the mechanism that satisfies the business guarantee; Requirements owns only the business-visible obligation and the authoritative semantics that discriminate one Logical Operation from another.
 
-If duplicate/retry semantics are business-critical and no authorized rule exists, keep only that branch open/blocked instead of assuming retry is safe.
+If duplicate/retry semantics are business-critical and no authorized rule can establish operation equivalence or the required business outcome, keep only that branch open/blocked instead of assuming retry is safe.
 
 ## 5. Partial effects, recovery, and compensation
 
-A multi-step business operation may create a **partial business effect** before final completion. When material, identify:
+A multi-step Logical Operation may create **Partial Progress** before final completion. When material, identify:
 
-- which externally meaningful effects already happened;
-- which effects did not happen;
+- which externally meaningful effects are `ESTABLISHED`;
+- which effects are `NOT_ESTABLISHED`;
+- which material effects remain `UNKNOWN`;
+- which established subset constitutes Partial Progress;
 - current observable business status, such as pending or reconciliation-required rather than fake success/failure;
 - whether cancellation is still allowed;
 - required recovery, release, refund, reversal, notification, manual review, or other business obligation;
@@ -85,7 +88,7 @@ A multi-step business operation may create a **partial business effect** before 
 
 **Compensation** means a business action that addresses an already-real effect. It is not proof that implementation rollback is technically possible or safe. Architecture/Engineering/Operations own technical rollback/recovery mechanisms.
 
-For delayed external confirmation, model pending/unknown/final outcomes and the business trigger for reconciliation rather than declaring completion from an acknowledgement alone.
+For delayed external confirmation, preserve per-effect `Effect Evidence State`, established Partial Progress, actor-visible pending/reconciliation state, and the business trigger for finalization rather than declaring completion from an acknowledgement alone.
 
 ## 6. Multi-actor and time-dependent behavior
 
@@ -128,7 +131,7 @@ A requirements composition is not ready merely because every conflicting rule ha
 
 Do not copy complete child bodies into a composition index. Link them and expose only shared meaning, gaps, conflicts, and downstream consequences.
 
-When a resolved authorized requirement revision has downstream artifacts/evidence and continuity or stale-impact analysis becomes material, hand the exact changed revision and affected semantic boundary to `/traceability`. That is a cross-lifecycle continuation, not another requirement-model primitive.
+When a resolved authorized requirement revision has downstream artifacts/evidence and continuity or stale-impact analysis becomes material, hand the exact changed revision and affected semantic boundary to `traceability`. That is a cross-lifecycle continuation, not another requirement-model primitive.
 
 Product metrics and guardrails remain Product outcome context unless a separately authorized business rule/acceptance condition makes a threshold part of behavior. Statistical/measurement validity remains `metrics-review` ownership.
 

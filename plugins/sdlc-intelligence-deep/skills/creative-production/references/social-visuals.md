@@ -1,16 +1,25 @@
-# Social Visuals
+# Social Visual Target-Context Method
 
-Create platform-specific social visuals from a clear art-direction brief, project brand/source truth, verified target-platform constraints when material, and host-native creative generation.
+Use this reference when banner/social placement makes crop, safe zones, UI chrome, message density, or repeated campaign adaptation materially affect the creative direction. It deepens target-context reasoning; it does not own a second production workflow.
 
-## Method
+## Context variables
 
-1. Freeze purpose, audience, message priority, target placement, brand/source truth, and required output format.
-2. Verify current platform dimensions/safe zones when they materially constrain the asset; a bundled historical table is not platform authority.
-3. Define criteria for focal hierarchy, target-scale readability, CTA/content competition, crop resilience, contrast, and brand distinctiveness.
-4. When direction is unresolved, create materially different composition hypotheses and compare them against the same criteria.
-5. Stress-test representative crops, long/short copy, small-scale viewing, and UI chrome/safe-zone pressure.
-6. Refine the highest-leverage weakness rather than adding surface decoration.
-7. Generate with an authorized host-native capability only when requested and available.
-8. Inspect the rendered/exported result at target dimensions/context before delivery.
+- target placement and viewing mode (feed, story/reel cover, header/banner, paid placement, profile/thumbnail, print adaptation);
+- current authoritative canvas/safe-zone constraints when they matter;
+- focal subject and crop resilience across representative variants;
+- message hierarchy under short/long copy and localization pressure;
+- CTA/content competition and surrounding UI chrome;
+- smallest realistic viewing size and contrast/readability;
+- reuse/adaptation cost across the campaign family.
 
-Typeface count, line length, CTA position, and content density are design variables, not universal constants, unless project/brand/platform truth fixes them.
+## Stress patterns
+
+- **Crop pressure:** does the focal subject/message survive the likely crop family?
+- **Chrome pressure:** does platform UI compete with CTA, logo, or headline?
+- **Density pressure:** does the concept remain legible after realistic copy growth?
+- **Sequence pressure:** do multiple campaign pieces feel related without becoming identical?
+- **Format pressure:** does a concept built for one aspect ratio fail when adapted to another required placement?
+
+Platform dimensions, safe zones, policies, and performance guidance are volatile. Verify current authoritative requirements when material; bundled examples are not platform authority.
+
+Return to the parent workflow with: target-context constraints, crop/hierarchy stress targets, and any direction change those constraints require.

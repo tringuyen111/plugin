@@ -1,6 +1,8 @@
 # TDD vertical-depth behavioral cases
 
-Status: `NOT_RUN` unless executed with a suitable agent/runtime. These cases freeze the expected decision delta from the pre-edit v1.0.9 baseline.
+Evidence-State: `NOT_RUN`
+
+Freeze-Note: Cases freeze the expected decision delta from the pre-edit v1.0.9 baseline.
 
 ## Rubric
 

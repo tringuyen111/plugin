@@ -35,7 +35,7 @@ Usage: node generate-tokens.cjs [options]
 Options:
   -c, --config <file>   Input JSON token file (required)
   -o, --output <file>   Output file (default: stdout)
-  -f, --format <type>   Output format: css | tailwind (default: css)
+  -f, --format <type>   Output format: css | tailwind (default: css; tailwind requires a proven project Tailwind seam)
   -h, --help            Show this help
       `);
       process.exit(0);
@@ -48,23 +48,32 @@ Options:
 /**
  * Resolve token references like {primitive.color.blue.600}
  */
-function resolveReference(value, tokens) {
-  if (typeof value !== 'string' || !value.startsWith('{')) {
+function resolveReference(value, tokens, seen = new Set()) {
+  if (typeof value !== 'string' || !value.startsWith('{') || !value.endsWith('}')) {
     return value;
   }
 
-  const path = value.slice(1, -1).split('.');
+  const ref = value.slice(1, -1);
+  if (seen.has(ref)) {
+    throw new Error(`Cyclic token reference: ${[...seen, ref].join(' -> ')}`);
+  }
+
+  const path = ref.split('.');
   let result = tokens;
-
   for (const key of path) {
-    result = result?.[key];
+    if (result === null || typeof result !== 'object' || !Object.prototype.hasOwnProperty.call(result, key)) {
+      return value;
+    }
+    result = result[key];
   }
 
-  if (result?.$value) {
-    return resolveReference(result.$value, tokens);
+  if (result !== null && typeof result === 'object' && Object.prototype.hasOwnProperty.call(result, '$value')) {
+    const nextSeen = new Set(seen);
+    nextSeen.add(ref);
+    return resolveReference(result.$value, tokens, nextSeen);
   }
 
-  return result || value;
+  return result;
 }
 
 /**
@@ -176,6 +185,11 @@ function main() {
     process.exit(1);
   }
 
+  if (!['css', 'tailwind'].includes(options.format)) {
+    console.error(`Error: unsupported --format: ${options.format}`);
+    process.exit(2);
+  }
+
   // Resolve config path
   const configPath = path.resolve(process.cwd(), options.config);
 
@@ -206,4 +220,9 @@ function main() {
   }
 }
 
-main();
+try {
+  main();
+} catch (error) {
+  console.error(`Error: ${error instanceof Error ? error.message : String(error)}`);
+  process.exit(2);
+}

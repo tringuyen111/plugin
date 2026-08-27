@@ -16,6 +16,7 @@ from capture_contract import (
     LOCAL_EXECUTOR_SOURCE_ID,
     LOCAL_EXECUTOR_SOURCE_KIND,
     adapter_source_sha256,
+    can_reuse_capture,
     canonical_shot_digest,
     file_sha256,
     normalize_capture,
@@ -433,8 +434,13 @@ def main() -> int:
                     context_kwargs["storage_state"] = storage_state
                 context = browser.new_context(**context_kwargs)
                 page = context.new_page()
-                digest = canonical_shot_digest(job, shot, root=root)
                 source_sha256 = source_content_sha256(shot, root)
+                digest = canonical_shot_digest(
+                    job,
+                    shot,
+                    root=root,
+                    runtime_executor=manifest["executor"],
+                )
                 png_path = out_dir / f"{shot['slug']}.png"
                 digest_path = out_dir / f"{shot['slug']}.capture.sha256"
                 record: dict[str, Any] = {
@@ -449,6 +455,7 @@ def main() -> int:
                 previous = previous_by_slug.get(shot["slug"])
                 if (
                     not args.force
+                    and can_reuse_capture(job, shot, source_sha256=source_sha256)
                     and previous
                     and png_path.exists()
                     and digest_path.exists()

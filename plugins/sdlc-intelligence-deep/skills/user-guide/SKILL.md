@@ -46,15 +46,15 @@ Do not preload these references because they exist.
 
 ### Visuals
 
-User Guide decides **whether the visual helps the reader and what it must communicate**. If an already inspected current image satisfies that need, reuse it. If a missing/stale image must be captured, masked, or annotated, compose `/visual-capture` when available with the exact state/build/viewport/redaction/annotation intent. Capture owns acquisition and provenance, not instructional judgment.
+User Guide decides **whether the visual helps the reader and what it must communicate**. If an already inspected current image satisfies that need, reuse it. If a missing/stale image must be captured, masked, or annotated, return the exact state/build/viewport/redaction/annotation intent as bounded acquisition input. When host-native capability selection provides visual capture, Capture owns acquisition and provenance, not instructional judgment; User Guide does not route to it.
 
-A screenshot does not make Product Design necessary. Compose `product-design` only when the unresolved job is the visible help/docs Product/UI surface itself—such as navigation hierarchy, reading layout, responsive behavior, or component interaction.
+A screenshot does not make Product Design necessary. When the unresolved job is the visible help/docs Product/UI surface itself—such as navigation hierarchy, reading layout, responsive behavior, or component interaction—Product Design owns that separate capability. Return the reader/content constraints; host-native discovery owns subsequent capability selection.
 
 ### Review, lineage, and publication
 
-Compose `/manual-review` only when review earns its cost: explicit request/policy, publication-ready material, material reader/evidence risk, or broad information architecture where a causal reader-task review can prevent expensive rework. Preserve review process state and verdict losslessly; same-agent review is not independent attestation.
+When fixed-target documentation review earns its cost (explicit request/policy, publication-ready material, material reader/evidence risk, or broad information architecture), `documentation-review` owns that separate review claim. Authoring does not schedule it as a mandatory next Skill. Preserve review process state and verdict losslessly; same-agent review is not independent attestation.
 
-Use `/traceability` only when durable cross-lifecycle lineage or broad stale-impact analysis is itself required. Otherwise keep lightweight local source linkage.
+Durable cross-lifecycle lineage or broad stale-impact analysis belongs to Traceability when that separate capability is materially required and selected by the host. Otherwise keep lightweight local source linkage; User Guide does not encode sibling routing.
 
 Publication requires publication authority. Build/render/export through the selected target only when requested or required by that target. Filesystem/tool availability is not authority.
 

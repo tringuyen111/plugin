@@ -96,6 +96,11 @@ CSV_CONFIG = {
         "search_cols": ["Product Type", "Keywords", "Primary Style Recommendation", "Key Considerations"],
         "output_cols": ["Product Type", "Keywords", "Primary Style Recommendation", "Secondary Styles", "Landing Page Pattern", "Dashboard Style (if applicable)", "Color Palette Focus"]
     },
+    "reasoning": {
+        "file": "ui-reasoning.csv",
+        "search_cols": ["UI_Category", "Recommended_Pattern", "Style_Priority", "Color_Mood", "Typography_Mood", "Key_Effects", "Anti_Patterns"],
+        "output_cols": ["UI_Category", "Recommended_Pattern", "Style_Priority", "Color_Mood", "Typography_Mood", "Key_Effects", "Decision_Rules", "Anti_Patterns", "Severity"]
+    },
     "ux": {
         "file": "ux-guidelines.csv",
         "search_cols": ["Category", "Issue", "Description", "Platform"],
@@ -283,9 +288,8 @@ class BM25:
 
 
 # ============ CSV / INDEX CACHE ============
-# Data files are small and reused across multiple domain searches within a
-# single --design-system run; avoid re-reading + re-indexing the same file
-# repeatedly in one process.
+# Data files may be reused across multiple domain searches by one caller; avoid
+# re-reading + re-indexing the same file repeatedly in one process.
 _csv_cache = {}   # filepath -> (mtime, rows)
 _bm25_cache = {}  # (filepath, tuple(search_cols)) -> (mtime, BM25 instance)
 

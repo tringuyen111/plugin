@@ -1,5 +1,7 @@
 # Frozen Behavioral Qualification Cases - codebase-design vs devops-engineering
 
+Evidence-State: `NOT_RUN`
+
 Frozen: 2026-08-18 before `codebase-design` boundary correction.
 Behavioral execution status at freeze: `NOT_RUN`.
 

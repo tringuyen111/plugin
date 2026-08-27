@@ -16,7 +16,7 @@ Treat the job as **decision-quality improvement**, not question generation. The 
 5. **Choose the probe family from the universal map below.** Every non-zero interview uses one family deliberately. Read [Probe Patterns](references/probe-patterns.md) for contrastive HOW+SHOW, recommendation forms, tacit expert judgment, or a realistic near-miss.
 6. **Ask at most one human question.** Ask one bounded question to the person who can supply the required owner judgment or legitimate input, then wait. Never batch unresolved questions. If no material human-owned/input frontier remains, use the zero-question path instead of manufacturing an interview.
 7. **Update coherence after every material answer/new fact.** Preserve the decision, decision authority, material input provenance, governing evidence/constraints/values, load-bearing assumptions, strongest material alternative when useful, flip condition, and affected dependents. Surface only the useful delta each turn; show the full compact register only on request, checkpoint, or finalization.
-8. **Challenge only after the model is coherent enough to challenge.** Stress load-bearing assumptions, strongest credible counter-alternative, sensitivity/flip conditions, value contradictions, or material failure/recovery implications. Read [Challenge and Re-entry](references/challenge-and-reentry.md) when a premise changes, a prior decision may be stale, or closure is uncertain.
+8. **Challenge and re-enter only the affected decision surface.** Stress load-bearing assumptions, strongest credible counter-alternative, sensitivity/flip conditions, value contradictions, or material failure/recovery implications. When new truth invalidates a prior `FACT`, `ASSUMPTION`, `VALUE`, `CONSTRAINT`, or `DECISION`, identify the earliest invalid premise, reopen only decisions that actually assume/depend on it, preserve independent decisions and their evidence, then derive the highest-leverage frontier from the reopened surface. Read [Challenge and Re-entry](references/challenge-and-reentry.md) for graph traversal, challenge patterns, and closure depth.
 9. **Return bounded truth.** In embedded use, return a Decision Packet to the caller; do not take over the caller's artifact/session. In direct conversational use, keep the logical register in conversation. If explicit persistence is requested and a resolved decision materially changes domain semantics, use the conditional projection in [Domain Persistence](references/domain-persistence.md); Decision Interview itself never gains generic write authority.
 
 ## Probe-family quick map
@@ -47,7 +47,7 @@ Never create certainty because the interview format appears to expect a recommen
 
 ## Zero-question path
 
-Ask **zero** questions when all material decisions are already resolved, remaining gaps are source-answerable, remaining branches cannot change the current caller handoff, or the available participant can neither resolve the decision nor supply decision-changing bounded input. If a non-final participant legitimately owns material evidence, a constraint, or stakeholder value input, collect only that bounded input and keep final disposition unresolved for the decision authority.
+Ask **zero** questions when all material decisions are already resolved, remaining gaps are source-answerable, remaining branches cannot change the caller's current decision or continuation outcome, or the available participant can neither resolve the decision nor supply decision-changing bounded input. If a non-final participant legitimately owns material evidence, a constraint, or stakeholder value input, collect only that bounded input and keep final disposition unresolved for the decision authority.
 
 ## Decision Packet
 
@@ -75,7 +75,7 @@ Do not turn the packet into a universal template when fewer fields preserve the 
 
 ## Completion
 
-- `READY`: no remaining material human-owned/input frontier can change the caller's current handoff, and resolved/deferred decisions are coherent enough for that caller.
+- `READY`: no remaining material human-owned/input frontier can change the caller's current decision or continuation outcome, and resolved/deferred decisions are coherent enough for that caller.
 - `PARTIAL`: useful progress exists, but a material decision, decision-changing evidence/input gap, invalidated dependency, or requested authorized continuation remains open.
 - `BLOCKED`: the concrete target, required source, required input authority, or final decision authority is unavailable and no bounded truthful progress remains.
 - `FAILED`: an attempted required inspection/composition/write failed; report the exact failure and preserve unresolved truth.
