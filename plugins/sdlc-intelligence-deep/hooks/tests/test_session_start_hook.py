@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 import subprocess
+import sys
 import unittest
 
 HOOKS = Path(__file__).resolve().parents[1]
@@ -12,7 +13,7 @@ HOOKS_JSON = HOOKS / "hooks.json"
 
 def run_session_start(stdin: str = ""):
     proc = subprocess.run(
-        ["python3", str(SESSION_START)],
+        [sys.executable, str(SESSION_START)],
         input=stdin,
         text=True,
         capture_output=True,

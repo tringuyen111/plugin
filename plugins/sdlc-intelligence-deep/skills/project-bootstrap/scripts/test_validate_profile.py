@@ -127,7 +127,7 @@ class ProfileValidatorTests(unittest.TestCase):
             profile_path.write_text(yaml.safe_dump(valid_profile(), sort_keys=False), encoding="utf-8")
             result = subprocess.run(
                 [sys.executable, str(SCRIPT), str(profile_path)],
-                cwd="/tmp",
+                cwd=tmp,
                 text=True,
                 capture_output=True,
                 check=False,
@@ -141,7 +141,7 @@ class ProfileValidatorTests(unittest.TestCase):
             profile_path.write_text("{not-json", encoding="utf-8")
             result = subprocess.run(
                 [sys.executable, str(SCRIPT), str(profile_path)],
-                cwd="/tmp",
+                cwd=tmp,
                 text=True,
                 capture_output=True,
                 check=False,

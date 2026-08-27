@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Keep this template LF-delimited for cross-platform Bash parsing.
 # Human-in-the-loop reproduction loop.
 # Copy this file, edit the steps below, and run it.
 # Run this in a terminal the human participant can actually access.
